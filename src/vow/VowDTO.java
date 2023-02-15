@@ -1,7 +1,6 @@
 package vow;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 
 @AllArgsConstructor
 @Data

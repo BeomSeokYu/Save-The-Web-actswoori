@@ -8,7 +8,8 @@
 <%@ include file="/include/header.jsp" %>
 </head>
 <body>
-	<form action="wInsertCheck.jsp" method="post">
+	<form action="wUpdateCheck.jsp" method="post">
+		<input type="hidden" name="wno" value="3">
 		<div class="container">
 			<div>
 			  <label for="wtitle" class="form-label">제목</label>
@@ -23,7 +24,7 @@
 			  <textarea class="form-control" id="wcontent" name="wcontent" rows="3"></textarea>
 			</div>
 			<div>
-				<button class="btn btn-primary" type="submit">등록</button>
+				<button class="btn btn-primary" type="submit">수정</button>
 				<a class="btn btn-primary" href="#" role="button">목록</a>
 			</div>
 		</div>
