@@ -5,8 +5,8 @@
 	type="javax.sql.DataSource"
 	driverClassName="com.mysql.jdbc.Driver"
 	url="jdbc:mysql://localhost:3306/savetheweb?serverTimezone=UTC"
-	username="유저네임"
-	password="패스워드"
+	username="kyungoesim"
+	password="ruddhl7913"
 	maxTotal="16"
 	maxIdle="4"
 	maxWaitMillis="-1" />
