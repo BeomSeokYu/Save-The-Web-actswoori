@@ -3,10 +3,10 @@
 	<Resource name="jdbc/savetheweb"	
 	auth="Container"
 	type="javax.sql.DataSource"
-	driverClassName="com.mysql.jdbc.Driver"
+	driverClassName="com.mysql.cj.jdbc.Driver"
 	url="jdbc:mysql://localhost:3306/savetheweb?serverTimezone=UTC"
-	username="root"
-	password="1111"
+	username="아이디"
+	password="비밀번호"
 	maxTotal="16"
 	maxIdle="4"
 	maxWaitMillis="-1" />

@@ -1,3 +1,11 @@
+<%-- 
+
+작성자 : 유범석
+작성일 : 2023.02.16
+버전 정보 : V1.0
+
+ --%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,7 +24,7 @@
 		    <h1 class="h3 mb-3 fw-normal">로그인</h1>
 		
 		    <div class="form-floating">
-		      <input type="email" class="form-control" id="id" name="id" placeholder="Email">
+		      <input type="email" class="form-control" id="email" name="email" placeholder="Email">
 		      <label for="floatingInput">이메일</label>
 		    </div>
 		    <div class="form-floating">
@@ -24,7 +32,7 @@
 		      <label for="floatingPassword">비밀번호</label>
 		    </div>
 	
-		    <button class="w-100 btn btn-lg btn-warning" type="button" id="loginBtn">Login</button>
+		    <button class="w-100 btn btn-lg btn-warning" type="button" id="loginBtn">로그인</button>
 		    <p class="mt-5 mb-3 text-muted">&copy; SaveTheWeb</p>
 		  </form>
 		</div>
@@ -35,7 +43,7 @@ $('#loginBtn').on('click', function(){
 	fetch('/user/loginCheck.jsp', {
 		method: "post",
 		body: new URLSearchParams({
-				id: $('#id').val(),
+				id: $('#email').val(),
 				password: $('#password').val()
 			})
         })
@@ -49,6 +57,8 @@ $('#loginBtn').on('click', function(){
 				popModalRedirect('존재하지 않는 회원입니다', '회원가입을 하시겠습니까?', '/user/signup.jsp');
 			} else if (data == 'fail') {
 				popModal('로그인 실패', '비밀번호를 확인해 주세요');
+			} else if (data == 'noapp') {
+				popModal('가입 미승인', '아직 승인되지 않은 회원입니다.');
 			}
 		})
 		.catch(err => console.log('Error : ', err));
