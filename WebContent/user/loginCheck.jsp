@@ -14,11 +14,14 @@
 	case 0:	// 아이디 비번 모두 없을 경우
 			response.getWriter().write("bothFail");
 			break;
-	case 1:	// 아이디 비번 모두 있을 경우
+	case 1:	// 아이디 비번 모두 있고 승인됐을 경우
 			session.setAttribute("sid", id);
 			response.getWriter().write("success");
 			break;
-	case 2:	// 아이디만 존재할 경우
+	case 2:	// 아이디 비번 모두 있고 승인 안됐을 경우
+			response.getWriter().write("noapp");
+			break;
+	case 3:	// 아이디만 존재할 경우
 			response.getWriter().write("fail");
 			break;
 	}

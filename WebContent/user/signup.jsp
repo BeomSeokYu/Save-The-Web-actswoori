@@ -1,3 +1,12 @@
+<%-- 
+
+작성자 : 유범석
+작성일 : 2023.02.16
+버전 정보 : V1.0
+
+ --%>
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -70,10 +79,11 @@ $('#emailSelect').on('change', function(){
 	case 'default':
 		$('#email2').val('')
 			.focus()
+			.prop('readonly', false)
 		break;
 	default:
 		$('#email2').val(changeVal)
-			.attr('readonly', 'readonly')
+			.prop('readonly', true)
 	}
 	existCheck()
 });
@@ -143,7 +153,7 @@ function existCheck(){
 		})
 		.catch(err => console.log('Error : ', err));
 }
-
+/* 패스워드 일치 여부 확인 이벤트 */
 $('#passwordCheck').on('keyup', function(){
 	if ($('#password').val() != '') {
 		if ($('#password').val() == $(this).val()) {

@@ -15,7 +15,10 @@ import org.json.simple.JSONObject;
 import util.ConnectionPool;
 
 public class UserDAO {
-
+	private final static int NO_USER = 0;
+	private final static int APPROVE = 1;
+	private final static int NO_APPROVE = 2;
+	private final static int PASSWORD_INVAILD = 3;
 	// 회원 가입
 	public static boolean insert(String email, String password, String name, String job) {
 		boolean result = false;
@@ -40,51 +43,20 @@ public class UserDAO {
 	}
 	
 	// 회원 가입 승인 처리
-	public static boolean apply(String id) {
+	public static boolean apply(String email) {
 		boolean result = false;
 
-		String sql = "SELECT * FROM temp WHERE id=?";
+		String sql = "UPDATE user SET approve=? WHERE email=?";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		ResultSet rSet = null;
 		try {
 			conn = ConnectionPool.get();
 			conn.setAutoCommit(false);
 			
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id);
-			
-			rSet = pstmt.executeQuery();
-			
-//			if (rSet.next()
-//				&& UserDAO.insert(rSet.getString("id"),rSet.getString("password"),rSet.getString("name"))
-//				&& TempDAO.delete(id)) {
-//				conn.commit();
-//				result = true;
-//			} else {
-//				conn.rollback();
-//			}
-		} catch (SQLException | NamingException e) {
-			e.printStackTrace();
-		} finally {
-			close(conn, pstmt, null);
-		}
-		return result;
-	}
-	
-	// 회원 정보 수정
-	public static boolean edit(String id, String password, String name) {
-		boolean result = false;
-		String sql = "UPDATE user SET password=?, name=? WHERE id=?";
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		try {
-			conn = ConnectionPool.get();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, password);
-			pstmt.setString(2, name);
-			pstmt.setString(3, id);
+			pstmt.setInt(1, 1);
+			pstmt.setString(2, email);
 			
 			result = pstmt.executeUpdate() == 1 ? true : false;
 		} catch (SQLException | NamingException e) {
@@ -95,40 +67,63 @@ public class UserDAO {
 		return result;
 	}
 	
-	// 회원 목록 가져오기
-	public static List<UserDTO> selectList() {
-		ArrayList<UserDTO> list = new ArrayList<>();
-		String sql = "SELECT * FROM user ORDER BY ts DESC";
+	// 회원 정보 수정
+	public static boolean edit(String email, String password, String name, String job) {
+		boolean result = false;
+		String sql = "UPDATE user SET password=?, name=?, job=? WHERE email=?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		ResultSet rSet = null;
 		try {
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
-			rSet = pstmt.executeQuery();
+			pstmt.setString(1, password);
+			pstmt.setString(2, name);
+			pstmt.setString(3, job);
+			pstmt.setString(4, email);
 			
-			while (rSet.next()) {
-//				UserDTO udto = new UserDTO(
-//					rSet.getString("id"),
-//					rSet.getString("password"),
-//					rSet.getString("name"),
-//					rSet.getString("ts")
-//				); 
-//				list.add(udto);
-			}
-			
+			result = pstmt.executeUpdate() == 1 ? true : false;
 		} catch (SQLException | NamingException e) {
 			e.printStackTrace();
-			list = null;
 		} finally {
-			close(conn, pstmt, rSet);
+			close(conn, pstmt, null);
 		}
-		
-		return list;
+		return result;
 	}
 	
+//	// 회원 목록 가져오기
+//	public static List<UserDTO> selectList() {
+//		ArrayList<UserDTO> list = new ArrayList<>();
+//		String sql = "SELECT * FROM user ORDER BY ts DESC";
+//		Connection conn = null;
+//		PreparedStatement pstmt = null;
+//		ResultSet rSet = null;
+//		try {
+//			conn = ConnectionPool.get();
+//			pstmt = conn.prepareStatement(sql);
+//			rSet = pstmt.executeQuery();
+//			
+//			while (rSet.next()) {
+////				UserDTO udto = new UserDTO(
+////					rSet.getString("id"),
+////					rSet.getString("password"),
+////					rSet.getString("name"),
+////					rSet.getString("ts")
+////				); 
+////				list.add(udto);
+//			}
+//			
+//		} catch (SQLException | NamingException e) {
+//			e.printStackTrace();
+//			list = null;
+//		} finally {
+//			close(conn, pstmt, rSet);
+//		}
+//		
+//		return list;
+//	}
+	
 	// 회원 목록 가져오기 (AJAX)
-	public static String selectListAJAX() {
+	public static String selectList() {
 		JSONArray ja = new JSONArray();
 		String sql = "SELECT * FROM user ORDER BY ts DESC";
 		Connection conn = null;
@@ -159,6 +154,37 @@ public class UserDAO {
 		return ja.toJSONString();
 	}
 	
+	// 회원 가져오기 (AJAX)
+	public static String selectUser(String email) {
+		JSONObject jo = new JSONObject();
+		String sql = "SELECT * FROM user WHERE email=?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rSet = null;
+		try {
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, email);
+			rSet = pstmt.executeQuery();
+			
+			while (rSet.next()) {
+				jo.put("email", rSet.getString("email"));
+				jo.put("name", rSet.getString("name"));
+				jo.put("job", rSet.getString("job"));
+				jo.put("joindate", rSet.getString("joindate"));
+;
+			}
+			
+		} catch (SQLException | NamingException e) {
+			e.printStackTrace();
+			jo = null;
+		} finally {
+			close(conn, pstmt, rSet);
+		}
+		
+		return jo.toJSONString();
+	}
+	
 	// 회원 확인
 	public static boolean exist(String email) {
 		boolean result = false;
@@ -184,7 +210,7 @@ public class UserDAO {
 	// 회원 탈퇴
 	public static boolean delete(String id) {
 		boolean result = false;
-		String sql = "DELETE FROM user WHERE id=?";
+		String sql = "DELETE FROM user WHERE email=?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
@@ -202,21 +228,23 @@ public class UserDAO {
 	}
 	
 	// 회원 로그인
-	public static int login(String id, String password) {
-		int result = 0;
-		String sql = "SELECT id, password FROM user WHERE id=?";
+	public static int login(String email, String password) {
+		int result = NO_USER;
+		String sql = "SELECT email, password, approve FROM user WHERE email=?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rSet = null;
 		try {
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id);
-			rSet = pstmt.executeQuery();
+			pstmt.setString(1, email);
+			rSet = pstmt.executeQuery();	
 			if (rSet.next()) {	// id가 일치하고
-				result = rSet.getString("password").equals(password)
-					? 1		// password가 일치 할 경우
-					: 2;	// password가 일치 하지 않을 경우
+				if (rSet.getString("password").equals(password)) { // password가 일치하고
+					result = rSet.getInt("approve") == APPROVE ? APPROVE : NO_APPROVE; // 승인 여부에 따라
+				} else {
+					result = PASSWORD_INVAILD; // 패스워드 불일치
+				}
 			}
 			
 		} catch (SQLException | NamingException e) {
