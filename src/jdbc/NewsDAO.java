@@ -50,7 +50,7 @@ public class NewsDAO {
 	}
 	
 	
-	public static NewsDTO selectNews(String nno) throws NamingException, SQLException {
+	public static NewsDTO selectNews(int nno) throws NamingException, SQLException {
 		//뉴스 하나 조회
 		
 		Connection conn = null;
@@ -58,12 +58,12 @@ public class NewsDAO {
 		ResultSet rs = null;
 		
 		try {
-		String sql = "SELECT * FROM news WHERE id=?";
+		String sql = "SELECT * FROM news WHERE nno=?";
 		
 		conn = ConnectionPool.get();
 		pstmt = conn.prepareStatement(sql);
 		
-		pstmt.setString(1, nno);
+		pstmt.setInt(1, nno);
 		
 		rs = pstmt.executeQuery();
 		
@@ -95,7 +95,7 @@ public class NewsDAO {
 		ResultSet rs = null;
 		
 		try {
-		String sql = "SELECT * FROM feed ORDER BY ts DESC";
+		String sql = "SELECT * FROM news ORDER BY ndate DESC";
 		
 		conn = ConnectionPool.get();
 		pstmt = conn.prepareStatement(sql);
