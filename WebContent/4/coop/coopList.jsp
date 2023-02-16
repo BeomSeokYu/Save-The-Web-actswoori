@@ -2,6 +2,7 @@
 <%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%String sid = (String)session.getAttribute("email");%>
+
 <%@include file="../../include/header.jsp" %>
 
 <section class="py-5 text-center container"></section>
@@ -50,8 +51,8 @@
 %>
 	<tr>
       <th scope="row"><%=coop.getCno() %></th>
-      <td><%=coop.getCtitle() %></td>
-      <td><%=sid %></td>
+      <td><a href="coopInfo.jsp?cno=<%=coop.getCno() %>"><%=coop.getCtitle() %></a></td>
+      <td><%=coop.getEmail()%></td>
       <td><%=coop.getCdate() %></td>
     </tr>
 

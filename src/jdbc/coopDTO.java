@@ -52,6 +52,10 @@ public class coopDTO {
 		this.email = email;
 		this.cdate = cdate;
 	}
+
+	public coopDTO() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	
 }

@@ -77,7 +77,7 @@ public class WorshipDAO {
 	}
 	
 	// 목록
-	public static String list() {
+	public static String selectAll() {
 		try {
 			String sql = "SELECT * FROM worship ORDER BY wdate DESC";
 			
@@ -85,61 +85,59 @@ public class WorshipDAO {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			
-			JSONArray users = new JSONArray();
+			JSONArray worships = new JSONArray();
 			
 			while (rs.next()) {
 				JSONObject obj = new JSONObject();
+				obj.put("wno", rs.getString(1));
 				obj.put("email", rs.getString(2));
 				obj.put("wname", rs.getString(3));
 				obj.put("wtitle", rs.getString(4));
 				obj.put("wdate", rs.getString(6));
 				
-				users.add(obj);
+				worships.add(obj);
 			}
 			
 			rs.close();
 			pstmt.close();
 			conn.close();
 			
-			return users.toJSONString();
+			return worships.toJSONString();
 		} catch (NamingException | SQLException e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
 	
-	// 조회
-	public static String OneList(int wno) { //AJAX로 내 피드 리스트 출력 메서드
+	//조회
+	public static String selectOne(int wno) {
 		try {
-			String sql = "SELECT * FROM worship WHERE wno = ? ORDER BY wdate DESC";
+			String sql = "SELECT * FROM worship WHERE wno = ?";
 			
 			Connection conn = ConnectionPool.get();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, wno);
+			
 			ResultSet rs = pstmt.executeQuery();
 			
-			JSONArray feeds = new JSONArray();
+			JSONObject worship = new JSONObject();
 			
-			while (rs.next()) {
-				JSONObject obj = new JSONObject();
-				
-				obj.put("email", rs.getString(2));
-				obj.put("wname", rs.getString(3));
-				obj.put("wtitle", rs.getString(4));
-				obj.put("wcontent", rs.getString(5));
-				obj.put("wdate", rs.getString(6));
-				
-				feeds.add(obj);
+			if (rs.next()) {
+				worship.put("wno", rs.getString(1));
+				worship.put("email", rs.getString(2));
+				worship.put("wname", rs.getString(3));
+				worship.put("wtitle", rs.getString(4));
+				worship.put("wcontent", rs.getString(5));
+				worship.put("wdate", rs.getString(6));
 			}
 			
 			rs.close();
 			pstmt.close();
 			conn.close();
 			
-			return feeds.toJSONString();
+			return worship.toJSONString();
 		} catch (NamingException | SQLException e) {
 			e.printStackTrace();
-			
 			return null;
 		}
 	}
