@@ -8,5 +8,9 @@
 	String wtitle = request.getParameter("wtitle");
 	String wcontent = request.getParameter("wcontent");
 	
-	WorshipDAO.insert(email, wname, wtitle, wcontent);
+	int result = WorshipDAO.insert(email, wname, wtitle, wcontent);
+	
+	if(result == 1) {
+		response.sendRedirect("wSelectAll.jsp");
+	}
 %>

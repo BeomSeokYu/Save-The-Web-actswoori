@@ -10,30 +10,26 @@
 </head>
 <body>
 <%@ include file="/include/navbar.jsp" %>
-	<form action="wInsertCheck.jsp" method="post">
+	<form action="vInsertCheck.jsp" method="post">
 		<div class="container">
 			<div>
-			  <label for="wtitle" class="form-label">제목</label>
-			  <input type="text" class="form-control" id="wtitle" name="wtitle">
+			  <label for="vtitle" class="form-label">제목</label>
+			  <input type="text" class="form-control" id="vtitle" name="vtitle">
 			</div>
 			<div>
-			  <label for="wname" class="form-label">설교자</label>
-			  <input type="text" class="form-control" id="wname" name="wname">
-			</div>
-			<div>
-			  <label for="wcontent" class="form-label">내용</label>
-			  <textarea class="form-control" id="wcontent" name="wcontent" rows="3"></textarea>
+			  <label for="vcontent" class="form-label">내용</label>
+			  <textarea class="form-control" id="vcontent" name="vcontent" rows="3"></textarea>
 			</div>
 			<div>
 				<button class="btn btn-primary" type="submit">등록</button>
-				<a class="btn btn-primary" href="wSelectAll.jsp" role="button">목록</a>
+				<a class="btn btn-primary" href="vSelectAll.jsp" role="button">목록</a>
 			</div>
 		</div>
 	</form>
 <%@ include file="/include/footer.jsp" %>
 	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 	<script type="text/javascript">
-		$('#wcontent').summernote({
+		$('#vcontent').summernote({
 		    tabsize: 2,
 		    height: 120,
 		    toolbar: [
