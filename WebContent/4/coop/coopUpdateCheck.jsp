@@ -10,21 +10,21 @@ request.setCharacterEncoding("utf-8");
 
 String ctitle = request.getParameter("ctitle");
 String ccontent = request.getParameter("ccontent");
+int cno = Integer.parseInt(request.getParameter("cno"));
 
-
-int result = coopDAO.insert(ctitle, ccontent);
+int result = coopDAO.update(cno,ctitle, ccontent);
 
 if(result == 1){ %>
 
 	<script>
- 		$(function() {
- 			popModalRedirect("게시물 등록", "등록 완료 하였습니다.", "coopList.jsp")}); 
+		$(function() {
+			popModalRedirect("게시물 수정", "수정 완료 하였습니다.", "coopList.jsp")}); 
 	</script>
 	
 <%}else{%>
 	<script>
-		$(function() {
-			popModalRedirect("게시물 등록", "등록을 실패 하였습니다.", "coopList.jsp")}); 
+	$(function() {
+		popModalRedirect("게시물 수정", "수정을 실패 하였습니다.", "coopList.jsp")}); 
 	</script>
 <% } %>
 
