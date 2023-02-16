@@ -35,8 +35,8 @@ public class LectureDAO {
 		}
 	}
 	
-	//특강 조회
-	public static ArrayList<LectureDTO> getList() throws SQLException,NamingException{
+	//특강 목록 전체
+	public static ArrayList<LectureDTO> getallList() throws SQLException,NamingException{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -63,7 +63,32 @@ public class LectureDAO {
 			if(conn != null) conn.close();
 		}
 
-	}		
+	}	
+	
+	//특강 디테일
+	public static LectureDTO getDetail(int lno) throws NamingException, SQLException{
+		
+		String sql = "SELECT * FROM lecture where lno=?";
+		
+		Connection conn = ConnectionPool.get();
+		
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1,lno);
+			ResultSet rs = pstmt.executeQuery();
+			
+			rs.next();
+			
+			String ltitle = rs.getString(2);
+			String lname = rs.getString(3);
+			String lcontent = rs.getString(4);
+			String email = rs.getString(5);
+			String ldate = rs.getString(6);
+		
+			LectureDTO lecture = new LectureDTO(lno,ltitle,lname,lcontent,email,ldate); //새로운 객체 생성
+		
+			return lecture;
+	  }
+	
 }
 
 

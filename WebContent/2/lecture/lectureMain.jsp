@@ -16,19 +16,23 @@
 <tr>
 				<th>제목</th>
 		   		<th>설교자</th>
-		   		<th>날짜</th>
+		   		<th>작성일</th>
 </tr>
 
+<button onclick="location.href='lectureAdd.jsp'" class="btn btn-primary">글 올리기</button>
+
+
 <%
-	ArrayList<LectureDTO> lectures = LectureDAO.getList();
-	
+	ArrayList<LectureDTO> lectures = LectureDAO.getallList();
+
 	for (LectureDTO lecture : lectures) {
 %>
 
 	<tr><td colspan=2><hr></td></tr>
-	<td><%=lecture.getLtitle() %></td>
+	<td><a href = "lectureDetail.jsp?lno=<%=lecture.getLno()%>"> <%=lecture.getLtitle() %></td>
 	<td colspan=2><%=lecture.getLname() %></td>
 	<td><small><%=lecture.getLdate() %></small></td>
+	
 	</tr>
 <%
 	}

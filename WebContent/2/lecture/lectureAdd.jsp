@@ -26,7 +26,8 @@
       <label for="floatingPassword">설교자</label>
 </div>
 <textarea name = "lcontent" id = "summernote" class="mtop-10"></textarea>
-<button class="w-100 btn btn-lg btn-primary" type="submit">등록</button>
+<button class="btn btn-primary" type="submit">등록</button>
+<button onclick="location.href='/2/lecture/lectureMain.jsp'" class="btn btn-warning">취소</button>
 </div>
 </form>
 
@@ -36,7 +37,7 @@
       $('#summernote').summernote({
         placeholder: '내용을 입력해주세요',
         tabsize: 2,
-        height: 120,
+        height: 200,
         toolbar: [
           ['style', ['style']],
           ['font', ['bold', 'underline', 'clear']],

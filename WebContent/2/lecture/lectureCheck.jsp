@@ -11,6 +11,6 @@
 	
 	LectureDAO.insert(ltitle,lname,lcontent);
 	
-	response.sendRedirect("/2/lecture/lectureAll.jsp");
+	response.sendRedirect("/2/lecture/lectureMain.jsp");
 %>
 
