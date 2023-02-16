@@ -1,3 +1,8 @@
+<!-- 최초작성자 : 김예건
+최초작성일 : 2023/02/15
+
+버전  기록 : 0.1(시작 23/02/15) -->
+
 <%@page import="jdbc.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -36,7 +41,7 @@ NewsDTO ndto = NewsDAO.selectNews(nno);
 
 <div class="d-flex justify-content-between">
 <a href="#" >이전으로</a>
-<a href="newsAllPaging.jsp?pageNum=<%= request.getParameter("pageNum") %>&amount=<%= request.getParameter("amount") %>" >목록으로</a>
+<a href="newsAll.jsp?pageNum=<%= request.getParameter("pageNum") %>&amount=<%= request.getParameter("amount") %>" >목록으로</a>
 <a href="#" >다음으로</a>
 </div>
 

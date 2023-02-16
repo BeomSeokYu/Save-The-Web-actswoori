@@ -1,3 +1,8 @@
+<!-- 최초작성자 : 김예건
+최초작성일 : 2023/02/15
+
+버전  기록 : 0.1(시작 23/02/15) -->
+
 <%@page import="jdbc.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
