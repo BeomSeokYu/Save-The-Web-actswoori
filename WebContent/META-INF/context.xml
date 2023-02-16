@@ -3,7 +3,7 @@
 	<Resource name="jdbc/savetheweb"	
 	auth="Container"
 	type="javax.sql.DataSource"
-	driverClassName="com.mysql.jdbc.Driver"
+	driverClassName="com.mysql.cj.jdbc.Driver"
 	url="jdbc:mysql://localhost:3306/savetheweb?serverTimezone=UTC"
 	username="chsick"
 	password="gustlr97"

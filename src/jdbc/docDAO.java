@@ -1,3 +1,7 @@
+/*작성자 정보 : 최현식
+작성일 정보 : 2023-02-15
+버전 정보 : 1.0*/
+
 package jdbc;
 
 import java.sql.Connection;
@@ -80,37 +84,36 @@ public class docDAO {
 	}
 		
 	public static String getDoc(int dno) {
-		sql="select * from doctrine where dno=?";
-		docDTO doc = new docDTO();
 		JSONObject obj = new JSONObject();
 		try {
+			sql="select * from doctrine where dno=?";
 			con = ConnectionPool.get();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, dno);
 			rs = pstmt.executeQuery();
-			obj.put("dno", rs.getInt(1));
-			obj.put("dtitle", rs.getString(2));
-			obj.put("dcontent", rs.getString(3));
-			obj.put("email", rs.getString(4));
-			obj.put("ddate", rs.getString(5));
+			if (rs.next()) {
+				obj.put("dno", rs.getInt(1));
+				obj.put("dtitle", rs.getString(2));
+				obj.put("dcontent", rs.getString(3));
+				obj.put("email", rs.getString(4));
+				obj.put("ddate", rs.getString(5));
+			}
 		} catch (NamingException | SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return null;
 		} finally {
 			try {
 				if(rs != null)rs.close();
 				if(pstmt != null)pstmt.close();
 				if(con != null)con.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
-		return obj.toJSONString();
+		}			return obj.toJSONString();
 	}
 
 	public static boolean updateDoc (String dtitle, String dcontent, int dno) {
-		sql= "update doctrine set dtitle=?, dcontent=? where bno=?";
+		sql= "update doctrine set dtitle=?, dcontent=? where dno=?";
 		try {
 			con = ConnectionPool.get();
 			pstmt = con.prepareStatement(sql);
@@ -136,7 +139,7 @@ public class docDAO {
 	}
 	
 	public static boolean deleteDoc (int dno) {
-		sql= "delete from doctrine where bno=?";
+		sql= "delete from doctrine where dno=?";
 		try {
 			con = ConnectionPool.get();
 			pstmt = con.prepareStatement(sql);

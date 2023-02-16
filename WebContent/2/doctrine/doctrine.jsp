@@ -1,3 +1,6 @@
+<%--작성자 정보 : 최현식
+작성일 정보 : 2023-02-15
+버전 정보 : 1.0--%>
 <%@page import="jdbc.*"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -23,9 +26,10 @@
  		
  		$.ajax({
  			type:'post',
- 			url:'/2/doctrine/docList.jsp',
+ 			url:'docList.jsp',
 
  			success:function(data){
+ 				
  				var feeds = JSON.parse(data.trim());
  				
  				var str = "";
@@ -33,7 +37,8 @@
  					
 					
  					str += "<tr><td>" + feeds[i].dno + "</td>";
- 					str += "<td><a href='docView.jsp?dno="+ feeds[i].dno +"'>" + feeds[i].dtitle + "</a></td>";		
+ 					str += "<td><a href='docView.jsp?dno="+ feeds[i].dno +"'>" + feeds[i].dtitle + "</a></td>";
+ 					str += "<td></td>"
  					str += "<td>" + feeds[i].ddate + "</td></tr>";
  				} $("#ajaxTable").html(str);
  			}
@@ -58,13 +63,16 @@
 </div>
 <table align=center>
 <thead>
-	
+	<th>#</th>
+	<th>제목</th>
+	<th>작성자</th>
+	<th>작성일</th>
 </thead>
 <tbody id="ajaxTable">
 
 </tbody>
 </table>
-</div>
+<input type="button" value="등록하기" onclick="location.href='docAdd.jsp'">
 </div>
     <%@ include file="/include/footer.jsp" %>
 </body>
