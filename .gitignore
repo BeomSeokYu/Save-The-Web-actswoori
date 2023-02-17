@@ -2,4 +2,4 @@
 /.classpath
 /.project
 /.settings/
-/WebContent/META-INF/context.xml
+WebContent/META-INF/context.xml
