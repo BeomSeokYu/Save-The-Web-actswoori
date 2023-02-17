@@ -37,14 +37,14 @@
 					<td colspan="5" align="center">
                			<ul class="pagination pagination-sm" id="ajaxPaging">
                				<c:if test="${pageVO.prev }">
-                       			<li><a href="list.board?pageNum=${pageVO.startPage - 1 }">이전</a></li>
+                       			<li><a href="javascript:prevFunction();">이전</a></li>
 							</c:if>
                        		<c:forEach var="num" begin="${pageVO.startPage }" end="${pageVO.endPage }">
                         		<li  class="${pageVO.pageNum eq num ? 'active' : '' }">
                         		<a href="list.board?pageNum=${num }">${num }</a></li>
                        		</c:forEach>
                        		<c:if test="${pageVO.next }">
-                       			<li><a href="list.board?pageNum=${pageVO.endPage + 1 }">다음</a></li>
+                       			<li><a href="javascript:nextFunction();">다음</a></li>
                        		</c:if>
                			</ul>
 						<input type="button" value="글 작성" class="btn btn-default pull-right" onclick="location.href='write.board'">
@@ -96,8 +96,13 @@
 				
 				str = "";
 				if (prev) {
-					str += '<li><a href="list.board?pageNum=${pageVO.startPage - 1 }">이전</a></li>'
+					str += '<li><a href="javascript:prevFunction();">이전</a></li>'
 				}
+				for(var i = 0; i < 10; i++){
+					str += '<li><a href="javascript:prevFunction();">' +  + '</a></li>';
+				}
+				
+				paging(pn)
 				
 				$("#ajaxPaging").html(str);
 			}
