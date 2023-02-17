@@ -23,9 +23,6 @@
   <script type="text/javascript" src="http://polishwords.com.pl/dev/pdfjs/pdf.js"></script>
   
   <script type="text/javascript">
-		//   $("input[name=itemChk]:checked").each(function() {
-		//          $("#item").append("<div class='col-xs-4'></div>"); // 태그 추가
-		//     });
 	function addCanvas(pno) {
 		var str = '<div><canvas id="the-canvas' + pno
 				+ '" style="border:1px solid black"></canvas></div>';
