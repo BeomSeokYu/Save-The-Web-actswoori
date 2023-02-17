@@ -1,4 +1,4 @@
-<%@page import="page.pageVO"%>
+<%@page import="page.PageVO"%>
 <%@page import="jdbc.coopDTO"%>
 <%@page import="jdbc.coopDAO"%>
 
