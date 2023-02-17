@@ -2,5 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	out.print(WorshipDAO.selectAll());
+	int pageNum = Integer.parseInt(request.getParameter("pageNum"));
+
+	out.print(WorshipDAO.selectAllPaging(pageNum));
 %>
