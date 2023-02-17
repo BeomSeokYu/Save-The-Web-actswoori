@@ -6,7 +6,7 @@
 	driverClassName="com.mysql.cj.jdbc.Driver"
 	url="jdbc:mysql://localhost:3306/savetheweb?serverTimezone=UTC"
 	username="ro1864"
-	password="c5flanwnd."
+	password="비밀번호"
 	maxTotal="16"
 	maxIdle="4"
 	maxWaitMillis="-1" />
