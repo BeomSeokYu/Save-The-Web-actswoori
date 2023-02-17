@@ -1,5 +1,8 @@
-<%@page import="page.*"%>
-<%@page import="jdbc.*"%>
+<%@page import="page.pageVO"%>
+<%@page import="jdbc.coopDTO"%>
+<%@page import="jdbc.coopDAO"%>
+
+
 <%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
