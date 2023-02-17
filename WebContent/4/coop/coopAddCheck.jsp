@@ -3,6 +3,7 @@
     pageEncoding="UTF-8"%>
     
 
+
 <%@include file="../../include/header.jsp" %>  
 
 <%
@@ -13,12 +14,19 @@ String ccontent = request.getParameter("ccontent");
 
 
 int result = coopDAO.insert(ctitle, ccontent);
-
+/*  for(int i=0; i<30; i++) {
+result = coopDAO.insert(ctitle+i, ccontent+i );
+}  */
 if(result == 1){ %>
-
+	
 	<script>
  		$(function() {
  			popModalRedirect("게시물 등록", "등록 완료 하였습니다.", "coopList.jsp")}); 
+ 		<%
+ 		  response.setHeader("Pragma","no-cache"); 
+ 		  response.setDateHeader("Expires",0); 
+ 		  response.setHeader("Cache-Control", "no-cache");
+ 		%>
 	</script>
 	
 <%}else{%>

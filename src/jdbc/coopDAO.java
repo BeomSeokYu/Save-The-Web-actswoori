@@ -151,6 +151,73 @@ public static int delete(int cno) throws NamingException, SQLException {
 	}
 }
 
+//페이징
+public static ArrayList<coopDTO> getListpaging(int pageNum, int amount) throws NamingException, SQLException {
+	
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	
+	try {
+		String sql = "SELECT * FROM coop ORDER BY cno DESC limit ?,?";
+		
+		conn = ConnectionPool.get();
+		pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1,(pageNum-1)*amount);
+				pstmt.setInt(2,amount);
+				
+		rs = pstmt.executeQuery(); 
+		
+		ArrayList<coopDTO> coops = new ArrayList<coopDTO>();
+		
+		while(rs.next()) {
+			coops.add(new coopDTO(rs.getInt(1),
+								  rs.getString(2),
+								  rs.getString(3),
+								  rs.getString(4),
+								  rs.getString(5)));
+
+		}return coops;
+		
+	}finally {
+		if(rs != null) rs.close();
+		if(pstmt != null) pstmt.close();
+		if(conn != null) conn.close();
+	}
+}
+
+public int getTotal() throws SQLException {
+
+    int result = 0;
+    Connection conn = null;
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+    
+    try {
+    String sql = "select count(*) as total from coop";
+    
+    conn = ConnectionPool.get();
+    pstmt = conn.prepareStatement(sql);
+    
+    rs = pstmt.executeQuery();
+    
+    while (rs.next()) {
+       result = rs.getInt("total");
+       
+    }
+    
+    } catch (SQLException | NamingException e) {
+       e.printStackTrace();
+    } finally {
+       if(rs != null) rs.close();
+       if(pstmt != null) pstmt.close();
+       if(conn != null) conn.close();
+    }
+    
+    
+    return result;
+ }
+
 }
 
 
