@@ -19,7 +19,7 @@
 		      <label for="floatingInput">이메일</label>
 		    </div>
 		    <div class="form-floating">
-		      <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+		      <input type="text" class="form-control" id="name" name="name" placeholder="이름">
 		      <label for="floatingPassword">이름</label>
 		    </div>
 		    <div class="form-floating">
@@ -36,7 +36,24 @@
 <%@ include file="/include/footer.jsp" %>
 <script>
 $('#appSendBtn').on('click', function(){
-	
+	fetch('/user/pwfindProc.jsp', {
+		method: "post",
+		body: new URLSearchParams({
+				email: $('#email').val(),
+				name: $('#name').val()
+			})
+        })
+		.then(resp => resp.text())
+		.then(data => {
+			console.log(data);
+			data = data.trim()
+			if (data == 'success') {
+				location.href = '/user/pwedit.jsp?email=' + $('#email').val();
+			} else if (data == 'fail') {
+				popModal('인증 실패', '등록 되지 않은 정보입니다.');
+			}
+		})
+		.catch(err => console.log('Error : ', err));
 });
 </script>
 </body>
