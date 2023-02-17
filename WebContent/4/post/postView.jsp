@@ -30,7 +30,10 @@ iframe {
 
 <body>
 
-<% PostDTO pdto = PostDAO.selectPost(3);
+<%
+	int pno = Integer.parseInt(request.getParameter("pno"));
+
+	PostDTO pdto = PostDAO.selectPost(pno);
 	String filePath = pdto.getPupfolder() + "/" + pdto.getPuuid() + "_" + pdto.getPfilename(); %>
  
 <div class="container">

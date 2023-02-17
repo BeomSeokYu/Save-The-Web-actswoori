@@ -19,71 +19,48 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.2.228/pdf.min.js"></script>
 <style type="text/css">
 
-#file-to-upload {
-	display: none;
-}
-
 #pdf-main-container {
 	width: 400px;
 	margin: 20px auto;
 }
 
-#pdf-loader {
-	display: none;
-	text-align: center;
-	color: #999999;
-	font-size: 13px;
-	line-height: 100px;
-	height: 100px;
-}
-
-#pdf-contents {
-	display: none;
-}
-
-#pdf-canvas {
+.pdf-canvas {
+	display: block;
 	border: 1px solid rgba(0,0,0,0.2);
 	box-sizing: border-box;
-}
-
-#page-loader {
-	height: 100px;
-	line-height: 100px;
-	text-align: center;
-	display: none;
-	color: #999999;
-	font-size: 13px;
 }
 
 </style>
 </head>
 
 <body>
-
-<% PostDTO pdto = PostDAO.selectPost(2);
-	String filePath = pdto.getPupfolder() + "/" + pdto.getPuuid() + "_" + pdto.getPfilename(); %>
+<%@ include file="/include/header.jsp" %> 
+<!--
+	v	태그 id -> class로 변경
+		출력 div에 값 넣는 대신 요소 추가하는 걸로 수정
+		ajax는 나중에
+ --> 
+<% ArrayList<PostDTO> postlist = PostDAO.selectAllPostList();
+	String filePath = postlist.get(4).getPupfolder() + "/" + postlist.get(4).getPuuid() + "_" + postlist.get(4).getPfilename(); %>
 
 <div id="pdf-main-container">
-	<div><h3><%=pdto.getPtitle() %> written by <%=pdto.getEmail() %> </h3></div>
-	<div id="pdf-loader">Loading document ...</div>
-	<div id="pdf-contents">
-		<canvas id="pdf-canvas" width="400"></canvas>
-		<div id="page-loader">Loading page ...</div>
+	<div class="pdfDiv">
+		<h3>제목 written by 작성자 </h3>
+		<canvas class="pdf-canvas" width="400"></canvas>
 	</div>
 </div>
 
 <script>
 
 var _PDF_DOC,
-    _CURRENT_PAGE,
-    _TOTAL_PAGES,
     _PAGE_RENDERING_IN_PROGRESS = 0,
-    _CANVAS = document.querySelector('#pdf-canvas');
+    pno = '0',
+    jqCANVAS = $('pdfDiv'+pno).find('canvas');
+    _CANVAS = document.querySelector('pdfDiv'+pno).find('canvas'); //('.pdf-canvas'),
+    _MAIN_CONTAINER = document.querySelector('#pdf-main-container');
 
 // initialize and load the PDF
-async function showPDF(pdf_url) {
-    document.querySelector("#pdf-loader").style.display = 'block';
-
+async function showPDF(pdf_url, pno) {
     // get handle of pdf document
     try {
         _PDF_DOC = await pdfjsLib.getDocument({ url: pdf_url });
@@ -91,30 +68,18 @@ async function showPDF(pdf_url) {
     catch(error) {
         alert(error.message);
     }
-
-    // total pages in pdf
-    _TOTAL_PAGES = _PDF_DOC.numPages;
     
-    // Hide the pdf loader and show pdf container
-    document.querySelector("#pdf-loader").style.display = 'none';
-    document.querySelector("#pdf-contents").style.display = 'block';
-
     // show the first page
-    showPage(1);
+    showPage();
 }
 
 // load and render specific page of the PDF
-async function showPage(page_no) {
+async function showPage() {
     _PAGE_RENDERING_IN_PROGRESS = 1;
-    _CURRENT_PAGE = page_no;
-
-    // while page is being rendered hide the canvas and show a loading message
-    document.querySelector("#pdf-canvas").style.display = 'none';
-    document.querySelector("#page-loader").style.display = 'block';
 
     // get handle of page
     try {
-        var page = await _PDF_DOC.getPage(page_no);
+        var page = await _PDF_DOC.getPage(1);
     }
     catch(error) {
         alert(error.message);
@@ -124,21 +89,17 @@ async function showPage(page_no) {
     var pdf_original_width = page.getViewport(1).width;
     
     // as the canvas is of a fixed width we need to adjust the scale of the viewport where page is rendered
-    var scale_required = _CANVAS.width / pdf_original_width;
+    var scale_required = jqCANVAS.width / pdf_original_width;
 
     // get viewport to render the page at required scale
     var viewport = page.getViewport(scale_required);
 
     // set canvas height same as viewport height
-    _CANVAS.height = viewport.height;
-
-    // setting page loader height for smooth experience
-    document.querySelector("#page-loader").style.height =  _CANVAS.height + 'px';
-    document.querySelector("#page-loader").style.lineHeight = _CANVAS.height + 'px';
+    jqCANVAS.height = viewport.height;
 
     // page is rendered on <canvas> element
     var render_context = {
-        canvasContext: _CANVAS.getContext('2d'),
+        canvasContext: jqCANVAS.getContext('2d'),
         viewport: viewport
     };
         
@@ -152,15 +113,23 @@ async function showPage(page_no) {
 
     _PAGE_RENDERING_IN_PROGRESS = 0;
 
-    // show the canvas and hide the page loader
-    document.querySelector("#pdf-canvas").style.display = 'block';
-    document.querySelector("#page-loader").style.display = 'none';
 }
 
-// "Show PDF"
-showPDF('<%=filePath %>');
 
+
+// canvas 생성
+async function addCanvas(pno, ptitle) {
+	pno = pno;
+	var str = '<div class="pdfDiv' + pno + '"><h3>' + ptitle + '</h3>' +
+		'	<canvas width="400" class="pdf-canvas"></canvas></div>' +
+	_MAIN_CONTAINER.insertAdjacentHTML('beforeend', str);
+	
+	// "Show PDF"
+	showPDF('<%=filePath %>');		
+}
+addCanvas('4', '<%=postlist.get(4).getPtitle() %>');
 </script>
 
+<%@ include file="/include/footer.jsp" %> 
 </body>
 </html>
