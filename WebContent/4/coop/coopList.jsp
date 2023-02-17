@@ -1,8 +1,6 @@
 <%@page import="page.pageVO"%>
 <%@page import="jdbc.coopDTO"%>
 <%@page import="jdbc.coopDAO"%>
-
-
 <%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -46,20 +44,10 @@ request.setAttribute("pageVO", pvo);
 request.setAttribute("coops", coops);
 %>
 
- <div>
-   <select onchange="change(this)">
-      <option value="10" ${pageVO.amount eq 10 ? 'selected' : '' }>10개씩 보기</option>
-      <option value="20" ${pageVO.amount eq 20 ? 'selected' : '' }>20개씩 보기</option>
-      <option value="50" ${pageVO.amount eq 50 ? 'selected' : '' }>50개씩 보기</option>
-      <option value="100" ${pageVO.amount eq 100 ? 'selected' : '' }>100개씩 보기</option>
-   </select>
-</div> 
-
-
-
 <section class="py-5 text-center container"></section>
 
 <div class="container" style="margin: auto; ">
+
 <h1>협력 기관 소식</h1>
 <div style="float:right; margin-bottom:10px">
 	<form method="post" name="search" action="searchbbs.jsp">
@@ -78,6 +66,14 @@ request.setAttribute("coops", coops);
 	</form>
 </div>
 <br>
+ <div>
+   <select onchange="change(this)">
+      <option value="10" ${pageVO.amount eq 10 ? 'selected' : '' }>10개씩 보기</option>
+      <option value="20" ${pageVO.amount eq 20 ? 'selected' : '' }>20개씩 보기</option>
+      <option value="50" ${pageVO.amount eq 50 ? 'selected' : '' }>50개씩 보기</option>
+      <option value="100" ${pageVO.amount eq 100 ? 'selected' : '' }>100개씩 보기</option>
+   </select>
+</div> 
  <table class="table">
   <thead class="table-light">
     <tr>
@@ -105,11 +101,8 @@ request.setAttribute("coops", coops);
 
   </tbody>
 </table>
-<button onclick="location.href='coopAdd.jsp'" class="btn btn-success" style="float:right;">글 등록하기</button>
-</div>
 <nav aria-label="Page navigation example">
   <ul class="pagination">
-
 <!-- 2. 이전버튼 활성화 여부 -->
 <c:if test="${pageVO.prev }">
       <li class="page-item"><a class="page-link" href="coopList.jsp?pageNum=${pageVO.startPage - 1 }&amount=${pageVO.amount}">이전</a></li>
@@ -127,7 +120,11 @@ request.setAttribute("coops", coops);
    </c:if>
   </ul>
 </nav>
+<button onclick="location.href='coopMain.jsp'" class="btn btn-info">협력교회 및 기관 메인</button>
+<button onclick="location.href='coopAdd.jsp'" class="btn btn-success" style="float:right;">글 등록하기</button>
+</div>
 
+   <section class="py-5 text-center container"></section>
 <%@include file="../../include/footer.jsp" %>
 <script>
 function change(a){
