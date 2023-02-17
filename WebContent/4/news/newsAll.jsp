@@ -4,7 +4,7 @@
 버전  기록 : 0.1(시작 23/02/15) -->
 
 
-<%@page import="page.PageVO"%>
+<%@page import="page.*"%>
 <%@page import="java.util.*"%>
 <%@page import="jdbc.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -118,6 +118,10 @@ $(function(){
 
 	if (msg == "insertSuccess") {
 		popModal("등록 성공", "등록에 성공하였습니다.")
+		history.pushState(null, null, location.href); 
+		window.onpopstate = function(event) { 
+			history.go(1); 
+		};
 	} else if (msg == "deleteSuccess") {
 		popModal("삭제 성공", "삭제에 성공하였습니다.")
 	}
