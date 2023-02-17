@@ -23,6 +23,7 @@
 <button type="button" class="btn btn-primary" onclick="addItem()">추가</button>
 
 <script>
+var sid = "asd";
   $('#summernote').summernote({
 	  tabsize: 2,
         height: 60,
@@ -40,7 +41,8 @@
 			type:"post",
 			url: "docAddProc.jsp",
 			data : {dtitle:document.getElementById('dtitle').value,
-				    dcontent:$("#summernote").summernote("code")
+				    dcontent:$("#summernote").summernote("code"),
+				    email:sid
 				},
         
 			dataType:"text",
@@ -51,7 +53,6 @@
 				$("#summernote").summernote("reset");
 				
 				popModalRedirect("등록", "등록에 성공하셨습니다", "doctrine.jsp")
-
 			}
 		});
 	}

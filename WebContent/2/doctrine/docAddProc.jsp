@@ -11,8 +11,8 @@
 
 	String dtitle = request.getParameter("dtitle");
 	String dcontent = request.getParameter("dcontent");
-	
-	out.print(docDAO.insertDoc(dtitle, dcontent));
+	String email = request.getParameter("email");
+	out.print(docDAO.insertDoc(dtitle, dcontent,email));
 %>
 
 

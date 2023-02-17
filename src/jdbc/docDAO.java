@@ -24,13 +24,14 @@ public class docDAO {
 	static Connection con = null;
 	static boolean result = true;
 	
-	public static boolean insertDoc (String dtitle, String dcontent) {
-		sql= "insert into doctrine (dtitle, dcontent) values (?,?)";
+	public static boolean insertDoc (String dtitle, String dcontent, String email) {
+		sql= "insert into doctrine (dtitle, dcontent, email) values (?,?,?)";
 		try {
 			con = ConnectionPool.get();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, dtitle);
 			pstmt.setString(2, dcontent);
+			pstmt.setString(3, email);
 			
 			if(pstmt.executeUpdate()==1) result = true;
 			else result = false;
@@ -161,6 +162,7 @@ public class docDAO {
 		}
 		return result;
 	}
+	
 	
 
 }
