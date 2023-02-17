@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="Save-The-Web">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
-<<<<<<< Updated upstream
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <property name="context-root" value="Save-The-Web"/>
         <property name="java-output-path" value="/Save-The-Web/build/classes"/>
-=======
-        <property name="context-root" value="SaveTheWeb"/>
-        <property name="java-output-path" value="/SaveTheWeb/build/classes"/>
->>>>>>> Stashed changes
     </wb-module>
 </project-modules>

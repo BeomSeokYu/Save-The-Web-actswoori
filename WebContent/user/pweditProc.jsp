@@ -13,5 +13,5 @@
 	String email = request.getParameter("email");
 	String pw = request.getParameter("pw");
 	
-	out.print(UserDAO.edit(email, pw, name, job));
+	//out.print(UserDAO.edit(email, pw, name, job));
 %>

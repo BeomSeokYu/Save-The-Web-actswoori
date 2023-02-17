@@ -5,7 +5,7 @@
 	request.setCharacterEncoding("utf-8");
 	response.setContentType("text/html; charset=UTF-8");
 
-	String dno = request.getParameter("dno");
+	int dno = Integer.parseInt(request.getParameter("dno"));
 	
 	out.print(docDAO.deleteDoc(dno));  
 %>
