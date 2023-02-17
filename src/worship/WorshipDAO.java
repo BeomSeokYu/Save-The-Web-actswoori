@@ -141,11 +141,11 @@ public class WorshipDAO {
 			return null;
 		}
 	}
-	
+	여기
 	//페이징된 목록
 	public static String selectAllPaging(int pageNum){
 		try {
-			String sql = "SELECT * FROM worship ORDER BY wdate DESC limit ?, ?";
+			String sql = "SELECT * FROM worship ORDER BY wno DESC LIMIT ?, ?";
 			
 			Connection conn = ConnectionPool.get();
 			
@@ -160,6 +160,7 @@ public class WorshipDAO {
 			
 			while (rs.next()) {
 				JSONObject obj = new JSONObject();
+				
 				obj.put("wno", rs.getString(1));
 				obj.put("email", rs.getString(2));
 				obj.put("wname", rs.getString(3));

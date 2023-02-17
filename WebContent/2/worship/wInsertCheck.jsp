@@ -10,7 +10,7 @@
 	
 	int result = WorshipDAO.insert(email, wname, wtitle, wcontent);
 	
-	if(result == 1) {
+	if (result == 1) {
 		response.sendRedirect("wSelectAll.jsp");
 	}
 %>

@@ -25,46 +25,29 @@
 		  <tbody id="ajaxTable">
 		  </tbody>
 		</table>
-		<ul class="pagination pagination-sm" id="ajaxPaging"></ul>
+		<ul class="pagination pagination-sm" id="ajaxPaging">
+		</ul>
 	</div>
 <%@ include file="/include/footer.jsp" %>
 <script>
-	var total = <%=WorshipDAO.getTotal()%> /* 전체게시글 수 */
+	var total = <%=WorshipDAO.getTotal()%>; /* 전체게시글 수 */
 	var realEnd = Math.ceil(total * 0.1);
 	
-	var pageNum = 1; /* 현재 조회하는 페이지번호 */
-	var endPage = Math.ceil(pageNum * 0.1) * 10; /* 게시글 화면에 보여질 마지막 번호 */
-	var startPage = endPage - 10 + 1; /* 게시글 화면에 보여질 첫번째 번호 */
-	var prev = startPage > 1; /* 이전버튼 활성화여부 */
-	var next = endPage < realEnd;; /* 다음버튼 활성화여부 */
-	
-	function paging(num) {
-		pageNum = num; /* 현재 조회하는 페이지번호 */
-		endPage = Math.ceil(pageNum * 0.1) * 10; /* 게시글 화면에 보여질 마지막 번호 */
-		startPage = endPage - 10 + 1; /* 게시글 화면에 보여질 첫번째 번호 */
-		prev = startPage > 1; /* 이전버튼 활성화여부 */
-		next = endPage < realEnd; /* 다음버튼 활성화여부 */
+	function searchFunction(num) {
+		var pageNum = num; /* 현재 조회하는 페이지번호 */
+		var endPage = Math.ceil(pageNum * 0.1) * 10; /* 게시글 화면에 보여질 마지막 번호 */
+		var startPage = endPage - 10 + 1; /* 게시글 화면에 보여질 첫번째 번호 */
+		var prev = startPage > 1; /* 이전버튼 활성화여부 */
+		var next = endPage < realEnd; /* 다음버튼 활성화여부 */
 		
 		if (endPage > realEnd) {
 			endPage = realEnd;
 		}
-	}
-	
-	function prevFunction() {
-		searchFunction(startPage - 1);
-	}
-	
-	function nextFunction() {
-		searchFunction(endPage + 1);
-	}
-	
-	function searchFunction(pn) {
-		paging(pn);
 		
 		$.ajax({
 			type : 'post',
 			url : 'wSelectAllCheck.jsp',
-			data : {pageNum : pn},
+			data : {pn : pageNum},
 			dataType : "text",
 			success : function (data) {
 				var worships = JSON.parse(data.trim());
@@ -78,28 +61,28 @@
 				}
 				$("#ajaxTable").html(str);
 				
-				str = "";
+				var str2 = "";
 				if (prev) {
-					str += '<li><a href="javascript:prevFunction();">이전</a></li>';
+					str += '<li><a href="javascript:searchFunction(' + (startPage - 1) + ');">이전</a></li>';
 				}
-				for(var i = startPage; i < endPage; i++){
+				for (var i = startPage; i <= endPage; i++) {
 					if (i == pageNum) {
-						str += '<li><a href="javascript:searchFunction(' + i + ');" class="active">' + i + '</a></li>';
+						str2 += '<li><a href="javascript:searchFunction(' + i + ');" class="active">' + i + '</a></li>';
 					} else {
-						str += '<li><a href="javascript:searchFunction(' + i + ');">' + i + '</a></li>';
+						str2 += '<li><a href="javascript:searchFunction(' + i + ');">' + i + '</a></li>';
 					}
 				}
 				if (next) {
-					str += '<li><a href="javascript:nextFunction();">다음</a></li>';
+					str2 += '<li><a href="javascript:searchFunction(' + (endPage + 1) + ');">다음</a></li>';
 				}
 				
-				$("#ajaxPaging").html(str);
+				$("#ajaxPaging").html(str2);
 			}
 		});
 	}
 	
 	window.onload = function() {
-		searchFunction(pageNum);
+		searchFunction(1);
 	}
 </script>
 </body>
