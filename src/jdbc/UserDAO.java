@@ -208,7 +208,7 @@ public class UserDAO {
 	}
 	
 	// 회원 탈퇴
-	public static boolean delete(String id) {
+	public static boolean delete(String email) {
 		boolean result = false;
 		String sql = "DELETE FROM user WHERE email=?";
 		Connection conn = null;
@@ -216,7 +216,7 @@ public class UserDAO {
 		try {
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id);
+			pstmt.setString(1, email);
 			
 			result = pstmt.executeUpdate() == 1 ? true : false;
 		} catch (SQLException | NamingException e) {

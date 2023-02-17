@@ -6,15 +6,16 @@
 	response.setContentType("text/html;charset=UTF-8");
 
 
-	String id = request.getParameter("id");
+	String email = request.getParameter("email");
 	String password = request.getParameter("password");
-	//String passwordCheck = request.getParameter("passwordCheck");
 	String name = request.getParameter("name");
-	System.out.println(id);
+	String job = request.getParameter("job");
+	System.out.println(email);
 	System.out.println(password);
 	System.out.println(name);
+	System.out.println(job);
 	
-	if (UserDAO.edit(id, password, name)) {
+	if (UserDAO.edit(email, password, name, job)) {
 		System.out.println("수정 성공");
 		response.getWriter().write("success");
 	} else {

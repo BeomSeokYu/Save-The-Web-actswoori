@@ -14,9 +14,10 @@
 <head>
 <meta charset="UTF-8">
 <title>행전우리교회</title>
+<%@ include file="/include/header.jsp" %>
 </head>
 <body>
-<%@ include file="/include/header.jsp" %>
+<%@ include file="/include/navbar.jsp" %>
 	<div class="container">
 		<div class="form-signin w-50 m-auto text-center">
 		  <form action="needs-validation" method="post">
@@ -24,19 +25,16 @@
 		    <h1 class="h3 mb-3 fw-normal">회원 가입</h1>
 		    <div class="form-floating row">
 			    <div class="col-auto">
-					<label for="email1">이메일</label>
 					<input type="email" class="form-control" id="email1" name="email1" placeholder="이메일">
 					<div class="invalid-feedback">이미 존재하는 이메일입니다</div>
 				</div>
 				<div class="col-auto">
-					<label for="email2">　</label>
 					<div class="input-group">
 						<div class="input-group-text">@</div>
 						<input type="text" class="form-control" id="email2">
 					</div>
 				</div>
 				<div class="col-auto">
-					<label for="emailSelect">　</label>
 					<select class="form-select" id="emailSelect">
 						<option value="default" selected>직접 입력</option>
 						<option value="naver.com">naver.com</option>
@@ -70,7 +68,7 @@
 <%@ include file="/include/footer.jsp" %>
 </body>
 <script>
-
+$(function(){
 /* 이메일 셀렉트 폼 변경 이벤트 처리  */
 $('#emailSelect').on('change', function(){
 	var changeVal = $(this).val();
@@ -93,7 +91,7 @@ $('#signupBtn').on('click', function(){
 	var email = $('#email1').val() + '@' + $('#email2').val()
 	console.log(email);
 	
-	fetch('/user/signupCheck.jsp', {
+	fetch('/user/signupProc.jsp', {	
 		method: "post",
 		body: new URLSearchParams({
 				email: email,
@@ -116,8 +114,6 @@ $('#signupBtn').on('click', function(){
 				popModal('회원 가입 실패', '회원 가입에 실패하였습니다.<br>잠시 후 이용해주세요.');
 			} else if(data == 'existUser') {
 				popModal('가입 오류','이미 존재하는 회원입니다.');
-			} else if(data == 'existTemp') {
-				popModal('가입 오류','이미 가입 신청한 회원입니다.');
 			}
 		})
 		.catch(err => console.log('Error : ', err));
@@ -164,6 +160,7 @@ $('#passwordCheck').on('keyup', function(){
 			$(this).removeClass('is-valid');
 		}
 	}
+});
 });
 </script>
 </body>

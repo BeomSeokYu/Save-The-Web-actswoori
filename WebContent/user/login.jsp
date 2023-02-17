@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>로그인</title>
+<title>행전우리교회</title>
 <%@ include file="/include/header.jsp" %>
 </head>
 <body>
@@ -33,6 +33,8 @@
 		    </div>
 	
 		    <button class="w-100 btn btn-lg btn-warning" type="button" id="loginBtn">로그인</button>
+		    <a href="/user/signup.jsp" class="">아직도 회원이 아니신가? 가입 허실?</a>
+		    <a href="/user/signup.jsp" class="">비밀번호 까먹으심?</a>
 		    <p class="mt-5 mb-3 text-muted">&copy; SaveTheWeb</p>
 		  </form>
 		</div>
@@ -40,7 +42,7 @@
 <%@ include file="/include/footer.jsp" %>
 <script>
 $('#loginBtn').on('click', function(){
-	fetch('/user/loginCheck.jsp', {
+	fetch('/user/loginProc.jsp', {
 		method: "post",
 		body: new URLSearchParams({
 				id: $('#email').val(),
