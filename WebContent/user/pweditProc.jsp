@@ -12,6 +12,7 @@
 <%
 	String email = request.getParameter("email");
 	String pw = request.getParameter("pw");
-	
+	String name = request.getParameter("name");
+	String job = request.getParameter("job");
 	out.print(UserDAO.edit(email, pw, name, job));
 %>

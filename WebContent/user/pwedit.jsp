@@ -25,8 +25,8 @@
 		
 		    <div class="form-floating">
 		    	<input type="hidden" name="email" id="email" value="<%=request.getParameter("email")%>">
-    		    <input type="hidden" name="job" id="email" value="">
-    		    <input type="hidden" name="name" id="email" value="">
+    		    <input type="hidden" name="job" id="job" value="">
+    		    <input type="hidden" name="name" id="name" value="">
 		      <input type="password" class="form-control" id="password" name="password" placeholder="Password">
 		      <label for="floatingInput">새 비밀번호</label>
 		    </div>
@@ -69,6 +69,27 @@ $('#editBtn').on('click', function(){
 		.catch(err => console.log('Error : ', err));
 });
 
+
+$(function(){
+	fetch('/user/userInfoProc.jsp', {
+		method: "post",
+		body: new URLSearchParams({
+				email: $('#email').val()
+			})
+        })
+		.then(resp => resp.text())
+		.then(data => {
+			data = data.trim();
+			console.log(data);
+			if(data == 'success') {
+				$('#job').val(data.job);
+				$('#name').val(data.name);
+			} else {
+			}
+			
+		})
+		.catch(err => console.log('Error : ', err));
+});
 
 
 </script>
