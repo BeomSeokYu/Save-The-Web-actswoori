@@ -1,8 +1,9 @@
-<%-- 최초작성자 : 김예건
+<!-- 최초작성자 : 김예건
 최초작성일 : 2023/02/15
 
-버전  기록 : 0.1(시작 23/02/15) --%>
+버전  기록 : 0.1(시작 23/02/15) -->
 
+<%@page import="jdbc.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,26 +17,28 @@
 <%@ include file="/include/navbar.jsp" %>
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 
-<div class="container">
+<%
+int nno = Integer.parseInt(request.getParameter("nno"));
+NewsDTO ndto = NewsDAO.selectNews(nno);
+%>
 
-<form id="insertForm" action="insertProc.jsp" method="post">
-<input type="hidden" name="email" id="email" value="aaaa@aaaa.com">
+
+<form id="insertForm" action="modProc.jsp" method="post">
+<input type="hidden" name="nno" id="nno" value="<%= ndto.getNno() %>">
 <input type="hidden" name="content" id="content">
 
 <div class="mb-3">
   <label for="exampleFormControlInput1" class="form-label">제목</label>
-  <input type="text" name="title" class="form-control" id="title" placeholder="제목을 입력해주세요">
+  <input type="text" name="title" value="<%= ndto.getNtitle() %>" class="form-control" id="title" placeholder="제목을 입력해주세요">
 </div>
-<hr>
+
 <div class="bg-light rounded" >
-<label for="exampleFormControlInput1" class="form-label">내용</label>
 <div id="summernote"></div>
 </div>
 <div class="p-3 text-end">
-<button type="button" class="btn btn-primary" onclick="addItem()">등록하기</button>
+<button type="button" class="btn btn-primary" onclick="addItem()">수정하기</button>
 </div>
 </form>
-</div>
 
 <%@ include file="/include/footer.jsp" %>
 
@@ -53,6 +56,7 @@ if (msg == "fail") {
  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
   <script>
+  
    $('#summernote').summernote({
      placeholder: 'Hello stand alone ui',
      tabsize: 2,
@@ -65,6 +69,8 @@ if (msg == "fail") {
        ['view', ['fullscreen']]
      ]
    });
+   
+	$('#summernote').summernote('code', "<%= ndto.getNcontent() %>");
    
    function addItem() {
 		 $("#content").val($("#summernote").summernote("code"));
