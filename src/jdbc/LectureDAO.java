@@ -89,6 +89,32 @@ public class LectureDAO {
 			return lecture;
 	  }
 	
+	//게시글 수정
+	public static boolean update(int lno, String ltitle, String lname, String lcontent)throws NamingException, SQLException{
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			String sql = "UPDATE lecture SET (ltitle,lname,lcontent) VALUES(?,?,?) WHERE lno = ?";
+			
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, ltitle);
+			pstmt.setString(2, lname);
+			pstmt.setString(3, lcontent);
+			pstmt.setInt(4, lno);
+			
+		return (pstmt.executeUpdate() == 1) ? true :false;	
+		
+		}finally {
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
+		}
+	}
+	
+	//게시글 삭제
+	
 }
 
 

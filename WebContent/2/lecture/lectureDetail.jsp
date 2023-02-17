@@ -19,6 +19,7 @@
 	<%=lecture.getLtitle() %><br>
 	<%=lecture.getLcontent() %><br>
 	<%=lecture.getLname() %><br>
-	<%=lecture.getLdate() %><br> 
+	<%=lecture.getLdate() %><br>
+<button onclick="location.href='/2/lecture/lectureModify.jsp?lno=<%=lecture.getLno()%>'" class="btn btn-primary">수정</button> 
 </body>
 </html>
