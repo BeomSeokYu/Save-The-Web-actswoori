@@ -76,6 +76,39 @@ public class WorshipDAO {
 		}
 	}
 	
+	//조회
+	public static String selectOne(int wno) {
+		try {
+			String sql = "SELECT * FROM worship WHERE wno = ?";
+			
+			Connection conn = ConnectionPool.get();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, wno);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			JSONObject worship = new JSONObject();
+			
+			if (rs.next()) {
+				worship.put("wno", rs.getString(1));
+				worship.put("email", rs.getString(2));
+				worship.put("wname", rs.getString(3));
+				worship.put("wtitle", rs.getString(4));
+				worship.put("wcontent", rs.getString(5));
+				worship.put("wdate", rs.getString(6));
+			}
+			
+			rs.close();
+			pstmt.close();
+			conn.close();
+			
+			return worship.toJSONString();
+		} catch (NamingException | SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	// 목록
 	public static String selectAll() {
 		try {
@@ -109,36 +142,63 @@ public class WorshipDAO {
 		}
 	}
 	
-	//조회
-	public static String selectOne(int wno) {
+	//페이징된 목록
+	public static String selectAllPaging(int pageNum){
 		try {
-			String sql = "SELECT * FROM worship WHERE wno = ?";
+			String sql = "SELECT * FROM worship ORDER BY wdate DESC limit ?, ?";
 			
 			Connection conn = ConnectionPool.get();
+			
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, wno);
+			
+			pstmt.setInt(1, (pageNum - 1) * 10);
+			pstmt.setInt(2, pageNum * 10);
 			
 			ResultSet rs = pstmt.executeQuery();
 			
-			JSONObject worship = new JSONObject();
+			JSONArray worships = new JSONArray();
 			
-			if (rs.next()) {
-				worship.put("wno", rs.getString(1));
-				worship.put("email", rs.getString(2));
-				worship.put("wname", rs.getString(3));
-				worship.put("wtitle", rs.getString(4));
-				worship.put("wcontent", rs.getString(5));
-				worship.put("wdate", rs.getString(6));
+			while (rs.next()) {
+				JSONObject obj = new JSONObject();
+				obj.put("wno", rs.getString(1));
+				obj.put("email", rs.getString(2));
+				obj.put("wname", rs.getString(3));
+				obj.put("wtitle", rs.getString(4));
+				obj.put("wdate", rs.getString(6));
+				
+				worships.add(obj);
 			}
 			
 			rs.close();
 			pstmt.close();
 			conn.close();
 			
-			return worship.toJSONString();
-		} catch (NamingException | SQLException e) {
+			return worships.toJSONString();
+		} catch (SQLException | NamingException e) {
 			e.printStackTrace();
 			return null;
 		}
+	}
+	
+	// 전체 게시글 수
+	public static int getTotal() {
+		int result = 0;
+		try {
+			String sql = "SELECT COUNT(*) total FROM worship";
+			
+			Connection conn = ConnectionPool.get();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				result = rs.getInt("total");
+			}
+			rs.close();
+			pstmt.close();
+			conn.close();
+		} catch (SQLException | NamingException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 }

@@ -15,7 +15,7 @@
 		<div class="container">
 			<div>
 			  <label for="vtitle" class="form-label">제목</label>
-			  <input type="text" class="form-control" id="vtitle" name="vtitle">
+			  <input type="text" class="form-control" id="vtitle" name="vtitle" required>
 			</div>
 			<div>
 			  <label for="vcontent" class="form-label">내용</label>

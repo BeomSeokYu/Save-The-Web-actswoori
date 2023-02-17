@@ -14,7 +14,7 @@
 		<div class="container">
 			<div>
 			  <label for="wtitle" class="form-label">제목</label>
-			  <input type="text" class="form-control" id="wtitle" name="wtitle">
+			  <input type="text" class="form-control" id="wtitle" name="wtitle" required>
 			</div>
 			<div>
 			  <label for="wname" class="form-label">설교자</label>
