@@ -96,7 +96,7 @@ public class LectureDAO {
 		PreparedStatement pstmt = null;
 		
 		try {
-			String sql = "UPDATE lecture SET (ltitle,lname,lcontent) VALUES(?,?,?) WHERE lno = ?";
+			String sql = "UPDATE lecture SET ltitle=?,lname=?,lcontent=? WHERE lno = ?";
 			
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);

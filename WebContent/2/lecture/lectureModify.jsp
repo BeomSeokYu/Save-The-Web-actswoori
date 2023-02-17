@@ -25,7 +25,7 @@
 
 <div></div>
 
-<form action="lectureModifyCheck.jsp" method="post">
+<form action="lectureModifyCheck.jsp?lno=<%=lno%>" method="post">
 <div class = "container">
 <div class="form-floating">
       <input type="text" name = "ltitle" class="form-control" id="ltitle" value="<%= lecture.getLtitle() %>">
