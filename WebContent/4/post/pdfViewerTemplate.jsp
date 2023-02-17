@@ -19,12 +19,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.2.228/pdf.min.js"></script>
 <style type="text/css">
 
-#show-pdf-button {
-	width: 150px;
-	display: block;
-	margin: 20px auto;
-}
-
 #file-to-upload {
 	display: none;
 }
@@ -47,27 +41,6 @@
 	display: none;
 }
 
-#pdf-meta {
-	overflow: hidden;
-	margin: 0 0 20px 0;
-}
-
-#pdf-buttons {
-	float: left;
-}
-
-#page-count-container {
-	float: right;
-}
-
-#pdf-current-page {
-	display: inline;
-}
-
-#pdf-total-pages {
-	display: inline;
-}
-
 #pdf-canvas {
 	border: 1px solid rgba(0,0,0,0.2);
 	box-sizing: border-box;
@@ -86,24 +59,14 @@
 </head>
 
 <body>
-<!-- 
-<button id="show-pdf-button">Show PDF</button> 
- -->
 
-<% PostDTO pdto = PostDAO.selectPost(2);
+<% PostDTO pdto = PostDAO.selectPost(4);
 	String filePath = pdto.getPupfolder() + "/" + pdto.getPuuid() + "_" + pdto.getPfilename(); %>
- 
+
 <div id="pdf-main-container">
 	<div><h3><%=pdto.getPtitle() %> written by <%=pdto.getEmail() %> </h3></div>
 	<div id="pdf-loader">Loading document ...</div>
 	<div id="pdf-contents">
-		<div id="pdf-meta" style="display:none;">
-			<div id="pdf-buttons">
-				<button id="pdf-prev">Previous</button>
-				<button id="pdf-next">Next</button>
-			</div>
-			<div id="page-count-container">Page <div id="pdf-current-page"></div> of <div id="pdf-total-pages"></div></div>
-		</div>
 		<canvas id="pdf-canvas" width="400"></canvas>
 		<div id="page-loader">Loading page ...</div>
 	</div>
@@ -116,13 +79,6 @@ var _PDF_DOC,
     _TOTAL_PAGES,
     _PAGE_RENDERING_IN_PROGRESS = 0,
     _CANVAS = document.querySelector('#pdf-canvas');
-
-
-window.onload = function(){
-	
-	
-    showPDF('<%=filePath %>');
-}
 
 // initialize and load the PDF
 async function showPDF(pdf_url) {
@@ -142,7 +98,6 @@ async function showPDF(pdf_url) {
     // Hide the pdf loader and show pdf container
     document.querySelector("#pdf-loader").style.display = 'none';
     document.querySelector("#pdf-contents").style.display = 'block';
-    document.querySelector("#pdf-total-pages").innerHTML = _TOTAL_PAGES;
 
     // show the first page
     showPage(1);
@@ -153,17 +108,10 @@ async function showPage(page_no) {
     _PAGE_RENDERING_IN_PROGRESS = 1;
     _CURRENT_PAGE = page_no;
 
-    // disable Previous & Next buttons while page is being loaded
-    document.querySelector("#pdf-next").disabled = true;
-    document.querySelector("#pdf-prev").disabled = true;
-
     // while page is being rendered hide the canvas and show a loading message
     document.querySelector("#pdf-canvas").style.display = 'none';
     document.querySelector("#page-loader").style.display = 'block';
 
-    // update current page
-    document.querySelector("#pdf-current-page").innerHTML = page_no;
-    
     // get handle of page
     try {
         var page = await _PDF_DOC.getPage(page_no);
@@ -204,34 +152,14 @@ async function showPage(page_no) {
 
     _PAGE_RENDERING_IN_PROGRESS = 0;
 
-    // re-enable Previous & Next buttons
-    document.querySelector("#pdf-next").disabled = false;
-    document.querySelector("#pdf-prev").disabled = false;
-
     // show the canvas and hide the page loader
     document.querySelector("#pdf-canvas").style.display = 'block';
     document.querySelector("#page-loader").style.display = 'none';
 }
 
-//click on "Show PDF" buuton
-/*document.querySelector("#show-pdf-button").addEventListener('click', function() {
-    this.style.display = 'none';
-    showPDF('https://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pdf');
-});
+// "Show PDF"
+showPDF('<%=filePath %>');
 
-
-// click on the "Previous" page button
-document.querySelector("#pdf-prev").addEventListener('click', function() {
-    if(_CURRENT_PAGE != 1)
-        showPage(--_CURRENT_PAGE);
-});
-
-// click on the "Next" page button
-document.querySelector("#pdf-next").addEventListener('click', function() {
-    if(_CURRENT_PAGE != _TOTAL_PAGES)
-        showPage(++_CURRENT_PAGE);
-});
-*/
 </script>
 
 </body>

@@ -19,7 +19,6 @@
 <script>
 	$(function() {
 		popModalRedirect('주보 삭제', '주보가 삭제되었습니다.', 'postList.jsp');
-		popModal('삭제 ', '삭제 완료 !');
 	});
 </script>
 <%
