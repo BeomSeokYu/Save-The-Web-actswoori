@@ -207,6 +207,28 @@ public class UserDAO {
 		return result;
 	}
 	
+	// 비밀번호 찾기
+	public static boolean existPw(String email, String name) {
+		boolean result = false;
+		String sql = "SELECT * FROM user WHERE email=? AND name=?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rSet = null;
+		try {
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, email);
+			rSet = pstmt.executeQuery();
+			
+			result = rSet.next() ? true : false;
+		} catch (SQLException | NamingException e) {
+			e.printStackTrace();
+		} finally {
+			close(conn, pstmt, rSet);
+		}
+		return result;
+	}
+	
 	// 회원 탈퇴
 	public static boolean delete(String email) {
 		boolean result = false;

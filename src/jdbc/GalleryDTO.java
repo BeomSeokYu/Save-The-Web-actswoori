@@ -1,7 +1,5 @@
 package jdbc;
 
-import lombok.Data;
-
 public class GalleryDTO {
 	private int gno;
 	private String gtitle;

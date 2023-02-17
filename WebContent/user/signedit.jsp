@@ -36,7 +36,7 @@
 		      <input type="text" class="form-control" id="job" name="job" placeholder="직분">
 		      <label for="name">직분</label>
 		    </div>
-		    <button class="w-100 btn btn-lg btn-primary" type="button" id="signupBtn">Edit</button>
+		    <button class="w-100 btn btn-lg btn-primary" type="button" id="signupBtn">수정</button>
 		    <p class="mt-5 mb-3 text-muted">&copy; MyMemo</p>
 		  </form>
 		</div>

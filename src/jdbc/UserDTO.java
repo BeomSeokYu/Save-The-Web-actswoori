@@ -1,7 +1,5 @@
 package jdbc;
 
-import lombok.Data;
-
 public class UserDTO {
 	private String email;
 	private String password;
