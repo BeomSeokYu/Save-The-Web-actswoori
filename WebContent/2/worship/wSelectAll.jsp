@@ -7,21 +7,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <%@ include file="/include/header.jsp" %>
-	<style>
-	       .btn {
-	           border: 0; 
-	           border-radius: 0; /*윤곽 0*/
-	           padding: 5px 10px; 
-	           margin: 20px 0px;
-	       }
-	</style>
 </head>
 <body>
 <%@ include file="/include/navbar.jsp" %>
 	<div class="container">
 		<h1>예배설교</h1>
 		<a class="btn btn-primary" href="wInsert.jsp" role="button">등록</a>
-		<table class="table table-bordered">
+		<table class="table table-hover">
 		  <thead>
 		    <tr>
 		      <th scope="col" class="col-6">제목</th>
@@ -32,37 +24,19 @@
 		  </thead>
 		  <tbody id="ajaxTable">
 		  </tbody>
-		  <tfoot>
-				<tr>
-					<td colspan="5" align="center">
-               			<ul class="pagination pagination-sm" id="ajaxPaging">
-               				<c:if test="${pageVO.prev }">
-                       			<li><a href="javascript:prevFunction();">이전</a></li>
-							</c:if>
-                       		<c:forEach var="num" begin="${pageVO.startPage }" end="${pageVO.endPage }">
-                        		<li  class="${pageVO.pageNum eq num ? 'active' : '' }">
-                        		<a href="list.board?pageNum=${num }">${num }</a></li>
-                       		</c:forEach>
-                       		<c:if test="${pageVO.next }">
-                       			<li><a href="javascript:nextFunction();">다음</a></li>
-                       		</c:if>
-               			</ul>
-						<input type="button" value="글 작성" class="btn btn-default pull-right" onclick="location.href='write.board'">
-					</td>
-				</tr>
-			</tfoot>
 		</table>
+		<ul class="pagination pagination-sm" id="ajaxPaging"></ul>
 	</div>
 <%@ include file="/include/footer.jsp" %>
 <script>
 	var total = <%=WorshipDAO.getTotal()%> /* 전체게시글 수 */
 	var realEnd = Math.ceil(total * 0.1);
 	
-	var pageNum; /* 현재 조회하는 페이지번호 */
-	var endPage; /* 게시글 화면에 보여질 마지막 번호 */
-	var startPage; /* 게시글 화면에 보여질 첫번째 번호 */
-	var prev; /* 이전버튼 활성화여부 */
-	var next; /* 다음버튼 활성화여부 */
+	var pageNum = 1; /* 현재 조회하는 페이지번호 */
+	var endPage = Math.ceil(pageNum * 0.1) * 10; /* 게시글 화면에 보여질 마지막 번호 */
+	var startPage = endPage - 10 + 1; /* 게시글 화면에 보여질 첫번째 번호 */
+	var prev = startPage > 1; /* 이전버튼 활성화여부 */
+	var next = endPage < realEnd;; /* 다음버튼 활성화여부 */
 	
 	function paging(num) {
 		pageNum = num; /* 현재 조회하는 페이지번호 */
@@ -76,11 +50,21 @@
 		}
 	}
 	
-	function searchFunction(pageNum) {
+	function prevFunction() {
+		searchFunction(startPage - 1);
+	}
+	
+	function nextFunction() {
+		searchFunction(endPage + 1);
+	}
+	
+	function searchFunction(pn) {
+		paging(pn);
+		
 		$.ajax({
 			type : 'post',
 			url : 'wSelectAllCheck.jsp',
-			data : {pageNum : pageNum},
+			data : {pageNum : pn},
 			dataType : "text",
 			success : function (data) {
 				var worships = JSON.parse(data.trim());
@@ -96,13 +80,18 @@
 				
 				str = "";
 				if (prev) {
-					str += '<li><a href="javascript:prevFunction();">이전</a></li>'
+					str += '<li><a href="javascript:prevFunction();">이전</a></li>';
 				}
-				for(var i = 0; i < 10; i++){
-					str += '<li><a href="javascript:prevFunction();">' +  + '</a></li>';
+				for(var i = startPage; i < endPage; i++){
+					if (i == pageNum) {
+						str += '<li><a href="javascript:searchFunction(' + i + ');" class="active">' + i + '</a></li>';
+					} else {
+						str += '<li><a href="javascript:searchFunction(' + i + ');">' + i + '</a></li>';
+					}
 				}
-				
-				paging(pn)
+				if (next) {
+					str += '<li><a href="javascript:nextFunction();">다음</a></li>';
+				}
 				
 				$("#ajaxPaging").html(str);
 			}
@@ -111,7 +100,6 @@
 	
 	window.onload = function() {
 		searchFunction(pageNum);
-		paging(1);
 	}
 </script>
 </body>
