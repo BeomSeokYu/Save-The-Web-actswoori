@@ -218,6 +218,7 @@ public class UserDAO {
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, email);
+			pstmt.setString(2, name);
 			rSet = pstmt.executeQuery();
 			
 			result = rSet.next() ? true : false;

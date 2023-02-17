@@ -25,8 +25,6 @@
 		
 		    <div class="form-floating">
 		    	<input type="hidden" name="email" id="email" value="<%=request.getParameter("email")%>">
-    		    <input type="hidden" name="job" id="job" value="">
-    		    <input type="hidden" name="name" id="name" value="">
 		      <input type="password" class="form-control" id="password" name="password" placeholder="Password">
 		      <label for="floatingInput">새 비밀번호</label>
 		    </div>
@@ -48,8 +46,6 @@ $('#editBtn').on('click', function(){
 		body: new URLSearchParams({
 				email: $('#email').val(),
 				pw: $('#password').val(),
-				job: $('#job').val(),
-				name: $('#name').val()
 			})
         })
 		.then(resp => resp.text())
@@ -63,28 +59,6 @@ $('#editBtn').on('click', function(){
 				popModalRedirect('비밀번호 변경 성공', '비밀번호 변경이 완료되었습니다.', '/main.jsp');
 			} else {
 				popModal('비밀번호 변경 실패', '비밀번호 변경이 실패하였습니다.<br>잠시 후 다시 시도해 주세요.');
-			}
-			
-		})
-		.catch(err => console.log('Error : ', err));
-});
-
-
-$(function(){
-	fetch('/user/userInfoProc.jsp', {
-		method: "post",
-		body: new URLSearchParams({
-				email: $('#email').val()
-			})
-        })
-		.then(resp => resp.text())
-		.then(data => {
-			data = data.trim();
-			console.log(data);
-			if(data == 'success') {
-				$('#job').val(data.job);
-				$('#name').val(data.name);
-			} else {
 			}
 			
 		})
