@@ -19,8 +19,7 @@
 <%@ include file="/include/navbar.jsp" %>
 	<div class="container">
 		<div class="form-signin w-50 m-auto text-center">
-		  <form action="" method="post">
-		    <img class="mb-4" src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" alt="" width="72" height="72">
+		  <form action="" method="">
 		    <h1 class="h3 mb-3 fw-normal">로그인</h1>
 		
 		    <div class="form-floating">
@@ -33,8 +32,12 @@
 		    </div>
 	
 		    <button class="w-100 btn btn-lg btn-warning" type="button" id="loginBtn">로그인</button>
-		    <a href="/user/signup.jsp" class="">아직도 회원이 아니신가? 가입 허실?</a>
-		    <a href="/user/signup.jsp" class="">비밀번호 까먹으심?</a>
+		    <div>
+		    	<a href="/user/signup.jsp" class="">회원 가입</a>
+		    </div>
+		    <div>
+		    	<a href="/user/pwfind.jsp" class="">비밀번호 찾기</a>
+		    </div>
 		    <p class="mt-5 mb-3 text-muted">&copy; SaveTheWeb</p>
 		  </form>
 		</div>
