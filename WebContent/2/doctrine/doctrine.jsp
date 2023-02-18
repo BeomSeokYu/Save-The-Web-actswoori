@@ -34,11 +34,10 @@
  				
  				var str = "";
  				for(var i = 0; i < feeds.length; i++){
- 					
-					
+ 					getUserName(feeds[i].email);
  					str += "<tr><td>" + feeds[i].dno + "</td>";
  					str += "<td><a href='docView.jsp?dno="+ feeds[i].dno +"'>" + feeds[i].dtitle + "</a></td>";
- 					str += "<td>"+getUserName(feeds[i].email)+"</td>"
+ 					str += "<td class='userName'></td>"
  					str += "<td>" + feeds[i].ddate + "</td></tr>";
  				} $("#ajaxTable").html(str);
  			}
@@ -61,7 +60,8 @@
 			dataType:"text",
  			success:function(data){
  				var user = JSON.parse(data.trim());
- 				document.write(user.name)
+ 				$(".userName").text(user.name)
+ 			
  			}
  		});
 	}
