@@ -37,7 +37,7 @@ coopDAO cdto = new coopDAO();
 
 List<coopDTO> coops = coopDAO.getListpaging(pageNum, amount);
 int total = cdto.getTotal(); // 전체게시글수
-page.PageVO pvo = new page.PageVO(pageNum, amount, total);
+PageVO pvo = new PageVO(pageNum, amount, total);
 
 // 3. 페이지네이션을 화면에 전달
 request.setAttribute("pageVO", pvo);
