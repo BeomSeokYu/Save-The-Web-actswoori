@@ -15,7 +15,7 @@
 		
 		LectureDAO.update(lnoo, ltitle, lname, lcontent);
 	
-		
 		response.sendRedirect("lectureDetail.jsp?lno=" + lno);
+		
 %>
 

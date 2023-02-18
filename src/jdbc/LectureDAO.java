@@ -1,3 +1,14 @@
+/*
+최초작성자 : 김영광
+최초작성일 : 2023/02/16
+
+버전  기록 : 0.1(시작 23/02/14) 
+	     0.2(특강목록전체, 등록 23/02/15)
+	     0.3(특강디테일 23/02/16)
+	     0.4(특강 수정, 삭제 23/02/17)
+	           0.7(추가 디자인 23/02/18)
+	           1.0(1차 완성 23/02/20)
+*/
 package jdbc;
 
 import java.sql.Connection;
@@ -114,7 +125,94 @@ public class LectureDAO {
 	}
 	
 	//게시글 삭제
-	
+		public static boolean delete(int lno)throws NamingException, SQLException{
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			String sql = "DELETE FROM lecture WHERE lno = ?";
+			
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, lno);
+			
+		return (pstmt.executeUpdate() == 1) ? true :false;	
+		
+		}finally {
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
+		}
+	}
+		
+		//페이징
+		public static ArrayList<LectureDTO> getListpaging(int pageNum, int amount) throws NamingException, SQLException {
+			
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				String sql = "SELECT * FROM lecture ORDER BY lno DESC limit ?,?";
+				
+				conn = ConnectionPool.get();
+				pstmt = conn.prepareStatement(sql);
+						pstmt.setInt(1,(pageNum-1)*amount);
+						pstmt.setInt(2,amount);
+						
+				rs = pstmt.executeQuery(); 
+				
+				ArrayList<LectureDTO> lectures = new ArrayList<LectureDTO>();
+				
+				while(rs.next()) {
+					lectures.add(new LectureDTO(rs.getInt(1),
+										  rs.getString(2),
+										  rs.getString(3),
+										  rs.getString(4),
+										  rs.getString(5),
+										  rs.getString(6)));
+
+				}return lectures;
+				
+			}finally {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			}
+		}
+		
+		//페이지 (총 개수)
+		public int getTotal() throws SQLException {
+
+		    int result = 0;
+		    Connection conn = null;
+		    PreparedStatement pstmt = null;
+		    ResultSet rs = null;
+		    
+		    try {
+		    String sql = "select count(*) as total from lecture";
+		    
+		    conn = ConnectionPool.get();
+		    pstmt = conn.prepareStatement(sql);
+		    
+		    rs = pstmt.executeQuery();
+		    
+		    while (rs.next()) {
+		       result = rs.getInt("total");
+		       
+		    }
+		    
+		    } catch (SQLException | NamingException e) {
+		       e.printStackTrace();
+		    } finally {
+		       if(rs != null) rs.close();
+		       if(pstmt != null) pstmt.close();
+		       if(conn != null) conn.close();
+		    }
+		    
+		    
+		    return result;
+		 }
 }
 
 
