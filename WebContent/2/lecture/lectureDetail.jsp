@@ -20,20 +20,27 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<%@ include file="/include/header.jsp" %>
+<%@ include file="/include/header.jsp"%>
 </head>
 <body>
+<%@ include file="/include/navbar.jsp"%>
 <%
 	String lno = request.getParameter("lno");
 	int lnoo = Integer.parseInt(lno);
 	LectureDTO lecture = LectureDAO.getDetail(lnoo); 
 %>
+	<div class = "container">
+	<div class="pt-5"></div>
+	<h2>특강</h2>
+	<div class = "text-center h3" ><%=lecture.getLtitle() %></div>
+	<%=lecture.getLcontent() %>
+	<div>설교자 : <%=lecture.getLname() %></div>
+	<div>날짜 : <%=lecture.getLdate() %></div>
 	
-	<%=lecture.getLtitle() %><br>
-	<%=lecture.getLcontent() %><br>
-	<%=lecture.getLname() %><br>
-	<%=lecture.getLdate() %><br>
-
+	<%-- <div class="shareBox">
+	<a href="#" id="sns_urlCoby" class="btn_share_sns" title="새창" onclick="clip(); return false;">
+    <img width = "30" height = "30" src="${pageContext.request.contextPath}/resources/img/clip.png"></a>
+	</div> --%>
 <%	
 //나중에 user 받아오고
 	//if (UserDAO.login(id, password) == 1) {
@@ -43,19 +50,16 @@
 	String adminLoginCheck = "a";
 	
 	if (adminLoginCheck != null){%>
-		<button onclick="location.href='/2/lecture/lectureModify.jsp?lno=<%=lecture.getLno()%>'" class="btn btn-primary">수정</button>
-		<button onclick ="location.href='/2/lecture/lectureDel.jsp?lno=<%=lecture.getLno()%>'" class="btn btn-primary">삭제</button>
+		<div class ="d-grid gap-2 d-md-flex justify-content-md-end"><button onclick="location.href='/2/lecture/lectureModify.jsp?lno=<%=lecture.getLno()%>'" class="btn btn-primary">수정</button>
+		<button onclick ="location.href='/2/lecture/lectureDel.jsp?lno=<%=lecture.getLno()%>'" class="btn btn-primary">삭제</button></div>
 <%	}	%>
 
 
-<div class="shareBox">
-	<a href="#" id="sns_urlCoby" class="btn_share_sns" title="새창" onclick="clip(); return false;">
-    <img src="${pageContext.request.contextPath}/resources/img/sub/icon_share_link.png" alt="링크 공유하기"></a>
-</div>
 
+</div>
 <script>
 function clip(){
-
+ 
         var url = '';    // <a>태그에서 호출한 함수인 clip 생성
         var textarea = document.createElement("textarea");  
         //url 변수 생성 후, textarea라는 변수에 textarea의 요소를 생성
@@ -70,6 +74,7 @@ function clip(){
         alert("URL이 복사되었습니다.")  // 알림창
     }
 </script>
+
 <%@ include file="/include/footer.jsp" %>
 </body>
 </html>

@@ -10,7 +10,7 @@ public class pageVO {
 	  public boolean prev, next; // 이전버튼, 다음버튼 활성화여부
 	   
 	  public int pageNum; // 현재 조회하는 페이지번호
-	  public int amount = 1; // 화면에 그려질 데이터
+	  public int amount = 5; // 화면에 그려질 데이터
 	  public int total; // 전체게시글 수
 	   
 	   public boolean getPrev() {

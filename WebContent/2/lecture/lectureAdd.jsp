@@ -53,6 +53,8 @@
 <div></div>
 <form action = lectureCheck.jsp method = "post">
 <div class = "container">
+<div class="pt-5"></div>
+<h2>특강등록</h2>
 <div class="form-floating">
       <input type="text" name = "ltitle" class="form-control" id="ltitle" placeholder="제목을 입력하세요">
       <label for="floatingInput">제목</label>
