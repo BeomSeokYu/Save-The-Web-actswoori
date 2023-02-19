@@ -3,3 +3,5 @@
 /.project
 /.settings/
 context.xml
+/src/sqlMap/Configuration.xml
+/bin/
