@@ -15,12 +15,30 @@
 <meta charset="UTF-8">
 <title>행전우리교회</title>
 <%@ include file="/include/header.jsp" %>
+<style>
+.container {
+  max-width: 960px;
+}
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+</style>
 </head>
 <body>
 <%@ include file="/include/navbar.jsp" %>
-	<div class="container">
+	<!-- <div class="container">
 		<div class="form-signin w-50 m-auto text-center">
-		  <form action="needs-validation" method="post">
+		  <form>
 		    <img class="mb-4" src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" alt="" width="72" height="72">
 		    <h1 class="h3 mb-3 fw-normal">회원 가입</h1>
 		    <div class="form-floating row">
@@ -72,7 +90,78 @@
 		    <button class="w-100 btn btn-lg btn-warning" type="button" id="signupBtn">가입 신청</button>
 		  </form>
 		</div>
-	</div>
+	</div> -->
+
+<div class="container">
+  <main>
+    <div class="py-5 text-center">
+      <h2>회원 가입</h2>
+    </div>
+    <div class="row g-5 justify-content-center">
+      <div class="col-md-7 col-lg-8">
+        <form class="needs-validation" novalidate>
+          <div class="row g-3">
+            <div class="col-12">
+              <label for="email1" class="form-label">이메일</label>
+              <div class="input-group">
+                <input type="text" class="form-control email-form input rounded" id="email1" name="email1" placeholder="" required>
+                <span class="input-group-text rounded mx-1">@</span>
+                <input type="text" class="form-control email-form input rounded" id="email2" name="email2" placeholder="" required>
+                <select class="form-select rounded" id="emailSelect">
+				  <option value="default" selected>직접 입력</option>
+				  <option value="naver.com">naver.com</option>
+				  <option value="gmail.com">gmail.com</option>
+				  <option value="daum.net">daum.net</option>
+				  <option value="kakao.com">kakao.com</option>
+			    </select>
+              	<div class="invalid-feedback">
+                                       이미 가입되었거나 승인 대기중인 회원입니다.
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <label for="password" class="form-label">비밀번호 <span class="text-muted">(숫자,영문자 포함 8자리 이상)</span></label>
+              <input type="password" class="form-control pass-form input" id="password" name="password" placeholder="" required>
+            </div>
+
+            <div class="col-12">
+              <label for="passwordCheck" class="form-label">비밀번호 확인</label>
+              <input type="password" class="form-control pass-form input" id="passwordCheck" name="passwordCheck" placeholder="" required>
+              <div class="valid-feedback">
+              	비밀번호가 일치합니다.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="name" class="form-label input">이름</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="" required>
+            </div>
+
+            <div class="col-12">
+	          <label for="job" class="form-label input">직분</label>
+              <div class="input-group">
+	              <input type="text" class="form-control rounded" id="job" name="job" placeholder="" required>
+	              <span class="rounded mx-1"></span>
+	              <select class="form-select rounded" id="jobSelect" placeholder="직분">
+					<option value="default" selected>직접 입력</option>
+					<option value="성도">성도</option>
+					<option value="집사">집사</option>
+					<option value="안수집사">안수집사</option>
+					<option value="권사">권사</option>
+					<option value="장로">장로</option>
+					<option value="목사">목사</option>
+				  </select>
+              </div>
+            </div>
+          </div>
+          <hr class="my-4">
+
+          <button class="w-100 btn btn-secondary btn-md" id="signupBtn">가입 신청</button>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
 <%@ include file="/include/footer.jsp" %>
 </body>
 <script>
