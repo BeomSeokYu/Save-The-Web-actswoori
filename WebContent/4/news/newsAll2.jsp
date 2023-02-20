@@ -3,6 +3,7 @@
 
 버전  기록 : 0.1(시작 23/02/15) -->
 
+<%@page import="java.util.*"%>
 <%@page import="jdbc.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -47,11 +48,11 @@
 		<div class="d-flex text-end">
 		  <select class="form-select" id="selectType">
        		<option value="T" selected>제목</option>
-       		<option value="C">내용</option>
+       		<option value="F">파일명</option>
        		<option value="E">이메일</option>
-       		<option value="TC">제목/내용</option>
+       		<option value="TF">제목/파일명</option>
        		<option value="TE">제목/이메일</option>
-       		<option value="TCE">제목/내용/이메일</option>
+       		<option value="TFE">제목/파일명/이메일</option>
           </select>
 	      <input class="form-control" type="search" placeholder="검색어" aria-label="" id="keyword">
 	      <button class="btn btn-outline-success" type="button" id="searchBtn">검색</button>
@@ -97,8 +98,7 @@ function printList(data) {
 	for (var i = 0; i < data.length; i++) {
 		
 		imgHTML += ''
-			+ "<tr><td><a href='newsDetail.jsp?nno=" + data[i].nno + "'>"
-			+ data[i].ntitle + "</td>"
+			+ '<tr><td>' + data[i].ntitle + "</td>"
 			+ '<td>' + data[i].email + "</td>"
 			+ '<td>' + data[i].ndate + "</td></tr>"
 	}

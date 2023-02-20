@@ -16,12 +16,12 @@
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver" />
                 <property name="url" value="jdbc:mysql://localhost:3306/savetheweb?serverTimezone=UTC" />
-                <property name="username" value="root" />
-                <property name="password" value="0000" />
+                <property name="username" value="davidgeunhosting" />
+                <property name="password" value="여기에 비밀번호" />
             </dataSource>
         </environment>
     </environments>
     <mappers>
-        <mapper resource="/sqlMap/mapper/gallery.xml" />
+        <mapper resource="/sqlMap/mapper/news.xml" />
     </mappers>
 </configuration>
