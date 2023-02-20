@@ -92,7 +92,7 @@
 
 </tbody>
 </table>
-<%if(sid.equals("admin@gmail.com")){ %>
+<%if(sid.equals(admin)){ %>
 <input type="button" value="등록하기" onclick="checkSid()">
 <%} %>
 </div>
