@@ -10,8 +10,8 @@
 <%@include file="/include/header.jsp" %>
 </head>
 	<%	//로그인 안되어있을 시
-		if(sid==null){
-		response.sendRedirect("login.jsp");
+		if(sid == null || sid.equals(admin)){
+		response.sendRedirect("/login.jsp");
 		}else{
 		
 	%>
