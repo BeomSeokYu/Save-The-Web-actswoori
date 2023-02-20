@@ -118,12 +118,12 @@ public class WorshipDAO {
 			JSONObject worship = new JSONObject();
 			
 			if (rs.next()) {
-				worship.put("wno", rs.getString(1));
-				worship.put("email", rs.getString(2));
-				worship.put("wname", rs.getString(3));
-				worship.put("wtitle", rs.getString(4));
-				worship.put("wcontent", rs.getString(5));
-				worship.put("wdate", rs.getString(6));
+				worship.put("wno", rs.getString("wno"));
+				worship.put("email", rs.getString("email"));
+				worship.put("wname", rs.getString("wname"));
+				worship.put("wtitle", rs.getString("wtitle"));
+				worship.put("wcontent", rs.getString("wcontent"));
+				worship.put("wdate", rs.getString("wdate"));
 			}
 			
 			rs.close();
@@ -150,11 +150,11 @@ public class WorshipDAO {
 			
 			while (rs.next()) {
 				JSONObject obj = new JSONObject();
-				obj.put("wno", rs.getString(1));
-				obj.put("email", rs.getString(2));
-				obj.put("wname", rs.getString(3));
-				obj.put("wtitle", rs.getString(4));
-				obj.put("wdate", rs.getString(6));
+				obj.put("wno", rs.getString("wno"));
+				obj.put("email", rs.getString("email"));
+				obj.put("wname", rs.getString("wname"));
+				obj.put("wtitle", rs.getString("wtitle"));
+				obj.put("wdate", rs.getString("wdate"));
 				
 				worships.add(obj);
 			}
@@ -189,11 +189,11 @@ public class WorshipDAO {
 			while (rs.next()) {
 				JSONObject obj = new JSONObject();
 				
-				obj.put("wno", rs.getString(1));
-				obj.put("email", rs.getString(2));
-				obj.put("wname", rs.getString(3));
-				obj.put("wtitle", rs.getString(4));
-				obj.put("wdate", rs.getString(6));
+				obj.put("wno", rs.getString("wno"));
+				obj.put("email", rs.getString("email"));
+				obj.put("wname", rs.getString("wname"));
+				obj.put("wtitle", rs.getString("wtitle"));
+				obj.put("wdate", rs.getString("wdate"));
 				
 				worships.add(obj);
 			}

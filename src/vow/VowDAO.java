@@ -119,11 +119,11 @@ public class VowDAO {
 			JSONObject vow = new JSONObject();
 			
 			if (rs.next()) {
-				vow.put("vno", rs.getString(1));
-				vow.put("email", rs.getString(2));
-				vow.put("vtitle", rs.getString(3));
-				vow.put("vcontent", rs.getString(4));
-				vow.put("vdate", rs.getString(5));
+				vow.put("vno", rs.getString("vno"));
+				vow.put("email", rs.getString("email"));
+				vow.put("vtitle", rs.getString("vtitle"));
+				vow.put("vcontent", rs.getString("vcontent"));
+				vow.put("vdate", rs.getString("vdate"));
 			}
 			
 			rs.close();
@@ -150,10 +150,10 @@ public class VowDAO {
 			
 			while (rs.next()) {
 				JSONObject obj = new JSONObject();
-				obj.put("vno", rs.getString(1));
-				obj.put("email", rs.getString(2));
-				obj.put("vtitle", rs.getString(3));
-				obj.put("vdate", rs.getString(5));
+				obj.put("vno", rs.getString("vno"));
+				obj.put("email", rs.getString("email"));
+				obj.put("vtitle", rs.getString("vtitle"));
+				obj.put("vdate", rs.getString("vdate"));
 				
 				vows.add(obj);
 			}
