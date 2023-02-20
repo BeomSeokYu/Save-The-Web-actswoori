@@ -2,8 +2,8 @@
 최초작성자 : 김지수 (jisukim.fb@gmail.com)
 최초작성일 : 2023/02/15
 
-버전  기록 : 0.1(시작 23/02/16) 
-       0.5(기본작업 23/02/16) 
+버전  기록 : 0.1(시작 23/02/17) 
+       0.5(기본작업 23/02/18) 
        0.7(추가 디자인 23/02/16)
        1.0(1차 완성 23/02/16)
 --> 
@@ -32,12 +32,18 @@ body {
 </head>
 <body>
 <%@ include file="/include/header.jsp" %> 
-<%
+<%	
+	
 	request.setCharacterEncoding("UTF-8");
-
-	String uploadPath = "/resources/postSaved"; // application.getInitParameter("uploadPath");
+	String sid = (String) session.getAttribute("sid");
+	if(sid == null || !sid.equals("admin")) {
+		response.sendRedirect("postList.jsp");
+	}
+	
+	String uploadPDF = request.getParameter("uploadPDF");
+	
+	String uploadPath = "/resources/postSaved";
 	String savePath = application.getRealPath(uploadPath);
-	//out.print(savePath + "<br><br>");
 	
    // 업로드 폴더 지정
    File upFolder = new File(savePath);
@@ -57,13 +63,6 @@ body {
 	String postSysName = multiReq.getFilesystemName("post");
 	
 	if(postOriName != null) {
-		//out.print("파일 업로드 성공 <br>");
-		
-		//out.print("원본 파일 : " + postOriName + "<br>");
-		//out.print("첨부 파일 : " + postSysName + "<br>");
-		//out.print("파일 크기 : " + multiReq.getFile("post").length() + "<br>");
-		
-		
          // UUID 설정
          UUID uuid = UUID.randomUUID();
          System.out.println("uuid : " + uuid.toString());
@@ -81,29 +80,27 @@ body {
           }
           
           // DB에 넣기
+        int pno = Integer.parseInt( multiReq.getParameter("pno") );
 		String ptitle = multiReq.getParameter("ptitle");
-        String email = (String) session.getAttribute("email");
-        boolean result = PostDAO.insertPost(ptitle, uploadPath, uuid.toString(), postSysName, "admin@a.com");
-		
-		//out.print("<iframe src=" + uploadPath + "/" + uuidFileName +"></iframe>");
+        boolean result = PostDAO.updatePost(pno, ptitle, uploadPath, uuid.toString(), postSysName);
 		
 		if(result) {
         %>
 		 <script>
 		 	$(function() {
-		 		popModalRedirect('주보 등록', '주보가 등록되었습니다.', 'postList.jsp');
+		 		popModalRedirect('주보 수정', '주보가 수정되었습니다.', 'postList.jsp');
 		 	});
 		 </script>
 		 <%
 			
 		} else {
-			%>
-			<script>
-				$(function() {
-					popModalRedirect('주보 등록', '알 수 없는 이유로 등록하지 못했습니다.', 'postList.jsp');
-				});
-			</script>
-			<%		
+		%>
+		<script>
+			$(function() {
+				popModalRedirect('주보 수정', '알 수 없는 이유로 수정하지 못했습니다.', 'postList.jsp?pno=' + pno);
+			});
+		</script>
+		<%		
 			
 		}
         	

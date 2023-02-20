@@ -15,6 +15,7 @@
 <html>
 <head>
 <style>
+
 iframe {
 	display: block;
 	border: none;
@@ -29,23 +30,40 @@ iframe {
 </head>
 
 <body>
+<%@ include file="/include/header.jsp" %> 
 
-<%
+<%	
+	request.setCharacterEncoding("UTF-8");
+	response.setContentType("text/html;charset=UTF-8");
+	
+	String email = request.getParameter("email");
+	
+//	if (UserDAO.exist(email)) {
+//	   out.write(UserDAO.selectUser(email));
+//	}
+	String sid = "admin"; // (String) session.getAttribute("sid");
 	int pno = Integer.parseInt(request.getParameter("pno"));
 
 	PostDTO pdto = PostDAO.selectPost(pno);
 	String filePath = pdto.getPupfolder() + "/" + pdto.getPuuid() + "_" + pdto.getPfilename(); %>
  
 <div class="container">
-	<div><h3><%=pdto.getPtitle() %> written by <%=pdto.getEmail() %> </h3></div>
-	<iframe src="<%=filePath %>" ></iframe>
-	
 	<div>
-		<a href="postEdit.jsp?pno=<%=pdto.getPno() %>">수정</a>
-		<a href="postRemove.jsp?pno=<%=pdto.getPno() %>">삭제</a>
+		<h3><%=pdto.getPtitle() %> </h3>
+		<p>작성자: <%=pdto.getEmail() %> </p>
 	</div>
+	<iframe src="<%=filePath %>" ></iframe>
+	<div>
+<% if(sid == null || sid.equals("admin")) { %>	
+		<a href="postEdit.jsp?pno=<%=pno %>">수정</a>
+		<a href="postRemove.jsp?pno=<%=pno %>">삭제</a>
+<% } %>	
+		<a href="postList.jsp">목록</a>
+	</div>
+
 </div>
 
+<%@ include file="/include/footer.jsp" %> 
 
 </body>
 </html>

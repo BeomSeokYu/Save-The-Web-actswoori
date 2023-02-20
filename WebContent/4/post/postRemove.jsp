@@ -12,6 +12,11 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/include/header.jsp" %>      
 <%
+	String sid = (String) session.getAttribute("sid");
+	if(sid == null || !sid.equals("admin")) {
+		response.sendRedirect("postList.jsp");
+	}
+	
 	int pno = Integer.parseInt(request.getParameter("pno"));
 
 	if(PostDAO.deletePost(pno)) {
