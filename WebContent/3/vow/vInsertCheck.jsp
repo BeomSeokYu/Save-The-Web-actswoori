@@ -3,9 +3,14 @@
 <%
 	request.setCharacterEncoding("utf-8");
 	
-	String email = "asd@asd.asd"; // 세션에서 받아올 예정
+	String email = (String) session.getAttribute("sid"); // 세션에서 받아올 예정
 	String vtitle = request.getParameter("vtitle");
 	String vcontent = request.getParameter("vcontent");
+	
+	if (email == null || vtitle == null || vcontent == null) { // 보안 처리
+		response.sendRedirect("vSelectAll.jsp");
+		return;
+	}
 	
 	int result = VowDAO.insert(email, vtitle, vcontent);
 	
