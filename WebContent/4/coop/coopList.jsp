@@ -125,7 +125,7 @@ request.setAttribute("coops", coops);
   </ul>
 </nav>
 <button onclick="location.href='coopMain.jsp'" class="btn btn-info">협력교회 및 기관 메인</button>
-<% if(sid!=null || sid.equals(admin)){ %>
+<% if(sid!=null && sid.equals(admin)){ %>
 <button onclick="location.href='coopAdd.jsp'" class="btn btn-success" style="float:right;">글 등록하기</button>
 <% }; %>
 </div>

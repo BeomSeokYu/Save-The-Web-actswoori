@@ -26,7 +26,7 @@
 		 <%=cdto.getEmail()%></p>
 		
 	</div>
-		<% if(sid == null || sid.equals(admin)){ %>
+		<% if(sid != null && sid.equals(admin)){ %>
 		<a href="coopDeleteCheck.jsp?cno=<%=cdto.getCno()%>" class="btn btn-primary" >삭제하기</a>
 		<button onclick="location.href='coopUpdate.jsp?cno=<%=cdto.getCno()%>'" class="btn btn-primary">수정하기</button>
 		<% }; %>

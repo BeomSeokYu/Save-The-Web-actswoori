@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- DB 접속정보 및 기타 설정등을 할 수 있는 설정파일 -->
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="cacheEnabled" value="false" />
+        <setting name="useGeneratedKeys" value="true" />
+        <setting name="defaultExecutorType" value="REUSE" />
+    </settings>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver" />
+                <property name="url" value="jdbc:mysql://localhost:3306/savetheweb?serverTimezone=UTC" />
+                <property name="username" value="디비아이디" />
+                <property name="password" value="디비비밀번호" />
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="/sqlMap/mapper/coop.xml" />
+    </mappers>
+</configuration>
