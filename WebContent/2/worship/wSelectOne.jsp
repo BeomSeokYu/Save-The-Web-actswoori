@@ -1,3 +1,4 @@
+<%@page import="worship.WorshipDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -24,8 +25,14 @@
 			<p id="wcontent"></p>
 		</div>
 		<div>
+<%
+	if (sid != null && sid.equals(WorshipDAO.selectEmail(Integer.parseInt(request.getParameter("wno"))))) { // 세션 처리
+%>
 			<a class="btn btn-primary" href="wUpdate.jsp?wno=<%=request.getParameter("wno")%>" role="button">수정</a>
 			<a class="btn btn-primary" href="wDeleteCheck.jsp?wno=<%=request.getParameter("wno")%>" role="button">삭제</a>
+<%
+	}
+%>
 			<a class="btn btn-primary" href="wSelectAll.jsp" role="button">목록</a>
 		</div>
 	</div>

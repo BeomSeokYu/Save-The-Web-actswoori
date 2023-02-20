@@ -10,7 +10,13 @@
 <%@ include file="/include/navbar.jsp" %>
 	<div class="container">
 		<h1>말씀서원</h1>
+<%
+	if (sid != null) { // 세션 처리
+%>
 		<a class="btn btn-primary" href="vInsert.jsp" role="button">등록</a>
+<%
+	}
+%>
 		<table class="table table-hover">
 		  <thead>
 		    <tr>
