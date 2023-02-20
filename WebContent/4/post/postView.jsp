@@ -15,6 +15,7 @@
 <html>
 <head>
 <style>
+
 iframe {
 	display: block;
 	border: none;
@@ -29,6 +30,7 @@ iframe {
 </head>
 
 <body>
+<%@ include file="/include/header.jsp" %> 
 
 <%
 	int pno = Integer.parseInt(request.getParameter("pno"));
@@ -37,15 +39,19 @@ iframe {
 	String filePath = pdto.getPupfolder() + "/" + pdto.getPuuid() + "_" + pdto.getPfilename(); %>
  
 <div class="container">
-	<div><h3><%=pdto.getPtitle() %> written by <%=pdto.getEmail() %> </h3></div>
+	<div>
+		<h3><%=pdto.getPtitle() %> </h3>
+		<p>작성자: <%=pdto.getEmail() %> </p>
+	</div>
 	<iframe src="<%=filePath %>" ></iframe>
 	
 	<div>
-		<a href="postEdit.jsp?pno=<%=pdto.getPno() %>">수정</a>
-		<a href="postRemove.jsp?pno=<%=pdto.getPno() %>">삭제</a>
+		<a href="postEdit.jsp?pno=<%=pno %>">수정</a>
+		<a href="postRemove.jsp?pno=<%=pno %>">삭제</a>
 	</div>
 </div>
 
+<%@ include file="/include/footer.jsp" %> 
 
 </body>
 </html>
