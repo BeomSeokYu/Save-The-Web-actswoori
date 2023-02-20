@@ -40,9 +40,7 @@ NewsDTO ndto = NewsDAO.selectNews(nno);
 <hr>
 
 <div class="d-flex justify-content-between">
-<a href="#" >이전으로</a>
-<a href="newsAll.jsp?pageNum=<%= request.getParameter("pageNum") %>&amount=<%= request.getParameter("amount") %>" >목록으로</a>
-<a href="#" >다음으로</a>
+<a href="newsAll.jsp?" >목록으로</a>
 </div>
 
 <hr>
