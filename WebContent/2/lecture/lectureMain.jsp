@@ -62,6 +62,10 @@
 <div class = "container">
 <div class="pt-5"></div>
 	<h2>특강</h2>
+	<div class = "d-grid gap-2 d-md-flex justify-content-md-end">
+	  <input class="form-control input-sm" type="search" placeholder="검색어" aria-label="" id="keyword" placeholder=".input-sm">
+	  <button class="btn btn-outline-success" type="button" id="searchBtn">검색</button>
+	</div> 
 	<table class="table table-striped table-hover">
 	<thead>
 		<tr>

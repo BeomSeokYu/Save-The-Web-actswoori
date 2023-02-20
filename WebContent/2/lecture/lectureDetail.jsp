@@ -37,6 +37,16 @@
 	<div>설교자 : <%=lecture.getLname() %></div>
 	<div>날짜 : <%=lecture.getLdate() %></div>
 	
+	<!-- if 4페이지였으면 목록 클릭했을 때 4페이지로 가게 하기 위해서 -->
+	<!-- <a class="btn btn-warning" href='/2/lecture/lectureMain.jsp' role="button">목록</a>  -->
+	<input type="button" value="목록" onclick="history.back()" class="btn btn-warning">
+	
+	
+    <!-- <a id="kakao-link-btn" href="javascript:kakaoShare()">
+    	<img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" />
+    </a> -->
+
+	
 	<%-- <div class="shareBox">
 	<a href="#" id="sns_urlCoby" class="btn_share_sns" title="새창" onclick="clip(); return false;">
     <img width = "30" height = "30" src="${pageContext.request.contextPath}/resources/img/clip.png"></a>
@@ -70,9 +80,47 @@ function clip(){
         textarea.select();  //textarea를 설정
         document.execCommand("copy");   // 복사
         document.body.removeChild(textarea); //extarea 요소를 없애줌
-        
-        alert("URL이 복사되었습니다.")  // 알림창
+        return textarea;
     }
+</script>
+
+<!-- 카카오공유 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+
+<script type="text/javascript">
+  // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
+  Kakao.init('a19b1ffba5bdd31227cb7ab1a846dc78');
+
+  // SDK 초기화 여부를 판단합니다.
+  console.log(Kakao.isInitialized());
+
+  function kakaoShare() {
+
+	
+    Kakao.Link.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: 'a',
+        description: 'lecture.getLcontent()',
+        imageUrl: '카카오공유하기 시 썸네일 이미지 경로',
+        link: {
+          mobileWebUrl: '카카오공유하기 시 클릭 후 이동 경로',
+          webUrl: 'a'+clip(),
+        },
+      },
+      buttons: [
+        {
+          title: '웹으로 보기',
+          link: {
+            mobileWebUrl: '카카오공유하기 시 클릭 후 이동 경로',
+            webUrl: 'abc',
+          },
+        },
+      ],
+      // 카카오톡 미설치 시 카카오톡 설치 경로이동
+      installTalk: true,
+    })
+  }
 </script>
 
 <%@ include file="/include/footer.jsp" %>

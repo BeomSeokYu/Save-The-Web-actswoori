@@ -56,18 +56,20 @@
 <div class="pt-5"></div>
 <h2>특강등록</h2>
 <div class="form-floating">
-      <input type="text" name = "ltitle" class="form-control" id="ltitle" placeholder="제목을 입력하세요">
+      <input type="text" name = "ltitle" class="form-control" id="ltitle" placeholder="제목을 입력하세요" required>
       <label for="floatingInput">제목</label>
 </div>
 <div class="form-floating">
-      <input type="text" name = "lname" class="form-control" id="lname" placeholder="설교자를 입력하세요">
+      <input type="text" name = "lname" class="form-control" id="lname" placeholder="설교자를 입력하세요" required>
       <label for="floatingPassword">설교자</label>
 </div>
-<textarea name = "lcontent" id = "summernote" class="mtop-10"></textarea>
+<textarea name = "lcontent" id = "summernote" class="mtop-10" ></textarea>
 <button class="btn btn-primary" type="submit">등록</button>
+<!-- <a class="btn btn-warning" href='/2/lecture/lectureMain.jsp' role="button">취소</a> -->
+<input type="button" value="취소" onclick="history.back()" class="btn btn-warning">
 </div>
 </form>
-<button onclick="location.href='/2/lecture/lectureMain.jsp'" class="btn btn-warning">취소</button>
+<!--<button onclick="location.href='/2/lecture/lectureMain.jsp'" class="btn btn-warning">취소</button>  -->
 
 
 <!-- 썸머노트 스크립트 -->
