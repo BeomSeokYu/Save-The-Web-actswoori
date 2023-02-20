@@ -16,7 +16,7 @@
 	Criteria cri = new Criteria(amount, pageNum, type, keyword);
 	
 	try{
-		out.write(sqlSession.selectOne("GalleryMapper.totalCount", cri).toString());
+		out.write(sqlSession.selectOne("PostMapper.totalCount", cri).toString());
 	}catch(Exception e){
 	    e.printStackTrace();
 	}finally{
