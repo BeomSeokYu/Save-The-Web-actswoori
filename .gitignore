@@ -2,3 +2,4 @@
 /.project
 /.settings/
 /WebContent/META-INF/context.xml
+/src/sqlMap/Configuration.xml
