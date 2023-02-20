@@ -21,7 +21,7 @@
 <div class="container shadow mx-auto p-5 w-75">
  
  <script>
- 	var sid = "asd";<%-- <%=sid%> --%>
+ 	var sid = "admin@gmail.com";<%-- <%=sid%> --%>
   	function searchFunction() {
  		
  		$.ajax({
