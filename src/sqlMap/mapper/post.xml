@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="GalleryMapper">
+<mapper namespace="PostMapper">
   <!-- 쿼리 보관 -->
   <sql id="criteria">
   	<trim prefix="(" suffix=") AND" prefixOverrides="OR">
@@ -24,23 +24,23 @@
 	</trim>
   </sql>
   
-  <select id="selectGalleryAllPaging" resultType="jdbc.GalleryDTO">
+  <select id="selectPostAllPaging" resultType="jdbc.PostDTO">
   	<![CDATA[
-	  	SELECT	gno, gtitle, gupfolder, guuid, gfilename, email, gdate
-	  	FROM gallery
+	  	SELECT	pno, ptitle, pupfolder, puuid, pfilename, email, pdate
+	  	FROM post
 	  	WHERE]]>
 	  		<include refid="criteria"/>
 	<![CDATA[
 			2 > 1
-		ORDER BY gno DESC
+		ORDER BY pno DESC
 	  	LIMIT #{ amount } OFFSET #{ offset }
 	]]>
   </select>
   
   <select id="totalCount" resultType="int">
   	<![CDATA[
-  		SELECT COUNT(*) FROM gallery WHERE ]]> 
+  		SELECT COUNT(*) FROM post WHERE ]]> 
   			<include refid="criteria"/> 
-  	<![CDATA[ gno > 0 ]]>
+  	<![CDATA[ pno > 0 ]]>
   </select>
 </mapper>
