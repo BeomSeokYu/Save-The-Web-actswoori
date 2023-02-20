@@ -32,14 +32,14 @@
 <script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
 <%
 	ArrayList<PostDTO> posts = PostDAO.selectAllPostList();
-session.setAttribute("sid", "admin");
+//session.setAttribute("sid", "admin");
 
-%>
-
-
+%>	
+	<a href="postAdd.jsp">등록</a>
 	<div class="container">
 		
 	</div>
+	
 
 
 <script type="text/javascript">

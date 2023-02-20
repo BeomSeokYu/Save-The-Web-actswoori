@@ -3,20 +3,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-	<%	//로그인 안되어있을 시
-		String sid = (String)session.getAttribute("sid");
-		if(sid==null){
-		response.sendRedirect("login.jsp");
-		}else{
-		
-	%>
 <!DOCTYPE html>
 <html>	
 <head>
 </head>
 <body>
 <%-- <% UserDTO udto = UserDAO.select(sid){%> --%>
-<%@include file="../../include/header.jsp" %>
+<%@include file="/include/header.jsp" %>
+	<%	//로그인 안되어있을 시
+		if(sid==null){
+		response.sendRedirect("login.jsp");
+		}else{
+		
+	%>
  <% int cno = Integer.parseInt(request.getParameter("cno"));
  	coopDAO cdao = new coopDAO();
  	coopDTO cdto = cdao.select(cno); %> 
@@ -58,6 +57,6 @@
     </script>
      <section class="py-5 text-center container"></section>
   </body>
- <%@include file="../../include/footer.jsp" %>
+ <%@include file="/include/footer.jsp" %>
 </html>
 <% }; %>

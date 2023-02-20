@@ -26,10 +26,10 @@
           </a>
           <ul class="dropdown-menu">
           	<li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">교회 비전</a></li>
-            <li><a class="dropdown-item" href="#">모임 안내</a></li>
+            <li><a class="dropdown-item" href="/1/vision.jsp">교회 비전</a></li>
+            <li><a class="dropdown-item" href="/1/moim.jsp">모임 안내</a></li>
             <li><a class="dropdown-item" href="#">섬기는 사람들</a></li>
-            <li><a class="dropdown-item" href="/1/direction/directions.jsp">오시는 길</a></li>
+            <li><a class="dropdown-item" href="/1/directions.jsp">오시는 길</a></li>
             <li><hr class="dropdown-divider"></li>
           </ul>
         </li>
@@ -40,7 +40,7 @@
           <ul class="dropdown-menu">
           	<li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="/2/worship/wSelectAll.jsp">예배 설교</a></li>
-            <li><a class="dropdown-item" href="#">주요 특강</a></li>
+            <li><a class="dropdown-item" href="/2/lecture/lectureMain.jsp">주요 특강</a></li>
             <li><a class="dropdown-item" href="/2/doctrine/doctrine.jsp">복음과 교리</a></li>
             <li><hr class="dropdown-divider"></li>
           </ul>
@@ -71,46 +71,6 @@
             <li><a class="dropdown-item" href="/4/gallery/photoList.jsp">갤러리</a></li>
             <li><hr class="dropdown-divider"></li>
       
-        <li class="nav-item dropdown">
-          <a class="nav-link active" href="#" aria-expanded="false">교회 소개</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">교회 비전</a></li>
-            <li><a class="dropdown-item" href="#">모임 안내</a></li>
-            <li><a class="dropdown-item" href="#">섬기는 사람들</a></li>
-            <li><a class="dropdown-item" href="#">오시는 길</a></li>
-          </ul>
-        </li>
-        
-        <li class="nav-item dropdown">
-          <a class="nav-link active" href="#" aria-expanded="false">예배와 말씀</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">예배 설교</a></li>
-            <li><a class="dropdown-item" href="#">주요 특강</a></li>
-            <li><a class="dropdown-item" href="#">복음과 교리</a></li>
-          </ul>
-        </li>
-        
-        <li class="nav-item dropdown">
-          <a class="nav-link active" href="#" aria-expanded="false">양육과 교육</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">영아유치부</a></li>
-            <li><a class="dropdown-item" href="#">유초등부</a></li>
-            <li><a class="dropdown-item" href="#">중고등부</a></li>
-            <li><a class="dropdown-item" href="#">청년대학부</a></li>
-            <li><a class="dropdown-item" href="#">구역과 전도회</a></li>
-            <li><a class="dropdown-item" href="#">말씀서원</a></li>
-          </ul>
-        </li>
-        
-        <li class="nav-item dropdown">
-          <a class="nav-link active" href="#" aria-expanded="false">돌봄과 선교</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">교회 소식</a></li>
-            <li><a class="dropdown-item" href="#">주보</a></li>
-            <li><a class="dropdown-item" href="#">협력교회와 기관소식</a></li>
-            <li><a class="dropdown-item" href="/4/gallery/photoList.jsp">갤러리</a></li>
-          </ul>
-        </li>
         
       </ul>
     </div>

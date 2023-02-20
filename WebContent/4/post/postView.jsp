@@ -41,7 +41,6 @@ iframe {
 //	if (UserDAO.exist(email)) {
 //	   out.write(UserDAO.selectUser(email));
 //	}
-	String sid = "admin"; // (String) session.getAttribute("sid");
 	int pno = Integer.parseInt(request.getParameter("pno"));
 
 	PostDTO pdto = PostDAO.selectPost(pno);
@@ -54,7 +53,7 @@ iframe {
 	</div>
 	<iframe src="<%=filePath %>" ></iframe>
 	<div>
-<% if(sid == null || sid.equals("admin")) { %>	
+<% if(sid == null || sid.equals("admin@gmail.com")) { %>	
 		<a href="postEdit.jsp?pno=<%=pno %>">수정</a>
 		<a href="postRemove.jsp?pno=<%=pno %>">삭제</a>
 <% } %>	
