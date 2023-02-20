@@ -95,11 +95,13 @@
 				<hr class="my-4">
 				<div class="row">
 					<div class="col-8">
-						<ul class="pagination justify-content-center" id="pagination"></ul>
+						<ul class="pagination justify-content-center" id="pagination">
+						
+						</ul>
 					</div>
 					<div class="col-4">
 						<div class="d-flex text-end">
-						  <select class="form-select" id="type">
+						  <select class="form-select" id="selectType">
 				       		<option value="T" selected>제목</option>
 				       		<option value="F">파일명</option>
 				       		<option value="E">이메일</option>
@@ -108,7 +110,7 @@
 				       		<option value="TFE">제목/파일명/이메일</option>
 				          </select>
 					      <input class="form-control" type="search" placeholder="검색어" aria-label="" id="keyword">
-					      <button class="btn btn-outline-success" type="button">검색</button>
+					      <button class="btn btn-outline-success" type="button" id="searchBtn">검색</button>
 					    </div>
 				    </div>
 		        </div>
@@ -135,7 +137,7 @@
 			<label class="form-label" for="title">제목</label>
 			<input class="form-control mb-3" type="text" name="title" id="title">
 			<label class="form-label" for="image">사진 선택</label>
-			<input class="form-control" type="file" name="image" id="image" multiple>
+			<input class="form-control" type="file" accept="image/*" name="image" id="image" multiple>
 		</form>
       </div>
       <div class="modal-footer" id="modal-footer">
@@ -147,25 +149,27 @@
 </div>
 <!-- lightbox2 js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" integrity="sha512-k2GFCTbp9rQU412BStrcD/rlwv1PYec9SNrkbQlo6RZCf75l6KcC3UwDY8H5n5hl4v77IDtIPwOk9Dqjs/mMBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+<script src="/resources/js/page.js"></script>
+<!-- 
 <script>
+/* Criteria 객체 */
 var cri = {
-		amount : 8,
+		amount : 8,							// 한 페이지에 표시 할 목록 갯수
 		pageNum : 1,
 		type : null,
 		keyword : null
 }
-
-var page = {
-		NUM_PER_PAGE : 5.0,					// 한 페이지에 표시 할 페이지 번호 수
+/* Pagination 정보 객체 */
+var pageObj = {
+		NUM_PER_PAGE : 10.0,					// 한 페이지에 표시 할 페이지 번호 수
 		start : 1,							// 시작 페이지 번호
 		end : this.NUM_PER_PAGE,			// 끝 페이지 번호
 		isPrevious : false,					// 이전
 		isNext : false,						// 다음
 		
-		pageCal : function() {
+		pageCal : function(cri){
 			var total = 0;
-			fetch('/4/gallery/totalNumProc.jsp', {	
+			fetch(getTotalCountUrl(), {	
 				method: "post",
 				body: new URLSearchParams({
 						amount: cri.amount,
@@ -180,26 +184,24 @@ var page = {
 					data.trim()
 					console.log(data);
 					total = data*1
-					setPage(total);
+					setPage(total, cri, this);
 				})
 		}
 }
-function setPage(total) {
-	var amount = cri.amount;
-	var pageNum = cri.pageNum;
-	
-	var pages = Math.ceil(total / amount);
 
-	page.end = (Math.ceil(pageNum / page.NUM_PER_PAGE) * page.NUM_PER_PAGE);
-	page.start = (page.end - (page.NUM_PER_PAGE - 1));
-	page.end = page.end >= pages ? pages : page.end;	// 실제 끝 페이지 번호 확인
-	page.isPrevious = page.start > 1;
-	page.isNext = page.end < pages;
+// 페이지네이션 설정 함수
+function setPage(total, cri, pageObj) {
+	var pages = Math.ceil(total / cri.amount);
+	pageObj.end = (Math.ceil(cri.pageNum / pageObj.NUM_PER_PAGE) * pageObj.NUM_PER_PAGE);
+	pageObj.start = (pageObj.end - (pageObj.NUM_PER_PAGE - 1));
+	pageObj.end = pageObj.end >= pages ? pages : pageObj.end;	// 실제 끝 페이지 번호 확인
+	pageObj.isPrevious = pageObj.start > 1;
+	pageObj.isNext = pageObj.end < pages;
 	
 	
 	var pageHTML = '';
-	//<!-- previous -->
-	if (page.isPrevious) {
+	// previous 
+	if (pageObj.isPrevious) {
 		pageHTML += ''
 		+'<li class="page-item">'
 			+'<button type="button" class="page-link" onclick="previous()" aria-label="Previous">'
@@ -208,15 +210,15 @@ function setPage(total) {
 			+'</button>'
 		+'</li>'
 	}
-	//<!-- page -->
-	for (var i = page.start; i <= page.end; i++) {
+	// page 
+	for (var i = pageObj.start; i <= pageObj.end; i++) {
 		pageHTML += ''
-		+'<li class="page-item ' + (cri.pageNum == i ? 'active' : '') +'">'
+		+'<li class="page-item ' + (cri.pageNum == i ? 'active disabled' : '') +'">'
 			+'<button class="page-link" onclick="pageBtn('+i+')">'+i+'</button>'
 		+'</li>'
 	}
-	//!-- next -->
-	if (page.isNext) {
+	// next 
+	if (pageObj.isNext) {
 		pageHTML += ''
 		+'<li class="page-item">'
 			+'<button type="button" class="page-link" onclick="next()" aria-label="Next">'
@@ -230,73 +232,98 @@ function setPage(total) {
 	getList();
 }
 
+/* 현재 버튼 클릭 시 실행 함수 */
 function pageBtn(pageNum) {
 	cri.pageNum = pageNum;
-	page.pageCal();
+	pageObj.pageCal(cri);
 }
+/* 이전 버튼 클릭 시 실행 함수 */
 function previous() {
-	page.start -= 1;
-	cri.pageNum = page.start
-	page.pageCal();
+	pageObj.start -= 1;
+	cri.pageNum = pageObj.start
+	pageObj.pageCal(cri);
 }
+/* 다음 버튼 클릭 시 실행 함수 */
 function next() {
-	page.end += 1;
-	cri.pageNum = page.end
-	page.pageCal();
-}
-onload = function() {
-	page.pageCal();
+	pageObj.end += 1;
+	cri.pageNum = pageObj.end
+	pageObj.pageCal(cri);
 }
 
+//-------------- 게시글 표시 갯수 변경 ---------------
 $('#selectAmount').on('change', function(){
 	cri.amount = $(this).val();
 	cri.pageNum = 1;
-	page.start = 1;
-	page.end = page.NUM_PER_PAGE
-	page.pageCal();
+	pageObj.start = 1;
+	pageObj.end = page.NUM_PER_PAGE
+	pageObj.pageCal(cri);
 });
 
-$('#keyword').on('keyup', function(){
+
+// -------------- 검색 관련 ---------------
+/* $('#keyword').on('keyup', function(){
 	cri.keyword = $(this).val()
 	cri.type = $('#type').val()
 	page.pageCal();
-});
-</script>
+}); */
 
+$('#searchBtn').on('click', function(){
+	searchExe();
+});
+$('#keyword').on("keypress", function(){
+	if(event.keyCode == 13) {
+		searchExe();
+	}
+})
+
+function searchExe() {
+	if ($('#keyword').val().trim() != '') {
+		cri.keyword = $('#keyword').val()
+		cri.type = $('#type').val()
+		page.pageCal(cri);
+	} else {
+		popModal('검색 오류', '검색어를 입력해 주세요.')
+	}
+}
+
+onload = function() {
+	pageObj.pageCal(cri);
+}
+</script>
+-->
 
 
 <script>
-getList();
-function getList() {
-	fetch('/4/gallery/photoListProc.jsp', {	
-		method: "post",
-		body: new URLSearchParams({
-				amount: cri.amount,
-				pageNum: cri.pageNum,
-				offset: cri.amount * (cri.pageNum - 1),
-				keyword: cri.keyword,
-				type: cri.type
-			})
-        })
-		.then(resp => resp.json())
-		.then(data => {
-			console.log(data);
-			var imgHTML = '';
-			for (var i = 0; i < data.length; i++) {
-				var img = data[i].upfolder + '/' +data[i].uuid + '_' + data[i].filename;
-				imgHTML += ''
-					+ '<div class="col-sm-6 col-md-4 col-lg-3 item h-100">'
-					+ '<a class="col-lg-4 col-md-12 mb-4 mb-lg-0" href="'+ img +'" data-title="'+data[i].title +'" data-lightbox="photos">'
-					+ '<img class="img-fluid shadow bg-body rounded" src="'+img+'"></a></div>';
-			}
-			$('#imgList').html(imgHTML);
-		})
+/*
+[form id 이걸로 하셈]
+
+검색 버튼 : searchBtn
+검색 입력 인풋 : keyword
+검색 선택 셀렉트 : selectType
+게시글 표시 갯수 셀렉트 : selectAmount
+*/
+
+/* 전체 게시물 수 가져오기 위해 처리한 jsp URL 입력해주세요 */
+function getTotalCountUrl() {
+	return '/4/gallery/totalNumProc.jsp'
 }
-
-
-
-
-
+/* 게시물 가져오기 위해 처리한 jsp URL 입력해주세요 */
+function getListUrl() {
+	return '/4/gallery/photoListProc.jsp'
+}
+function printList(data) {
+	//TODO: 리스트 출력 처리 하세요
+	var imgHTML = '';
+	for (var i = 0; i < data.length; i++) {
+		var img = data[i].upfolder + '/' +data[i].uuid + '_' + data[i].filename;
+		
+		imgHTML += ''
+			+ '<div class="col-sm-6 col-md-4 col-lg-3 item h-100">'
+			+ '<a class="col-lg-4 col-md-12 mb-4 mb-lg-0" href="'+ img +'" data-title="'+data[i].title +'" data-lightbox="photos">'
+			+ '<img class="img-fluid shadow bg-body rounded" src="'+img+'"></a></div>';
+	}
+	$('#imgList').html(imgHTML);
+}
 
 
 
