@@ -22,6 +22,6 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="/sqlMap/mapper/gallery.xml" />
+        <mapper resource="/sqlMap/mapper/post.xml" />
     </mappers>
 </configuration>
