@@ -1,7 +1,7 @@
 
 package page;
 
-public class pageVO {
+public class PageVO {
 	/*
 	    * 화면에 그려질 pageNation을 계산하는 클래스 ( pageNum, amount값을 가지고 다님 )
 	    */
@@ -23,7 +23,7 @@ public class pageVO {
 	   }
 	   
 	   // 생성자에서는 객체가 생성될때 계산을 처리
-	   public pageVO(int pageNum, int amount, int total) {
+	   public PageVO(int pageNum, int amount, int total) {
 	      this.pageNum = pageNum;
 	      this.amount = amount;
 	      this.total = total;
