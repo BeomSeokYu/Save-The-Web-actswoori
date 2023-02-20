@@ -1,6 +1,6 @@
 <%--작성자 정보 : 최현식
-작성일 정보 : 2023-02-17
-버전 정보 : 1.1--%>
+작성일 정보 : 2023-02-20
+버전 정보 : 1.2--%>
 <%@page import="jdbc.*"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -38,7 +38,7 @@
 					
  					str += "<tr><td>" + feeds[i].dno + "</td>";
  					str += "<td><a href='docView.jsp?dno="+ feeds[i].dno +"'>" + feeds[i].dtitle + "</a></td>";
- 					str += "<td>"+getUserName(feeds[i].email)+"</td>"
+ 					str += "<td class='userName'></td>"
  					str += "<td>" + feeds[i].ddate + "</td></tr>";
  				} $("#ajaxTable").html(str);
  			}
@@ -61,7 +61,7 @@
 			dataType:"text",
  			success:function(data){
  				var user = JSON.parse(data.trim());
- 				document.write(user.name)
+ 				$('.userName').text(user.name)
  			}
  		});
 	}
