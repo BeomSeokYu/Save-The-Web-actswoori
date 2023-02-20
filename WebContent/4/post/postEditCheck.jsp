@@ -19,7 +19,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>postEditCheck.jsp</title>
 <style>
 html {
     height: 100%;
@@ -33,12 +32,15 @@ body {
 </head>
 <body>
 <%@ include file="/include/header.jsp" %> 
-<%
+<%	
+	
 	request.setCharacterEncoding("UTF-8");
 	String sid = (String) session.getAttribute("sid");
 	if(sid == null || !sid.equals("admin")) {
 		response.sendRedirect("postList.jsp");
 	}
+	
+	String uploadPDF = request.getParameter("uploadPDF");
 	
 	String uploadPath = "/resources/postSaved";
 	String savePath = application.getRealPath(uploadPath);
@@ -92,13 +94,13 @@ body {
 		 <%
 			
 		} else {
-			%>
-			<script>
-				$(function() {
-					popModalRedirect('주보 수정', '알 수 없는 이유로 수정하지 못했습니다.', 'postList.jsp?pno=' + pno);
-				});
-			</script>
-			<%		
+		%>
+		<script>
+			$(function() {
+				popModalRedirect('주보 수정', '알 수 없는 이유로 수정하지 못했습니다.', 'postList.jsp?pno=' + pno);
+			});
+		</script>
+		<%		
 			
 		}
         	

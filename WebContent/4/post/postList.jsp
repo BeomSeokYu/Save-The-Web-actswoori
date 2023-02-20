@@ -32,6 +32,7 @@
 <script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
 <%
 	ArrayList<PostDTO> posts = PostDAO.selectAllPostList();
+session.setAttribute("sid", "admin");
 
 %>
 
@@ -49,7 +50,8 @@ function addCanvas(pno, ptitle) {
 			+ 	'<canvas id="the-canvas' + pno
 			+ 	'" style="border:1px solid black" class="the-canvas"></canvas>'
 			+ 	'</a>'
-			+ '</div>';
+			+ '</div>'
+			+ '<hr>';
 	$('.container').append(str);
 }
 
@@ -67,12 +69,10 @@ function showPDF(path, pno) {
 	//Asynchronous download of PDF
 	var loadingTask = pdfjsLib.getDocument(url);
 	loadingTask.promise.then(function(pdf) {
-	console.log('PDF loaded');
 	
 	// Fetch the first page
 	var pageNumber = 1;
 	pdf.getPage(pageNumber).then(function(page) {
-	 console.log('Page loaded');
 	 
 	 var scale = 1.5;
 	 var viewport = page.getViewport({scale: scale});
@@ -90,7 +90,6 @@ function showPDF(path, pno) {
 	 };
 	 var renderTask = page.render(renderContext);
 	 renderTask.promise.then(function () {
-	   console.log('Page rendered');
 	 });
 	});
 	}, function (reason) {
