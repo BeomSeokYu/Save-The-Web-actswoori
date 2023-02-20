@@ -32,7 +32,17 @@ iframe {
 <body>
 <%@ include file="/include/header.jsp" %> 
 
-<%
+<%	
+	request.setCharacterEncoding("UTF-8");
+	response.setContentType("text/html;charset=UTF-8");
+	
+	String email = request.getParameter("email");
+	
+//	if (UserDAO.exist(email)) {
+//	   out.write(UserDAO.selectUser(email));
+//	}
+	
+	String sid = "admin"; // (String) session.getAttribute("sid");
 	int pno = Integer.parseInt(request.getParameter("pno"));
 
 	PostDTO pdto = PostDAO.selectPost(pno);
@@ -44,11 +54,14 @@ iframe {
 		<p>작성자: <%=pdto.getEmail() %> </p>
 	</div>
 	<iframe src="<%=filePath %>" ></iframe>
-	
 	<div>
+<% if(sid.equals("admin")) { %>	
 		<a href="postEdit.jsp?pno=<%=pno %>">수정</a>
 		<a href="postRemove.jsp?pno=<%=pno %>">삭제</a>
+<% } %>	
+		<a href="postList.jsp">목록</a>
 	</div>
+
 </div>
 
 <%@ include file="/include/footer.jsp" %> 

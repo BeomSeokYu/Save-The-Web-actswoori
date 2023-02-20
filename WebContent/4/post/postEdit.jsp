@@ -33,6 +33,11 @@
 <%@ include file="/include/header.jsp" %> 
 
 <%
+	String sid = (String) session.getAttribute("sid");
+	if(sid == null || !sid.equals("admin")) {
+		response.sendRedirect("postList.jsp");
+	}
+	
 	int pno = Integer.parseInt(request.getParameter("pno"));
 
 	PostDTO pdto = PostDAO.selectPost(pno);

@@ -44,11 +44,11 @@
 <script type="text/javascript">
 function addCanvas(pno, ptitle) {
 	var str = '<div class="postDiv">'
-			+	 '<div><a href="postView.jsp?pno=' + pno + '">' + ptitle 
-			+ 	'</a>'
+			+	 '<a href="postView.jsp?pno=' + pno + '"><div>' + ptitle 
 			+ 	'</div>'
 			+ 	'<canvas id="the-canvas' + pno
 			+ 	'" style="border:1px solid black" class="the-canvas"></canvas>'
+			+ 	'</a>'
 			+ '</div>';
 	$('.container').append(str);
 }
