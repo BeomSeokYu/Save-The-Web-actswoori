@@ -2,9 +2,19 @@
 <%@page import="jdbc.coopDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-  <head>
-  </head>
-  <body>
+    
+	<%	//로그인 안되어있을 시
+		String sid = (String)session.getAttribute("sid");
+		if(sid==null){
+		response.sendRedirect("login.jsp");
+		}else{
+		
+	%>
+<!DOCTYPE html>
+<html>	
+<head>
+</head>
+<body>
 <%-- <% UserDTO udto = UserDAO.select(sid){%> --%>
 <%@include file="../../include/header.jsp" %>
  <% int cno = Integer.parseInt(request.getParameter("cno"));
@@ -50,3 +60,4 @@
   </body>
  <%@include file="../../include/footer.jsp" %>
 </html>
+<% }; %>
