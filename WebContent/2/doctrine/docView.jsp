@@ -16,7 +16,11 @@
 <body>
 <%@ include file="/include/navbar.jsp" %>
 <script>
+window.onload = function() {
  	var dno = <%=request.getParameter("dno")%>;
+ 	var sid = <%=sid%>
+ 	var admin = <%=admin%>
+ 	var email
   	function searchFunction(dno) {
  		
  		$.ajax({
@@ -28,7 +32,8 @@
  				var doc = JSON.parse(data.trim());
  				var title = "<h1>" + doc.dtitle + "</h1>";
 				$("#title").html(title);
-				$("#content").html(doc.dcontent); 
+				$("#content").html(doc.dcontent);
+				email = doc.email
  				} 
  			})
  		}
@@ -47,12 +52,15 @@
  		});
  	}
 
-
- 	window.onload = function() {
  		searchFunction(dno);
+		if (sid==admin||sid==email) {
+			$('.ad').show()
+		} else {}
+		$('.ad').hide()
  	}
 
- 	  
+	
+	
  </script>
 <div style="height: 100px;">
 </div>
@@ -61,9 +69,9 @@
 <hr>
 <div name="content" id="content" class="mtop-10"></div>
 <input type="button" value="이전으로" onclick="history.back()">
-<input type="button" value="수정" onclick="location.href='docMod.jsp?dno=<%=request.getParameter("dno") %>'">
 
-<button type="button" class="" onclick="delItem(dno)">삭제</button>
+<input type="button" value="수정" onclick="location.href='docMod.jsp?dno=<%=request.getParameter("dno") %>'" class="ad">
+<button type="button" class="ad" onclick="delItem(dno)">삭제</button>
     <%@ include file="/include/footer.jsp" %>
 </body>
 </html>

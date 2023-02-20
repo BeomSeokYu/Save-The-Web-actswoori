@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%
 	String sid = (String) session.getAttribute("sid");
+	String admin = "admin";
 	if(sid != null) {
 		session.setAttribute("sid", sid);
 	}
