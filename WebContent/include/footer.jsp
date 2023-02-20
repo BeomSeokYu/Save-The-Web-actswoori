@@ -1,6 +1,70 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<!-- FOOTER -->
+<footer class="bg-light">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-6 col-md-2 mb-3">
+        <h5>교회 소개</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">교회 비전</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">모임 안내</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">섬기는 사람들</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">오시는 길</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-2 mb-3">
+        <h5>예배와 말씀</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">예배 설교</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">주요 특강</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">복음과 교리</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-2 mb-3">
+        <h5>양육과 교육</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">영아유치부</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">유초등부</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">중고등부</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">청년대학부</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">구역과 전도회</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">말씀서원</a></li>
+        </ul>
+      </div>
+      
+      <div class="col-6 col-md-2 mb-3">
+        <h5>돌봄과 선교</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">교회 소식</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">주보</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">협력교회와 기관소식</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">갤러리</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-2 mb-3 text-end">
+      </div>
+      
+      <div class="col-6 col-md-2 mb-3 text-end">
+        <% if (session.getAttribute("sid") == null) { %>
+			<a href="/user/login.jsp">로그인<i class="bi bi-box-arrow-in-right"></i></a>
+		<% } else {%>
+			<a href="/user/logoutProc.jsp">로그아웃<i class="bi bi-box-arrow-right"></i></a>
+		<% } %>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+      <p>&copy; 행전우리교회</p>
+    </div>
+  </div>
+</footer>
+
+
 <!-- bootstrap JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 

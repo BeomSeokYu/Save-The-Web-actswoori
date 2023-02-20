@@ -76,6 +76,34 @@ public class WorshipDAO {
 		}
 	}
 	
+	//작성자 이메일 조회
+	public static String selectEmail(int wno) {
+		try {
+			String sql = "SELECT email FROM worship WHERE wno = ?";
+			
+			Connection conn = ConnectionPool.get();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, wno);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			String email = null;
+			
+			if (rs.next()) {
+				email = rs.getString(1);
+			}
+			
+			rs.close();
+			pstmt.close();
+			conn.close();
+			
+			return email;
+		} catch (NamingException | SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	//조회
 	public static String selectOne(int wno) {
 		try {
@@ -141,18 +169,18 @@ public class WorshipDAO {
 			return null;
 		}
 	}
-	
+
 	//페이징된 목록
 	public static String selectAllPaging(int pageNum){
 		try {
-			String sql = "SELECT * FROM worship ORDER BY wdate DESC limit ?, ?";
+			String sql = "SELECT * FROM worship ORDER BY wno DESC LIMIT ?, ?";
 			
 			Connection conn = ConnectionPool.get();
 			
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setInt(1, (pageNum - 1) * 10);
-			pstmt.setInt(2, pageNum * 10);
+			pstmt.setInt(2, 10);
 			
 			ResultSet rs = pstmt.executeQuery();
 			
@@ -160,6 +188,7 @@ public class WorshipDAO {
 			
 			while (rs.next()) {
 				JSONObject obj = new JSONObject();
+				
 				obj.put("wno", rs.getString(1));
 				obj.put("email", rs.getString(2));
 				obj.put("wname", rs.getString(3));
@@ -179,7 +208,7 @@ public class WorshipDAO {
 			return null;
 		}
 	}
-	
+
 	// 전체 게시글 수
 	public static int getTotal() {
 		int result = 0;

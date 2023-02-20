@@ -1,15 +1,15 @@
 <%@page import="page.PageVO"%>
 <%@page import="jdbc.coopDTO"%>
 <%@page import="jdbc.coopDAO"%>
-
-
 <%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
-   
+ 
+<%String sid = (String)session.getAttribute("sid");%>  
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,34 +32,28 @@ if(request.getParameter("pageNum") != null && request.getParameter("amount") != 
 }
 
 
-// 2. pageVO생성
+// 2. PageVO생성
 coopDAO cdto = new coopDAO();
 
 List<coopDTO> coops = coopDAO.getListpaging(pageNum, amount);
 int total = cdto.getTotal(); // 전체게시글수
+<<<<<<< HEAD
 PageVO pvo = new PageVO(pageNum, amount, total);
+=======
+page.PageVO pvo = new page.PageVO(pageNum, amount, total);
+>>>>>>> feature/KyungoeSim
 
 // 3. 페이지네이션을 화면에 전달
-request.setAttribute("pageVO", pvo);
+request.setAttribute("PageVO", pvo);
 
 // 화면에 가지고 나갈 list를 request에 저장 !!
 request.setAttribute("coops", coops);
 %>
 
- <div>
-   <select onchange="change(this)">
-      <option value="10" ${pageVO.amount eq 10 ? 'selected' : '' }>10개씩 보기</option>
-      <option value="20" ${pageVO.amount eq 20 ? 'selected' : '' }>20개씩 보기</option>
-      <option value="50" ${pageVO.amount eq 50 ? 'selected' : '' }>50개씩 보기</option>
-      <option value="100" ${pageVO.amount eq 100 ? 'selected' : '' }>100개씩 보기</option>
-   </select>
-</div> 
-
-
-
 <section class="py-5 text-center container"></section>
 
 <div class="container" style="margin: auto; ">
+
 <h1>협력 기관 소식</h1>
 <div style="float:right; margin-bottom:10px">
 	<form method="post" name="search" action="searchbbs.jsp">
@@ -78,6 +72,14 @@ request.setAttribute("coops", coops);
 	</form>
 </div>
 <br>
+ <div>
+   <select onchange="change(this)">
+      <option value="10" ${PageVO.amount eq 10 ? 'selected' : '' }>10개씩 보기</option>
+      <option value="20" ${PageVO.amount eq 20 ? 'selected' : '' }>20개씩 보기</option>
+      <option value="50" ${PageVO.amount eq 50 ? 'selected' : '' }>50개씩 보기</option>
+      <option value="100" ${PageVO.amount eq 100 ? 'selected' : '' }>100개씩 보기</option>
+   </select>
+</div> 
  <table class="table">
   <thead class="table-light">
     <tr>
@@ -94,7 +96,7 @@ request.setAttribute("coops", coops);
 %>
 	<tr>
       <th scope="row"><%=coop.getCno() %></th>
-      <td><a href="coopInfo.jsp?cno=<%=coop.getCno() %>&pageNum=${pageVO.pageNum }&amount=${pageVO.amount}"><%=coop.getCtitle() %></a></td>
+      <td><a href="coopInfo.jsp?cno=<%=coop.getCno() %>&pageNum=${PageVO.pageNum }&amount=${PageVO.amount}"><%=coop.getCtitle() %></a></td>
       <td><%=coop.getEmail()%></td>
       <td><%=coop.getCdate() %></td>
     </tr>
@@ -105,29 +107,32 @@ request.setAttribute("coops", coops);
 
   </tbody>
 </table>
-<button onclick="location.href='coopAdd.jsp'" class="btn btn-success" style="float:right;">글 등록하기</button>
-</div>
 <nav aria-label="Page navigation example">
   <ul class="pagination">
-
 <!-- 2. 이전버튼 활성화 여부 -->
-<c:if test="${pageVO.prev }">
-      <li class="page-item"><a class="page-link" href="coopList.jsp?pageNum=${pageVO.startPage - 1 }&amount=${pageVO.amount}">이전</a></li>
+<c:if test="${PageVO.prev }">
+      <li class="page-item"><a class="page-link" href="coopList.jsp?pageNum=${PageVO.startPage - 1 }&amount=${PageVO.amount}">이전</a></li>
 </c:if>
              
    <!-- 1. 페이지번호 처리 -->
-   <c:forEach var="num" begin="${pageVO.startPage }" end="${pageVO.endPage }">
-      <li class="${pageVO.pageNum eq num ? 'disabled ' : '' }page-item">
-      <a class="page-link" href="coopList.jsp?pageNum=${num }&amount=${pageVO.amount}">${num }</a></li>
+   <c:forEach var="num" begin="${PageVO.startPage }" end="${PageVO.endPage }">
+      <li class="${PageVO.pageNum eq num ? 'disabled ' : '' }page-item">
+      <a class="page-link" href="coopList.jsp?pageNum=${num }&amount=${PageVO.amount}">${num }</a></li>
    </c:forEach>
    
    <!-- 3. 다음버튼 활성화 여부 -->
-   <c:if test="${pageVO.next }">
-      <li class="page-item"><a class="page-link" href="coopList?pageNum=${pageVO.endPage + 1 }&amount=${pageVO.amount}">다음</a></li>
+   <c:if test="${PageVO.next }">
+      <li class="page-item"><a class="page-link" href="coopList?pageNum=${PageVO.endPage + 1 }&amount=${PageVO.amount}">다음</a></li>
    </c:if>
   </ul>
 </nav>
+<button onclick="location.href='coopMain.jsp'" class="btn btn-info">협력교회 및 기관 메인</button>
+<% if(sid!=null){ %>
+<button onclick="location.href='coopAdd.jsp'" class="btn btn-success" style="float:right;">글 등록하기</button>
+<% }; %>
+</div>
 
+   <section class="py-5 text-center container"></section>
 <%@include file="../../include/footer.jsp" %>
 <script>
 function change(a){

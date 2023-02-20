@@ -1,3 +1,4 @@
+<%@page import="worship.WorshipDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -6,6 +7,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <%@ include file="/include/header.jsp" %>
+<%
+	if(sid == null || !sid.equals(WorshipDAO.selectEmail(Integer.parseInt(request.getParameter("wno"))))) { // 보안 처리
+		response.sendRedirect("wSelectAll.jsp");
+		return;
+	}
+%>
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 </head>
 <body>

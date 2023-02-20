@@ -13,17 +13,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
 </head>
 <body>
 <%@ include file="/include/header.jsp" %> 
 <div class="container">
 <form action="postAddCheck.jsp" name=f1 method=post enctype="multipart/form-data">
 	제목 : <input type="text" name="ptitle"><br>
-    <input id="uploadPDF" type="file" name="post"/>&nbsp;<br>
+    <input id="uploadPDF" type="file" name="post" onchange="PreviewImage();"/>&nbsp;<br>
     
-    <input type="button" value="미리보기" onclick="PreviewImage();" />
-
     <button type="submit" name="submit" class="btn btn-success btn-sm">
       <i class="fa fa-dot-circle-o"></i> 등록
     </button>&emsp;

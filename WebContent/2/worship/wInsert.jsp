@@ -6,6 +6,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <%@ include file="/include/header.jsp" %>
+<%
+	if(sid == null) { // 보안 처리
+		response.sendRedirect("wSelectAll.jsp");
+		return;
+	}
+%>
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 </head>
 <body>

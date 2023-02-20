@@ -19,7 +19,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>postAddCheck.jsp</title>
 <style>
 html {
     height: 100%;

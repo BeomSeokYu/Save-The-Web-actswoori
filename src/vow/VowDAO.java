@@ -77,32 +77,28 @@ public class VowDAO {
 		}
 	}
 	
-	// 목록
-	public static String selectAll() {
+	//작성자 이메일 조회
+	public static String selectEmail(int vno) {
 		try {
-			String sql = "SELECT * FROM vow ORDER BY vdate DESC";
+			String sql = "SELECT email FROM vow WHERE vno = ?";
 			
 			Connection conn = ConnectionPool.get();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, vno);
+			
 			ResultSet rs = pstmt.executeQuery();
 			
-			JSONArray vows = new JSONArray();
+			String email = null;
 			
-			while (rs.next()) {
-				JSONObject obj = new JSONObject();
-				obj.put("vno", rs.getString(1));
-				obj.put("email", rs.getString(2));
-				obj.put("vtitle", rs.getString(3));
-				obj.put("vdate", rs.getString(5));
-				
-				vows.add(obj);
+			if (rs.next()) {
+				email = rs.getString(1);
 			}
 			
 			rs.close();
 			pstmt.close();
 			conn.close();
 			
-			return vows.toJSONString();
+			return email;
 		} catch (NamingException | SQLException e) {
 			e.printStackTrace();
 			return null;
@@ -135,6 +131,38 @@ public class VowDAO {
 			conn.close();
 			
 			return vow.toJSONString();
+		} catch (NamingException | SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	// 목록
+	public static String selectAll() {
+		try {
+			String sql = "SELECT * FROM vow ORDER BY vdate DESC";
+			
+			Connection conn = ConnectionPool.get();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			
+			JSONArray vows = new JSONArray();
+			
+			while (rs.next()) {
+				JSONObject obj = new JSONObject();
+				obj.put("vno", rs.getString(1));
+				obj.put("email", rs.getString(2));
+				obj.put("vtitle", rs.getString(3));
+				obj.put("vdate", rs.getString(5));
+				
+				vows.add(obj);
+			}
+			
+			rs.close();
+			pstmt.close();
+			conn.close();
+			
+			return vows.toJSONString();
 		} catch (NamingException | SQLException e) {
 			e.printStackTrace();
 			return null;

@@ -2,7 +2,6 @@
 <%@page import="jdbc.coopDTO"%>
 <%@page import="jdbc.coopDAO"%>
 
-
 <%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -55,11 +54,10 @@ request.setAttribute("coops", coops);
    </select>
 </div> 
 
-
-
 <section class="py-5 text-center container"></section>
 
 <div class="container" style="margin: auto; ">
+
 <h1>협력 기관 소식</h1>
 <div style="float:right; margin-bottom:10px">
 	<form method="post" name="search" action="searchbbs.jsp">
@@ -78,6 +76,7 @@ request.setAttribute("coops", coops);
 	</form>
 </div>
 <br>
+
  <table class="table">
   <thead class="table-light">
     <tr>
@@ -128,6 +127,11 @@ request.setAttribute("coops", coops);
   </ul>
 </nav>
 
+<button onclick="location.href='coopMain.jsp'" class="btn btn-info">협력교회 및 기관 메인</button>
+<button onclick="location.href='coopAdd.jsp'" class="btn btn-success" style="float:right;">글 등록하기</button>
+</div>
+
+   <section class="py-5 text-center container"></section>
 <%@include file="../../include/footer.jsp" %>
 <script>
 function change(a){

@@ -156,7 +156,7 @@ public class PostDAO {
 		}
 	}
 	
-	// 주보 등록
+	// 주보 수정
 	public static boolean updatePost(int pno, String ptitle, String pupfolder, String puuid, String pfilename)
 			throws NamingException, SQLException {
 		
@@ -205,47 +205,7 @@ public class PostDAO {
 			if(conn != null) conn.close();
 		}
 	}
-//	
-//	/**사진 한 장 업로드**/
-//    public Boolean uploadImage(MultipartFile image, String dirName) throws Exception {
-//        Boolean result = Boolean.FALSE;
-//        try{
-//            File folder = new File(dirName);
-//            if (!folder.exists()) folder.mkdirs();
-//
-//            File destination = new File(dirPath + File.separator + image.getOriginalFilename());
-//            image.transferTo(destination);
-//
-//            result = Boolean.TRUE;
-//        }catch (Exception e){
-//            log.error("에러 : " + e.getMessage());
-//        }finally {
-//            return result;
-//        }
-//    }
-//		
-//	 /**사진 여러 장 업로드**/
-//    public Boolean uploadImage(List<Multipartfile> images, String dirName) throws Exception {
-//        short result = -1;
-//        try{
-//            File folder = new File(dirName);
-//            if (!folder.exists()) folder.mkdirs();
-//
-//            for(MultipartFile image : images) {
-//                File destination = new File(dirName + File.separator + image.getOriginalFilename());
-//                image.transferTo(destination);
-//
-//                result++;
-//            }
-//        }catch (Exception e){
-//            log.error("에러 : " + e.getMessage());
-//        }finally {
-//        	if(result == -1 || result < images.size() -1) return Boolean.FALSE;
-//            else if(result == images.size() -1) return Boolean.TRUE;
-//            else return Boolean.FALSE;
-//        }
-//    }		
-				
+			
 			
 		
 }
