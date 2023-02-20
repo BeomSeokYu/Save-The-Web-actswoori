@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
     
 
-<%@include file="../../include/header.jsp" %>  
+<%@include file="/include/header.jsp" %>  
 
 <%
 request.setCharacterEncoding("utf-8");
@@ -28,4 +28,4 @@ if(result == 1){ %>
 	</script>
 <% } %>
 
-<%@include file="../../include/footer.jsp" %>
+<%@include file="/include/footer.jsp" %>

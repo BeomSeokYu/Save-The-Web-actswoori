@@ -21,7 +21,7 @@
 <div class="container shadow mx-auto p-5 w-75">
  
  <script>
- 	var sid = "admin@gmail.com";<%-- <%=sid%> --%>
+ 	var sid = "<%=sid%>";
   	function searchFunction() {
  		
  		$.ajax({
@@ -92,7 +92,7 @@
 
 </tbody>
 </table>
-<%if(sid.equals("admin@gmail.com")){ %>
+<%if(sid.equals(admin)){ %>
 <input type="button" value="등록하기" onclick="checkSid()">
 <%} %>
 </div>

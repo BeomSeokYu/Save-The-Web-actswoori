@@ -6,7 +6,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<%@include file="../../include/header.jsp" %>
+<%@include file="/include/header.jsp" %>
 <title>Slick</title>
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -46,7 +46,7 @@
     </style>
   </head>
 <body> 
-  
+ <%@include file="/include/navbar.jsp" %> 
     <section class="py-5 text-center container"></section>
 
 	<div class="container" style="margin: auto;">
@@ -83,6 +83,6 @@
     </div>
    </div>
    <section class="py-5 text-center container"></section>
-<%@include file="../../include/footer.jsp" %>
+<%@include file="/include/footer.jsp" %>
   </body>
 </html>

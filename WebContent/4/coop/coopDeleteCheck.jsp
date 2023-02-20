@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@ include file="../../include/header.jsp" %>
+<%@ include file="/include/header.jsp" %>
 <%
 request.setCharacterEncoding("utf-8");
 int cno = Integer.parseInt(request.getParameter("cno"));
@@ -49,5 +49,5 @@ if(result==1){
 
 %>
 </body>
- <%@include file="../../include/footer.jsp" %>
+ <%@include file="/include/footer.jsp" %>
 </html>

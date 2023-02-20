@@ -4,7 +4,7 @@
     
 
 
-<%@include file="../../include/header.jsp" %>  
+<%@include file="/include/header.jsp" %>  
 
 <%
 request.setCharacterEncoding("utf-8");
@@ -22,11 +22,7 @@ if(result == 1){ %>
 	<script>
  		$(function() {
  			popModalRedirect("게시물 등록", "등록 완료 하였습니다.", "coopList.jsp")}); 
- 		<%
- 		  response.setHeader("Pragma","no-cache"); 
- 		  response.setDateHeader("Expires",0); 
- 		  response.setHeader("Cache-Control", "no-cache");
- 		%>
+
 	</script>
 	
 <%}else{%>
@@ -36,4 +32,4 @@ if(result == 1){ %>
 	</script>
 <% } %>
 
-<%@include file="../../include/footer.jsp" %>
+<%@include file="/include/footer.jsp" %>
