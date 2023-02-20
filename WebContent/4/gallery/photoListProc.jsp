@@ -1,14 +1,10 @@
-
-<%@page import="org.json.simple.JSONArray"%>
-<%@page import="jdk.nashorn.internal.ir.debug.JSONWriter"%>
-<%@page import="jdbc.Criteria"%>
 <%@page import="org.json.simple.JSONObject"%>
-<%@page import="sqlMap.SqlSessionManager"%>
-<%@page import="java.util.HashMap"%>
-<%@page import="org.json.simple.parser.JSONParser"%>
+<%@page import="org.json.simple.JSONArray"%>
 <%@page import="jdbc.GalleryDTO"%>
 <%@page import="java.util.List"%>
+<%@page import="jdbc.Criteria"%>
 <%@page import="org.apache.ibatis.session.SqlSession"%>
+<%@page import="sqlMap.SqlSessionManager"%>
 <%@page import="org.apache.ibatis.session.SqlSessionFactory"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

@@ -1,4 +1,3 @@
-<%@page import="jdbc.PageDTO"%>
 <%@page import="jdbc.Criteria"%>
 <%@page import="org.apache.ibatis.session.SqlSession"%>
 <%@page import="sqlMap.SqlSessionManager"%>
