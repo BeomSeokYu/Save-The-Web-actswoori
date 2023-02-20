@@ -8,8 +8,7 @@
 		response.sendRedirect("vSelectAll.jsp");
 		return;
 	}
-	
-	
+
 	int vno = Integer.parseInt(request.getParameter("vno"));
 	String vtitle = request.getParameter("vtitle");
 	String vcontent = request.getParameter("vcontent");

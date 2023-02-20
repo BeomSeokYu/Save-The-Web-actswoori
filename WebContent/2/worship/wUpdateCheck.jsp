@@ -1,13 +1,13 @@
 <%@page import="worship.WorshipDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
+	request.setCharacterEncoding("utf-8");
+
 	String sid = (String) session.getAttribute("sid"); // 보안 처리
 	if (sid == null || !sid.equals(WorshipDAO.selectEmail(Integer.parseInt(request.getParameter("wno"))))) {
 		response.sendRedirect("wSelectAll.jsp");
 		return;
 	}
-
-	request.setCharacterEncoding("utf-8");
 	
 	int wno = Integer.parseInt(request.getParameter("wno"));
 	String wname = request.getParameter("wname");
