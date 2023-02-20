@@ -34,8 +34,7 @@
  				
  				var str = "";
  				for(var i = 0; i < feeds.length; i++){
- 					
-					
+ 					getUserName(feeds[i].email);
  					str += "<tr><td>" + feeds[i].dno + "</td>";
  					str += "<td><a href='docView.jsp?dno="+ feeds[i].dno +"'>" + feeds[i].dtitle + "</a></td>";
  					str += "<td class='userName'></td>"
@@ -61,7 +60,8 @@
 			dataType:"text",
  			success:function(data){
  				var user = JSON.parse(data.trim());
- 				$('.userName').text(user.name)
+ 				$(".userName").text(user.name)
+ 			
  			}
  		});
 	}

@@ -10,6 +10,7 @@
 	response.setContentType("text/html; charset=UTF-8");
 
 	int dno = Integer.parseInt(request.getParameter("dno"));
+
 	out.print(docDAO.deleteDoc(dno));
 %>
 
