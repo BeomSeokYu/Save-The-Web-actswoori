@@ -3,12 +3,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<%String sid = (String)session.getAttribute("sid");%>  
 
 <!DOCTYPE html>
 <html>
 <body>
-<%@ include file="../../include/header.jsp" %>
+<%@ include file="/include/header.jsp" %>
  <% int cno = Integer.parseInt(request.getParameter("cno"));
 	 coopDAO cdao = new coopDAO();
  	 coopDTO cdto = cdao.select(cno); %> 
@@ -28,4 +27,4 @@
 		<button onclick="location.href='coopList.jsp?pageNum=<%= request.getParameter("pageNum") %>&amount=<%= request.getParameter("amount") %>'" class="btn btn-primary">목록으로</button>
 
 </body>
- <%@include file="../../include/footer.jsp" %>
+ <%@include file="/include/footer.jsp" %>

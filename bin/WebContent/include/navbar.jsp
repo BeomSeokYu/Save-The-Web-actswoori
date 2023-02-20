@@ -11,14 +11,13 @@
 
 
 <!-- navigation bar -->
-<nav class="navbar navbar-expand-md fixed-top navbar-light bg-light" aria-label="Eighth navbar example">
-  <div class="container">
+<nav class="navbar navbar-expand-md bg-light">
+  <div class="container-fluid">
     <a class="navbar-brand" href="/main.jsp">행전우리교회</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <div class="collapse navbar-collapse" id="navbarsExample07">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 		<li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -26,10 +25,10 @@
           </a>
           <ul class="dropdown-menu">
           	<li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/1/vision.jsp">교회 비전</a></li>
-            <li><a class="dropdown-item" href="/1/moim.jsp">모임 안내</a></li>
+            <li><a class="dropdown-item" href="#">교회 비전</a></li>
+            <li><a class="dropdown-item" href="#">모임 안내</a></li>
             <li><a class="dropdown-item" href="#">섬기는 사람들</a></li>
-            <li><a class="dropdown-item" href="/1/directions.jsp">오시는 길</a></li>
+            <li><a class="dropdown-item" href="/1/direction/directions.jsp">오시는 길</a></li>
             <li><hr class="dropdown-divider"></li>
           </ul>
         </li>
@@ -40,7 +39,7 @@
           <ul class="dropdown-menu">
           	<li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="/2/worship/wSelectAll.jsp">예배 설교</a></li>
-            <li><a class="dropdown-item" href="/2/lecture/lectureMain.jsp">주요 특강</a></li>
+            <li><a class="dropdown-item" href="#">주요 특강</a></li>
             <li><a class="dropdown-item" href="/2/doctrine/doctrine.jsp">복음과 교리</a></li>
             <li><hr class="dropdown-divider"></li>
           </ul>
@@ -70,9 +69,48 @@
             <li><a class="dropdown-item" href="/4/coop/coopList.jsp">협력 교회와 기관소식</a></li>
             <li><a class="dropdown-item" href="/4/gallery/photoList.jsp">갤러리</a></li>
             <li><hr class="dropdown-divider"></li>
-      
-        
+          </ul>
+        </li>
+      </ul>
+      <ul class="navbar-nav mb-2 mb-lg-0 d-flex">
+  
       </ul>
     </div>
+  </div>
+</nav>
+
+<!-- navbar (bottom) -->
+<nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+<% if (session.getAttribute("sid") == null) { %>
+	<a href="/user/login.jsp">로그인</a>
+<% } else {%>
+	<a href="/user/logoutProc.jsp">로그아웃</a>
+<% } %>
+    <!-- <a class="navbar-brand" href="/main.jsp">MyMEMO</a> -->
+    <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Disabled</a>
+        </li>
+        <li class="nav-item dropup">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropup</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>-->
   </div>
 </nav>

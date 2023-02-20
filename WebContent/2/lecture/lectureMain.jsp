@@ -1,3 +1,4 @@
+<%@page import="page.PageVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList"%>
@@ -53,7 +54,7 @@
 	ArrayList<LectureDTO> lectures = LectureDAO.getListpaging(pageNum, amount);
 	
 	int total = ldto.getTotal(); // 전체게시글수
-	pageVO pvo = new pageVO(pageNum, amount, total);
+	PageVO pvo = new PageVO(pageNum, amount, total);
 	// 3. 페이지네이션을 화면에 전달
 		request.setAttribute("pageVO", pvo);
 	// 화면에 가지고 나갈 list를 request에 저장 !!

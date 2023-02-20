@@ -12,8 +12,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/include/header.jsp" %>      
 <%
-	String sid = (String) session.getAttribute("sid");
-	if(sid == null || !sid.equals("admin")) {
+	if(sid == null || !sid.equals(admin)) {
 		response.sendRedirect("postList.jsp");
 	}
 	

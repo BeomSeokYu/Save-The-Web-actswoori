@@ -27,14 +27,13 @@
 	scrolling: no;
 }
 </style>
+<%@ include file="/include/header.jsp" %> 
 </head>
 
 <body>
-<%@ include file="/include/header.jsp" %> 
-
+<%@ include file="/include/navbar.jsp" %>
 <%
-	String sid = (String) session.getAttribute("sid");
-	if(sid == null || !sid.equals("admin")) {
+	if(sid == null || !sid.equals(admin)) {
 		response.sendRedirect("postList.jsp");
 	}
 	

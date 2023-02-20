@@ -23,7 +23,7 @@
 <button type="button" class="btn btn-primary" onclick="addItem()">추가</button>
 
 <script>
-var sid = "asd";
+var sid = "admin@gmail.com";
   $('#summernote').summernote({
 	  tabsize: 2,
         height: 60,
