@@ -1,4 +1,5 @@
-package jdbc;
+
+package page;
 
 public class PageVO {
 	/*
@@ -10,7 +11,7 @@ public class PageVO {
 	  public boolean prev, next; // 이전버튼, 다음버튼 활성화여부
 	   
 	  public int pageNum; // 현재 조회하는 페이지번호
-	  public int amount = 5; // 화면에 그려질 데이터
+	  public int amount = 10; // 화면에 그려질 데이터
 	  public int total; // 전체게시글 수
 	   
 	   public boolean getPrev() {
@@ -33,7 +34,6 @@ public class PageVO {
 //	       ex) 조회하는 페이지 11 -> 끝번호 20
 //	       공식 = (int)Math.ceil(페이지번호 / 페이지네이션개수) * 페이지네이션개수
 	      this.endPage = (int)Math.ceil(this.pageNum * 0.1) * 10;
-	      
 	      
 	      // 2. startPage결정
 	      // 공식 = 끝페이지 - 페이지네이션개수 + 1
