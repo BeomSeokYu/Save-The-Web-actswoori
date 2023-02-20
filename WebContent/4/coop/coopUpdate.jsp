@@ -10,10 +10,9 @@
 <%@include file="/include/header.jsp" %>
 </head>
 	<%	//로그인 안되어있을 시
-		if(sid == null || sid.equals(admin)){
+		if(sid == null || !sid.equals(admin)){
 		response.sendRedirect("/login.jsp");
 		}else{
-		
 	%>
 <body>
 <%-- <% UserDTO udto = UserDAO.select(sid){%> --%>
@@ -45,7 +44,7 @@
 </div>
 
     <script>
-     $('#summernote').val('<%= cdto.getCcontent() %>'); 
+     $('#summernote').val('<%=cdto.getCcontent()%>'); 
       $('#summernote').summernote({
         placeholder:'',
         tabsize: 2,
