@@ -4,6 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<style type="text/css">
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+</style>
 <title>행전우리교회</title>
 <%@ include file="/include/header.jsp" %>
 </head>

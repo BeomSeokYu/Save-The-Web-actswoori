@@ -23,17 +23,20 @@
 
 <!-- modal script -->
 <script type="text/javascript">
-	function popModal(head, body) {
-		$('#msgModalLabel').text(head);
-		$('#msgModalBody').html(body);
-		$('#msgModal').modal('show');
-	}
-	
-	function popModalRedirect(head, body, url) {
-		$('#msgModalLabel').text(head);
-		$('#msgModalBody').html(body);
-		$('#modal-footer').empty()
-			.append('<a href="'+url+'" class="btn btn-primary">이동</a>')
-		$('#msgModal').modal('show');
-	}
+function popModal(head, body) {
+    $('#msgModalLabel').text(head);
+    $('#msgModalBody').html(body);
+    $('#modal-footer').empty()
+       .append('<button type="button" class="btn btn-warning" data-bs-dismiss="modal">확인</button>')
+    $('#msgModal').modal('show');
+ }
+ 
+ function popModalRedirect(head, body, url) {
+    $('#msgModalLabel').text(head);
+    $('#msgModalBody').html(body);
+    $('#modal-footer').empty()
+       .append('<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>'
+             + '<a href="'+url+'" class="btn btn-warning">이동</a>')
+    $('#msgModal').modal('show');
+ }
 </script>
