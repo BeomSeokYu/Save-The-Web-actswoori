@@ -13,11 +13,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>coopList</title>
+<%@include file="/include/header.jsp" %>
 </head>
 <body>
 
-<%@include file="/include/header.jsp" %>
+<%@include file="/include/navbar.jsp" %>
+
 <%
 	//1. 화면전환 시에 조회하는 페이지번호 and 화면에 그려질 데이터개수 2개를 전달받음
 // 첫 페이지 경우
@@ -123,7 +125,7 @@ request.setAttribute("coops", coops);
   </ul>
 </nav>
 <button onclick="location.href='coopMain.jsp'" class="btn btn-info">협력교회 및 기관 메인</button>
-<% if(sid!=null){ %>
+<% if(sid!=null || sid.equals(admin)){ %>
 <button onclick="location.href='coopAdd.jsp'" class="btn btn-success" style="float:right;">글 등록하기</button>
 <% }; %>
 </div>
