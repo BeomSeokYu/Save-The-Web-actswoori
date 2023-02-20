@@ -14,29 +14,71 @@
 <meta charset="UTF-8">
 <title>행전우리교회</title>
 <%@ include file="/include/header.jsp" %>
+<style>
+html,
+body {
+  height: 100%;
+}
+
+body {
+  align-items: center;
+  padding-top: 150px;
+  padding-bottom: 40px;
+  background-color: #f5f5f5;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[data-type="top"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[data-type="bottom"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+</style>
 </head>
 <body>
 <%@ include file="/include/navbar.jsp" %>
 	<div class="container">
-		<div class="form-signin w-50 m-auto text-center">
+		<div class="form-signin text-center">
 		  <form action="" method="post">
-		    <img class="mb-4" src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" alt="" width="72" height="72">
 		    <h1 class="h3 mb-3 fw-normal">비밀번호 변경</h1>
 		
 		    <div class="form-floating">
-		    	<input type="hidden" name="email" id="email" value="<%=request.getParameter("email")%>">
-    		    <input type="hidden" name="job" id="email" value="">
-    		    <input type="hidden" name="name" id="email" value="">
-		      <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+		      <input type="hidden" name="email" id="email" value="<%=request.getParameter("email")%>">
+		      <input type="password" class="form-control" id="password" name="password" placeholder="Password" data-type="top">
 		      <label for="floatingInput">새 비밀번호</label>
 		    </div>
 		    <div class="form-floating">
-		      <input type="password" class="form-control" id="passwordCheck" name="passwordCheck" placeholder="Password">
+		      <input type="password" class="form-control" id="passwordCheck" name="passwordCheck" placeholder="Password" data-type="bottom">
 		      <label for="floatingPassword">새 비밀번호(확인)</label>
 		    </div>
 	
-		    <button class="w-100 btn btn-lg btn-warning" type="button" id="editBtn">변경</button>
-		    <p class="mt-5 mb-3 text-muted">&copy; SaveTheWeb</p>
+		    <button class="w-100 btn btn-lg btn-secondary" type="button" id="editBtn">변경</button>
 		  </form>
 		</div>
 	</div>
@@ -48,8 +90,6 @@ $('#editBtn').on('click', function(){
 		body: new URLSearchParams({
 				email: $('#email').val(),
 				pw: $('#password').val(),
-				job: $('#job').val(),
-				name: $('#name').val()
 			})
         })
 		.then(resp => resp.text())
@@ -68,7 +108,6 @@ $('#editBtn').on('click', function(){
 		})
 		.catch(err => console.log('Error : ', err));
 });
-
 
 
 </script>

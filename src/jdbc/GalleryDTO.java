@@ -3,6 +3,7 @@ package jdbc;
 public class GalleryDTO {
 	private int gno;
 	private String gtitle;
+	private String gupfolder;
 	private String guuid;
 	private String gfilename;
 	private String email;
@@ -43,13 +44,22 @@ public class GalleryDTO {
 	public void setGdate(String gdate) {
 		this.gdate = gdate;
 	}
-	public GalleryDTO(int gno, String gtitle, String guuid, String gfilename, String email, String gdate) {
+	public String getGupfolder() {
+		return gupfolder;
+	}
+	public void setGupfolder(String gupfolder) {
+		this.gupfolder = gupfolder;
+	}
+	public GalleryDTO(int gno, String gtitle, String gupfolder, String guuid, String gfilename, String email,
+			String gdate) {
 		super();
 		this.gno = gno;
 		this.gtitle = gtitle;
+		this.gupfolder = gupfolder;
 		this.guuid = guuid;
 		this.gfilename = gfilename;
 		this.email = email;
 		this.gdate = gdate;
 	}
+	
 }
