@@ -35,7 +35,6 @@ body {
 <%	
 	
 	request.setCharacterEncoding("UTF-8");
-	String sid = (String) session.getAttribute("sid");
 	if(sid == null || !sid.equals("admin")) {
 		response.sendRedirect("postList.jsp");
 	}

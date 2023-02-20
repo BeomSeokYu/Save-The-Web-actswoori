@@ -8,7 +8,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
  
-<%String sid = (String)session.getAttribute("sid");%>  
 
 <!DOCTYPE html>
 <html>
@@ -18,7 +17,7 @@
 </head>
 <body>
 
-<%@include file="../../include/header.jsp" %>
+<%@include file="/include/header.jsp" %>
 <%
 	//1. 화면전환 시에 조회하는 페이지번호 and 화면에 그려질 데이터개수 2개를 전달받음
 // 첫 페이지 경우
@@ -37,11 +36,8 @@ coopDAO cdto = new coopDAO();
 
 List<coopDTO> coops = coopDAO.getListpaging(pageNum, amount);
 int total = cdto.getTotal(); // 전체게시글수
-<<<<<<< HEAD
 PageVO pvo = new PageVO(pageNum, amount, total);
-=======
-page.PageVO pvo = new page.PageVO(pageNum, amount, total);
->>>>>>> feature/KyungoeSim
+
 
 // 3. 페이지네이션을 화면에 전달
 request.setAttribute("PageVO", pvo);
@@ -133,7 +129,7 @@ request.setAttribute("coops", coops);
 </div>
 
    <section class="py-5 text-center container"></section>
-<%@include file="../../include/footer.jsp" %>
+<%@include file="/include/footer.jsp" %>
 <script>
 function change(a){
 	   location.href="coopList.jsp?pageNum=1&amount=" + a.value;
