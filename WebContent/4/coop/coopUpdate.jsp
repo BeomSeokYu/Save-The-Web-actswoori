@@ -3,20 +3,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+
+<!DOCTYPE html>
+<html>	
+<head>
+<%@include file="/include/header.jsp" %>
+</head>
 	<%	//로그인 안되어있을 시
-		String sid = (String)session.getAttribute("sid");
 		if(sid==null){
 		response.sendRedirect("login.jsp");
 		}else{
 		
 	%>
-<!DOCTYPE html>
-<html>	
-<head>
-</head>
 <body>
 <%-- <% UserDTO udto = UserDAO.select(sid){%> --%>
-<%@include file="../../include/header.jsp" %>
+
  <% int cno = Integer.parseInt(request.getParameter("cno"));
  	coopDAO cdao = new coopDAO();
  	coopDTO cdto = cdao.select(cno); %> 
@@ -32,10 +33,6 @@
 <div class="mb-3">
   <label for="exampleFormControlInput1" class="form-label">제목</label>
   <input type="text" class="form-control" name="ctitle" id="exampleFormControlInput1" value="<%=cdto.getCtitle()%>">
-</div>
-<div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">작성자</label>
-  <input type="text" class="form-control" name="email" <%-- value="<%=udto.getName()%> --%>">
 </div>
 <div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label" >내용</label>
@@ -58,6 +55,6 @@
     </script>
      <section class="py-5 text-center container"></section>
   </body>
- <%@include file="../../include/footer.jsp" %>
+ <%@include file="/include/footer.jsp" %>
 </html>
 <% }; %>
