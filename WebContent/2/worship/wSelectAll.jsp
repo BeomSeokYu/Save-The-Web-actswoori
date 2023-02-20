@@ -1,6 +1,5 @@
 <%@page import="worship.WorshipDAO"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +11,13 @@
 <%@ include file="/include/navbar.jsp" %>
 	<div class="container">
 		<h1>예배설교</h1>
+<%
+	if (sid != null) { // 세션 처리
+%>
 		<a class="btn btn-primary" href="wInsert.jsp" role="button">등록</a>
+<%
+	}
+%>
 		<table class="table table-hover">
 		  <thead>
 		    <tr>
@@ -63,7 +68,7 @@
 				
 				var str2 = "";
 				if (prev) {
-					str += '<li><a href="javascript:searchFunction(' + (startPage - 1) + ');">이전</a></li>';
+					str2 += '<li><a href="javascript:searchFunction(' + (startPage - 1) + ');">이전</a></li>';
 				}
 				for (var i = startPage; i <= endPage; i++) {
 					if (i == pageNum) {

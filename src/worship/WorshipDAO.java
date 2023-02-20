@@ -76,6 +76,34 @@ public class WorshipDAO {
 		}
 	}
 	
+	//작성자 이메일 조회
+	public static String selectEmail(int wno) {
+		try {
+			String sql = "SELECT email FROM worship WHERE wno = ?";
+			
+			Connection conn = ConnectionPool.get();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, wno);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			String email = null;
+			
+			if (rs.next()) {
+				email = rs.getString(1);
+			}
+			
+			rs.close();
+			pstmt.close();
+			conn.close();
+			
+			return email;
+		} catch (NamingException | SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	//조회
 	public static String selectOne(int wno) {
 		try {
@@ -141,7 +169,7 @@ public class WorshipDAO {
 			return null;
 		}
 	}
-	여기
+
 	//페이징된 목록
 	public static String selectAllPaging(int pageNum){
 		try {
@@ -152,7 +180,7 @@ public class WorshipDAO {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setInt(1, (pageNum - 1) * 10);
-			pstmt.setInt(2, pageNum * 10);
+			pstmt.setInt(2, 10);
 			
 			ResultSet rs = pstmt.executeQuery();
 			
@@ -180,7 +208,7 @@ public class WorshipDAO {
 			return null;
 		}
 	}
-	
+
 	// 전체 게시글 수
 	public static int getTotal() {
 		int result = 0;
