@@ -34,10 +34,10 @@
  				
  				var str = "";
  				for(var i = 0; i < feeds.length; i++){
- 					getUserName(feeds[i].email);
+ 					var asd = getUserName(feeds[i].email)
  					str += "<tr><td>" + feeds[i].dno + "</td>";
  					str += "<td><a href='docView.jsp?dno="+ feeds[i].dno +"'>" + feeds[i].dtitle + "</a></td>";
- 					str += "<td class='userName'></td>"
+ 					str += "<td>"+asd+"</td>"
  					str += "<td>" + feeds[i].ddate + "</td></tr>";
  				} $("#ajaxTable").html(str);
  			}
@@ -58,12 +58,13 @@
  			url:'/user/userInfoProc.jsp',
  			data : {email:a},
 			dataType:"text",
+			async:false,
  			success:function(data){
  				var user = JSON.parse(data.trim());
- 				$(".userName").text(user.name)
- 			
+ 				name = user.name
  			}
  		});
+ 				return name
 	}
 	
  	window.onload = function() {
@@ -91,7 +92,9 @@
 
 </tbody>
 </table>
+<%if(sid==admin){ %>
 <input type="button" value="등록하기" onclick="checkSid()">
+<%} %>
 </div>
     <%@ include file="/include/footer.jsp" %>
 </body>
