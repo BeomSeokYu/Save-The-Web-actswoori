@@ -18,8 +18,8 @@
 <script>
 window.onload = function() {
  	var dno = <%=request.getParameter("dno")%>;
- 	var sid = <%=sid%>
- 	var admin = <%=admin%>
+ 	var sid = "admin@gmail.com"
+ 	var admin = "admin@gmail.com"
  	var email
   	function searchFunction(dno) {
  		
@@ -53,7 +53,7 @@ window.onload = function() {
  	}
 
  		searchFunction(dno);
-		if (sid==admin||sid==email) {
+		if (sid.equals(admin)||sid.equals(email)) {
 			$('.ad').show()
 		} else {}
 		$('.ad').hide()
