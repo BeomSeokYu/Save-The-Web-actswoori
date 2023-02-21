@@ -35,5 +35,40 @@ h2 {
 }
 
 hr {
-  color: #8cd790;
+  color: #000000;
+}
+
+/* 페이지네이션 색상 변경 */
+.page-link {
+  color: #000; 
+  background-color: #fff;
+  border: 1px solid #ccc; 
+}
+
+.page-item.active .page-link {
+ z-index: 1;
+ color: #555;
+ font-weight:bold;
+ background-color: #f1f1f1;
+ border-color: #ccc;
+ 
+}
+
+.page-link:focus, .page-link:hover {
+  color: #000;
+  background-color: #fafafa; 
+  border-color: #ccc;
+}
+
+@font-face {
+    font-family: 'LINESeedKR-Bd';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+.nav-main	 {
+    font-size: 18px;
+    padding-top: 2px;
+    color: #646464;
+    font-family: 'LINESeedKR-Bd';
 }

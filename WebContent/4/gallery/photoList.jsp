@@ -18,36 +18,6 @@
 <!-- lightbox2 css -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.css" integrity="sha512-Woz+DqWYJ51bpVk5Fv0yES/edIMXjj3Ynda+KWTIkGoynAMHrqTcDUQltbipuiaD5ymEo9520lyoVOo9jCQOCA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
-.photo-gallery {
-  color:#313437;
-  background-color:#fff;
-}
-
-.photo-gallery h2 {
-  font-weight:bold;
-  margin-bottom:40px;
-  padding-top:40px;
-  color:inherit;
-}
-
-@media (max-width:767px) {
-  .photo-gallery h2 {
-    margin-bottom:25px;
-    padding-top:25px;
-    font-size:24px;
-  }
-}
-
-.photo-gallery .photos {
-  padding-bottom:20px;
-}
-
-.photo-gallery .item {
-  padding-bottom:30px;
-}
-</style>
-
-<style>
 .bd-placeholder-img {
   font-size: 1.125rem;
   text-anchor: middle;
@@ -69,7 +39,7 @@
 
 <!-- 게시판 영역 -->
 <div class="container">
-	<div class="photo-gallery container mb-3">
+	<div class="container mb-3">
 		<div class="row justify-content-center">
 			<h2 class="">갤러리</h2>
 			<div class="col-3 d-none d-lg-block">
