@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <!-- FOOTER -->
-<footer class="bg-light">
+<%-- <footer class="bg-light">
   <div class="container py-5">
     <div class="row">
       <div class="col-6 col-md-2 mb-3">
@@ -62,11 +62,33 @@
       <p>&copy; 행전우리교회</p>
     </div>
   </div>
-</footer>
+</footer> --%>
+
+
+ <!--Start of footer-->
+ <section id="footer">
+     <div class="container">
+         <div class="row text-center">
+             <div class="col-md-6">
+                 <div class="copyright">
+                     <p>@ 2016 - Design By <span><a href="">&#9798;</a></span></p>
+                 </div>
+             </div>
+             <div class="col-md-6">
+                 <div class="designer">
+                     <p>A Design By <a href="#">XpeedStudio</a></p>
+                 </div>
+             </div>
+         </div>
+         <!--End of row-->
+     </div>
+     <!--End of container-->
+ </section>
+ <!--End of footer-->
 
 
 <!-- bootstrap JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script> -->
 
 <!-- Modal -->
 <div class="modal fade" id="msgModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="msgModalLabel" aria-hidden="true">
