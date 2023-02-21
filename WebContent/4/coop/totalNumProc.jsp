@@ -16,7 +16,7 @@
 	Criteria cri = new Criteria(amount, pageNum, type, keyword);
 	
 	try{
-		out.write(sqlSession.selectOne("coopMapper.totalCount", cri).toString());
+		out.write(sqlSession.selectOne("CoopMapper.totalCount", cri).toString());
 	}catch(Exception e){
 	    e.printStackTrace();
 	}finally{

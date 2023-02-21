@@ -25,7 +25,7 @@
 	
 	List<coopDTO> list = null;
 	try {
-		list = sqlSession.selectList("coopMapper.selectCoopAllPaging", cri);
+		list = sqlSession.selectList("CoopMapper.selectCoopAllPaging", cri);
 	} catch (Exception e) {
 		e.printStackTrace();
 	} finally{
