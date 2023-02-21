@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="GalleryMapper">
+<mapper namespace="CoopMapper">
   <!-- 쿼리 보관 -->
   <sql id="criteria">
   	<trim prefix="(" suffix=") AND" prefixOverrides="OR">
@@ -10,13 +10,10 @@
 			<trim prefix="OR">
 				<choose>
 					<when test="type == 'T'.toString()">
-						gtitle LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
+						ctitle LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
 					</when>
 					<when test="type == 'F'.toString()">
-						gfilename LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
-					</when>
-					<when test="type == 'E'.toString()">
-						email LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
+						ccontent LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
 					</when>
 				</choose>
 			</trim>
@@ -24,23 +21,23 @@
 	</trim>
   </sql>
   
-  <select id="selectGalleryAllPaging" resultType="jdbc.GalleryDTO">
+  <select id="selectCoopAllPaging" resultType="jdbc.coopDTO">
   	<![CDATA[
-	  	SELECT	gno, gtitle, gupfolder, guuid, gfilename, email, gdate
-	  	FROM gallery
+	  	SELECT	cno, ctitle, ccontent, email, cdate
+	  	FROM coop
 	  	WHERE]]>
 	  		<include refid="criteria"/>
 	<![CDATA[
 			2 > 1
-		ORDER BY gno DESC
+		ORDER BY cno DESC
 	  	LIMIT #{ amount } OFFSET #{ offset }
 	]]>
   </select>
   
   <select id="totalCount" resultType="int">
   	<![CDATA[
-  		SELECT COUNT(*) FROM gallery WHERE ]]> 
+  		SELECT COUNT(*) FROM coop WHERE ]]> 
   			<include refid="criteria"/> 
-  	<![CDATA[ gno > 0 ]]>
+  	<![CDATA[ cno > 0 ]]>
   </select>
 </mapper>

@@ -18,8 +18,8 @@
 <script>
 window.onload = function() {
  	var dno = <%=request.getParameter("dno")%>;
- 	var sid = "admin@gmail.com"
- 	var admin = "admin@gmail.com"
+ 	var sid = "<%=sid%>"
+ 	var admin = "<%=admin%>"
  	var email
   	function searchFunction(dno) {
  		
@@ -38,6 +38,15 @@ window.onload = function() {
  			})
  		}
  	
+
+ 		searchFunction(dno);
+		if (sid==admin||sid==email) {
+			$('.ad').show()
+		} else {
+		$('.ad').hide()
+ 	}
+		}
+		
   	function delItem(dno) {
  		$.ajax({
  			type:"post",
@@ -52,13 +61,6 @@ window.onload = function() {
  		});
  	}
 
- 		searchFunction(dno);
-		if (sid.equals(admin)||sid.equals(email)) {
-			$('.ad').show()
-		} else {}
-		$('.ad').hide()
- 	}
-
 	
 	
  </script>
@@ -71,7 +73,7 @@ window.onload = function() {
 <input type="button" value="이전으로" onclick="history.back()">
 
 <input type="button" value="수정" onclick="location.href='docMod.jsp?dno=<%=request.getParameter("dno") %>'" class="ad">
-<button type="button" class="ad" onclick="delItem(dno)">삭제</button>
+<input type="button" value="삭제" class="ad" onclick="delItem('<%=request.getParameter("dno") %>')">
     <%@ include file="/include/footer.jsp" %>
 </body>
 </html>
