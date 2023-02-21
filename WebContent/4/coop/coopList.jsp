@@ -115,7 +115,7 @@ function printList(data) {
 	for (var i = 0; i < data.length; i++) {
 		imgHTML += ''
 			imgHTML += '<tr><td>' +data[i].cno+ '</td>';
-			imgHTML += '<td>' + data[i].ctitle + '</td>';
+			imgHTML += '<td><a href="coopInfo.jsp?cno='+data[i].cno+'">' + data[i].ctitle + '</td>';
 			imgHTML += '<td></td>';
 			imgHTML += '<td>' + data[i].email + '</td>';
 			imgHTML += '<td>' + data[i].cdate + '</td></tr>';

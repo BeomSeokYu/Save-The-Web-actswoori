@@ -11,10 +11,12 @@
 </head>
 <body>
 <%@include file="/include/navbar.jsp" %>
+
  <% int cno = Integer.parseInt(request.getParameter("cno"));
 	 coopDAO cdao = new coopDAO();
  	 coopDTO cdto = cdao.select(cno); %> 
-	
+ 	 
+<section class="py-5 text-center container"></section>	
 	<div class="col-md-8">
 		
 		<p><span class = "font-weight-bold">제목 : </span>
