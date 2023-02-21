@@ -8,7 +8,8 @@
 <%@page import="java.util.HashMap"%>
 <%@page import="org.json.simple.parser.JSONParser"%>
 <%@page import="java.util.List"%>
-<%@page import="org.apache.ibatis.session.*"%>
+<%@page import="org.apache.ibatis.session.SqlSession"%>
+<%@page import="org.apache.ibatis.session.SqlSessionFactory"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
