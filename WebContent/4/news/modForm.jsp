@@ -12,10 +12,10 @@
 <meta charset="UTF-8">
 <title>행전우리교회</title>
 <%@ include file="/include/header.jsp" %>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 </head>
 <body>
 <%@ include file="/include/navbar.jsp" %>
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 
 <%
 int nno = Integer.parseInt(request.getParameter("nno"));
@@ -70,7 +70,7 @@ if (msg == "fail") {
      ]
    });
    
-	$('#summernote').summernote('code', "<%= ndto.getNcontent() %>");
+	$('#summernote').summernote('code', '<%= ndto.getNcontent() %>');
    
    function addItem() {
 		 $("#content").val($("#summernote").summernote("code"));
