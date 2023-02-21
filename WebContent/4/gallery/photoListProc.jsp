@@ -47,7 +47,7 @@
 	JSONArray ja = new JSONArray();
 	for (GalleryDTO gdto : list) {
 		JSONObject jo = new JSONObject();
-		jo.put("gno", gdto.getGno());
+		jo.put("no", gdto.getGno());
 		jo.put("title", gdto.getGtitle());
 		jo.put("upfolder", gdto.getGupfolder());
 		jo.put("uuid", gdto.getGuuid());

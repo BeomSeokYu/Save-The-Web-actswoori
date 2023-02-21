@@ -71,21 +71,22 @@
 <div class="container">
 	<div class="photo-gallery container mb-3">
 		<div class="row justify-content-center">
-			<h2 class="sticky-md-top">갤러리</h2>
+			<h2 class="">갤러리</h2>
 			<div class="col-3 d-none d-lg-block">
 				<%@ include file="/include/sidebar4.jsp" %>
 			</div>
 			<div class="col-9">
 				<div class="row">
-					<div class="col-6">
-						<select class="form-select w-50" id="selectAmount">
+					<div class="col-3 text-muted">
+						<select class="form-select form-select-sm w-50 d-inline" id="selectAmount">
 				       		<option value="8" selected>8</option>
 				       		<option value="16">16</option>
 				       		<option value="24">24</option>
 				        </select>
+				        <span class="d-inline">개씩 보기</span>
 			        </div>
-					<div class="col-6 text-end">
-						<button class="btn btn-outline-secondary" type="button" onclick="regPhoto()">사진 등록</button>
+					<div class="col-9 text-end">
+						<button class="btn btn-sm btn-outline-secondary" type="button" onclick="regPhoto()">사진 등록</button>
 					</div>
 		        </div>
 				
@@ -96,13 +97,13 @@
 				<hr class="my-4">
 				<div class="row">
 					<div class="col-8">
-						<ul class="pagination justify-content-center" id="pagination">
+						<ul class="pagination pagination-sm justify-content-center" id="pagination">
 						
 						</ul>
 					</div>
 					<div class="col-4">
 						<div class="d-flex text-end">
-						  <select class="form-select" id="selectType">
+						  <select class="form-select form-select-sm" id="selectType">
 				       		<option value="T" selected>제목</option>
 				       		<option value="F">파일명</option>
 				       		<option value="E">이메일</option>
@@ -110,9 +111,9 @@
 				       		<option value="TE">제목/이메일</option>
 				       		<option value="TFE">제목/파일명/이메일</option>
 				          </select>
-					      <input class="form-control" type="search" placeholder="검색어" aria-label="" id="keyword">
-					      <button class="btn btn-outline-success" type="button" id="searchBtn">검색</button>
-					    </div>
+					      <input class="form-control form-control-sm" type="search" placeholder="검색어"id="keyword">
+					      <button class="btn btn-sm btn-outline-secondary" type="button" id="searchBtn"><i class="bi bi-search"></i></button>
+				        </div>
 				    </div>
 		        </div>
 			</div>
@@ -175,12 +176,20 @@ function printList(data) {
 		imgHTML += ''
 			+ '<div class="col-sm-6 col-md-4 col-lg-3 item h-100">'
 			+ '<a class="col-lg-4 col-md-12 mb-4 mb-lg-0" href="'+ img +'" data-title="'+data[i].title +'" data-lightbox="photos">'
-			+ '<img class="img-fluid shadow bg-body rounded" src="'+img+'"></a></div>';
+			+ '<img class="img-fluid shadow bg-body rounded" src="'+img+'" style="width: 200px;height: 150px;object-fit: cover;">'
+			+ '</a><div class="row">'
+			+ '<div  class="col-6">'+data[i].title+'</div>'
+			+ '<div class="col-6 text-end"><i class="btn bi bi-trash3-fill" onclick="photoRemove(\''+data[i].no+'\')"></i></div>'
+			+ '</div></div>';
 	}
 	$('#imgList').html(imgHTML);
 }
 
-
+function photoRemove(no) {
+	if (confirm('정말 삭제?')){
+		
+	}
+}
 
 
 
