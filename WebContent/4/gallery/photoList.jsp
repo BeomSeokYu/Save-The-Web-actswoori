@@ -65,7 +65,7 @@
 </head>
 <body>
 <%@ include file="/include/navbar.jsp" %>
-
+<script src="./dist/js/demo-theme.min.js?1674944402"></script>
 
 <!-- 게시판 영역 -->
 <div class="container">
@@ -119,10 +119,6 @@
 		</div>
 	</div>
 </div>
-
-
-
-
 
 
 <%@ include file="/include/footer.jsp" %>
@@ -221,5 +217,9 @@ $('#doneBtn').on('click', function(){
 	}
 });
 </script>
+<!-- Libs JS -->
+<!-- Tabler Core -->
+<script src="/resources/js/tabler.min.js?1674944402" defer></script>
+<script src="/resources/js/demo.min.js?1674944402" defer></script>
 </body>
 </html>
