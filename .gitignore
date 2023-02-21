@@ -4,6 +4,6 @@
 /.settings/
 
 context.xml
-/src/sqlMap/Configuration.xml
+Configuration.xml
 /bin/
 
