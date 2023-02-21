@@ -140,7 +140,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand custom_navbar-brand" href="#"><img src="/resources/img/logo_main.png" alt=""></a>
+                        <a class="navbar-brand custom_navbar-brand" href="/main.jsp"><img src="/resources/img/logo_main.png" alt=""></a>
                     </div>
                     End of navbar-header
 
