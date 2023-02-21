@@ -2,30 +2,38 @@
 
 /* 헤더 높이만큼 여백부여 */
 body {
-    padding-top: 70px;
+  padding-top: 70px;
 }
 
 .photo-gallery h2 {
-    font-weight: bold;
-    margin-bottom: 40px;
-    padding-top: 40px;
-    color: inherit;
+  font-weight: bold;
+  margin-bottom: 40px;
+  padding-top: 40px;
+  color: inherit;
 }
 
 /* 드롭 다운 호버로 내리기 */
 .dropdown:hover .dropdown-menu {
-    display: block;
-    margin-top: 0;
-}	
+  display: block;
+  margin-top: 0;
+}
 
 /* footer 상단 마진 */
 footer {
-	margin-top: 500px;
+  margin-top: 500px;
 }
 
 h2 {
-    font-weight: bold;
-    margin-bottom: 40px;
-    padding-top: 40px;
-    color: inherit;
+  font-weight: bold;
+  margin-bottom: 40px;
+  padding-top: 40px;
+  color: inherit;
+}
+
+#sideNav {
+  background-color: #d7fff1;
+}
+
+hr {
+  color: #8cd790;
 }

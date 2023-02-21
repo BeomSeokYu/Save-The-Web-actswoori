@@ -25,36 +25,23 @@
 			<div class="col-3 d-none d-lg-block">
 				<%@ include file="/include/sidebar4.jsp" %>
 			</div>
-		<div class="col-9">
-<div class="card">
-     <div class="card-body border-bottom py-3">
-       <div class="d-flex">
-		<select class="mx-2 d-inline-block" id="selectAmount">
-       		<option value="8" selected>8개씩 보기</option>
-       		<option value="16">16개씩 보기</option>
-       		<option value="24">24개씩 보기</option>
-        </select>
-        
-         <div class="ms-auto text-muted">
-          <div class="d-flex text-end">
-		  <select class="form-select" id="selectType">
-       		<option value="T" selected>제목</option>
-       		<option value="C">내용</option>
-       		<option value="E">이메일</option>
-       		<option value="TC">제목/내용</option>
-       		<option value="TE">제목/이메일</option>
-       		<option value="TCE">제목/내용/이메일</option>
-          </select>
-	      <input class="form-control" type="search" placeholder="검색어" aria-label="" id="keyword">
-	      <button class="btn btn-outline-success" type="button" id="searchBtn">검색</button>
-	    </div>
-         </div>
-       </div>
-     </div>
 
-</div>
-<div class="table-responsive">
-<table class="table card-table table-vcenter text-nowrap datatable">
+     			<div class="col-9">
+	<div class="row">
+		<div class="col-6">
+			<select class="form-select w-50" id="selectAmount">
+	       		<option value="8" selected>8개씩 보기</option>
+	       		<option value="16">16개씩 보기</option>
+	       		<option value="24">24개씩 보기</option>
+	        </select>
+        </div>
+		<div class="col-6 text-end">
+			<a href="insertForm.jsp" class="btn btn-primary">게시물 등록하기 </a>
+		</div>
+       </div>
+	<hr class="my-4">
+
+<table class="table table-hover">
   <thead>
     <tr>
       <th scope="col">제목</th>
@@ -67,19 +54,31 @@
 
   </tbody>
 </table>
-</div>
-</div>
-</div>
-
-
-<div class="card-footer d-flex align-items-center">
-<ul class="pagination m-0 ms-auto" id="pagination">
-
-</ul>
-</div>
-<a href="insertForm.jsp" class="btn btn-primary"> 등록하기 </a>
-
-</div>
+				<hr class="my-4">
+				<div class="row">
+					<div class="col-8">
+						<ul class="pagination justify-content-center" id="pagination">
+						
+						</ul>
+					</div>
+					<div class="col-4">
+						<div class="d-flex text-end">
+						  <select class="form-select" id="selectType">
+				       		<option value="T" selected>제목</option>
+				       		<option value="F">파일명</option>
+				       		<option value="E">이메일</option>
+				       		<option value="TF">제목/파일명</option>
+				       		<option value="TE">제목/이메일</option>
+				       		<option value="TFE">제목/파일명/이메일</option>
+				          </select>
+					      <input class="form-control" type="search" placeholder="검색어" aria-label="" id="keyword">
+					      <button class="btn btn-outline-success" type="button" id="searchBtn">검색</button>
+					    </div>
+				    </div>
+		        </div>
+			</div>
+		</div>
+	</div>
 </div>
 <%@ include file="/include/footer.jsp" %>
 
@@ -111,10 +110,10 @@ function printList(data) {
 	for (var i = 0; i < data.length; i++) {
 		
 		imgHTML += ''
-			+ "<tr><td><a href='newsDetail.jsp?nno=" + data[i].nno + "'>"
+			+ "<tr onclick=\"location.href='newsDetail.jsp?nno=" + data[i].nno +"'\"><td>"
 			+ data[i].ntitle + "</td>"
 			+ '<td>' + data[i].email + "</td>"
-			+ '<td>' + data[i].ndate + "</td></tr>"
+			+ '<td>' + data[i].ndate + "</td></a></tr>"
 	}
 	$('#imgList').html(imgHTML);
 }
