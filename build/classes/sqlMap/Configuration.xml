@@ -16,8 +16,8 @@
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver" />
                 <property name="url" value="jdbc:mysql://localhost:3306/savetheweb?serverTimezone=UTC" />
-                <property name="username" value="디비아이디" />
-                <property name="password" value="디비비밀번호" />
+                <property name="username" value="kyungoesim" />
+                <property name="password" value="ruddhl7913" />
             </dataSource>
         </environment>
     </environments>
