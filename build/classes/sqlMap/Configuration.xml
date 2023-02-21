@@ -24,5 +24,7 @@
     <mappers>
         <mapper resource="/sqlMap/mapper/post.xml" />
         <mapper resource="/sqlMap/mapper/news.xml" />
+        <mapper resource="/sqlMap/mapper/worship.xml" />
+        <mapper resource="/sqlMap/mapper/vow.xml" />
     </mappers>
 </configuration>

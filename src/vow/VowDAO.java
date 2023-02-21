@@ -136,36 +136,4 @@ public class VowDAO {
 			return null;
 		}
 	}
-	
-	// 목록
-	public static String selectAll() {
-		try {
-			String sql = "SELECT * FROM vow ORDER BY vdate DESC";
-			
-			Connection conn = ConnectionPool.get();
-			PreparedStatement pstmt = conn.prepareStatement(sql);
-			ResultSet rs = pstmt.executeQuery();
-			
-			JSONArray vows = new JSONArray();
-			
-			while (rs.next()) {
-				JSONObject obj = new JSONObject();
-				obj.put("vno", rs.getString("vno"));
-				obj.put("email", rs.getString("email"));
-				obj.put("vtitle", rs.getString("vtitle"));
-				obj.put("vdate", rs.getString("vdate"));
-				
-				vows.add(obj);
-			}
-			
-			rs.close();
-			pstmt.close();
-			conn.close();
-			
-			return vows.toJSONString();
-		} catch (NamingException | SQLException e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
 }
