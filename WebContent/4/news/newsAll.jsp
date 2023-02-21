@@ -18,18 +18,43 @@
 </head>
 <body>
 <%@ include file="/include/navbar.jsp" %>
-
 <div class="container">
-
-	<div class="col-6">
-		<select class="form-select w-50" id="selectAmount">
-       		<option value="8" selected>8</option>
-       		<option value="16">16</option>
-       		<option value="24">24</option>
+	<div class="photo-gallery container mb-3">
+		<div class="row justify-content-center">
+			<h2 class="sticky-md-top">교회 소식</h2>
+			<div class="col-3 d-none d-lg-block">
+				<%@ include file="/include/sidebar4.jsp" %>
+			</div>
+		<div class="col-9">
+<div class="card">
+     <div class="card-body border-bottom py-3">
+       <div class="d-flex">
+		<select class="mx-2 d-inline-block" id="selectAmount">
+       		<option value="8" selected>8개씩 보기</option>
+       		<option value="16">16개씩 보기</option>
+       		<option value="24">24개씩 보기</option>
         </select>
+        
+         <div class="ms-auto text-muted">
+          <div class="d-flex text-end">
+		  <select class="form-select" id="selectType">
+       		<option value="T" selected>제목</option>
+       		<option value="C">내용</option>
+       		<option value="E">이메일</option>
+       		<option value="TC">제목/내용</option>
+       		<option value="TE">제목/이메일</option>
+       		<option value="TCE">제목/내용/이메일</option>
+          </select>
+	      <input class="form-control" type="search" placeholder="검색어" aria-label="" id="keyword">
+	      <button class="btn btn-outline-success" type="button" id="searchBtn">검색</button>
+	    </div>
+         </div>
        </div>
+     </div>
 
-<table class="table table-striped table-hover">
+</div>
+<div class="table-responsive">
+<table class="table card-table table-vcenter text-nowrap datatable">
   <thead>
     <tr>
       <th scope="col">제목</th>
@@ -42,31 +67,20 @@
 
   </tbody>
 </table>
+</div>
+</div>
+</div>
 
-	<div class="col-4">
-		<div class="d-flex text-end">
-		  <select class="form-select" id="selectType">
-       		<option value="T" selected>제목</option>
-       		<option value="C">내용</option>
-       		<option value="E">이메일</option>
-       		<option value="TC">제목/내용</option>
-       		<option value="TE">제목/이메일</option>
-       		<option value="TCE">제목/내용/이메일</option>
-          </select>
-	      <input class="form-control" type="search" placeholder="검색어" aria-label="" id="keyword">
-	      <button class="btn btn-outline-success" type="button" id="searchBtn">검색</button>
-	    </div>
-    </div>
 
-<nav aria-label="Page navigation example">
-<ul class="pagination justify-content-center" id="pagination">
+<div class="card-footer d-flex align-items-center">
+<ul class="pagination m-0 ms-auto" id="pagination">
 
 </ul>
-</nav>
+</div>
 <a href="insertForm.jsp" class="btn btn-primary"> 등록하기 </a>
 
 </div>
-
+</div>
 <%@ include file="/include/footer.jsp" %>
 
 <script src="/resources/js/page.js"></script>

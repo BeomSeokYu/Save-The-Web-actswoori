@@ -26,29 +26,7 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 	<!-- jQuery CDN -->
 	<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-	
 	<!-- css -->
 	<link href="/resources/css/common.css" rel="stylesheet">
 		
-		
-    <!--    Google Fonts-->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-    <!--Fontawesom-->
-    <link rel="stylesheet" href="/resources/css/font-awesome.min.css">
-
-    <!--Animated CSS-->
-    <link rel="stylesheet" type="text/css" href="/resources/css/animate.min.css">
-
-    <!-- Bootstrap -->
-     <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
-    <!--Bootstrap Carousel-->
-    <link type="text/css" rel="stylesheet" href="/resources/css/carousel.css" />
-
-    <link rel="stylesheet" href="/resources/css/isotope/style.css">
-
-    <!--Main Stylesheet-->
-    <link href="/resources/css/style.css" rel="stylesheet">
-    <!--Responsive Framework-->
-    <link href="/resources/css/responsive.css" rel="stylesheet">
 </head>

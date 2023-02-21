@@ -18,7 +18,30 @@
 <!DOCTYPE html>
 <html lang="en">
 	<%@ include file="/include/header.jsp" %>
+		
+    <!--    Google Fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!--Fontawesom-->
+    <link rel="stylesheet" href="/resources/css/font-awesome.min.css">
+
+    <!--Animated CSS-->
+    <link rel="stylesheet" type="text/css" href="/resources/css/animate.min.css">
+
+    <!-- Bootstrap -->
+     <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
+    <!--Bootstrap Carousel-->
+    <link type="text/css" rel="stylesheet" href="/resources/css/carousel.css" />
+
+    <link rel="stylesheet" href="/resources/css/isotope/style.css">
+
+    <!--Main Stylesheet-->
+    <link href="/resources/css/style.css" rel="stylesheet">
+    <!--Responsive Framework-->
+    <link href="/resources/css/responsive.css" rel="stylesheet">
+	
     <body data-spy="scroll" data-target="#header">
+    
     <%@ include file="/include/navbar.jsp" %>
         <!--Start of slider section-->
         <section id="slider">

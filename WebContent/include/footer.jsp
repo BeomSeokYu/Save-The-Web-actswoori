@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <!-- FOOTER -->
-<%-- <footer class="bg-light">
+ <footer class="bg-light">
   <div class="container py-5">
     <div class="row">
       <div class="col-6 col-md-2 mb-3">
@@ -62,10 +62,10 @@
       <p>&copy; 행전우리교회</p>
     </div>
   </div>
-</footer> --%>
+</footer> 
 
 
- <!--Start of footer-->
+<!-- Start of footer
  <section id="footer">
      <div class="container">
          <div class="row text-center">
@@ -80,11 +80,11 @@
                  </div>
              </div>
          </div>
-         <!--End of row-->
+         End of row
      </div>
-     <!--End of container-->
+     End of container
  </section>
- <!--End of footer-->
+ End of footer -->
 
 
 <!-- bootstrap JavaScript Bundle with Popper -->
