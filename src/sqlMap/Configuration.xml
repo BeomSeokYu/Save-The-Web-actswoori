@@ -22,7 +22,9 @@
         </environment>
     </environments>
     <mappers>
+
         <mapper resource="/sqlMap/mapper/coop.xml" />
         <mapper resource="/sqlMap/mapper/gallery.xml" />
+
     </mappers>
 </configuration>
