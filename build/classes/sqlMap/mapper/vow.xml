@@ -26,7 +26,7 @@
   
   <select id="selectVowAllPaging" resultType="vow.VowDTO">
   	<![CDATA[
-	  	SELECT vno, vtitle, email, vdate
+	  	SELECT *
 	  	FROM vow
 	  	WHERE]]>
 	  		<include refid="criteria"/>

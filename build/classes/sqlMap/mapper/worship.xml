@@ -15,6 +15,9 @@
 					<when test="type == 'N'.toString()">
 						wname LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
 					</when>
+					<when test="type == 'C'.toString()">
+						wcontent LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
+					</when>
 					<when test="type == 'E'.toString()">
 						email LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
 					</when>

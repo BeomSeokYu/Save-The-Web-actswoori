@@ -24,7 +24,7 @@
 	
 	List<VowDTO> list = null;
 	try {
-		list = sqlSession.selectList("GalleryMapper.selectGalleryAllPaging", cri);
+		list = sqlSession.selectList("VowMapper.selectVowAllPaging", cri);
 	} catch (Exception e) {
 		e.printStackTrace();
 	} finally{
