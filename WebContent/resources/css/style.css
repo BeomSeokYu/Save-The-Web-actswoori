@@ -1193,3 +1193,9 @@ ul.entry-meta {
 .main-content.blog-w.rap,.main-content.container.blog-wrap.single-blog {
     margin-top: 80px;
 }
+.nav {
+    font-size: 18px;
+    padding-top: 2px;
+    color: #646464;
+    font-family: 'LINESeedKR-Bd';
+}

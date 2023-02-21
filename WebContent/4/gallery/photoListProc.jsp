@@ -1,3 +1,4 @@
+<%@page import="java.io.File"%>
 <%@page import="org.json.simple.JSONObject"%>
 <%@page import="org.json.simple.JSONArray"%>
 <%@page import="jdbc.GalleryDTO"%>
@@ -11,6 +12,20 @@
 <%
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	SqlSession sqlSession = sqlSessionFactory.openSession();
+	
+	// 해당 앱 내 업로드 경로 설정
+	String uploadPath = "/resources/gallery";
+	// 실제 업로드 저장 경로 설정
+	String savePath = application.getRealPath(uploadPath);
+	
+	File uploadDir = new File(uploadPath);
+	if(!uploadDir.exists()){
+		uploadDir.mkdirs();
+	}
+	File saveDir = new File(savePath);
+	if(!saveDir.exists()){
+		saveDir.mkdirs();
+	}
 	
 	int amount = Integer.parseInt(request.getParameter("amount"));
 	int pageNum = Integer.parseInt(request.getParameter("pageNum"));
