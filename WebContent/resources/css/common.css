@@ -9,9 +9,16 @@ body {
 .dropdown:hover .dropdown-menu {
     display: block;
     margin-top: 0;
-}
+}	
 
 /* footer 상단 마진 */
 footer {
 	margin-top: 500px;
+}
+
+h2 {
+    font-weight: bold;
+    margin-bottom: 40px;
+    padding-top: 40px;
+    color: inherit;
 }
