@@ -23,6 +23,6 @@
     </environments>
     <mappers>
         <mapper resource="/sqlMap/mapper/coop.xml" />
-        <mapper resource="/sqlMap/mapper/gallery.xml" />
+        <mapper resource="/sqlMap/mapper/news.xml" />
     </mappers>
 </configuration>
