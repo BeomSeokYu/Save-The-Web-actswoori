@@ -71,7 +71,7 @@
 								<select class="form-select" id="selectType">
 									<option value="T" selected>제목</option>
 									<option value="C">내용</option>
-									<option value="E">이메일</option>
+									<option value="TC">제목/내용</option>
 								</select> <input class="form-control form-control-sm" type="search"
 									placeholder="검색어" id="keyword">
 								<button class="btn btn-sm btn-outline-success" type="button"
@@ -107,9 +107,11 @@
 						function printList(data) {
 							var str = '';
 							for (var i = 0; i < data.length; i++) {
-								str += "<tr onclick=\"location.href='vSelectOne.jsp?vno="
-									+ data[i].vno + "'\"><td>" + data[i].vtitle + "</td>";
-								str += "<td>" + data[i].email + "</td>";
+								var name = getUserName(data[i].email)
+								str += "<tr><td><a href='vSelectOne.jsp?vno="
+										+ data[i].vno + "'>" + data[i].vtitle
+										+ "</a></td>";
+								str += "<td>" + name + "</td>";
 								str += "<td>" + data[i].vdate + "</td></tr>";
 							}
 							$('#ajaxTable').html(str);
@@ -121,6 +123,22 @@
 							disableScrolling : true,
 							fitImagesInViewport : true
 						});
+						function getUserName(a) {
+							$.ajax({
+								type : 'post',
+								url : '/user/userInfoProc.jsp',
+								data : {
+									email : a
+								},
+								dataType : "text",
+								async : false,
+								success : function(data) {
+									var user = JSON.parse(data.trim());
+									name = user.name
+								}
+							});
+							return name
+						}
 					</script>
 </body>
 </html>
