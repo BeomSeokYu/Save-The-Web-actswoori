@@ -82,12 +82,18 @@
 	// 회원이거나, 관리자이면 if문 수행
 	if (memberCheck || sid.equals(adminID)) {  */
 %>
+<%
+	if (admin || sid != null && sid.equals(LectureDAO.selectEmail(Integer.parseInt(request.getParameter("lno"))))) { // 세션 처리
+%>
 			<button
 				onclick="location.href='/2/lecture/lectureModify.jsp?lno=<%=lecture.getLno()%>'"
 				class="btn btn-outline-primary">수정</button>
 			<button
 				onclick="location.href='/2/lecture/lectureDel.jsp?lno=<%=lecture.getLno()%>'"
 				class="btn btn-outline-danger">삭제</button>
+<%
+	}
+%>
 <%	/* } */	%>
 		</div>
 	</div>
