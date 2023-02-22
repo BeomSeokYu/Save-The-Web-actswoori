@@ -12,6 +12,12 @@
 	String dtitle = request.getParameter("dtitle");
 	String dcontent = request.getParameter("dcontent");
 	String email = request.getParameter("email");
+	
+	if (email == null || dtitle == null) { // 보안 처리
+		response.sendRedirect("doctrine.jsp");
+		return;
+	}
+	
 	out.print(docDAO.insertDoc(dtitle, dcontent,email));
 %>
 

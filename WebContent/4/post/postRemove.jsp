@@ -12,8 +12,10 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/include/header.jsp" %>      
 <%
-	if(sid == null || !sid.equals(admin)) {
+	sid = (String) session.getAttribute("sid"); // 보안 처리
+	if(sid == null) {
 		response.sendRedirect("postList.jsp");
+		return;
 	}
 	
 	int pno = Integer.parseInt(request.getParameter("pno"));

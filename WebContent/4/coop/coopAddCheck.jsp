@@ -13,7 +13,12 @@ String ctitle = request.getParameter("ctitle");
 String ccontent = request.getParameter("ccontent");
 String email = (String) session.getAttribute("sid");
 
-int result = coopDAO.insert(ctitle, ccontent, email);
+if (sid == null || ctitle == null) { // 보안 처리
+	response.sendRedirect("coopList.jsp");
+	return;
+}
+
+int result = coopDAO.insert(ctitle, ccontent,email);
 /*  for(int i=0; i<30; i++) {
 result = coopDAO.insert(ctitle+i, ccontent+i );
 }  */

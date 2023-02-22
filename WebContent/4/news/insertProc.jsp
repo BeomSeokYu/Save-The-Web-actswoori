@@ -12,8 +12,12 @@ request.setCharacterEncoding("utf-8");
 String email = (String) session.getAttribute("sid");
 String ntitle = request.getParameter("title");
 String ncontent = request.getParameter("content");
-// String nemail = request.getParameter("email");
+String nemail = (String) session.getAttribute("sid"); // 세션에서 받아올 예정
 
+if (nemail == null || ntitle == null) { // 보안 처리
+	response.sendRedirect("newsAll.jsp");
+	return;
+}
 
 boolean result = NewsDAO.insertNews(ntitle, ncontent, email);
 

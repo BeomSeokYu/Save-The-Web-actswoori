@@ -10,6 +10,12 @@
 <%
 request.setCharacterEncoding("utf-8");
 
+String sid = (String) session.getAttribute("sid"); // 보안 처리
+if (sid == null) {
+	response.sendRedirect("newsAll.jsp");
+	return;
+}
+
 String ntitle = request.getParameter("title");
 String ncontent = request.getParameter("content");
 int nno = Integer.parseInt(request.getParameter("nno"));

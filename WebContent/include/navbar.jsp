@@ -104,8 +104,8 @@
          양육과 교육
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">교육 부서</a></li>
-            <li><a class="dropdown-item" href="#">구역과 전도회</a></li>
+            <li><a class="dropdown-item" href="/3/edu.jsp">교육 부서</a></li>
+            <li><a class="dropdown-item" href="/3/area.jsp">구역과 전도회</a></li>
             <li><a class="dropdown-item" href="/3/vow/vSelectAll.jsp">말씀 서원</a></li>
           </ul>
         </li>

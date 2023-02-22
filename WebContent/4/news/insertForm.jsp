@@ -29,7 +29,6 @@
 		<hr>
 
 <form id="insertForm" action="insertProc.jsp" method="post">
-	<input type="hidden" name="email" id="email" value="aaaa@aaaa.com">
 	<input type="hidden" name="content" id="content">
 	
 	<div class="input-group mb-2 input-group-lg">

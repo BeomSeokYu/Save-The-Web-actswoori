@@ -35,10 +35,13 @@ body {
 <%	
 	
 	request.setCharacterEncoding("UTF-8");
-	if(sid == null || !sid.equals(admin)) {
+
+	sid = (String) session.getAttribute("sid"); // 보안 처리
+	if (sid == null) {
 		response.sendRedirect("postList.jsp");
+		return;
 	}
-	
+
 	String uploadPDF = request.getParameter("uploadPDF");
 	
 	String uploadPath = "/resources/postSaved";

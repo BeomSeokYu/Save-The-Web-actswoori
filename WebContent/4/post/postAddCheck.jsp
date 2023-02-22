@@ -33,8 +33,9 @@ body {
 </head>
 <body>
 <%
-	if(sid == null || !sid.equals(admin)) {
+	if(sid == null) { // 보안 처리
 		response.sendRedirect("postList.jsp");
+		return;
 	}
 
 	request.setCharacterEncoding("UTF-8");
