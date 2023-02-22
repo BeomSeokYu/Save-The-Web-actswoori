@@ -23,7 +23,6 @@
   -moz-user-select: none;
   user-select: none;
 }
-
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
@@ -79,7 +78,7 @@ https://cdn.jsdelivr.net/npm/pdfjs-dist@3.3.122/web/pdf_viewer.min.css
 				<div class="row">
 					<div class="col-8">
 						<ul class="pagination pagination-sm justify-content-center" id="pagination">
-						
+							
 						</ul>
 					</div>
 					<div class="col-4">

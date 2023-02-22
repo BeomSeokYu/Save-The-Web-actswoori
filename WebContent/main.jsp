@@ -229,11 +229,11 @@
                                                             <img src="img/tree_cut_3.jpg" alt="">
                                                         </div>
                                                         <div class="testimonial_content">
-                                                            <span><%= newsList.get(0).getNcontent()  %></span>
+                                                            <span><%= newsList.size() > 0 ? newsList.get(0).getNcontent() : ""  %></span>
                                                         </div>
                                                         <div class="testimonial_author">
-                                                            <h3><%= newsList.get(0).getNtitle()  %></h3>
-                                                            <p><%= newsList.get(0).getEmail()  %></p>
+                                                            <h3><%= newsList.size() > 0 ? newsList.get(0).getNtitle() : "" %></h3>
+                                                            <p><%= newsList.size() > 0 ? newsList.get(0).getEmail() : ""  %></p>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -241,11 +241,11 @@
                                                             <img src="img/tree_cut_3.jpg" alt="">
                                                         </div>
                                                         <div class="testimonial_content">
-                                                            <span><%= newsList.get(1).getNcontent()  %></span>
+                                                            <span><%= newsList.size() > 1 ? newsList.get(1).getNcontent() : ""  %></span>
                                                         </div>
                                                         <div class="testimonial_author">
-                                                            <h3><%= newsList.get(1).getNtitle()  %></h3>
-                                                            <p><%= newsList.get(1).getEmail()  %></p>
+                                                            <h3><%= newsList.size() > 1 ? newsList.get(1).getNtitle() : ""  %></h3>
+                                                            <p><%= newsList.size() > 1 ? newsList.get(1).getEmail() : "" %></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -258,11 +258,11 @@
                                                             <img src="img/tree_cut_3.jpg" alt="">
                                                         </div>
                                                         <div class="testimonial_content">
-                                                            <span><%= newsList.get(2).getNcontent() %></span>
+                                                            <span><%= newsList.size() > 2 ? newsList.get(2).getNcontent() : "" %></span>
                                                         </div>
                                                         <div class="testimonial_author">
-                                                            <h3><%= newsList.get(2).getNtitle()  %></h3>
-                                                            <p><%= newsList.get(2).getEmail()  %></p>
+                                                            <h3><%= newsList.size() > 2 ? newsList.get(2).getNtitle() : ""  %></h3>
+                                                            <p><%= newsList.size() > 2 ? newsList.get(2).getEmail() : ""  %></p>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -270,11 +270,11 @@
                                                             <img src="img/tree_cut_3.jpg" alt="">
                                                         </div>
                                                         <div class="testimonial_content">
-                                                            <span><%= newsList.get(3).getNcontent() %></span>
+                                                            <span><%= newsList.size() > 3 ? newsList.get(3).getNcontent() : "" %></span>
                                                         </div>
                                                         <div class="testimonial_author">
-                                                            <h3><%= newsList.get(3).getNtitle()  %></h3>
-                                                            <p><%= newsList.get(3).getEmail()  %></p>
+                                                            <h3><%= newsList.size() > 3 ? newsList.get(3).getNtitle() : ""  %></h3>
+                                                            <p><%= newsList.size() > 3 ? newsList.get(3).getEmail() : ""  %></p>
                                                         </div>
                                                     </div>
                                                 </div>

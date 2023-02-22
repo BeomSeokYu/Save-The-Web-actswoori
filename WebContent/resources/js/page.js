@@ -11,7 +11,7 @@ var cri = {
 }
 /* Pagination 정보 객체 */
 var pageObj = {
-		NUM_PER_PAGE : 10.0,					// 한 페이지에 표시 할 페이지 번호 수
+		NUM_PER_PAGE : 5.0,					// 한 페이지에 표시 할 페이지 번호 수
 		start : 1,							// 시작 페이지 번호
 		end : this.NUM_PER_PAGE,			// 끝 페이지 번호
 		isPrevious : false,					// 이전
@@ -72,8 +72,8 @@ function setPage(total, cri, pageObj) {
 		pageHTML += ''
 		+'<li class="page-item">'
 			+'<button type="button" class="page-link" onclick="next()" aria-label="Next">'
-				+'<span aria-hidden="true">&raquo;</span>'
 				+'<span class="sr-only">다음</span>'
+				+'<span aria-hidden="true">&raquo;</span>'
 			+'</button>'
 		+'</li>'
 	}
