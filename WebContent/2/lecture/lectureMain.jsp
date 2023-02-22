@@ -116,28 +116,7 @@
 
 
 <%@ include file="/include/footer.jsp" %>
-<!-- 등록 모달 -->
-	<!-- <div class="modal fade" id="uploadModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="msgModalLabel" aria-hidden="true">
-	  <div class="modal-dialog">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h1 class="modal-title fs-5" id="msgModalLabel">사진 등록</h1>
-	      </div>
-	      <div class="modal-body" id="msgModalBody">
-			<form action="/4/gallery/photoUpload.jsp" method="post" enctype="multipart/form-data" id="imgForm">
-				<label class="form-label" for="title">제목</label>
-				<input class="form-control mb-3" type="text" name="title" id="title">
-				<label class="form-label" for="image">사진 선택</label>
-				<input class="form-control" type="file" accept="image/*" name="image" id="image" multiple>
-			</form>
-	      </div>
-	      <div class="modal-footer" id="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-			<button type="button" class="btn btn-warning" data-bs-dismiss="modal" id="doneBtn">등록</button>
-	      </div>
-	    </div>
-	  </div>
-	</div> -->
+
 <!-- lightbox2 js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" integrity="sha512-k2GFCTbp9rQU412BStrcD/rlwv1PYec9SNrkbQlo6RZCf75l6KcC3UwDY8H5n5hl4v77IDtIPwOk9Dqjs/mMBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="/resources/js/page.js"></script>
