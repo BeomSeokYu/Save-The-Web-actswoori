@@ -72,31 +72,5 @@
 			</div>
 		</div>
 	<%@ include file="/include/footer.jsp"%>
-
-	<script src="/resources/js/page.js"></script>
-
-	<script>
-		/*
-		 [form id 이걸로 하셈]
-
-		 검색 버튼 : searchBtn
-		 검색 입력 인풋 : keyword
-		 검색 선택 셀렉트 : selectType
-		 게시글 표시 갯수 셀렉트 : selectAmount
-		 */
-
-		/* 전체 게시물 수 가져오기 위해 처리한 jsp URL 입력해주세요 */
-		function getTotalCountUrl() {
-			return '/4/news/totalNumProc.jsp'
-		}
-		/* 게시물 가져오기 위해 처리한 jsp URL 입력해주세요 */
-		function getListUrl() {
-			return '/4/news/newsListProc.jsp'
-		
-
-		}
-
-	</script>
-
 </body>
 </html>
