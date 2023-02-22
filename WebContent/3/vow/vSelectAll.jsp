@@ -107,9 +107,8 @@
 						function printList(data) {
 							var str = '';
 							for (var i = 0; i < data.length; i++) {
-								str += "<tr><td><a href='vSelectOne.jsp?vno="
-										+ data[i].vno + "'>" + data[i].vtitle
-										+ "</a></td>";
+								str += "<tr onclick=\"location.href='vSelectOne.jsp?vno="
+									+ data[i].vno + "'\"><td>" + data[i].vtitle + "</td>";
 								str += "<td>" + data[i].email + "</td>";
 								str += "<td>" + data[i].vdate + "</td></tr>";
 							}

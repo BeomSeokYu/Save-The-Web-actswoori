@@ -38,7 +38,7 @@
 						</div>
 						<div class="col-9 text-end">
 					<% if (sid != null) { // 세션 처리 %>
-							<a href="vInsert.jsp" class="btn btn-sm btn-outline-success">게시물
+							<a href="InsertForm.jsp" class="btn btn-sm btn-outline-success">게시물
 								등록 </a>
 						<%} %>
 						</div>
