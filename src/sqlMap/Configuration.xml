@@ -27,5 +27,6 @@
         <mapper resource="/sqlMap/mapper/news.xml" />
         <mapper resource="/sqlMap/mapper/doctrine.xml" />
         <mapper resource="/sqlMap/mapper/gallery.xml" />
+        <mapper resource="/sqlMap/mapper/vow.xml" />
     </mappers>
 </configuration>
