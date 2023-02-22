@@ -12,7 +12,10 @@
 					<when test="type == 'T'.toString()">
 						ctitle LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
 					</when>
-					<when test="type == 'F'.toString()">
+					<when test="type == 'E'.toString()">
+						email LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
+					</when>
+					<when test="type == 'C'.toString()">
 						ccontent LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
 					</when>
 				</choose>
