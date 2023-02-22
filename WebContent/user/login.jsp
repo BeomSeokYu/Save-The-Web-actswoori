@@ -60,6 +60,12 @@ body {
 </style>
 <body>
 <%@ include file="/include/navbar.jsp" %>
+
+<%
+	if (sid == null) {
+%>
+
+
 <div class="container">
 	<div class="form-signin text-center">
 	  <form>
@@ -84,7 +90,13 @@ body {
 	  </form>
 	</div>
 </div>
+<%
+	} else {response.sendRedirect("/main.jsp");}
+%>
+
 <%@ include file="/include/footer.jsp" %>
+
+
 <script>
 $('#loginBtn').on('click', function(){
 	if ($('#email').val() == '') {
@@ -113,7 +125,6 @@ $('#loginBtn').on('click', function(){
 					popModal('가입 미승인', '아직 승인되지 않은 회원입니다.');
 				}
 			})
-			.catch(err => console.log('Error : ', err));
 	}
 });
 </script>
