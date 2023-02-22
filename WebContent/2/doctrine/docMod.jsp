@@ -14,13 +14,24 @@
 </head>
 <body>
 <%@ include file="/include/navbar.jsp" %>
-제목 <input type="text" id="dtitle" > <br>
-
-내용 <br>
-<textarea name="content" id="summernote" class="mtop-10"></textarea>
-<hr>
-<input type="button" value="이전으로" onclick="history.back()">
-<button type="button" class="btn btn-primary" onclick="modItem()">완료</button>
+	<div class="container">
+		<div class="pt-5"></div>
+		<h2>복음과 교리 수정</h2>
+		<hr>
+		<div class="input-group mb-2 input-group-lg">
+			<span class="input-group-text col-1 mx-auto">제목</span> 
+			<input type="text" class="form-control col-11" name="dtitle" id="dtitle" required>
+		</div>
+		
+		<div>
+			<textarea name="content" id="summernote" class="mtop-10"></textarea>
+		</div>
+		
+		<div class="d-flex justify-content-end my-4">
+			<button class="btn btn-outline-primary mx-2" onclick="modItem()">수정</button>
+			<input type="button" value="취소" onclick="history.back()"
+				class="btn btn-outline-secondary mx-2">
+		</div>
 
 <script>
 	var dno = <%=request.getParameter("dno")%>;
@@ -43,7 +54,7 @@
 				
 				$('#summernote').summernote({
 					  tabsize: 2,
-				        height: 60,
+				        height: 500,
 				        toolbar: [
 				          ['style', ['style']],
 				          ['font', ['bold', 'underline', 'clear']],

@@ -25,29 +25,35 @@
  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
  <section class="py-5 text-center container"></section>
     
-  <div class = "container">
-  <h1>협력 기관 소식 글 수정</h1><br>
-<form action = "coopUpdateCheck.jsp" method="post">
-<div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">제목</label>
-  <input type="text" class="form-control" name="ctitle" id="exampleFormControlInput1" value="<%=cdto.getCtitle()%>">
-</div>
-<div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label" >내용</label>
-  <textarea class="form-control" name = "ccontent"  id="summernote" rows="3"></textarea>
-</div>
-<input type="hidden" name="cno" value="<%=cdto.getCno()%>">
-<button style="float:right; type="submit" class="btn btn-primary">수정하기</button>
-</form>
-<button onclick="location.href='coopList.jsp'" class="btn btn-primary">목록으로</button>
-</div>
+  <div class="container">
+	<div class="pt-5"></div>
+  	<h2>협력 기관 소식 글 수정</h2><hr>
+	<form action = "coopUpdateCheck.jsp" method="post">
+		<div class="input-group mb-2 input-group-lg">
+			<span class="input-group-text col-1 mx-auto" id="ltitle">제목</span> 
+			<input type="text" class="form-control col-11" name="ctitle" id="ltitle"
+				value="<%=cdto.getCtitle()%>" required>
+		</div>
+	
+		<div>
+			<textarea name="ccontent" id="summernote" class="mtop-10"></textarea>
+		</div>
+		
+		<input type="hidden" name="cno" value="<%=cdto.getCno()%>">
+		
+		<div class="d-flex justify-content-end my-4">
+			<button class="btn btn-outline-primary mx-2" type="submit">수정</button>
+			<input type="button" value="취소" onclick="history.back()"
+				class="btn btn-outline-secondary mx-2">
+		</div>
+	</div>
 
     <script>
      $('#summernote').val('<%=cdto.getCcontent()%>'); 
       $('#summernote').summernote({
         placeholder:'',
         tabsize: 2,
-        height: 300
+        height: 500
         
       });
     </script>
@@ -55,4 +61,4 @@
   </body>
  <%@include file="/include/footer.jsp" %>
 </html>
-<% }; %>
+<%  };  %>
