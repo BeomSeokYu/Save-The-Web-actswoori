@@ -54,7 +54,7 @@ NewsDTO ndto = NewsDAO.selectNews(nno);
 	if (admin || sid != null && sid.equals(NewsDAO.selectNews(Integer.parseInt(request.getParameter("nno"))).getEmail())) { // 세션 처리
 %>
 <a href="modForm.jsp?nno=<%=ndto.getNno() %>" class="btn btn-sm btn-outline-warning"> 수정하기 </a>
-<a href="deleteProc.jsp?nno=<%=ndto.getNno() %>" class="btn btn-sm btn-outline-danger"> 삭제하기 </a>
+<button onclick="handleDeleteBtn('<%=ndto.getNno()%>')" class="btn btn-sm btn-outline-danger"> 삭제하기 </button>
 <%
 	}
 %>
@@ -68,12 +68,17 @@ NewsDTO ndto = NewsDAO.selectNews(nno);
 <%@ include file="/include/footer.jsp" %>
 
 <script>
+function handleDeleteBtn(nno) {
+	if (confirm("정말로 삭제하시겠습니까?")) {
+		location.href="deleteProc.jsp?nno=" + nno
+	}
+}
 
 $(function(){
    const urlParams = new URL(location.href).searchParams;
    const msg = urlParams.get('msg');
 
-   if (msg == "modSuccess") {
+   if (msg == "deleteSuccess") {
       popModal("수정 성공", "수정에 성공하였습니다.")
    } else if (msg == "fail") {
       popModal("오류 발생", "오류가 발생하였습니다. 다시 시도해주세요.")

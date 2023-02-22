@@ -1,3 +1,6 @@
+<%@page import="jdbc.NewsDTO"%>
+<%@page import="java.util.*"%>
+<%@page import="jdbc.NewsDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%-- <!DOCTYPE html>
@@ -102,6 +105,9 @@
         <!--end of welcome section-->
 
 
+<% List<NewsDTO> newsList = NewsDAO.selectNewNews(); 
+
+%>
 
         <!--Start of testimonial-->
         <section id="testimonial">
@@ -134,11 +140,11 @@
                                                             <img src="img/tree_cut_3.jpg" alt="">
                                                         </div>
                                                         <div class="testimonial_content">
-                                                            <p>교회소식 내용 들어갈 곳1</p>
+                                                            <span><%= newsList.get(0).getNcontent()  %></span>
                                                         </div>
                                                         <div class="testimonial_author">
-                                                            <h3>교회소식 제목1</h3>
-                                                            <p>작성자1</p>
+                                                            <h3><%= newsList.get(0).getNtitle()  %></h3>
+                                                            <p><%= newsList.get(0).getEmail()  %></p>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -146,11 +152,11 @@
                                                             <img src="img/tree_cut_3.jpg" alt="">
                                                         </div>
                                                         <div class="testimonial_content">
-                                                            <p>교회소식 내용 들어갈 곳2</p>
+                                                            <span><%= newsList.get(1).getNcontent()  %></span>
                                                         </div>
                                                         <div class="testimonial_author">
-                                                            <h3>교회소식 제목2</h3>
-                                                            <p>작성자2</p>
+                                                            <h3><%= newsList.get(1).getNtitle()  %></h3>
+                                                            <p><%= newsList.get(1).getEmail()  %></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -163,11 +169,11 @@
                                                             <img src="img/tree_cut_3.jpg" alt="">
                                                         </div>
                                                         <div class="testimonial_content">
-                                                            <p>교회소식 내용 들어갈 곳3</p>
+                                                            <span><%= newsList.get(2).getNcontent() %></span>
                                                         </div>
                                                         <div class="testimonial_author">
-                                                            <h3>교회소식 제목3</h3>
-                                                            <p>작성자3</p>
+                                                            <h3><%= newsList.get(2).getNtitle()  %></h3>
+                                                            <p><%= newsList.get(2).getEmail()  %></p>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -175,11 +181,11 @@
                                                             <img src="img/tree_cut_3.jpg" alt="">
                                                         </div>
                                                         <div class="testimonial_content">
-                                                            <p>교회소식 내용 들어갈 곳4</p>
+                                                            <span><%= newsList.get(3).getNcontent() %></span>
                                                         </div>
                                                         <div class="testimonial_author">
-                                                            <h3>교회소식 제목4</h3>
-                                                            <p>작성자4</p>
+                                                            <h3><%= newsList.get(3).getNtitle()  %></h3>
+                                                            <p><%= newsList.get(3).getEmail()  %></p>
                                                         </div>
                                                     </div>
                                                 </div>
