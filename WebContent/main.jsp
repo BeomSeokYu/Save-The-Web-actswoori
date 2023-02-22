@@ -110,8 +110,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="testimonial_header text-center">
-                                <h2>testimonials</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <h2>교회 소식</h2>
                             </div>
                         </div>
                     </div>
@@ -135,12 +134,11 @@
                                                             <img src="img/tree_cut_3.jpg" alt="">
                                                         </div>
                                                         <div class="testimonial_content">
-                                                            <i class="fa fa-quote-left"></i>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
+                                                            <p>교회소식 내용 들어갈 곳1</p>
                                                         </div>
                                                         <div class="testimonial_author">
-                                                            <h5>Sadequr Rahman Sojib</h5>
-                                                            <p>CEO, Fourder</p>
+                                                            <h3>교회소식 제목1</h3>
+                                                            <p>작성자1</p>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -148,12 +146,11 @@
                                                             <img src="img/tree_cut_3.jpg" alt="">
                                                         </div>
                                                         <div class="testimonial_content">
-                                                            <i class="fa fa-quote-left"></i>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
+                                                            <p>교회소식 내용 들어갈 곳2</p>
                                                         </div>
                                                         <div class="testimonial_author">
-                                                            <h5>Sadequr Rahman Sojib</h5>
-                                                            <p>CEO, Fourder</p>
+                                                            <h3>교회소식 제목2</h3>
+                                                            <p>작성자2</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -166,12 +163,11 @@
                                                             <img src="img/tree_cut_3.jpg" alt="">
                                                         </div>
                                                         <div class="testimonial_content">
-                                                            <i class="fa fa-quote-left"></i>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
+                                                            <p>교회소식 내용 들어갈 곳3</p>
                                                         </div>
                                                         <div class="testimonial_author">
-                                                            <h5>Sadequr Rahman Sojib</h5>
-                                                            <p>CEO, Fourder</p>
+                                                            <h3>교회소식 제목3</h3>
+                                                            <p>작성자3</p>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -179,12 +175,11 @@
                                                             <img src="img/tree_cut_3.jpg" alt="">
                                                         </div>
                                                         <div class="testimonial_content">
-                                                            <i class="fa fa-quote-left"></i>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
+                                                            <p>교회소식 내용 들어갈 곳4</p>
                                                         </div>
                                                         <div class="testimonial_author">
-                                                            <h5>Sadequr Rahman Sojib</h5>
-                                                            <p>CEO, Fourder</p>
+                                                            <h3>교회소식 제목4</h3>
+                                                            <p>작성자4</p>
                                                         </div>
                                                     </div>
                                                 </div>

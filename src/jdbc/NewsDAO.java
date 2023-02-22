@@ -253,6 +253,45 @@ public class NewsDAO {
 		return result;
 	}
 	
-	
+	public static List<NewsDTO> selectNewNews(int pageNum, int amount) throws NamingException, SQLException {
+		//메인용, 최신뉴스 가져오기
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+		String sql = "SELECT * FROM news ORDER BY nno DESC limit ?, ?";
+		
+		conn = ConnectionPool.get();
+		pstmt = conn.prepareStatement(sql);
+		
+		pstmt.setInt(1, (pageNum - 1) * amount);
+		pstmt.setInt(2, amount);
+		
+		rs = pstmt.executeQuery();
+		
+		List<NewsDTO> newsList = new ArrayList<NewsDTO>();
+		
+		while (rs.next()) {
+			NewsDTO ndto = new NewsDTO();
+			
+			ndto.setNno(rs.getString(1));
+			ndto.setNtitle(rs.getString(2));
+			ndto.setNcontent(rs.getString(3));
+			ndto.setEmail(rs.getString(4));
+			ndto.setNdate(rs.getString(5));
+			
+			newsList.add(ndto);
+		}
+			
+		return newsList;
+		
+		} finally {
+			if(rs != null) rs.close();
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
+		}
+	}
 	
 }
