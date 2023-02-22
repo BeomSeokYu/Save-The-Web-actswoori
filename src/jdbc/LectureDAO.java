@@ -24,19 +24,20 @@ import util.ConnectionPool;
 public class LectureDAO {
 	
 	//특강 등록
-	public static boolean insert(String ltitle, String lname, String lcontent)throws NamingException, SQLException{
+	public static boolean insert(String ltitle, String lname, String lcontent, String email)throws NamingException, SQLException{
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
 		try {
-			String sql = "INSERT INTO lecture (ltitle,lname,lcontent) VALUES(?,?,?)";
+			String sql = "INSERT INTO lecture (ltitle,lname,lcontent,email) VALUES(?,?,?,?)";
 			
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, ltitle);
 			pstmt.setString(2, lname);
 			pstmt.setString(3, lcontent);
+			pstmt.setString(4, email);
 			
 		return (pstmt.executeUpdate() == 1) ? true :false;	
 		
@@ -144,6 +145,35 @@ public class LectureDAO {
 			if(conn != null) conn.close();
 		}
 	}
+		
+		//작성자 이메일 조회
+		public static String selectEmail(int lno) {
+			try {
+				String sql = "SELECT email FROM lecture WHERE lno = ?";
+				
+				Connection conn = ConnectionPool.get();
+				PreparedStatement pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, lno);
+				
+				ResultSet rs = pstmt.executeQuery();
+				
+				String email = null;
+				
+				if (rs.next()) {
+					email = rs.getString(1);
+				}
+				
+				rs.close();
+				pstmt.close();
+				conn.close();
+				
+				return email;
+			} catch (NamingException | SQLException e) {
+				e.printStackTrace();
+				return null;
+			}
+		}
+		
 		
 		//페이징
 		public static ArrayList<LectureDTO> getListpaging(int pageNum, int amount) throws NamingException, SQLException {
