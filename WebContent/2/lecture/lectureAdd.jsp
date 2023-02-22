@@ -93,7 +93,7 @@
 			</div>
 		</form>
 	</div>
-	<!--<button onclick="location.href='/2/lecture/lectureMain.jsp'" class="btn btn-warning">취소</button>  -->
+	
 
 
 	<!-- 썸머노트 스크립트 -->
