@@ -68,7 +68,7 @@
 						</div>
 					</div>
 					<hr class="my-4">
-					<div class="album py-5 bg-light">
+					<div class="album py-5">
    					<div class="container">
    					
    					 <p style="font-weight:bold; color:#747474;">당회</p>
