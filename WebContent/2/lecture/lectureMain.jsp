@@ -148,16 +148,67 @@ function printList(data) {
 	//TODO: 리스트 출력 처리 하세요
 	var str = '';
 	for (var i = 0; i < data.length; i++){
-		
+		var date = getDate(data[i].date)
 		str +=	"<tr>";
 		str +=  "<td class = \"text-center\"><a href= 'lectureDetail.jsp?lno=" + data[i].no + "'>" + data[i].title + "</td>";
 		str += 	"<td class = \"text-center\">" + data[i].name + "</td>"
-		str +=  "<td class = \"text-center\"><small>" + data[i].date + "</small></td>";
+		str +=  "<td class = \"text-center\"><small>" + date + "</small></td>";
 		str +=  "</tr>";
 	}
 	$('#ajaxTable').html(str);
 }
-	
+
+function getDate(input) {
+	date = new Date(input)
+	today = new Date()
+	timegap = today - date
+	if(timegap>1000*60*60*24){
+		// 년월일
+		return date.toISOString().split('T')[0]
+	} else {
+		if(today.getDate()==date.getDate()){
+		// 시 분
+			if(date.getHours()<12){
+				if (date.getHours()<10){
+					if(date.getMinutes()<10){
+						return 'AM '+'0'+date.getHours()+' : 0'+date.getMinutes()
+					} else {
+						return 'AM '+'0'+date.getHours()+' : '+date.getMinutes()
+					}
+				} else {
+					if(date.getMinutes()<10){
+						return 'AM '+date.getHours()+' : 0'+date.getMinutes()
+					} else {
+						return 'AM '+date.getHours()+' : '+date.getMinutes()
+					}
+				}
+			} else if (date.getHours()==12){
+				if(date.getMinutes()<10){
+					return 'PM '+date.getHours()+' : 0'+date.getMinutes()
+				} else {
+					return 'PM '+date.getHours()+' : '+date.getMinutes()
+				}
+			} else {
+				if (date.getHours()<22){
+					if(date.getMinutes()<10){
+						return 'PM '+'0'+(date.getHours()-12)+' : 0'+date.getMinutes()
+					} else {
+						return 'PM '+'0'+(date.getHours()-12)+' : '+date.getMinutes()	
+					}
+				} else {
+					if(date.getMinutes()<10){
+						return 'PM '+(date.getHours()-12)+' : 0'+date.getMinutes()
+					} else {
+						return 'PM '+(date.getHours()-12)+' : '+date.getMinutes()
+					}
+				}
+			}
+		} else {
+			// 년월일
+			return date.toISOString().split('T')[0]
+		}
+	}
+}
 </script>	
 
 <script src = "/resources/js/page.js"></script>

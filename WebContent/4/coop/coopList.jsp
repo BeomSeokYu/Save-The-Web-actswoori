@@ -112,12 +112,13 @@ function printList(data) {
 	var imgHTML = '';
 	for (var i = 0; i < data.length; i++) {
 		var name = getUserName(data[i].email)
+		var date = getDate(data[i].cdate)
 		imgHTML += ''
 			imgHTML += ''
 				+ "<tr onclick=\"location.href='coopInfo.jsp?cno="
 				+ data[i].cno + "'\"><td>" + data[i].ctitle + "</td>"
 				+ '<td>' + name + "</td>" + '<td>'
-				+ data[i].cdate + "</td></a></tr>"
+				+ date + "</td></a></tr>"
 			
 /* 			+= "<tr onclick=\"location.href='coopInfo.jsp?cno="
 			imgHTML += data[i].cno +'">' + data[i].ctitle + '</td>';
@@ -161,6 +162,60 @@ $('#doneBtn').on('click', function(){
 		popModal('사진 등록 실패', '입력 값이 없는 항목이 있습니다.')
 	}
 });
+
+function getDate(input) {
+	date = new Date(input)
+	today = new Date()
+	timegap = today - date
+	if(timegap>1000*60*60*24){
+		// 년월일
+		return date.toISOString().split('T')[0]
+	} else {
+		if(today.getDate()==date.getDate()){
+		// 시 분
+			if(date.getHours()<12){
+				if (date.getHours()<10){
+					if(date.getMinutes()<10){
+						return 'AM '+'0'+date.getHours()+' : 0'+date.getMinutes()
+					} else {
+						return 'AM '+'0'+date.getHours()+' : '+date.getMinutes()
+					}
+				} else {
+					if(date.getMinutes()<10){
+						return 'AM '+date.getHours()+' : 0'+date.getMinutes()
+					} else {
+						return 'AM '+date.getHours()+' : '+date.getMinutes()
+					}
+				}
+			} else if (date.getHours()==12){
+				if(date.getMinutes()<10){
+					return 'PM '+date.getHours()+' : 0'+date.getMinutes()
+				} else {
+					return 'PM '+date.getHours()+' : '+date.getMinutes()
+				}
+			} else {
+				if (date.getHours()<22){
+					if(date.getMinutes()<10){
+						return 'PM '+'0'+(date.getHours()-12)+' : 0'+date.getMinutes()
+					} else {
+						return 'PM '+'0'+(date.getHours()-12)+' : '+date.getMinutes()	
+					}
+				} else {
+					if(date.getMinutes()<10){
+						return 'PM '+(date.getHours()-12)+' : 0'+date.getMinutes()
+					} else {
+						return 'PM '+(date.getHours()-12)+' : '+date.getMinutes()
+					}
+				}
+			}
+		} else {
+			// 년월일
+			return date.toISOString().split('T')[0]
+		}
+	}
+}
+
+
 </script>
 </body>
 </html>
