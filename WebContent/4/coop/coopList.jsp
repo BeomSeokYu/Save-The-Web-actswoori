@@ -23,69 +23,70 @@
 <div class="container">
 	<div class="photo-gallery container mb-3">
 		<div class="row justify-content-center">
-			<h2 class="sticky-md-top">협력 기관 소식</h2>
+			<h2>협력 기관 소식</h2>
 			<div class="col-3 d-none d-lg-block">
+				<%@ include file="/include/sidebar4.jsp"%>
 			</div>
-			<div class="col-9">
-				<div class="row">
-					<div class="col-6">
-						<select class="form-select w-50" id="selectAmount">
-				       		<option value="8" selected>8</option>
-				       		<option value="16">16</option>
-				       		<option value="24">24</option>
-				        </select>
-			        </div>
-					<div class="col-6 text-end">
-						<button class="btn btn-outline-secondary" type="button" onclick="location.href='coopAdd.jsp'">글 등록</button>
+				<div class="col-9">
+					<div class="row">
+						<div class="col-3 text-muted">
+							<select class="form-select form-select-sm w-50 d-inline"
+								id="selectAmount">
+								<option value="8" selected>8</option>
+								<option value="16">16</option>
+								<option value="24">24</option>
+							</select> <span class="d-inline">개씩 보기</span>
+						</div>
+						<div class="col-9 text-end">
+							<a href="coopAdd.jsp" class="btn btn-sm btn-outline-success">게시물
+								등록 </a>
+						</div>
 					</div>
-		        </div>
-				
-				
-			<table class="table">
-			<thead>
-				<tr>
-			      <th scope="col">no</th>
-			      <th scope="col" colspan=2>제목</th>
-			      <th scope="col">작성자</th>
-			      <th scope="col">time</th>
-				</tr>
-			</thead>
-			
-			<tbody id=imgList class="table-group-divider">
-			</tbody>
-			</table>
-				
-				
-				<hr class="my-4">
-				<div class="row">
-					<div class="col-8">
-						<ul class="pagination justify-content-center" id="pagination">
-						
-						</ul>
+					<hr class="my-4">
+
+					<table class="table table-hover shadow bg-body rounded">
+						<thead>
+							<tr style="background-color: #548687; color: white;">
+								<th scope="col">제목</th>
+								<th scope="col">작성자</th>
+								<th scope="col">작성일자</th>
+							</tr>
+						</thead>
+						<tbody id="imgList">
+
+
+						</tbody>
+					</table>
+					<hr class="my-4">
+					<div class="row">
+						<div class="col-8">
+							<ul class="pagination justify-content-center" id="pagination">
+
+							</ul>
+						</div>
+						<div class="col-4">
+							<div class="d-flex text-end">
+								<select class="form-select" id="selectType">
+									<option value="T" selected>제목</option>
+									<option value="C">내용</option>
+									<option value="E">이메일</option>
+									<option value="TC">제목/내용</option>
+									<option value="TE">제목/이메일</option>
+									<option value="TFC">제목/내용/이메일</option>
+								</select> <input class="form-control form-control-sm" type="search"
+									placeholder="검색어" id="keyword">
+								<button class="btn btn-sm btn-outline-success" type="button"
+									id="searchBtn">
+									<i class="bi bi-search"></i>
+								</button>
+							</div>
+						</div>
 					</div>
-					<div class="col-4">
-						<div class="d-flex text-end">
-						  <select class="form-select" id="selectType">
-				       		<option value="T" selected>제목</option>
-				       		<option value="F">파일명</option>
-				       		<option value="TF">제목/파일명</option>
-				          </select>
-					      <input class="form-control" type="search" placeholder="검색어" aria-label="" id="keyword">
-					      <button class="btn btn-outline-success" type="button" id="searchBtn">검색</button>
-					    </div>
-				    </div>
-		        </div>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
-
-
-
-
-
-
-<%@ include file="/include/footer.jsp" %>
+	<%@ include file="/include/footer.jsp"%>
 
 <!-- lightbox2 js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" integrity="sha512-k2GFCTbp9rQU412BStrcD/rlwv1PYec9SNrkbQlo6RZCf75l6KcC3UwDY8H5n5hl4v77IDtIPwOk9Dqjs/mMBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -114,12 +115,18 @@ function printList(data) {
 	var imgHTML = '';
 	for (var i = 0; i < data.length; i++) {
 		imgHTML += ''
-			imgHTML += '<tr><td>' +data[i].cno+ '</td>';
-			imgHTML += '<td><a href="coopInfo.jsp?cno='+data[i].cno+'">' + data[i].ctitle + '</td>';
+			imgHTML += ''
+				+ "<tr onclick=\"location.href='coopInfo.jsp?cno="
+				+ data[i].cno + "'\"><td>" + data[i].ctitle + "</td>"
+				+ '<td>' + data[i].email + "</td>" + '<td>'
+				+ data[i].cdate + "</td></a></tr>"
+			
+/* 			+= "<tr onclick=\"location.href='coopInfo.jsp?cno="
+			imgHTML += data[i].cno +'">' + data[i].ctitle + '</td>';
 			imgHTML += '<td></td>';
 			imgHTML += '<td>' + data[i].email + '</td>';
 			imgHTML += '<td>' + data[i].cdate + '</td></tr>';
-			
+			 */
 			
 	imgHTML += ''
 		+ '<div class="col-sm-6 col-md-4 col-lg-3 item h-100">'

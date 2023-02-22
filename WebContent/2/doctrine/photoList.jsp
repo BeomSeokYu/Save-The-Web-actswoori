@@ -14,9 +14,38 @@
 <meta charset="UTF-8">
 <title>행전우리교회</title>
 <%@ include file="/include/header.jsp" %>
-
 <!-- lightbox2 css -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.css" integrity="sha512-Woz+DqWYJ51bpVk5Fv0yES/edIMXjj3Ynda+KWTIkGoynAMHrqTcDUQltbipuiaD5ymEo9520lyoVOo9jCQOCA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+.photo-gallery {
+  color:#313437;
+  background-color:#fff;
+}
+
+.photo-gallery h2 {
+  font-weight:bold;
+  margin-bottom:40px;
+  padding-top:40px;
+  color:inherit;
+}
+
+@media (max-width:767px) {
+  .photo-gallery h2 {
+    margin-bottom:25px;
+    padding-top:25px;
+    font-size:24px;
+  }
+}
+
+.photo-gallery .photos {
+  padding-bottom:20px;
+}
+
+.photo-gallery .item {
+  padding-bottom:30px;
+}
+</style>
+
 <style>
 .bd-placeholder-img {
   font-size: 1.125rem;
@@ -36,26 +65,26 @@
 <body>
 <%@ include file="/include/navbar.jsp" %>
 
+
 <!-- 게시판 영역 -->
 <div class="container">
-	<div class="container mb-3">
+	<div class="photo-gallery container mb-3">
 		<div class="row justify-content-center">
-			<h2 class="">갤러리</h2>
+			<h2 class="sticky-md-top">갤러리</h2>
 			<div class="col-3 d-none d-lg-block">
 				<%@ include file="/include/sidebar4.jsp" %>
 			</div>
 			<div class="col-9">
 				<div class="row">
-					<div class="col-3 text-muted">
-						<select class="form-select form-select-sm w-50 d-inline" id="selectAmount">
+					<div class="col-6">
+						<select class="form-select w-50" id="selectAmount">
 				       		<option value="8" selected>8</option>
 				       		<option value="16">16</option>
 				       		<option value="24">24</option>
 				        </select>
-				        <span class="d-inline">개씩 보기</span>
 			        </div>
-					<div class="col-9 text-end">
-						<button class="btn btn-sm btn-outline-secondary" type="button" onclick="regPhoto()">사진 등록</button>
+					<div class="col-6 text-end">
+						<button class="btn btn-outline-secondary" type="button" onclick="regPhoto()">사진 등록</button>
 					</div>
 		        </div>
 				
@@ -66,13 +95,13 @@
 				<hr class="my-4">
 				<div class="row">
 					<div class="col-8">
-						<ul class="pagination pagination-sm justify-content-center" id="pagination">
+						<ul class="pagination justify-content-center" id="pagination">
 						
 						</ul>
 					</div>
 					<div class="col-4">
 						<div class="d-flex text-end">
-						  <select class="form-select form-select-sm" id="selectType">
+						  <select class="form-select" id="selectType">
 				       		<option value="T" selected>제목</option>
 				       		<option value="F">파일명</option>
 				       		<option value="E">이메일</option>
@@ -80,15 +109,19 @@
 				       		<option value="TE">제목/이메일</option>
 				       		<option value="TFE">제목/파일명/이메일</option>
 				          </select>
-					      <input class="form-control form-control-sm" type="search" placeholder="검색어"id="keyword">
-					      <button class="btn btn-sm btn-outline-secondary" type="button" id="searchBtn"><i class="bi bi-search"></i></button>
-				        </div>
+					      <input class="form-control" type="search" placeholder="검색어" aria-label="" id="keyword">
+					      <button class="btn btn-outline-success" type="button" id="searchBtn">검색</button>
+					    </div>
 				    </div>
 		        </div>
 			</div>
 		</div>
 	</div>
 </div>
+
+
+
+
 
 
 <%@ include file="/include/footer.jsp" %>
@@ -126,7 +159,6 @@
 검색 입력 인풋 : keyword
 검색 선택 셀렉트 : selectType
 게시글 표시 갯수 셀렉트 : selectAmount
-리스트 다시 띄우기 : pageObj.pageCal(cri);
 */
 
 /* 전체 게시물 수 가져오기 위해 처리한 jsp URL 입력해주세요 */
@@ -146,36 +178,14 @@ function printList(data) {
 		imgHTML += ''
 			+ '<div class="col-sm-6 col-md-4 col-lg-3 item h-100">'
 			+ '<a class="col-lg-4 col-md-12 mb-4 mb-lg-0" href="'+ img +'" data-title="'+data[i].title +'" data-lightbox="photos">'
-			+ '<img class="img-fluid shadow bg-body rounded" src="'+img+'" style="width: 200px;height: 150px;object-fit: cover;">'
-			+ '</a><div class="row mb-5">'
-			+ '<div  class="col-6">'+data[i].title+'</div>';
-		if (<%= admin %> || data[i].email == '<%= sid %>') {
-			imgHTML += '<div class="col-6 text-end"><i class="btn bi bi-trash3-fill" onclick="photoRemove(\''+data[i].no+'\')"></i></div>';
-		}
-		imgHTML += ''
-			+ '</div></div>';
+			+ '<img class="img-fluid shadow bg-body rounded" src="'+img+'"></a></div>';
 	}
 	$('#imgList').html(imgHTML);
 }
 
-function photoRemove(no, uuid, filename) {
-	if (confirm('정말로 삭제 하시겠습니까?')){
-		fetch('/4/gallery/photoDelProc.jsp', {	
-			method: "post",
-			body: new URLSearchParams({
-					gno: no,
-					guuid: uuid,
-					gfilename: filename,
-				})
-	        })
-			.then(resp => resp.text())
-			.then(data => {
-				data.trim()
-				console.log(data);
-				pageObj.pageCal(cri);
-			})
-	}
-}
+
+
+
 
 
 

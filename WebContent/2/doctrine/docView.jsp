@@ -14,14 +14,15 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 </head>
 <body>
+<input type="hidden" id="email">
 <%@ include file="/include/navbar.jsp" %>
 <script>
 window.onload = function() {
  	var dno = <%=request.getParameter("dno")%>;
  	var sid = "<%=sid%>"
  	var admin = "<%=admin%>"
- 	var email
-  	function searchFunction(dno) {
+
+ 	function searchFunction(dno) {
  		
  		$.ajax({
  			type:'post',
@@ -33,20 +34,23 @@ window.onload = function() {
  				var title = "<h1>" + doc.dtitle + "</h1>";
 				$("#title").html(title);
 				$("#content").html(doc.dcontent);
-				email = doc.email
- 				} 
- 			})
- 		}
- 	
-
- 		searchFunction(dno);
-		if (sid==admin||sid==email) {
+				$('#email').val(doc.email)
+				console.log($("#email").val())
+				if (sid==admin||sid==$("#email").val()) {
 			$('.ad').show()
 		} else {
 		$('.ad').hide()
- 	}
-		}
+ 		}
+ 				} 
+ 			
+ 			})
+ 		}
+
+ 		searchFunction(dno);
+ 		
+ 		
 		
+	}
   	function delItem(dno) {
  		$.ajax({
  			type:"post",

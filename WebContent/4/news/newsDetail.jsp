@@ -22,19 +22,19 @@ NewsDTO ndto = NewsDAO.selectNews(nno);
 %>
 <div class="container">
 <div class="photo-gallery container mb-3">
-   <div class="row justify-content-center">
-      <div class="col-3 d-none d-lg-block">
-         <%@ include file="/include/sidebar4.jsp" %>
-      </div>
+	<div class="row justify-content-center">
+		<div class="col-3 d-none d-lg-block">
+			<%@ include file="/include/sidebar4.jsp" %>
+		</div>
 <div class="col-9">
-              
+     			
 <h2 class="px-2"> <%= ndto.getNtitle()  %></h2>
 
 
 <div class="shadow bg-body rounded">
 <div class="p-3 d-flex justify-content-between" style="background-color: #548687; color: white">
 <span class="item">작성자 : <%= ndto.getEmail()  %></span>
-<span class="item">작성날짜 : <%= ndto.getNdate()  %></span>
+<span class="item">작성일시 : <%= ndto.getNdate()  %></span>
 </div>
 
 <div class="p-3">
@@ -43,15 +43,16 @@ NewsDTO ndto = NewsDAO.selectNews(nno);
 </div>
 
 <hr>
-
-<div class="text-center">
-<a href="newsAll.jsp?" class="btn btn-outline-success" >목록으로</a>
+<div class="row">
+<div class="text-start col-6">
+<a href="newsAll.jsp?" class="btn btn-sm btn-outline-success" >목록으로</a>
 </div>
 
 
-<div class="text-end">
-<a href="modForm.jsp?nno=<%=ndto.getNno() %>" class="btn btn-warning"> 수정하기 </a>
-<a href="deleteProc.jsp?nno=<%=ndto.getNno() %>" class="btn btn-danger"> 삭제하기 </a>
+<div class="text-end col-6">
+<a href="modForm.jsp?nno=<%=ndto.getNno() %>" class="btn btn-sm btn-outline-warning"> 수정하기 </a>
+<a href="deleteProc.jsp?nno=<%=ndto.getNno() %>" class="btn btn-sm btn-outline-danger"> 삭제하기 </a>
+</div>
 </div>
 </div>
 </div>

@@ -229,19 +229,19 @@ input: -webkit-autofill:focus {
     border-bottom: 1px solid #3D3E3D;
     z-index: 9999
 }
-#header .header_menu .navbar {
+#header .header_menu {
     border: 0px solid transparent;
 }
-#header .header_menu .custom_navbar-brand {
+#header .header_menu {
     padding-left: 0;
 }
-#header .header_menu .navbar-default {
+#header .header_menu .nav-main {
     background-color: rgba(255, 255, 255, 0);
     border-color: rgba(255, 255, 255, 0);
 }
-#header .header_menu .navbar-default .navbar-nav>.active>a,
-#header .header_menu .navbar-default .navbar-nav>.active>a:focus,
-#header .header_menu .navbar-default .navbar-nav>.active>a:hover {
+#header .header_menu .nav-main .navbar-nav>.active>a,
+#header .header_menu .nav-main .navbar-nav>.active>a:focus,
+#header .header_menu .nav-main .navbar-nav>.active>a:hover {
     background-color: rgba(255, 255, 255, 0);
 }
 #header .header_menu .main_menu {
@@ -1193,7 +1193,7 @@ ul.entry-meta {
 .main-content.blog-w.rap,.main-content.container.blog-wrap.single-blog {
     margin-top: 80px;
 }
-.nav {
+.nav-main {
     font-size: 18px;
     padding-top: 2px;
     color: #646464;

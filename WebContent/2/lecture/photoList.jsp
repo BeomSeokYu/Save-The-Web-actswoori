@@ -34,60 +34,86 @@
 	}
 %>
 
-<!-- lightbox2 css -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.css" integrity="sha512-Woz+DqWYJ51bpVk5Fv0yES/edIMXjj3Ynda+KWTIkGoynAMHrqTcDUQltbipuiaD5ymEo9520lyoVOo9jCQOCA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<style>
-.photo-gallery {
-  color:#313437;
-  background-color:#fff;
-}
 
-.photo-gallery h2 {
-  font-weight:bold;
-  margin-bottom:40px;
-  padding-top:40px;
-  color:inherit;
-}
-
-@media (max-width:767px) {
-  .photo-gallery h2 {
-    margin-bottom:25px;
-    padding-top:25px;
-    font-size:24px;
-  }
-}
-
-.photo-gallery .photos {
-  padding-bottom:20px;
-}
-
-.photo-gallery .item {
-  padding-bottom:30px;
-}
-</style>
-
-<style>
-.bd-placeholder-img {
-  font-size: 1.125rem;
-  text-anchor: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-}
-
-@media (min-width: 768px) {
-  .bd-placeholder-img-lg {
-    font-size: 3.5rem;
-  }
-}
-</style>
 </head>
 <body>
 <%@ include file="/include/navbar.jsp" %>
 
 
 <!-- 게시판 영역 -->
-<div class="container">
+	<div class="container">
+		<div class="photo-gallery container mb-3">
+			<div class="row justify-content-center">
+				<h2>주요 특강</h2>
+				<div class="col-3 d-none d-lg-block">
+					<%@ include file="/include/sidebar2.jsp"%>
+				</div>
+
+				<div class="col-9">
+					<div class="row">
+						<div class="col-3 text-muted">
+							<select class="form-select form-select-sm w-50 d-inline"
+								id="selectAmount">
+								<option value="8" selected>8</option>
+								<option value="16">16</option>
+								<option value="24">24</option>
+							</select> <span class="d-inline">개씩 보기</span>
+						</div>
+						<div class="col-9 text-end">
+					<% if (sid != null) { // 세션 처리 %>
+							<button class="btn btn-outline-success" type="button" onclick="regPhoto()">게시물 등록</button>
+						<%} %>
+						</div>
+					</div>
+					<hr class="my-4">
+
+					<table class="table table-hover shadow bg-body rounded">
+						<thead>
+							<tr style="background-color: #548687; color: white;">
+								<th scope="col">제목</th>
+								<th scope="col">설교자</th>
+								<th scope="col">작성자</th>
+								<th scope="col">작성일자</th>
+							</tr>
+						</thead>
+						<tbody id="imgList">
+
+
+						</tbody>
+					</table>
+					<hr class="my-4">
+					<div class="row">
+						<div class="col-8">
+							<ul class="pagination justify-content-center" id="pagination">
+
+							</ul>
+						</div>
+						<div class="col-4">
+							<div class="d-flex text-end">
+								<select class="form-select" id="selectType">
+									<option value="T" selected>제목</option>
+									<option value="C">내용</option>
+									<option value="E">이메일</option>
+									<option value="TC">제목/내용</option>
+									<option value="TE">제목/이메일</option>
+									<option value="TFC">제목/내용/이메일</option>
+								</select> <input class="form-control form-control-sm" type="search"
+									placeholder="검색어" id="keyword">
+								<button class="btn btn-sm btn-outline-success" type="button"
+									id="searchBtn">
+									<i class="bi bi-search"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+<!-- <div class="container">
 	<div class="photo-gallery container mb-3">
 		<div class="row justify-content-center">
 		
@@ -150,7 +176,7 @@
 		</div>
 	</div>
 </div>
-
+ -->
 
 
 
@@ -213,11 +239,18 @@ function printList(data) {
 			+ data[i].title
 			+'</div>'; */
 			
-		imgHTML +=	"<tr>";
+		imgHTML += ''
+			+ "<tr onclick=\"location.href='lectureDetail.jsp?lno="
+			+ data[i].no + "'\"><td>" + data[i].title + "</td>"
+			+ '<td>' + data[i].name + "</td>"
+			+ '<td>' + data[i].email + "</td>" + '<td>'
+			+ data[i].date + "</td></a></tr>"
+			
+		/* imgHTML +=	"<tr>";
 		imgHTML +=  "<td class = \"text-center\"><a href= 'lectureDetail.jsp?lno=" + data[i].no + "'>" + data[i].title + "</td>";
 		imgHTML += 	"<td class = \"text-center\">" + data[i].name + "</td>"
 		imgHTML +=  "<td class = \"text-center\"><small>" + data[i].date + "</small></td>";
-		imgHTML +=  "</tr>";	
+		imgHTML +=  "</tr>";	 */
 	}
 	$('#imgList').html(imgHTML);
 }

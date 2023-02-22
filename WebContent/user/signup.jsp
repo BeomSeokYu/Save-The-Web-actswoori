@@ -133,14 +133,14 @@
             </div>
 
             <div class="col-12">
-              <label for="name" class="form-label input">이름</label>
-              <input type="text" class="form-control" id="name" name="name" placeholder="" required>
+              <label for="name" class="form-label">이름</label>
+              <input type="text" class="form-control input" id="name" name="name" placeholder="" required>
             </div>
 
             <div class="col-12">
-	          <label for="job" class="form-label input">직분</label>
+	          <label for="job" class="form-label">직분</label>
               <div class="input-group">
-	              <input type="text" class="form-control rounded" id="job" name="job" placeholder="" required>
+	              <input type="text" class="form-control input rounded" id="job" name="job" placeholder="" required>
 	              <span class="rounded mx-1"></span>
 	              <select class="form-select rounded" id="jobSelect" placeholder="직분">
 					<option value="default" selected>직접 입력</option>
@@ -156,7 +156,7 @@
           </div>
           <hr class="my-4">
 
-          <button class="w-100 btn btn-secondary btn-md" id="signupBtn">가입 신청</button>
+          <button class="w-100 btn btn-secondary btn-md" id="signupBtn" type="button">가입 신청</button>
         </form>
       </div>
     </div>
@@ -165,7 +165,6 @@
 <%@ include file="/include/footer.jsp" %>
 </body>
 <script>
-$(function(){
 
 var emailRegExp = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/i;
 var passRegExp = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/i; // 영문, 숫자 조합으로 8-20자리
@@ -312,6 +311,7 @@ $('#signupBtn').on('click', function(){
 				data = data.trim();
 				if(data == 'success') {
 					$('#email1').val('');
+					$('#email2').val('');
 					$('#password').val('');
 					$('#passwordCheck').val('');
 					$('#name').val('');
@@ -324,7 +324,6 @@ $('#signupBtn').on('click', function(){
 					popModal('가입 오류','이미 존재하는 회원입니다.');
 				}
 			})
-			.catch(err => console.log('Error : ', err));	
 	}
 	
 });
@@ -332,24 +331,23 @@ $('#signupBtn').on('click', function(){
 /* 유효성 검사 */
 function validation() {
 	if($("#email1").hasClass("is-valid") !== true) {
-		popModal('입력 오류','잘못된 이메일 입력입니다.');
+		popModal('입력 오류','이메일을 확인해 주세요.');
 		return false
 	} else if ($("#password").hasClass("is-valid") !== true) {
-		popModal('입력 오류','잘못된 비밀번호 입력입니다.');
+		popModal('입력 오류','비밀번호를 확인해 주세요.');
 		return false
 	} else if ($("#passwordCheck").hasClass("is-valid") !== true) {
-		popModal('입력 오류','비밀번호가 다르게 입력되었습니다.');
+		popModal('입력 오류','비밀번호가 일치하지 않습니다.');
 		return false
 	} else if ($("#name").hasClass("is-valid") !== true) {
-		popModal('입력 오류','잘못된 이름 입력입니다.');
+		popModal('입력 오류','이름 입력을 확인해 주세요.');
 		return false
 	} else if ($("#job").hasClass("is-valid") !== true) {
-		popModal('입력 오류','잘못된 직분 입력입니다.');
+		popModal('입력 오류','직분 입력을 확인해 주세요.');
 		return false
 	}
 	return true
 }
-});
 </script>
 </body>
 </html>

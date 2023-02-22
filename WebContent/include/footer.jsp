@@ -62,11 +62,11 @@
       <p>&copy; 행전우리교회</p>
     </div>
   </div>
-</footer>
+</footer> 
 
 
-<!--Start of footer-->
-<!-- <section id="footer">
+<!-- Start of footer
+ <section id="footer">
      <div class="container">
          <div class="row text-center">
              <div class="col-md-6">

@@ -2,27 +2,22 @@
     pageEncoding="UTF-8"%>
 
 <div id="sideNav" class="d-flex flex-column flex-shrink-0 p-3 bg-light rounded shadow">
-  <span class="fs-4">돌봄과 선교</span>
+  <span class="fs-4">양육과 교육</span>
   <hr>
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item">
-      <a href="/4/news/newsAll.jsp" class="nav-link link-dark" aria-current="page">
-                 교회 소식
+      <a href="#" class="nav-link link-dark" aria-current="page">
+                 교육 부서
       </a>
     </li>
     <li>
-      <a href="/4/post/postList.jsp" class="nav-link link-dark">
-                 주보
+      <a href="#" class="nav-link link-dark">
+                 구역과 전도회
       </a>
     </li>
     <li>
-      <a href="/4/coop/coopList.jsp" class="nav-link link-dark">
-                  협력교회와 기관소식
-      </a>
-    </li>
-    <li>
-      <a href="/4/gallery/photoList.jsp" class="nav-link link-dark">
-                  갤러리
+      <a href="/3/vow/vSelectAll.jsp" class="nav-link link-dark">
+                  말씀 서원
       </a>
     </li>
   </ul>

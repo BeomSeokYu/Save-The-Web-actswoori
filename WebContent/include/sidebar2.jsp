@@ -1,17 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<div class="d-flex flex-column flex-shrink-0 p-3 bg-light rounded shadow">
+<div id="sideNav" class="d-flex flex-column flex-shrink-0 p-3 bg-light rounded shadow">
   <span class="fs-4">예배와 말씀</span>
   <hr>
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item">
-      <a href="#" class="nav-link link-dark" aria-current="page">
+      <a href="/1/vision" class="nav-link link-dark" aria-current="page">
                  예배 설교
       </a>
     </li>
     <li>
-      <a href="#" class="nav-link link-dark">
+      <a href="/1/moin.jsp" class="nav-link link-dark">
                  주요 특강
       </a>
     </li>

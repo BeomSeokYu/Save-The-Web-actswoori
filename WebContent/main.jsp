@@ -35,8 +35,9 @@
     <link href="/resources/css/style.css" rel="stylesheet">
     <!--Responsive Framework-->
     <link href="/resources/css/responsive.css" rel="stylesheet">
-    
+	
     <body data-spy="scroll" data-target="#header">
+    
     <%@ include file="/include/navbar.jsp" %>
         <!--Start of slider section-->
         <section id="slider">

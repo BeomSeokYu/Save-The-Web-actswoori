@@ -1,31 +1,21 @@
-<%@page import="java.io.File"%>
-<%@page import="org.json.simple.JSONObject"%>
+
+<%@page import="jdbc.docDTO"%>
 <%@page import="org.json.simple.JSONArray"%>
+<%@page import="jdk.nashorn.internal.ir.debug.JSONWriter"%>
+<%@page import="jdbc.Criteria"%>
+<%@page import="org.json.simple.JSONObject"%>
+<%@page import="sqlMap.SqlSessionManager"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="org.json.simple.parser.JSONParser"%>
 <%@page import="jdbc.GalleryDTO"%>
 <%@page import="java.util.List"%>
-<%@page import="jdbc.Criteria"%>
 <%@page import="org.apache.ibatis.session.SqlSession"%>
-<%@page import="sqlMap.SqlSessionManager"%>
 <%@page import="org.apache.ibatis.session.SqlSessionFactory"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	SqlSession sqlSession = sqlSessionFactory.openSession();
-	
-	// 해당 앱 내 업로드 경로 설정
-	String uploadPath = "/resources/gallery";
-	// 실제 업로드 저장 경로 설정
-	String savePath = application.getRealPath(uploadPath);
-	
-	File uploadDir = new File(uploadPath);
-	if(!uploadDir.exists()){
-		uploadDir.mkdirs();
-	}
-	File saveDir = new File(savePath);
-	if(!saveDir.exists()){
-		saveDir.mkdirs();
-	}
 	
 	int amount = Integer.parseInt(request.getParameter("amount"));
 	int pageNum = Integer.parseInt(request.getParameter("pageNum"));
@@ -35,9 +25,9 @@
 	
 	Criteria cri = new Criteria(amount, pageNum, offset, type, keyword);
 	
-	List<GalleryDTO> list = null;
+	List<docDTO> list = null;
 	try {
-		list = sqlSession.selectList("GalleryMapper.selectGalleryAllPaging", cri);
+		list = sqlSession.selectList("DoctrineMapper.selectDoctrineAllPaging", cri);
 	} catch (Exception e) {
 		e.printStackTrace();
 	} finally{
@@ -45,15 +35,13 @@
 	}
 	
 	JSONArray ja = new JSONArray();
-	for (GalleryDTO gdto : list) {
+	for (docDTO ddto : list) {
 		JSONObject jo = new JSONObject();
-		jo.put("no", gdto.getGno());
-		jo.put("title", gdto.getGtitle());
-		jo.put("upfolder", gdto.getGupfolder());
-		jo.put("uuid", gdto.getGuuid());
-		jo.put("filename", gdto.getGfilename());
-		jo.put("email", gdto.getEmail());
-		jo.put("date", gdto.getGdate());
+		jo.put("dno", ddto.getDno());
+		jo.put("dtitle", ddto.getDtitle());
+		jo.put("dcontent", ddto.getDcontent());
+		jo.put("email", ddto.getEmail());
+		jo.put("ddate", ddto.getDdate());
 		ja.add(jo);
 	}
 	
