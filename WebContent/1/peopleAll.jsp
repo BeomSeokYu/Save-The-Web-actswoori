@@ -55,20 +55,13 @@
 				<div class="col-9">
 					<div class="row">
 						<div class="col-3 text-muted">
-							<select class="form-select form-select-sm w-50 d-inline"
-								id="selectAmount">
-								<option value="8" selected>8</option>
-								<option value="16">16</option>
-								<option value="24">24</option>
-							</select> <span class="d-inline">개씩 보기</span>
 						</div>
 						<div class="col-9 text-end">
-							<a href="insertForm.jsp" class="btn btn-sm btn-outline-success">게시물
-								등록 </a>
 						</div>
 					</div>
-					<hr class="my-4">
-					<div class="album py-5 bg-light">
+
+					
+					<div class="album py-5">
    					<div class="container">
    					
    					 <p style="font-weight:bold; color:#747474;">당회</p>
@@ -205,30 +198,7 @@
 					</div>
 					</div>
 					
-					<hr class="my-4">
-					<div class="row">
-						<div class="col-8">
-							<ul class="pagination justify-content-center" id="pagination">
-
-							</ul>
-						</div>
-						<div class="col-4">
-							<div class="d-flex text-end">
-								<select class="form-select" id="selectType">
-									<option value="T" selected>제목</option>
-									<option value="C">내용</option>
-									<option value="E">이메일</option>
-									<option value="TC">제목/내용</option>
-									<option value="TE">제목/이메일</option>
-									<option value="TFC">제목/내용/이메일</option>
-								</select> <input class="form-control form-control-sm" type="search"
-									placeholder="검색어" id="keyword">
-								<button class="btn btn-sm btn-outline-success" type="button"
-									id="searchBtn">
-									<i class="bi bi-search"></i>
-								</button>
-							</div>
-						</div>
+					
 					</div>
 				</div>
 			</div>
@@ -258,7 +228,7 @@
 		}
 
 		
-		}
+		
 	</script>
 
 </body>
