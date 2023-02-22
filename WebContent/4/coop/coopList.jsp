@@ -23,7 +23,7 @@
 <div class="container">
 	<div class="photo-gallery container mb-3">
 		<div class="row justify-content-center">
-			<h2>협력 기관 소식</h2>
+			<h2>협력교회와 기관 소식</h2>
 			<div class="col-3 d-none d-lg-block">
 				<%@ include file="/include/sidebar4.jsp"%>
 			</div>
