@@ -4,7 +4,7 @@
 	request.setCharacterEncoding("utf-8");
 
 	String sid = (String) session.getAttribute("sid"); // 보안 처리
-	if (sid == null || !sid.equals(VowDAO.selectEmail(Integer.parseInt(request.getParameter("vno"))))) {
+	if (sid == null) {
 		response.sendRedirect("vSelectAll.jsp");
 		return;
 	}

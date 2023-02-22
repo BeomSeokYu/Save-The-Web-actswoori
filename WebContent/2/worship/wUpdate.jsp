@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <%@ include file="/include/header.jsp" %>
 <%
-	if(sid == null || !sid.equals(WorshipDAO.selectEmail(Integer.parseInt(request.getParameter("wno"))))) { // 보안 처리
+	if (sid == null) { // 보안 처리
 		response.sendRedirect("wSelectAll.jsp");
 		return;
 	}
@@ -30,7 +30,7 @@
 		</div>
 		<div class="input-group mb-3 input-group-lg">
 			<span class="input-group-text col-1" >설교자</span> <input
-				type="text" class="form-control col-11" name="wname" id="wname" required>
+				type="text" class="form-control col-11" name="wname" id="wname">
 		</div>
 		
 		<div>

@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <%@ include file="/include/header.jsp" %>
 <%
-	if (sid == null || !sid.equals(VowDAO.selectEmail(Integer.parseInt(request.getParameter("vno"))))) { // 보안 처리
+	if (sid == null) { // 보안 처리
 		response.sendRedirect("vSelectAll.jsp");
 		return;
 	} 

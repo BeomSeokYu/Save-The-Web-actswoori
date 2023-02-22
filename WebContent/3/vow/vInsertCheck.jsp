@@ -7,7 +7,7 @@
 	String vtitle = request.getParameter("vtitle");
 	String vcontent = request.getParameter("vcontent");
 	
-	if (email == null || vtitle == null || vcontent == null) { // 보안 처리
+	if (email == null || vtitle == null) { // 보안 처리
 		response.sendRedirect("vSelectAll.jsp");
 		return;
 	}

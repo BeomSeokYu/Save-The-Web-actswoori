@@ -54,15 +54,8 @@
 				</div>
 
 				<div class="col-9">
-					<div class="row">
-						<div class="col-3 text-muted"></div>
-						<div class="col-9 text-end"></div>
-					</div>
-
-
-					<div class="album py-5">
+					<div class="album py-5 bg-light">
 						<div class="container">
-
 							<p style="font-weight: bold; color: #747474;">당회</p>
 							<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 								<div class="col">
@@ -247,7 +240,6 @@
 								</div>
 							</div>
 						</div>
-					</div>
 
 
 				</div>
@@ -255,38 +247,6 @@
 			</div>
 		</div>
 	</div>
-	</div>
-	<%@ include file="/include/footer.jsp"%>
-
-	<script src="/resources/js/page.js"></script>
-
-	<script>
-		/*
-		 [form id 이걸로 하셈]
-
-		 검색 버튼 : searchBtn
-		 검색 입력 인풋 : keyword
-		 검색 선택 셀렉트 : selectType
-		 게시글 표시 갯수 셀렉트 : selectAmount
-		 */
-
-		/* 전체 게시물 수 가져오기 위해 처리한 jsp URL 입력해주세요 */
-		function getTotalCountUrl() {
-			return '/4/news/totalNumProc.jsp'
-		}
-		/* 게시물 가져오기 위해 처리한 jsp URL 입력해주세요 */
-		function getListUrl() {
-			return '/4/news/newsListProc.jsp'
-<<<<<<< Updated upstream
-		}
-
-
-		}
-
-=======
-		}}
->>>>>>> Stashed changes
-	</script>
-
-</body>
-</html>
+				</div>
+				</div>
+				</div>

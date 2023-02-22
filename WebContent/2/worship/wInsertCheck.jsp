@@ -8,7 +8,7 @@
 	String wtitle = request.getParameter("wtitle");
 	String wcontent = request.getParameter("wcontent");
 	
-	if (email == null || wname == null || wtitle == null || wcontent == null) { // 보안 처리
+	if (email == null || wtitle == null) { // 보안 처리
 		response.sendRedirect("wSelectAll.jsp");
 		return;
 	}
