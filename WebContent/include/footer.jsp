@@ -53,7 +53,17 @@
         <% if (session.getAttribute("sid") == null) { %>
 			<a href="/user/login.jsp">로그인<i class="bi bi-box-arrow-in-right"></i></a>
 		<% } else {%>
-			<a href="/user/logoutProc.jsp">로그아웃<i class="bi bi-box-arrow-right"></i></a>
+			<a class="nav-link dropdown-toggle mb-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           		[<%= sid %> 님]
+            </a>
+			<ul class="dropdown-menu">
+	            <li><a class="dropdown-item" href="/user/signedit.jsp">내 정보</a></li>
+	    <% if (admin) { %>
+	    		<li><a class="dropdown-item" href="/admin/temp.jsp">가입 승인</a></li>
+	    		<li><a class="dropdown-item" href="/admin/userManage.jsp">회원 관리</a></li>
+	    <% } %>
+	            <li><a class="dropdown-item" href="/user/logoutProc.jsp">로그아웃 <i class="bi bi-box-arrow-right"></i></a></li>
+	        </ul>
 		<% } %>
       </div>
     </div>

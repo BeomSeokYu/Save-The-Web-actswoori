@@ -23,9 +23,7 @@ body {
 
 body {
   align-items: center;
-  padding-top: 150px;
   padding-bottom: 40px;
-  background-color: #f5f5f5;
 }
 
 .form-signin {
@@ -65,7 +63,7 @@ body {
 <div class="container">
 	<div class="form-signin text-center">
 	  <form>
-	    <h1 class="h3 mb-3 fw-normal">로그인</h1>
+	    <h1 class="h3 py-5 fw-normal">로그인</h1>
 	
 	    <div class="form-floating">
 	      <input type="email" class="form-control" id="email" name="email" placeholder="Email">
@@ -78,10 +76,10 @@ body {
 
 	    <button class="w-100 btn btn-lg btn-secondary mb-3" type="button" id="loginBtn">로그인</button>
 	    <div>
-	    	<p><a href="/user/signup.jsp" class="">회원 가입</a></p>
+	    	<p><a class="text-dark" href="/user/signup.jsp" class="">회원 가입</a></p>
 	    </div>
 	    <div>
-	    	<p><a href="/user/pwfind.jsp" class="">비밀번호 찾기</a></p>
+	    	<p><a  class="text-dark" href="/user/pwfind.jsp" class="">비밀번호 찾기</a></p>
 	    </div>
 	  </form>
 	</div>

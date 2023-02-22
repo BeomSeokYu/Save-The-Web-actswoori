@@ -36,66 +36,10 @@
 </head>
 <body>
 <%@ include file="/include/navbar.jsp" %>
-	<!-- <div class="container">
-		<div class="form-signin w-50 m-auto text-center">
-		  <form>
-		    <img class="mb-4" src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" alt="" width="72" height="72">
-		    <h1 class="h3 mb-3 fw-normal">회원 가입</h1>
-		    <div class="form-floating row">
-			    <div class="col-auto">
-					<input type="email" class="form-control email-form input" id="email1" name="email1" placeholder="이메일">
-					<div class="invalid-feedback">이미 존재하는 이메일입니다</div>
-				</div>
-				<div class="col-auto">
-					<div class="input-group">
-						<div class="input-group-text">@</div>
-						<input type="text" class="form-control email-form input" id="email2">
-					</div>
-				</div>
-				<div class="col-auto">
-					<select class="form-select" id="emailSelect">
-						<option value="default" selected>직접 입력</option>
-						<option value="naver.com">naver.com</option>
-						<option value="gmail.com">gmail.com</option>
-						<option value="daum.net">daum.net</option>
-						<option value="kakao.com">kakao.com</option>
-					</select>
-				</div>
-			</div>
-		    <div class="form-floating">
-		      <input type="password" class="form-control pass-form input" id="password" name="비밀번호" placeholder="Password">
-		      <label for="password">비밀번호</label>
-		    </div>
-		    <div class="form-floating">
-		      <input type="password" class="form-control pass-form input" id="passwordCheck" name="비밀번호 (확인)" placeholder="Password (Check)">
-		      <label for="passwordCheck">비밀번호 (확인)</label>
-		      <div class="valid-feedback">비밀번호가 일치합니다</div>
-		    </div>
-		    <div class="form-floating">
-		      <input type="text" class="form-control input" id="name" name="name" placeholder="이름">
-		      <label for="name">이름</label>
-		    </div>
-			<div class="form-floating">
-		      <input type="text" class="form-control input" id="job" name="job" placeholder="직분">
-		      	<select class="form-select" id="jobSelect" placeholder="직분">
-					<option value="default" selected>직접 입력</option>
-					<option value="성도">성도</option>
-					<option value="집사">집사</option>
-					<option value="안수집사">안수집사</option>
-					<option value="권사">권사</option>
-					<option value="장로">장로</option>
-				</select>
-		      <label for="name">직분</label>
-		    </div>
-		    <button class="w-100 btn btn-lg btn-warning" type="button" id="signupBtn">가입 신청</button>
-		  </form>
-		</div>
-	</div> -->
-
 <div class="container">
   <main>
     <div class="py-5 text-center">
-      <h2>회원 가입</h2>
+      <h1 class="h3">회원 가입</h1>
     </div>
     <div class="row g-5 justify-content-center">
       <div class="col-md-7 col-lg-8">
