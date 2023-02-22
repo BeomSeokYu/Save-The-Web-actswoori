@@ -4,6 +4,12 @@
     pageEncoding="UTF-8"%>
   <head>
  <%@include file="/include/header.jsp" %>
+<%
+	if(sid == null) { // 보안 처리
+		response.sendRedirect("coopList.jsp");
+		return;
+	}
+%>
   </head>
   <body>
 <%@include file="/include/navbar.jsp" %>

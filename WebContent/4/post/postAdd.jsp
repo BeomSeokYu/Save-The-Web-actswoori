@@ -14,14 +14,15 @@
 <head>
 <meta charset="UTF-8">
 <%@ include file="/include/header.jsp" %>
+<%
+	if(sid == null) { // 보안 처리
+		response.sendRedirect("postList.jsp");
+		return;
+	}
+%>
 </head>
 <body>
 <%@ include file="/include/navbar.jsp" %>
-<%
-if(sid == null || !sid.equals(admin)) {
-	response.sendRedirect("postList.jsp");
-}
-%>
 <div class="container">
 <div class="pt-5"></div>
 		<h2>주보 등록</h2>

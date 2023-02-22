@@ -34,8 +34,13 @@
 							</select> <span class="d-inline">개씩 보기</span>
 						</div>
 						<div class="col-9 text-end">
-							<button class="btn btn-sm btn-outline-success" type="button"
-								onclick="checkSid()" class="ad">등록</button>
+							<%
+								if (sid != null) { // 세션 처리
+							%>
+							<button class="btn btn-sm btn-outline-success" type="button" onclick="checkSid()" class="ad">등록</button>
+							<%
+								}
+							%>
 						</div>
 					</div>
 					<hr class="my-4">

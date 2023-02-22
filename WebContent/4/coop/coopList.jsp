@@ -38,8 +38,13 @@
 							</select> <span class="d-inline">개씩 보기</span>
 						</div>
 						<div class="col-9 text-end">
-							<a href="coopAdd.jsp" class="btn btn-sm btn-outline-success">게시물
-								등록 </a>
+							<%
+								if (sid != null) { // 세션 처리
+							%>
+							<a href="coopAdd.jsp" class="btn btn-sm btn-outline-success">게시물 등록 </a>
+							<%
+								}
+							%>
 						</div>
 					</div>
 					<hr class="my-4">

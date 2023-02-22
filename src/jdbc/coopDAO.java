@@ -70,7 +70,7 @@ public static ArrayList<coopDTO> getList() throws NamingException, SQLException 
 }
 
 //게시판 상세보기
-public coopDTO select(int cno) throws SQLException, NamingException  {
+public static coopDTO select(int cno) throws SQLException, NamingException  {
 	
 	Connection conn = null;
 	PreparedStatement pstmt = null;
@@ -217,7 +217,6 @@ public int getTotal() throws SQLException {
     
     return result;
  }
-
 }
 
 
