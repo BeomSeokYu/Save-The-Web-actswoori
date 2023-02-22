@@ -97,11 +97,12 @@
 		var str = '';
 		for (var i = 0; i < data.length; i++) {
 			var asd = getUserName(data[i].email)
+			var date = getDate(data[i].wdate)
 			str += "<tr onclick=\"location.href='wSelectOne.jsp?wno=" + data[i].wno + "'\">"
 			str += "<td>" + data[i].wtitle + "</td>";
 			str += "<td>" + data[i].wname + "</td>";
 			str += "<td>" + asd + "</td>";
-			str += "<td>" + data[i].wdate + "</td></tr>";
+			str += "<td>" + date + "</td></tr>";
 		}
 		$('#ajaxTable').html(str);
 	}
@@ -128,6 +129,58 @@
 			}
 		});
 		return name
+	}
+	
+	function getDate(input) {
+		date = new Date(input)
+		today = new Date()
+		timegap = today - date
+		if(timegap>1000*60*60*24){
+			// 년월일
+			return date.toISOString().split('T')[0]
+		} else {
+			if(today.getDate()==date.getDate()){
+			// 시 분
+				if(date.getHours()<12){
+					if (date.getHours()<10){
+						if(date.getMinutes()<10){
+							return 'AM '+'0'+date.getHours()+' : 0'+date.getMinutes()
+						} else {
+							return 'AM '+'0'+date.getHours()+' : '+date.getMinutes()
+						}
+					} else {
+						if(date.getMinutes()<10){
+							return 'AM '+date.getHours()+' : 0'+date.getMinutes()
+						} else {
+							return 'AM '+date.getHours()+' : '+date.getMinutes()
+						}
+					}
+				} else if (date.getHours()==12){
+					if(date.getMinutes()<10){
+						return 'PM '+date.getHours()+' : 0'+date.getMinutes()
+					} else {
+						return 'PM '+date.getHours()+' : '+date.getMinutes()
+					}
+				} else {
+					if (date.getHours()<22){
+						if(date.getMinutes()<10){
+							return 'PM '+'0'+(date.getHours()-12)+' : 0'+date.getMinutes()
+						} else {
+							return 'PM '+'0'+(date.getHours()-12)+' : '+date.getMinutes()	
+						}
+					} else {
+						if(date.getMinutes()<10){
+							return 'PM '+(date.getHours()-12)+' : 0'+date.getMinutes()
+						} else {
+							return 'PM '+(date.getHours()-12)+' : '+date.getMinutes()
+						}
+					}
+				}
+			} else {
+				// 년월일
+				return date.toISOString().split('T')[0]
+			}
+		}
 	}
 </script>
 </body>

@@ -28,15 +28,17 @@
 }
 </style>
 <%@ include file="/include/header.jsp" %> 
+<%
+	if (sid == null) { // 보안 처리
+		response.sendRedirect("postList.jsp");
+		return;
+	}
+%>
 </head>
 
 <body>
 <%@ include file="/include/navbar.jsp" %>
 <%
-	if(sid == null || !sid.equals(admin)) {
-		response.sendRedirect("postList.jsp");
-	}
-	 
 	int pno = Integer.parseInt(request.getParameter("pno"));
 
 	PostDTO pdto = PostDAO.selectPost(pno);

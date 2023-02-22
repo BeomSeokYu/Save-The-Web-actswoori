@@ -138,9 +138,14 @@ window.onload = function() {
 <hr>
 <div name="content" id="content" class="mtop-10"></div>
 <input type="button" value="이전으로" onclick="history.back()">
-
+<%
+	if (admin || sid != null && sid.equals(docDAO.selectEmail(Integer.parseInt(request.getParameter("dno"))))) { // 세션 처리
+%>
 <input type="button" value="수정" onclick="location.href='docMod.jsp?dno=<%=request.getParameter("dno") %>'" class="ad">
 <input type="button" value="삭제" class="ad" onclick="delItem('<%=request.getParameter("dno") %>')">
+<%
+	}
+%>
     <%@ include file="/include/footer.jsp" %>
 </body>
 </html>

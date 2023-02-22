@@ -35,7 +35,7 @@
 	ArrayList<PostDTO> posts = PostDAO.selectAllPostList();
 //session.setAttribute("sid", "admin");
 
-	if(sid != null && sid.equals("admin@gmail.com")) {
+	if(sid != null) {
 %>	
 	<a href="postAdd.jsp">등록</a>
 <% 	} %>

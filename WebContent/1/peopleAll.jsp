@@ -248,3 +248,10 @@
 		</div>
 	</div>
 				</div>
+				</div>
+				</div>
+				</div>
+	<%@ include file="/include/footer.jsp"%>
+</body>
+</html>
+
