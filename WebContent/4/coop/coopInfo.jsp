@@ -27,10 +27,12 @@
 		 <%=cdto.getEmail()%></p>
 		
 	</div>
-		<% if(sid != null && sid.equals(admin)){ %>
+<%
+	if (admin || sid != null && sid.equals(coopDAO.select(Integer.parseInt(request.getParameter("cno"))).getEmail())) { // 세션 처리
+%>
 		<a href="coopDeleteCheck.jsp?cno=<%=cdto.getCno()%>" class="btn btn-primary" >삭제하기</a>
 		<button onclick="location.href='coopUpdate.jsp?cno=<%=cdto.getCno()%>'" class="btn btn-primary">수정하기</button>
-		<% }; %>
+		<% } %>
 		<button onclick="location.href='coopList.jsp?pageNum=<%= request.getParameter("pageNum") %>&amount=<%= request.getParameter("amount") %>'" class="btn btn-primary">목록으로</button>
 
 </body>

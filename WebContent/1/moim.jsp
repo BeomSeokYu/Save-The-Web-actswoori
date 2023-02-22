@@ -3,10 +3,10 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="jdbc.*"%>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
- 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,94 +17,110 @@
 </head>
 <body>
 	<%@ include file="/include/navbar.jsp"%>
-		<div class = container>
-			<table class="table">
-  				<thead class="table-light">
-  				
-  				<img src = "/resources/img/moimTime.png" alt = "모임표지">
-  				
-    				<tr>
-    					<th>예배</th>
-    					<th>시간</th>
-    				</tr>
-  				</thead>
-  				<tbody class = "table-gruop-divider">
-  					예배및기도회
-  					<tr>
-  					<th>주일 1부 예배</th>
-  					<th>오전 9:00</th>
-  					</tr>
-  					
-  					<tr>
-  					<th>주일 2부 예배</th>
-  					<th>오전 11:00</th>
-  					</tr>
-  					
-  					<tr>
-  					<th>주일 오후 예배</th>
-  					<th>오전 9:00</th>
-  					</tr>
-  					
-  					<tr>
-  					<th>수요예배</th>
-  					<th>오후 7:00</th>
-  					</tr>
-  					
-  					<tr>
-  					<th>금요기도회</th>
-  					<th>오후 8:30</th>
-  					</tr>    
-  					
-  					<tr>
-  					<th>새벽기도회</th>
-  					<th>월~금 5시</th>
-  					</tr>
-  				</tbody>
-			</table>
-			
-			<table class="table">
-  				<thead class="table-light">
-  				부서예배
-    				<tr>
-    					<th>예배</th>
-    					<th>시간</th>
-    				</tr>
-  				</thead>
-  				<tbody class = "table-gruop-divider">
-  					<tr>
-  					<th>유치부</th>
-  					<th>오전 11:00</th>
-  					</tr>
-  					
-  					<tr>
-  					<th>유초등부</th>
-  					<th>오전 9:00</th>
-  					</tr>
-  					
-  					<tr>
-  					<th>중고등부</th>
-  					<th>오전 9:00</th>
-  					</tr>
-  					
-  					<tr>
-  					<th>청년대학부</th>
-  					<th>오후 1:30</th>
-  					</tr>
-  					
-  					<tr>
-  					<th>구역예배</th>
-  					<th>구역별 별도공지</th>
-  					</tr>
-  					
-  					<tr>
-  					<th>새가족/학습세례</th>
-  					<th>비정규 모임</th>
-  					</tr>    
-  					
-  				</tbody>
-			</table>
+	<div class="container">
+		<div class="photo-gallery container mb-3">
+			<div class="row justify-content-center">
+				<h2>모임 안내</h2>
+				<div class="col-3 d-none d-lg-block">
+					<%@ include file="/include/sidebar1.jsp"%>
+				</div>
+
+				<div class="col-9">
+					<div>
+						<img src="/resources/img/moimTime.png"
+							style="width: 1000px; height: 500px; object-fit: cover; object-position: left top;"
+							alt="모임표지" />
+					</div>
+					<hr class="my-5">
+					<h3 class="my-4">예배및기도회</h3>
+
+					<table class="table mb-4">
+						<thead class="table-light">
+							<tr>
+								<th>예배</th>
+								<th>시간</th>
+							</tr>
+						</thead>
+						<tbody class="table-gruop-divider">
+							<tr>
+								<th>주일 1부 예배</th>
+								<th>오전 9:00</th>
+							</tr>
+
+							<tr>
+								<th>주일 2부 예배</th>
+								<th>오전 11:00</th>
+							</tr>
+
+							<tr>
+								<th>주일 오후 예배</th>
+								<th>오전 9:00</th>
+							</tr>
+
+							<tr>
+								<th>수요예배</th>
+								<th>오후 7:00</th>
+							</tr>
+
+							<tr>
+								<th>금요기도회</th>
+								<th>오후 8:30</th>
+							</tr>
+
+							<tr>
+								<th>새벽기도회</th>
+								<th>월~금 5시</th>
+							</tr>
+						</tbody>
+					</table>
+
+					<hr class="my-5">
+					<h3 class="my-4">부서예배</h3>
+					<table class="table">
+						<thead class="table-light">
+							<tr>
+								<th>예배</th>
+								<th>시간</th>
+							</tr>
+						</thead>
+						<tbody class="table-gruop-divider">
+							<tr>
+								<th>유치부</th>
+								<th>오전 11:00</th>
+							</tr>
+
+							<tr>
+								<th>유초등부</th>
+								<th>오전 9:00</th>
+							</tr>
+
+							<tr>
+								<th>중고등부</th>
+								<th>오전 9:00</th>
+							</tr>
+
+							<tr>
+								<th>청년대학부</th>
+								<th>오후 1:30</th>
+							</tr>
+
+							<tr>
+								<th>구역예배</th>
+								<th>구역별 별도공지</th>
+							</tr>
+
+							<tr>
+								<th>새가족/학습세례</th>
+								<th>비정규 모임</th>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
 		</div>
-		
+	</div>
+
 	<%@ include file="/include/footer.jsp"%>
 </body>
 </html>

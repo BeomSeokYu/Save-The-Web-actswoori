@@ -66,8 +66,7 @@
 		</div>
 	</div>
 
-	<div class = "text-center h3" ><%=lecture.getLtitle() %></div>
-	<%=lecture.getLcontent() %> --%>
+	
 		<!-- if 4페이지였으면 목록 클릭했을 때 4페이지로 가게 하기 위해서 -->
 		<!-- <a class="btn btn-warning" href='/2/lecture/lectureMain.jsp' role="button">목록</a>  -->
 
@@ -76,11 +75,15 @@
 				class="btn btn-outline-success">
 <%	
 	// 임의 관리자 id
-	String adminID = "admin@gmail.com";
+	/* String adminID = "admin@gmail.com";
+
 	String sid = session.getAttribute("sid");
 	boolean memberCheck = (sid != null) && sid.equals(LectureDAO.selectEmail(Integer.parseInt(request.getParameter("lno"))));
 	// 회원이거나, 관리자이면 if문 수행
-	if (memberCheck || sid.equals(adminID)) { 
+	if (memberCheck || sid.equals(adminID)) {  */
+%>
+<%
+	if (admin || sid != null && sid.equals(LectureDAO.selectEmail(Integer.parseInt(request.getParameter("lno"))))) { // 세션 처리
 %>
 			<button
 				onclick="location.href='/2/lecture/lectureModify.jsp?lno=<%=lecture.getLno()%>'"
@@ -88,7 +91,10 @@
 			<button
 				onclick="location.href='/2/lecture/lectureDel.jsp?lno=<%=lecture.getLno()%>'"
 				class="btn btn-outline-danger">삭제</button>
-<%	}	%>
+<%
+	}
+%>
+<%	/* } */	%>
 		</div>
 	</div>
 	<script>

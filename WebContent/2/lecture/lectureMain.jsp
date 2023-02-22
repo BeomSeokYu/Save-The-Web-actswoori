@@ -61,7 +61,7 @@
 						</div>
 						<div class="col-9 text-end">
 					<% if (sid != null) { // 세션 처리 %>
-							<button class="btn btn-outline-success" type="button" onclick="regPhoto()">게시물 등록</button>
+							<a href="lectureAdd.jsp" class="btn btn-sm btn-outline-success" type="button">게시물 등록</a>
 						<%} %>
 						</div>
 					</div>
@@ -144,7 +144,7 @@ function printList(data) {
 	var imgHTML = ''; 
 	
 	for (var i = 0; i < data.length; i++) {
-		
+		var date = getDate(data[i].date)
 		
 		/* imgHTML += ''
 			+ '<div class="col-sm-6 col-md-4 col-lg-3 item h-100">'
@@ -156,7 +156,7 @@ function printList(data) {
 			+ data[i].no + "'\"><td>" + data[i].title + "</td>"
 			+ '<td>' + data[i].name + "</td>"
 			+ '<td>' + data[i].email + "</td>" + '<td>'
-			+ data[i].date + "</td></a></tr>"
+			+ date + "</td></a></tr>"
 			
 		/* imgHTML +=	"<tr>";
 		imgHTML +=  "<td class = \"text-center\"><a href= 'lectureDetail.jsp?lno=" + data[i].no + "'>" + data[i].title + "</td>";
@@ -166,6 +166,59 @@ function printList(data) {
 	}
 	$('#imgList').html(imgHTML);
 }
+
+function getDate(input) {
+	date = new Date(input)
+	today = new Date()
+	timegap = today - date
+	if(timegap>1000*60*60*24){
+		// 년월일
+		return date.toISOString().split('T')[0]
+	} else {
+		if(today.getDate()==date.getDate()){
+		// 시 분
+			if(date.getHours()<12){
+				if (date.getHours()<10){
+					if(date.getMinutes()<10){
+						return 'AM '+'0'+date.getHours()+' : 0'+date.getMinutes()
+					} else {
+						return 'AM '+'0'+date.getHours()+' : '+date.getMinutes()
+					}
+				} else {
+					if(date.getMinutes()<10){
+						return 'AM '+date.getHours()+' : 0'+date.getMinutes()
+					} else {
+						return 'AM '+date.getHours()+' : '+date.getMinutes()
+					}
+				}
+			} else if (date.getHours()==12){
+				if(date.getMinutes()<10){
+					return 'PM '+date.getHours()+' : 0'+date.getMinutes()
+				} else {
+					return 'PM '+date.getHours()+' : '+date.getMinutes()
+				}
+			} else {
+				if (date.getHours()<22){
+					if(date.getMinutes()<10){
+						return 'PM '+'0'+(date.getHours()-12)+' : 0'+date.getMinutes()
+					} else {
+						return 'PM '+'0'+(date.getHours()-12)+' : '+date.getMinutes()	
+					}
+				} else {
+					if(date.getMinutes()<10){
+						return 'PM '+(date.getHours()-12)+' : 0'+date.getMinutes()
+					} else {
+						return 'PM '+(date.getHours()-12)+' : '+date.getMinutes()
+					}
+				}
+			}
+		} else {
+			// 년월일
+			return date.toISOString().split('T')[0]
+		}
+	}
+}
+</script>	
 
 
 

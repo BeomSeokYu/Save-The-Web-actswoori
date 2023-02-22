@@ -56,7 +56,6 @@
 				<div class="col-9">
 					<div class="album py-5 bg-light">
 						<div class="container">
-
 							<p style="font-weight: bold; color: #747474;">당회</p>
 							<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 								<div class="col">
@@ -242,7 +241,12 @@
 							</div>
 						</div>
 
+
 				</div>
+
+			</div>
+		</div>
+	</div>
 				</div>
 				</div>
 				</div>
@@ -250,3 +254,4 @@
 	<%@ include file="/include/footer.jsp"%>
 </body>
 </html>
+

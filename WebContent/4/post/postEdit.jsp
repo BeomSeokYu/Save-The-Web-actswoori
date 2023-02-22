@@ -28,6 +28,12 @@
 }
 </style>
 <%@ include file="/include/header.jsp" %> 
+<%
+	if (sid == null) { // 보안 처리
+		response.sendRedirect("postList.jsp");
+		return;
+	}
+%>
 </head>
 
 <body>

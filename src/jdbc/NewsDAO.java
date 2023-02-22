@@ -253,21 +253,19 @@ public class NewsDAO {
 		return result;
 	}
 	
-	public static List<NewsDTO> selectNewNews(int pageNum, int amount) throws NamingException, SQLException {
-		//메인용, 최신뉴스 가져오기
+	public static List<NewsDTO> selectNewNews() throws NamingException, SQLException {
+		//메인용, 최신뉴스 4개만 가져오기
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
 		try {
-		String sql = "SELECT * FROM news ORDER BY nno DESC limit ?, ?";
+		String sql = "SELECT ntitle, ncontent, name as email FROM news n, user u WHERE n.email = u.email ORDER BY ndate DESC limit 4";
+		//이름 가져오고 싶어서 쿼리 통해서 email로 가져옴
 		
 		conn = ConnectionPool.get();
 		pstmt = conn.prepareStatement(sql);
-		
-		pstmt.setInt(1, (pageNum - 1) * amount);
-		pstmt.setInt(2, amount);
 		
 		rs = pstmt.executeQuery();
 		
@@ -276,11 +274,9 @@ public class NewsDAO {
 		while (rs.next()) {
 			NewsDTO ndto = new NewsDTO();
 			
-			ndto.setNno(rs.getString(1));
-			ndto.setNtitle(rs.getString(2));
-			ndto.setNcontent(rs.getString(3));
-			ndto.setEmail(rs.getString(4));
-			ndto.setNdate(rs.getString(5));
+			ndto.setNtitle(rs.getString(1));
+			ndto.setNcontent(rs.getString(2));
+			ndto.setEmail(rs.getString(3));
 			
 			newsList.add(ndto);
 		}
