@@ -13,11 +13,11 @@
 <%@ include file="/include/navbar.jsp" %>
 
 	<div class="container">
--		<div class="photo-gallery container mb-3">
+		<div class="photo-gallery container mb-3">
 			<div class="row justify-content-center">
 				<h2>예배 설교</h2>
 				<div class="col-3 d-none d-lg-block">
-					<%@ include file="/include/sidebar4.jsp"%>
+					<%@ include file="/include/sidebar2.jsp"%>
 				</div>
 
 				<div class="col-9">
@@ -76,6 +76,8 @@
 					</div>
 				</div>
 			</div>
+		</div>
+	</div>
 <%@ include file="/include/footer.jsp" %>
 
 <!-- lightbox2 js -->
