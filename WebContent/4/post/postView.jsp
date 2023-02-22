@@ -27,11 +27,11 @@ iframe {
 	scrolling: no;
 }
 </style>
+<%@ include file="/include/header.jsp" %> 
 </head>
 
 <body>
-<%@ include file="/include/header.jsp" %> 
-
+<%@ include file="/include/navbar.jsp" %>
 <%	
 	request.setCharacterEncoding("UTF-8");
 	response.setContentType("text/html;charset=UTF-8");
@@ -53,7 +53,7 @@ iframe {
 	</div>
 	<iframe src="<%=filePath %>" ></iframe>
 	<div>
-<% if(sid == null || sid.equals("admin@gmail.com")) { %>	
+<% if(sid != null && sid.equals(admin)) { %>	
 		<a href="postEdit.jsp?pno=<%=pno %>">수정</a>
 		<a href="postRemove.jsp?pno=<%=pno %>">삭제</a>
 <% } %>	

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<div class="d-flex flex-column flex-shrink-0 p-3 bg-light rounded shadow">
+<div id="sideNav" class="d-flex flex-column flex-shrink-0 p-3 bg-light rounded shadow">
   <span class="fs-4">돌봄과 선교</span>
   <hr>
   <ul class="nav nav-pills flex-column mb-auto">
@@ -11,12 +11,12 @@
       </a>
     </li>
     <li>
-      <a href="#" class="nav-link link-dark">
+      <a href="/4/post/postList.jsp" class="nav-link link-dark">
                  주보
       </a>
     </li>
     <li>
-      <a href="#" class="nav-link link-dark">
+      <a href="/4/coop/coopList.jsp" class="nav-link link-dark">
                   협력교회와 기관소식
       </a>
     </li>

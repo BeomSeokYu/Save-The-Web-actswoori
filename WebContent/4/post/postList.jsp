@@ -25,18 +25,21 @@
 	
 }
 </style>
+<%@ include file="/include/header.jsp" %> 
 </head>
 
 <body>
-<%@ include file="/include/header.jsp" %> 
+<%@ include file="/include/navbar.jsp" %>
 <script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
 <%
 	ArrayList<PostDTO> posts = PostDAO.selectAllPostList();
 //session.setAttribute("sid", "admin");
 
+	if(sid != null && sid.equals("admin@gmail.com")) {
 %>	
 	<a href="postAdd.jsp">등록</a>
-	<div class="container">
+<% 	} %>
+	<div class="container postListDiv">
 		
 	</div>
 	
@@ -52,7 +55,7 @@ function addCanvas(pno, ptitle) {
 			+ 	'</a>'
 			+ '</div>'
 			+ '<hr>';
-	$('.container').append(str);
+	$('.postListDiv').append(str);
 }
 
 function showPDF(path, pno) {

@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<%@ include file="/include/header.jsp" %> 
 </head>
 <body>
-<%@ include file="/include/header.jsp" %> 
-
+<%@ include file="/include/navbar.jsp" %>
 <div class="container" align="center">
 	<div><img src="/resources/img/교회 로고.png"></div>
 	<div>

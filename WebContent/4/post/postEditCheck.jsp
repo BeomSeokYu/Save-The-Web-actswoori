@@ -29,13 +29,13 @@ body {
     min-height: 100%;
 }
 </style>
+<%@ include file="/include/header.jsp" %> 
 </head>
 <body>
-<%@ include file="/include/header.jsp" %> 
 <%	
 	
 	request.setCharacterEncoding("UTF-8");
-	if(sid == null || !sid.equals("admin")) {
+	if(sid == null || !sid.equals(admin)) {
 		response.sendRedirect("postList.jsp");
 	}
 	

@@ -13,9 +13,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<%@ include file="/include/header.jsp" %>
 </head>
 <body>
-<%@ include file="/include/header.jsp" %> 
+<%@ include file="/include/navbar.jsp" %>
+<%
+if(sid == null || !sid.equals(admin)) {
+	response.sendRedirect("postList.jsp");
+}
+%>
 <div class="container">
 <form action="postAddCheck.jsp" name=f1 method=post enctype="multipart/form-data">
 	제목 : <input type="text" name="ptitle"><br>

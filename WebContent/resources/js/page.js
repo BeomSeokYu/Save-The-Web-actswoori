@@ -121,6 +121,8 @@ $('#keyword').on("keypress", function(){
 })
 
 function searchExe() {
+
+	cri.pageNum = 1
 	cri.keyword = $('#keyword').val()
 	cri.type = $('#selectType').val()
 	pageObj.pageCal(cri);

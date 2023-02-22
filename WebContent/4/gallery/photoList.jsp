@@ -14,38 +14,9 @@
 <meta charset="UTF-8">
 <title>행전우리교회</title>
 <%@ include file="/include/header.jsp" %>
+
 <!-- lightbox2 css -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.css" integrity="sha512-Woz+DqWYJ51bpVk5Fv0yES/edIMXjj3Ynda+KWTIkGoynAMHrqTcDUQltbipuiaD5ymEo9520lyoVOo9jCQOCA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<style>
-.photo-gallery {
-  color:#313437;
-  background-color:#fff;
-}
-
-.photo-gallery h2 {
-  font-weight:bold;
-  margin-bottom:40px;
-  padding-top:40px;
-  color:inherit;
-}
-
-@media (max-width:767px) {
-  .photo-gallery h2 {
-    margin-bottom:25px;
-    padding-top:25px;
-    font-size:24px;
-  }
-}
-
-.photo-gallery .photos {
-  padding-bottom:20px;
-}
-
-.photo-gallery .item {
-  padding-bottom:30px;
-}
-</style>
-
 <style>
 .bd-placeholder-img {
   font-size: 1.125rem;
@@ -64,27 +35,28 @@
 </head>
 <body>
 <%@ include file="/include/navbar.jsp" %>
-
+<script src="./dist/js/demo-theme.min.js?1674944402"></script>
 
 <!-- 게시판 영역 -->
 <div class="container">
-	<div class="photo-gallery container mb-3">
+	<div class="container mb-3">
 		<div class="row justify-content-center">
-			<h2 class="sticky-md-top">갤러리</h2>
+			<h2 class="">갤러리</h2>
 			<div class="col-3 d-none d-lg-block">
 				<%@ include file="/include/sidebar4.jsp" %>
 			</div>
 			<div class="col-9">
 				<div class="row">
-					<div class="col-6">
-						<select class="form-select w-50" id="selectAmount">
+					<div class="col-3 text-muted">
+						<select class="form-select form-select-sm w-50 d-inline" id="selectAmount">
 				       		<option value="8" selected>8</option>
 				       		<option value="16">16</option>
 				       		<option value="24">24</option>
 				        </select>
+				        <span class="d-inline">개씩 보기</span>
 			        </div>
-					<div class="col-6 text-end">
-						<button class="btn btn-outline-secondary" type="button" onclick="regPhoto()">사진 등록</button>
+					<div class="col-9 text-end">
+						<button class="btn btn-sm btn-outline-secondary" type="button" onclick="regPhoto()">사진 등록</button>
 					</div>
 		        </div>
 				
@@ -95,13 +67,13 @@
 				<hr class="my-4">
 				<div class="row">
 					<div class="col-8">
-						<ul class="pagination justify-content-center" id="pagination">
+						<ul class="pagination pagination-sm justify-content-center" id="pagination">
 						
 						</ul>
 					</div>
 					<div class="col-4">
 						<div class="d-flex text-end">
-						  <select class="form-select" id="selectType">
+						  <select class="form-select form-select-sm" id="selectType">
 				       		<option value="T" selected>제목</option>
 				       		<option value="F">파일명</option>
 				       		<option value="E">이메일</option>
@@ -109,19 +81,15 @@
 				       		<option value="TE">제목/이메일</option>
 				       		<option value="TFE">제목/파일명/이메일</option>
 				          </select>
-					      <input class="form-control" type="search" placeholder="검색어" aria-label="" id="keyword">
-					      <button class="btn btn-outline-success" type="button" id="searchBtn">검색</button>
-					    </div>
+					      <input class="form-control form-control-sm" type="search" placeholder="검색어"id="keyword">
+					      <button class="btn btn-sm btn-outline-secondary" type="button" id="searchBtn"><i class="bi bi-search"></i></button>
+				        </div>
 				    </div>
 		        </div>
 			</div>
 		</div>
 	</div>
 </div>
-
-
-
-
 
 
 <%@ include file="/include/footer.jsp" %>
@@ -150,148 +118,6 @@
 <!-- lightbox2 js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" integrity="sha512-k2GFCTbp9rQU412BStrcD/rlwv1PYec9SNrkbQlo6RZCf75l6KcC3UwDY8H5n5hl4v77IDtIPwOk9Dqjs/mMBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="/resources/js/page.js"></script>
-<!-- 
-<script>
-/* Criteria 객체 */
-var cri = {
-		amount : 8,							// 한 페이지에 표시 할 목록 갯수
-		pageNum : 1,
-		type : null,
-		keyword : null
-}
-/* Pagination 정보 객체 */
-var pageObj = {
-		NUM_PER_PAGE : 10.0,					// 한 페이지에 표시 할 페이지 번호 수
-		start : 1,							// 시작 페이지 번호
-		end : this.NUM_PER_PAGE,			// 끝 페이지 번호
-		isPrevious : false,					// 이전
-		isNext : false,						// 다음
-		
-		pageCal : function(cri){
-			var total = 0;
-			fetch(getTotalCountUrl(), {	
-				method: "post",
-				body: new URLSearchParams({
-						amount: cri.amount,
-						pageNum: cri.pageNum,
-						offset: cri.amount * (cri.pageNum - 1),
-						keyword: cri.keyword,
-						type: cri.type
-					})
-		        })
-				.then(resp => resp.text())
-				.then(data => {
-					data.trim()
-					console.log(data);
-					total = data*1
-					setPage(total, cri, this);
-				})
-		}
-}
-
-// 페이지네이션 설정 함수
-function setPage(total, cri, pageObj) {
-	var pages = Math.ceil(total / cri.amount);
-	pageObj.end = (Math.ceil(cri.pageNum / pageObj.NUM_PER_PAGE) * pageObj.NUM_PER_PAGE);
-	pageObj.start = (pageObj.end - (pageObj.NUM_PER_PAGE - 1));
-	pageObj.end = pageObj.end >= pages ? pages : pageObj.end;	// 실제 끝 페이지 번호 확인
-	pageObj.isPrevious = pageObj.start > 1;
-	pageObj.isNext = pageObj.end < pages;
-	
-	
-	var pageHTML = '';
-	// previous 
-	if (pageObj.isPrevious) {
-		pageHTML += ''
-		+'<li class="page-item">'
-			+'<button type="button" class="page-link" onclick="previous()" aria-label="Previous">'
-				+'<span aria-hidden="true">&laquo;</span>'
-				+'<span class="sr-only">이전</span>'
-			+'</button>'
-		+'</li>'
-	}
-	// page 
-	for (var i = pageObj.start; i <= pageObj.end; i++) {
-		pageHTML += ''
-		+'<li class="page-item ' + (cri.pageNum == i ? 'active disabled' : '') +'">'
-			+'<button class="page-link" onclick="pageBtn('+i+')">'+i+'</button>'
-		+'</li>'
-	}
-	// next 
-	if (pageObj.isNext) {
-		pageHTML += ''
-		+'<li class="page-item">'
-			+'<button type="button" class="page-link" onclick="next()" aria-label="Next">'
-				+'<span aria-hidden="true">&raquo;</span>'
-				+'<span class="sr-only">다음</span>'
-			+'</button>'
-		+'</li>'
-	}
-	console.log(pageHTML)
-	$('#pagination').html(pageHTML);
-	getList();
-}
-
-/* 현재 버튼 클릭 시 실행 함수 */
-function pageBtn(pageNum) {
-	cri.pageNum = pageNum;
-	pageObj.pageCal(cri);
-}
-/* 이전 버튼 클릭 시 실행 함수 */
-function previous() {
-	pageObj.start -= 1;
-	cri.pageNum = pageObj.start
-	pageObj.pageCal(cri);
-}
-/* 다음 버튼 클릭 시 실행 함수 */
-function next() {
-	pageObj.end += 1;
-	cri.pageNum = pageObj.end
-	pageObj.pageCal(cri);
-}
-
-//-------------- 게시글 표시 갯수 변경 ---------------
-$('#selectAmount').on('change', function(){
-	cri.amount = $(this).val();
-	cri.pageNum = 1;
-	pageObj.start = 1;
-	pageObj.end = page.NUM_PER_PAGE
-	pageObj.pageCal(cri);
-});
-
-
-// -------------- 검색 관련 ---------------
-/* $('#keyword').on('keyup', function(){
-	cri.keyword = $(this).val()
-	cri.type = $('#type').val()
-	page.pageCal();
-}); */
-
-$('#searchBtn').on('click', function(){
-	searchExe();
-});
-$('#keyword').on("keypress", function(){
-	if(event.keyCode == 13) {
-		searchExe();
-	}
-})
-
-function searchExe() {
-	if ($('#keyword').val().trim() != '') {
-		cri.keyword = $('#keyword').val()
-		cri.type = $('#type').val()
-		page.pageCal(cri);
-	} else {
-		popModal('검색 오류', '검색어를 입력해 주세요.')
-	}
-}
-
-onload = function() {
-	pageObj.pageCal(cri);
-}
-</script>
--->
-
 
 <script>
 /*
@@ -301,6 +127,7 @@ onload = function() {
 검색 입력 인풋 : keyword
 검색 선택 셀렉트 : selectType
 게시글 표시 갯수 셀렉트 : selectAmount
+리스트 다시 띄우기 : pageObj.pageCal(cri);
 */
 
 /* 전체 게시물 수 가져오기 위해 처리한 jsp URL 입력해주세요 */
@@ -320,14 +147,35 @@ function printList(data) {
 		imgHTML += ''
 			+ '<div class="col-sm-6 col-md-4 col-lg-3 item h-100">'
 			+ '<a class="col-lg-4 col-md-12 mb-4 mb-lg-0" href="'+ img +'" data-title="'+data[i].title +'" data-lightbox="photos">'
-			+ '<img class="img-fluid shadow bg-body rounded" src="'+img+'"></a></div>';
+			+ '<img class="img-fluid shadow bg-body rounded" src="'+img+'" style="width: 200px;height: 150px;object-fit: cover;">'
+			+ '</a><div class="row">'
+			+ '<div  class="col-6">'+data[i].title+'</div>'
+			<% if (admin) { %>
+			+ '<div class="col-6 text-end"><i class="btn bi bi-trash3-fill" onclick="photoRemove(\''+data[i].no+'\')"></i></div>'
+			<% } %>
+			+ '</div></div>';
 	}
 	$('#imgList').html(imgHTML);
 }
 
-
-
-
+function photoRemove(no, uuid, filename) {
+	if (confirm('정말로 삭제 하시겠습니까?')){
+		fetch('/4/gallery/photoDelProc.jsp', {	
+			method: "post",
+			body: new URLSearchParams({
+					gno: no,
+					guuid: uuid,
+					gfilename: filename,
+				})
+	        })
+			.then(resp => resp.text())
+			.then(data => {
+				data.trim()
+				console.log(data);
+				pageObj.pageCal(cri);
+			})
+	}
+}
 
 
 
@@ -362,5 +210,9 @@ $('#doneBtn').on('click', function(){
 	}
 });
 </script>
+<!-- Libs JS -->
+<!-- Tabler Core -->
+<script src="/resources/js/tabler.min.js?1674944402" defer></script>
+<script src="/resources/js/demo.min.js?1674944402" defer></script>
 </body>
 </html>

@@ -11,11 +11,11 @@
 <%-- <% UserDTO udto = UserDAO.select(sid){%> --%>
 <%@include file="/include/header.jsp" %>
 	<%	//로그인 안되어있을 시
-		if(sid==null){
-		response.sendRedirect("login.jsp");
+		if(sid == null || !sid.equals(admin)){
+		response.sendRedirect("/login.jsp");
 		}else{
-		
 	%>
+
  <% int cno = Integer.parseInt(request.getParameter("cno"));
  	coopDAO cdao = new coopDAO();
  	coopDTO cdto = cdao.select(cno); %> 
@@ -33,10 +33,6 @@
   <input type="text" class="form-control" name="ctitle" id="exampleFormControlInput1" value="<%=cdto.getCtitle()%>">
 </div>
 <div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">작성자</label>
-  <input type="text" class="form-control" name="email" <%-- value="<%=udto.getName()%> --%>">
-</div>
-<div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label" >내용</label>
   <textarea class="form-control" name = "ccontent"  id="summernote" rows="3"></textarea>
 </div>
@@ -47,7 +43,7 @@
 </div>
 
     <script>
-     $('#summernote').val('<%= cdto.getCcontent() %>'); 
+     $('#summernote').val('<%=cdto.getCcontent()%>'); 
       $('#summernote').summernote({
         placeholder:'',
         tabsize: 2,

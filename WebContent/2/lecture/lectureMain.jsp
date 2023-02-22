@@ -63,10 +63,12 @@
 <div class = "container">
 <div class="pt-5"></div>
 	<h2>특강</h2>
-	<div class = "d-grid gap-2 d-md-flex justify-content-md-end">
+	<!-- 검색버튼  -->
+	<!-- <div class = "d-grid gap-2 d-md-flex justify-content-md-end">
 	  <input class="form-control input-sm" type="search" placeholder="검색어" aria-label="" id="keyword" placeholder=".input-sm">
 	  <button class="btn btn-outline-success" type="button" id="searchBtn">검색</button>
-	</div> 
+	</div> -->
+	 
 	<table class="table table-striped table-hover">
 	<thead>
 		<tr>
@@ -75,9 +77,10 @@
 			<th class ="col-2 text-center">작성일</th>
 		</tr>
 	</thead>
-	<tbody class = "table-group-divider">
+	<tbody id = "ajaxTable" class = "table-group-divider" >
 	
-
+	<!-- 전체목록출력jsp 부분 -->
+<%-- 
 	<%	
 	for (LectureDTO lecture : lectures) {
 	%>
@@ -88,7 +91,7 @@
 		</tr>
 		<%
 	}
-%>
+%> --%>
 	</tbody>
 	</table>
 	
@@ -117,5 +120,43 @@
 </nav>
 </div>
 	<%@ include file="/include/footer.jsp"%>
+
+
+<script>
+/*  
+[form id 이걸로 하셈]
+
+검색 버튼 : searchBtn
+검색 입력 인풋 : keyword
+검색 선택 셀렉트 : selectType
+게시글 표시 갯수 셀렉트 : selectAmount
+*/
+
+/* 전체 게시물 수 가져오기 위해 처리한 jsp URL 입력해주세요 */
+function getTotalCountUrl() {
+	return '/2/lecture/totalNumProc.jsp'
+}
+/* 게시물 가져오기 위해 처리한 jsp URL 입력해주세요 */
+function getListUrl() {
+	return '/2/lecture/photoListProc.jsp'
+}
+function printList(data) {
+	//TODO: 리스트 출력 처리 하세요
+	var str = '';
+	for (var i = 0; i < data.length; i++){
+		
+		str +=	"<tr>";
+		str +=  "<td class = \"text-center\"><a href= 'lectureDetail.jsp?lno=" + data[i].lno + "'>" + data[i].ltitle + "</td>";
+		str += 	"<td class = \"text-center\">" + data[i].lname + "</td>"
+		str +=  "<td class = \"text-center\"><small>" + data[i].ldate + "</small></td>";
+		str +=  "</tr>";
+	}
+	$('#ajaxTable').html(str);
+}
+	
+</script>	
+
+<script src = "/resources/js/page.js"></script>
+
 </body>
 </html>

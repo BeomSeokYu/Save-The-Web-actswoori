@@ -29,10 +29,14 @@ body {
     min-height: 100%;
 }
 </style>
+<%@ include file="/include/header.jsp" %> 
 </head>
 <body>
-<%@ include file="/include/header.jsp" %> 
 <%
+	if(sid == null || !sid.equals(admin)) {
+		response.sendRedirect("postList.jsp");
+	}
+
 	request.setCharacterEncoding("UTF-8");
 
 	String uploadPath = "/resources/postSaved"; // application.getInitParameter("uploadPath");
