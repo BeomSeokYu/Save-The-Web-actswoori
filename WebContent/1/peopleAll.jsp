@@ -227,8 +227,9 @@
 			return '/4/news/newsListProc.jsp'
 		}
 
-		
-		
+
+		}
+
 	</script>
 
 </body>
