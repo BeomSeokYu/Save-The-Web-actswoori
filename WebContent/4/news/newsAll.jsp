@@ -45,7 +45,7 @@
 
 					<table class="table table-hover shadow bg-body rounded">
 						<thead>
-							<tr style="background-color: #548687; color: white">
+							<tr style="background-color: #548687; color: white;">
 								<th scope="col">제목</th>
 								<th scope="col">작성자</th>
 								<th scope="col">작성일자</th>
