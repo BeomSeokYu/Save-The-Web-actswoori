@@ -69,10 +69,7 @@
 								<select class="form-select" id="selectType">
 									<option value="T" selected>제목</option>
 									<option value="C">내용</option>
-									<option value="E">이메일</option>
 									<option value="TC">제목/내용</option>
-									<option value="TE">제목/이메일</option>
-									<option value="TFC">제목/내용/이메일</option>
 								</select> <input class="form-control form-control-sm" type="search"
 									placeholder="검색어" id="keyword">
 								<button class="btn btn-sm btn-outline-success" type="button"
@@ -114,11 +111,12 @@ function printList(data) {
 	//TODO: 리스트 출력 처리 하세요
 	var imgHTML = '';
 	for (var i = 0; i < data.length; i++) {
+		var name = getUserName(data[i].email)
 		imgHTML += ''
 			imgHTML += ''
 				+ "<tr onclick=\"location.href='coopInfo.jsp?cno="
 				+ data[i].cno + "'\"><td>" + data[i].ctitle + "</td>"
-				+ '<td>' + data[i].email + "</td>" + '<td>'
+				+ '<td>' + name + "</td>" + '<td>'
 				+ data[i].cdate + "</td></a></tr>"
 			
 /* 			+= "<tr onclick=\"location.href='coopInfo.jsp?cno="
@@ -135,24 +133,22 @@ function printList(data) {
 	$('#imgList').html(imgHTML);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function getUserName(a) {
+	$.ajax({
+		type : 'post',
+		url : '/user/userInfoProc.jsp',
+		data : {
+			email : a
+		},
+		dataType : "text",
+		async : false,
+		success : function(data) {
+			var user = JSON.parse(data.trim());
+			name = user.name
+		}
+	});
+	return name
+}
 
 function regPhoto(){
 	$('#uploadModal').modal('show');

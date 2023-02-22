@@ -45,7 +45,7 @@
 				<option value="T" selected>제목</option>
 				<option value="N">설교자명</option>
 				<option value="C">내용</option>
-				<option value="E">이메일</option>
+				<option value="TNC">모두</option>
 			</select>
 			<input class="form-control" type="search" placeholder="검색어" aria-label="" id="keyword">
 			<button class="btn btn-outline-success" type="button" id="searchBtn">검색</button>
@@ -69,9 +69,10 @@
 	function printList(data) {
 		var str = '';
 		for (var i = 0; i < data.length; i++) {
+			var asd = getUserName(data[i].email)
 			str += "<tr><td><a href='wSelectOne.jsp?wno=" + data[i].wno + "'>" + data[i].wtitle + "</a></td>";
 			str += "<td>" + data[i].wname + "</td>";
-			str += "<td>" + data[i].email + "</td>";
+			str += "<td>" + asd + "</td>";
 			str += "<td>" + data[i].wdate + "</td></tr>";
 		}
 		$('#ajaxTable').html(str);
@@ -83,6 +84,23 @@
 		disableScrolling : true,
 		fitImagesInViewport : true
 	});
+	
+	function getUserName(a) {
+		$.ajax({
+			type : 'post',
+			url : '/user/userInfoProc.jsp',
+			data : {
+				email : a
+			},
+			dataType : "text",
+			async : false,
+			success : function(data) {
+				var user = JSON.parse(data.trim());
+				name = user.name
+			}
+		});
+		return name
+	}
 </script>
 </body>
 </html>

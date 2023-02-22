@@ -28,5 +28,8 @@
         <mapper resource="/sqlMap/mapper/doctrine.xml" />
         <mapper resource="/sqlMap/mapper/gallery.xml" />
         <mapper resource="/sqlMap/mapper/vow.xml" />
+        <mapper resource="/sqlMap/mapper/worship.xml" />
+        <mapper resource="/sqlMap/mapper/lecture.xml" />
+        <mapper resource="/sqlMap/mapper/post.xml" />
     </mappers>
 </configuration>

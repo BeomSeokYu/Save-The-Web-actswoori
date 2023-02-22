@@ -9,57 +9,63 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>행전우리교회</title>
 <%@ include file="/include/header.jsp"%>
 </head>
 <body>
 	<%@ include file="/include/navbar.jsp"%>
-
+	
+	<section class="py-5 text-center container"></section>
+	<!-- 게시판 영역 -->
 	<div class="container">
-		<div class="photo-gallery container mb-3">
-			<div class="row justify-content-center">
-				<h2 class="sticky-md-top">복음과 교리</h2>
-				<div class="col-3 d-none d-lg-block">
-					<%@ include file="/include/sidebar4.jsp" %>
-				</div>
+	<div class="photo-gallery container mb-3">
+		<div class="row justify-content-center">
+			<h2>협력 기관 소식</h2>
+			<div class="col-3 d-none d-lg-block">
+				<%@ include file="/include/sidebar4.jsp"%>
+			</div>
 				<div class="col-9">
 					<div class="row">
-						<div class="col-6">
-							<select class="form-select w-50" id="selectAmount">
+						<div class="col-3 text-muted">
+							<select class="form-select form-select-sm w-50 d-inline"
+								id="selectAmount">
 								<option value="8" selected>8</option>
 								<option value="16">16</option>
 								<option value="24">24</option>
-							</select>
+							</select> <span class="d-inline">개씩 보기</span>
 						</div>
-						<div class="col-6 text-end">
-							<button class="btn btn-outline-secondary" type="button"
+						<div class="col-9 text-end">
+							<button class="btn btn-sm btn-outline-success" type="button"
 								onclick="checkSid()" class="ad">등록</button>
 						</div>
 					</div>
 					<hr class="my-4">
-					<table class="table table-hover">
+					<table class="table table-hover shadow bg-body rounded">
 					  <thead>
-					    <tr>
-					      <th scope="col" class="col-2">#</th>
-					      <th scope="col" class="col-6">제목</th>
-					      <th scope="col" class="col-2">작성자</th>
-					      <th scope="col" class="col-2">작성일</th>
+					    <tr style="background-color: #548687; color: white;">
+					      <th scope="col" >제목</th>
+					      <th scope="col" >작성자</th>
+					      <th scope="col" >작성일</th>
 					    </tr>
 					  </thead>
 					  <tbody id="ajaxTable">
 					  </tbody>
 					</table>
+					<hr class="my-4">
+					<div class="row">
+						<div class="col-8">
 					<ul class="pagination justify-content-center" id="pagination">
 					</ul>
+					</div>
+					<div class="col-4">
 					<div class="d-flex text-end">
 						<select class="form-select" id="selectType">
 							<option value="T" selected>제목</option>
 							<option value="F">내용</option>
 							<option value="TF">제목/내용</option>
 						</select>
-						<input class="form-control" type="search" placeholder="검색어" aria-label="" id="keyword">
-						<button class="btn btn-outline-success" type="button" id="searchBtn">검색</button>
+						<input class="form-control form-control-sm" type="search" placeholder="검색어" id="keyword">
+						<button class="btn btn-sm btn-outline-success" type="button" id="searchBtn"><i class="bi bi-search"></i></button>
 					</div>
 				</div>
 			</div>
@@ -116,11 +122,10 @@
 			//TODO: 리스트 출력 처리 하세요
 			var str = '';
 			for (var i = 0; i < data.length; i++) {
-				var asd = getUserName(data[i].email)
-				str += "<tr><td>" + data[i].dno + "</td>";
-				str += "<td><a href='docView.jsp?dno=" + data[i].dno + "'>"
+				var name = getUserName(data[i].email)
+				str += "<tr><td><a href='docView.jsp?dno=" + data[i].dno + "'>"
 						+ data[i].dtitle + "</a></td>";
-				str += "<td>" + asd + "</td>";
+				str += "<td>" + name + "</td>";
 				str += "<td>" + data[i].ddate + "</td></tr>";
 			}
 			$("#ajaxTable").html(str);
