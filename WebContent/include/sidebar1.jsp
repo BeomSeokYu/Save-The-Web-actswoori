@@ -2,27 +2,27 @@
     pageEncoding="UTF-8"%>
 
 <div id="sideNav" class="d-flex flex-column flex-shrink-0 p-3 bg-light rounded shadow">
-  <span class="fs-4">돌봄과 선교</span>
+  <span class="fs-4">교회 소개</span>
   <hr>
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item">
-      <a href="#" class="nav-link link-dark" aria-current="page">
-                 교회 소식
+      <a href="/1/vision" class="nav-link link-dark" aria-current="page">
+                 교회 비전
       </a>
     </li>
     <li>
-      <a href="/4/post/postList.jsp" class="nav-link link-dark">
-                 주보
+      <a href="/1/moin.jsp" class="nav-link link-dark">
+                 모임 안내
       </a>
     </li>
     <li>
-      <a href="/4/coop/coopList.jsp" class="nav-link link-dark">
-                  협력교회와 기관소식
+      <a href="#" class="nav-link link-dark">
+                  섬기는 사람들
       </a>
     </li>
     <li>
-      <a href="/4/gallery/photoList.jsp" class="nav-link link-dark">
-                  갤러리
+      <a href="/1/directions.jsp" class="nav-link link-dark">
+                  오시는 길
       </a>
     </li>
   </ul>
