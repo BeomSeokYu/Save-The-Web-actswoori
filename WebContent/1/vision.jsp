@@ -16,32 +16,7 @@
 <meta charset="UTF-8">
 <title>행전우리교회</title>
 <%@ include file="/include/header.jsp"%>
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-	 .main_image {
-	    position: relative;
-	  }
-	  .main_image_text {
-	    position: absolute;
-	    top: 50%;
-	    left: 50%;
-	    transform: translate( -50%, -50% );
-	    color: white;
-	  }
-
-    </style>
+   
 </head>
 <body>
 	<%@ include file="/include/navbar.jsp"%>
@@ -63,7 +38,7 @@
 					
 					<div class="album py-5">
    					<div class="container" align="center">
-   					<img src="cross.jpg" width="70%" height="225"  width="100%" height="225" style="margin-bottom:80px">
+   					<img src="cross.jpg" width="100%" height="300"style="margin-bottom:80px">
    					</div>
    					 <div class="container">
    					 <p style="font-weight:bold; font-size:20px; color:#747474;">행전우리교회는 복음으로 하나되어 예배 양육 전도하는 한몸공동체입니다.</p>
