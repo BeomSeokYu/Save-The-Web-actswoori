@@ -6,17 +6,17 @@
   <hr>
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item">
-      <a href="/2/wSelectAll.jsp" class="nav-link link-dark" aria-current="page">
+      <a href="/2/worship/wSelectAll.jsp" class="nav-link link-dark" aria-current="page">
                  예배 설교
       </a>
     </li>
     <li>
-      <a href="/2/lectureMain.jsp" class="nav-link link-dark">
+      <a href="/2/lecture/lectureMain.jsp" class="nav-link link-dark">
                  주요 특강
       </a>
     </li>
     <li>
-      <a href="doctrine.jsp" class="nav-link link-dark">
+      <a href="/2/doctrine/doctrine.jsp" class="nav-link link-dark">
                   복음과 교리
       </a>
     </li>

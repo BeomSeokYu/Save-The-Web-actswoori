@@ -15,7 +15,6 @@
 <body>
 	<%@ include file="/include/navbar.jsp"%>
 
-	<section class="py-5 text-center container"></section>
 	<!-- 게시판 영역 -->
 	<div class="container">
 		<div class="photo-gallery container mb-3">
