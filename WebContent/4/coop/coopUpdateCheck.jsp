@@ -8,6 +8,12 @@
 <%
 request.setCharacterEncoding("utf-8");
 
+sid = (String) session.getAttribute("sid"); // 보안 처리
+if (sid == null) {
+	response.sendRedirect("coopList.jsp");
+	return;
+}
+
 String ctitle = request.getParameter("ctitle");
 String ccontent = request.getParameter("ccontent");
 int cno = Integer.parseInt(request.getParameter("cno"));

@@ -12,6 +12,10 @@ request.setCharacterEncoding("utf-8");
 String ctitle = request.getParameter("ctitle");
 String ccontent = request.getParameter("ccontent");
 
+if (sid == null || ctitle == null) { // 보안 처리
+	response.sendRedirect("coopList.jsp");
+	return;
+}
 
 int result = coopDAO.insert(ctitle, ccontent);
 /*  for(int i=0; i<30; i++) {

@@ -11,6 +11,13 @@
 <%@ include file="/include/header.jsp" %>
 <%
 request.setCharacterEncoding("utf-8");
+
+sid = (String) session.getAttribute("sid"); // 보안 처리
+if (sid == null) {
+	response.sendRedirect("coopList.jsp");
+	return;
+}
+
 int cno = Integer.parseInt(request.getParameter("cno"));
 coopDAO cdao = new coopDAO();
 int result = coopDAO.delete(cno);

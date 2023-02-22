@@ -9,9 +9,16 @@
 	request.setCharacterEncoding("utf-8");
 	response.setContentType("text/html; charset=UTF-8");
 
+	String sid = (String) session.getAttribute("sid"); // 보안 처리
+	if (sid == null) {
+		response.sendRedirect("doctrine.jsp");
+		return;
+	}
+	
 	String dtitle = request.getParameter("dtitle");
 	String dcontent = request.getParameter("dcontent");
 	int dno = Integer.parseInt(request.getParameter("dno"));
+	
 	out.print(docDAO.updateDoc(dtitle, dcontent, dno));
 %>
 

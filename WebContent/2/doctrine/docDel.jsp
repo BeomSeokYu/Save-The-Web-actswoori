@@ -8,6 +8,12 @@
 <%
 	request.setCharacterEncoding("utf-8");
 	response.setContentType("text/html; charset=UTF-8");
+	
+	String sid = (String) session.getAttribute("sid"); // 보안 처리
+	if (sid == null) {
+		response.sendRedirect("doctrine.jsp");
+		return;
+	}
 
 	int dno = Integer.parseInt(request.getParameter("dno"));
 

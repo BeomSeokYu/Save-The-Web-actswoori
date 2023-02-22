@@ -4,6 +4,13 @@
     
 <%
 	request.setCharacterEncoding("utf-8");
+
+
+String sid = (String) session.getAttribute("sid"); // 보안 처리
+if (sid == null) {
+	response.sendRedirect("lectureMain.jsp");
+	return;
+}
 	
 		String lno = request.getParameter("lno");
 		int lnoo = Integer.parseInt(lno);

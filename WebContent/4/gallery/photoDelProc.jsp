@@ -3,6 +3,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+String sid = (String) session.getAttribute("sid"); // 보안 처리
+if (sid == null) {
+	response.sendRedirect("photoList.jsp");
+	return;
+}
+
 String filename = request.getParameter("gfilename");
 String uuid = request.getParameter("guuid");
 int gno = Integer.parseInt(request.getParameter("gno"));

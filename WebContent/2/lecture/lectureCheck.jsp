@@ -12,6 +12,11 @@
 	String lcontent = request.getParameter("lcontent");
 	String email = request.getParameter("email");
 	
+	if (email == null || ltitle == null) { // 보안 처리
+		response.sendRedirect("lectureMain.jsp");
+		return;
+	}
+	
 	LectureDAO.insert(ltitle, lname, lcontent, email);
 	
 	response.sendRedirect("/2/lecture/lectureMain.jsp");
