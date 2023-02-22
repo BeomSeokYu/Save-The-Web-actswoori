@@ -53,7 +53,7 @@ iframe {
 	</div>
 	<iframe src="<%=filePath %>" ></iframe>
 	<div>
-<% if(sid != null && sid.equals(admin)) { %>	
+<% if(admin) { %>	
 		<a href="postEdit.jsp?pno=<%=pno %>">수정</a>
 		<a href="postRemove.jsp?pno=<%=pno %>">삭제</a>
 <% } %>	

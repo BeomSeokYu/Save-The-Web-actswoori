@@ -20,7 +20,7 @@
 	display: block;
 	border: none;
 	margin: auto;
-	height: 80vh;
+	height: 90vh;
 	width: 80%;
 	overflow:hidden;
 	frameborder:0;
@@ -33,7 +33,7 @@
 <body>
 <%@ include file="/include/navbar.jsp" %>
 <%
-	if(sid == null || !sid.equals(admin)) {
+	if(sid == null || !admin) {
 		response.sendRedirect("postList.jsp");
 	}
 	 

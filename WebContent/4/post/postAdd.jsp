@@ -18,7 +18,7 @@
 <body>
 <%@ include file="/include/navbar.jsp" %>
 <%
-if(sid == null || !sid.equals(admin)) {
+if(!admin) {
 	response.sendRedirect("postList.jsp");
 }
 %>
@@ -32,7 +32,7 @@ if(sid == null || !sid.equals(admin)) {
 		<input type="text" class="form-control col-11" placeholder="제목을 입력하세요" name="ptitle">
 	</div>
 
-    <input id="uploadPDF" type="file" name="post" onchange="PreviewImage();" class="form-control col-11"/>&nbsp;<br>
+    <input id="uploadPDF" type="file" name="post" onchange="PreviewImage();" class="form-control col-11" accept=".pdf"/>&nbsp;<br>
     
     <div class="d-flex justify-content-end my-4">
 		<button class="btn btn-outline-primary mx-2" type="submit" name="submit">등록</button>
