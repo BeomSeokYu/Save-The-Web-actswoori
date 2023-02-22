@@ -150,7 +150,9 @@ function printList(data) {
 			+ '<img class="img-fluid shadow bg-body rounded" src="'+img+'" style="width: 200px;height: 150px;object-fit: cover;">'
 			+ '</a><div class="row">'
 			+ '<div  class="col-6">'+data[i].title+'</div>'
+			<% if (admin) { %>
 			+ '<div class="col-6 text-end"><i class="btn bi bi-trash3-fill" onclick="photoRemove(\''+data[i].no+'\')"></i></div>'
+			<% } %>
 			+ '</div></div>';
 	}
 	$('#imgList').html(imgHTML);

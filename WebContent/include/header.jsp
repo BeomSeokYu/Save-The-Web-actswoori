@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <%
 	String sid = (String) session.getAttribute("sid");
-	boolean admin = sid.equals("admin@gmail.com");
 	if(sid != null) {
+		boolean admin = sid.equals("admin@gmail.com");
 		session.setAttribute("sid", sid);
 	}
 %>
