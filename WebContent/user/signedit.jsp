@@ -16,16 +16,21 @@
 <meta charset="UTF-8">
 <title>행전우리교회</title>
 <%@ include file="/include/header.jsp" %>
-<%
-	String check = request.getParameter("check");
-	if(check == null || check.equals("")) {
-		response.sendRedirect("/user/signeditPw.jsp");
-	}
+<%	
 	String email1 = "";
 	String email2 = "";
 	if (sid != null) {
+		
+		String check = request.getParameter("check");
+		if(check == null || check.equals("")) {
+			response.sendRedirect("/user/signeditPw.jsp");
+		}
+		
+		
 		email1 = sid.substring(0, sid.indexOf("@"));
 		email2 = sid.substring(sid.indexOf("@")+1);
+	} else {
+		response.sendRedirect("/user/login.jsp");
 	}
 %> 
 
@@ -52,39 +57,6 @@
 </head>
 <body>
 <%@ include file="/include/navbar.jsp" %>
-	<!-- <div class="container">
-		<div class="form-signin w-50 m-auto text-center">
-		  <form action="needs-validation" method="post">
-		    <img class="mb-4" src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" alt="" width="72" height="72">
-		    <h1 class="h3 mb-3 fw-normal">내 정보 수정</h1>
-		
-		    <div class="form-floating">
-		      <input type="text" class="form-control" id="email" name="email" value="<%= sid %>">
-		      <label for="email">이메일</label>
-		      <div class="invalid-feedback">이미 존재하는 아이디입니다</div>
-		    </div>
-		    <div class="form-floating">
-		      <input type="password" class="form-control" id="password" name="비밀번호" placeholder="Password">
-		      <label for="password">비밀번호</label>
-		    </div>
-		    <div class="form-floating">
-		      <input type="password" class="form-control" id="passwordCheck" name="비밀번호 (확인)" placeholder="Password (Check)">
-		      <label for="passwordCheck">비밀번호 (확인)</label>
-		      <div class="valid-feedback">비밀번호가 일치합니다</div>
-		    </div>
-		    <div class="form-floating">
-		      <input type="text" class="form-control" id="name" name="name" placeholder="이름">
-		      <label for="name">이름</label>
-		    </div>
-			<div class="form-floating">
-		      <input type="text" class="form-control" id="job" name="job" placeholder="직분">
-		      <label for="name">직분</label>
-		    </div>
-		    <button class="w-100 btn btn-lg btn-primary" type="button" id="signupBtn">수정</button>
-		    <p class="mt-5 mb-3 text-muted">&copy; MyMemo</p>
-		  </form>
-		</div>
-	</div> -->
 <div class="container">
   <main>
     <div class="py-5">

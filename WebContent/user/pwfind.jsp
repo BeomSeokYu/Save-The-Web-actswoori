@@ -14,6 +14,11 @@
 <meta charset="UTF-8">
 <title>행전우리교회</title>
 <%@ include file="/include/header.jsp" %>
+<%
+if (sid != null) {
+	response.sendRedirect("/main.jsp");
+}
+%>
 <style>
 html,
 body {
