@@ -1,4 +1,4 @@
-<%@page import="page.PageVO"%>
+<%-- <%@page import="page.PageVO"%> --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList"%>
@@ -38,7 +38,8 @@
 <body>
 	<%@ include file="/include/navbar.jsp"%>
 
-<%
+<!-- pageVO ajax로 처리 -->
+<%-- <%
 	//1. 화면전환 시에 조회하는 페이지번호 and 화면에 그려질 데이터개수 2개를 전달받음
 	// 첫 페이지 경우
 		int pageNum = 1;
@@ -59,7 +60,8 @@
 		request.setAttribute("pageVO", pvo);
 	// 화면에 가지고 나갈 list를 request에 저장 !!
 		request.setAttribute("lectures", lectures);
-%>
+%> --%>
+
 <div class = "container">
 <div class="pt-5"></div>
 	<h2>특강</h2>
@@ -99,8 +101,10 @@
 		<div class="adminAdd d-grid gap-2 d-md-flex justify-content-md-end" style = "visibility:visible">
 		<button onclick="location.href='lectureAdd.jsp'"class="btn btn-primary">글 올리기</button>
 		</div>
-	<nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
+
+<!-- 페이지 네이션 -->		
+<nav aria-label="Page navigation example">
+ <ul class="pagination justify-content-center">
 <!-- 2. 이전버튼 활성화 여부 -->
 <c:if test="${pageVO.prev }">
       <li class="page-item"><a class="page-link" href="lectureMain.jsp?pageNum=${pageVO.startPage - 1 }&amount=${pageVO.amount}">이전</a></li>
@@ -146,9 +150,9 @@ function printList(data) {
 	for (var i = 0; i < data.length; i++){
 		
 		str +=	"<tr>";
-		str +=  "<td class = \"text-center\"><a href= 'lectureDetail.jsp?lno=" + data[i].lno + "'>" + data[i].ltitle + "</td>";
-		str += 	"<td class = \"text-center\">" + data[i].lname + "</td>"
-		str +=  "<td class = \"text-center\"><small>" + data[i].ldate + "</small></td>";
+		str +=  "<td class = \"text-center\"><a href= 'lectureDetail.jsp?lno=" + data[i].no + "'>" + data[i].title + "</td>";
+		str += 	"<td class = \"text-center\">" + data[i].name + "</td>"
+		str +=  "<td class = \"text-center\"><small>" + data[i].date + "</small></td>";
 		str +=  "</tr>";
 	}
 	$('#ajaxTable').html(str);

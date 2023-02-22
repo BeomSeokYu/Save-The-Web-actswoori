@@ -1,13 +1,18 @@
+<!-- 예배추가(썸머노트) - 혁주-->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <%@ include file="/include/header.jsp" %>
+
 <%
-	if(sid == null) { // 보안 처리
+sid = "a";
+if(sid == null) { // 보안 처리
 		response.sendRedirect("wSelectAll.jsp");
 		return;
 	}

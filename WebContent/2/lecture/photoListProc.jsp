@@ -1,4 +1,3 @@
-
 <%@page import="org.json.simple.JSONArray"%>
 <%@page import="jdbc.Criteria"%>
 <%@page import="jdbc.LectureDTO"%>
