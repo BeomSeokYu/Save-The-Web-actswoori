@@ -60,7 +60,7 @@
 <div class="container">
   <main>
     <div class="py-5">
-      <h1 class="h3">내 정보</h1>
+      <h1 class="h3">내 정보 변경</h1>
     </div>
     <div class="row g-5 justify-content-center">
       <div class="col-md-7 col-lg-8">

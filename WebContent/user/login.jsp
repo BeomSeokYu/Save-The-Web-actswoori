@@ -97,6 +97,15 @@ body {
 
 <script>
 $('#loginBtn').on('click', function(){
+	loginExe()
+});
+$('#password').on("keypress", function(){
+	if(event.keyCode == 13) {
+		loginExe()
+	}
+})
+
+function loginExe(){
 	if ($('#email').val() == '') {
 		popModal('입력 확인', '이메일을 입력해 주세요.');
 	} else if ($('#email').val() == '') {
@@ -124,7 +133,8 @@ $('#loginBtn').on('click', function(){
 				}
 			})
 	}
-});
+}
+
 </script>
 </body>
 </html>
