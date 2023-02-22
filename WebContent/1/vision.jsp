@@ -71,7 +71,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
 	<%@ include file="/include/footer.jsp"%>
 
 	<script src="/resources/js/page.js"></script>
@@ -93,7 +92,7 @@
 		/* 게시물 가져오기 위해 처리한 jsp URL 입력해주세요 */
 		function getListUrl() {
 			return '/4/news/newsListProc.jsp'
-		}
+		
 
 		}
 
