@@ -62,9 +62,9 @@
                         <img src="/resources/img/img2.jpg" alt="...">
                         <div class="carousel-caption">
                             <div class="slider_text">
-                                <h3>Protect</h3>
-                                <h2>nature the environment</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <h2>2023년 표어</h2>
+                                <p></p>
+                                <h3>다음 세대를 이어가는 믿음의 경주자(히12:1-3)</h3>
                             </div>
                         </div>
                     </div>
@@ -73,9 +73,10 @@
                         <img src="/resources/img/img3.jpg" alt="...">
                         <div class="carousel-caption">
                             <div class="slider_text">
-                                <h3>Protect</h3>
-                                <h2>nature the environment</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <h2>2023년 목표</h2>
+                                <p></p>
+                                <h3>예배ㆍ양육ㆍ전도가 균형 잡힌 그리스도인</h3>
+                     
                             </div>
                         </div>
                     </div>
@@ -93,9 +94,97 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="wel_header">
-                            <h2>welcome to green fair</h2>
-                            <p>Our Green Fire Organization is one of the non profit organization near you. Get our services like</p>
+                            <h2>모임 안내</h2>
+                            <p>행전우리교회의 예배 시간을 안내해드립니다</p>
                         </div>
+                        
+                        <hr class="my-5">
+                        <h3 class="my-4">예배및기도회</h3>
+
+					<table class="table mb-4">
+						<thead class="table-light">
+							<tr>
+								<th>예배</th>
+								<th>시간</th>
+							</tr>
+						</thead>
+						<tbody class="table-gruop-divider">
+							<tr>
+								<th>주일 1부 예배</th>
+								<th>오전 9:00</th>
+							</tr>
+
+							<tr>
+								<th>주일 2부 예배</th>
+								<th>오전 11:00</th>
+							</tr>
+
+							<tr>
+								<th>주일 오후 예배</th>
+								<th>오전 9:00</th>
+							</tr>
+
+							<tr>
+								<th>수요예배</th>
+								<th>오후 7:00</th>
+							</tr>
+
+							<tr>
+								<th>금요기도회</th>
+								<th>오후 8:30</th>
+							</tr>
+
+							<tr>
+								<th>새벽기도회</th>
+								<th>월~금 5시</th>
+							</tr>
+						</tbody>
+					</table>
+
+					<hr class="my-5">
+					<h3 class="my-4">부서예배</h3>
+					<table class="table">
+						<thead class="table-light">
+							<tr>
+								<th>예배</th>
+								<th>시간</th>
+							</tr>
+						</thead>
+						<tbody class="table-gruop-divider">
+							<tr>
+								<th>유치부</th>
+								<th>오전 11:00</th>
+							</tr>
+
+							<tr>
+								<th>유초등부</th>
+								<th>오전 9:00</th>
+							</tr>
+
+							<tr>
+								<th>중고등부</th>
+								<th>오전 9:00</th>
+							</tr>
+
+							<tr>
+								<th>청년대학부</th>
+								<th>오후 1:30</th>
+							</tr>
+
+							<tr>
+								<th>구역예배</th>
+								<th>구역별 별도공지</th>
+							</tr>
+
+							<tr>
+								<th>새가족/학습세례</th>
+								<th>비정규 모임</th>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+                        
                     </div>
                 </div>
                 <!--End of row-->
