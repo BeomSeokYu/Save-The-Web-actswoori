@@ -26,7 +26,7 @@
 		</div>
 		<div>
 <%
-	if (sid != null && sid.equals(WorshipDAO.selectEmail(Integer.parseInt(request.getParameter("wno"))))) { // 세션 처리
+	if (admin || sid != null && sid.equals(WorshipDAO.selectEmail(Integer.parseInt(request.getParameter("wno"))))) { // 세션 처리
 %>
 			<a class="btn btn-primary" href="wUpdate.jsp?wno=<%=request.getParameter("wno")%>" role="button">수정</a>
 			<a class="btn btn-primary" href="wDeleteCheck.jsp?wno=<%=request.getParameter("wno")%>" role="button">삭제</a>

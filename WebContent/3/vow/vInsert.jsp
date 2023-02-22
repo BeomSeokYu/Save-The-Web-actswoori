@@ -8,19 +8,18 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <%@ include file="/include/header.jsp" %>
-<%-- <%
+<%
 	if(sid == null) { // 보안 처리
 		response.sendRedirect("vSelectAll.jsp");
 		return;
 	}
-%> --%>
+%>
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 </head>
 <body>
 <%@ include file="/include/navbar.jsp" %>
 	<form action="vInsertCheck.jsp" method="post">
-		 <div></div>
-	<div class="container">
+		<div class="container">
 		<div class="pt-5"></div>
 		<h2>말씀 서원 등록</h2>
 		<hr>

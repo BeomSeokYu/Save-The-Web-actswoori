@@ -12,7 +12,9 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 	response.setContentType("text/html;charset=UTF-8");
-
+	if(request.getMethod().equals("GET")) {
+		response.sendRedirect("/main.jsp");
+	}
 
 	String email = request.getParameter("email");
 	String password = request.getParameter("password");

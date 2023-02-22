@@ -253,6 +253,41 @@ public class NewsDAO {
 		return result;
 	}
 	
-	
+	public static List<NewsDTO> selectNewNews() throws NamingException, SQLException {
+		//메인용, 최신뉴스 4개만 가져오기
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+		String sql = "SELECT ntitle, ncontent, name as email FROM news n, user u WHERE n.email = u.email ORDER BY ndate DESC limit 4";
+		//이름 가져오고 싶어서 쿼리 통해서 email로 가져옴
+		
+		conn = ConnectionPool.get();
+		pstmt = conn.prepareStatement(sql);
+		
+		rs = pstmt.executeQuery();
+		
+		List<NewsDTO> newsList = new ArrayList<NewsDTO>();
+		
+		while (rs.next()) {
+			NewsDTO ndto = new NewsDTO();
+			
+			ndto.setNtitle(rs.getString(1));
+			ndto.setNcontent(rs.getString(2));
+			ndto.setEmail(rs.getString(3));
+			
+			newsList.add(ndto);
+		}
+			
+		return newsList;
+		
+		} finally {
+			if(rs != null) rs.close();
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
+		}
+	}
 	
 }

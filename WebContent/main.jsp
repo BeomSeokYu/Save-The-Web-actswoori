@@ -1,3 +1,6 @@
+<%@page import="jdbc.NewsDTO"%>
+<%@page import="java.util.*"%>
+<%@page import="jdbc.NewsDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%-- <!DOCTYPE html>
@@ -102,6 +105,9 @@
         <!--end of welcome section-->
 
 
+<% List<NewsDTO> newsList = NewsDAO.selectNewNews(); 
+
+%>
 
         <!--Start of testimonial-->
         <section id="testimonial">
@@ -110,8 +116,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="testimonial_header text-center">
-                                <h2>testimonials</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <h2>교회 소식</h2>
                             </div>
                         </div>
                     </div>
@@ -135,12 +140,11 @@
                                                             <img src="img/tree_cut_3.jpg" alt="">
                                                         </div>
                                                         <div class="testimonial_content">
-                                                            <i class="fa fa-quote-left"></i>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
+                                                            <span><%= newsList.get(0).getNcontent()  %></span>
                                                         </div>
                                                         <div class="testimonial_author">
-                                                            <h5>Sadequr Rahman Sojib</h5>
-                                                            <p>CEO, Fourder</p>
+                                                            <h3><%= newsList.get(0).getNtitle()  %></h3>
+                                                            <p><%= newsList.get(0).getEmail()  %></p>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -148,12 +152,11 @@
                                                             <img src="img/tree_cut_3.jpg" alt="">
                                                         </div>
                                                         <div class="testimonial_content">
-                                                            <i class="fa fa-quote-left"></i>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
+                                                            <span><%= newsList.get(1).getNcontent()  %></span>
                                                         </div>
                                                         <div class="testimonial_author">
-                                                            <h5>Sadequr Rahman Sojib</h5>
-                                                            <p>CEO, Fourder</p>
+                                                            <h3><%= newsList.get(1).getNtitle()  %></h3>
+                                                            <p><%= newsList.get(1).getEmail()  %></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -166,12 +169,11 @@
                                                             <img src="img/tree_cut_3.jpg" alt="">
                                                         </div>
                                                         <div class="testimonial_content">
-                                                            <i class="fa fa-quote-left"></i>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
+                                                            <span><%= newsList.get(2).getNcontent() %></span>
                                                         </div>
                                                         <div class="testimonial_author">
-                                                            <h5>Sadequr Rahman Sojib</h5>
-                                                            <p>CEO, Fourder</p>
+                                                            <h3><%= newsList.get(2).getNtitle()  %></h3>
+                                                            <p><%= newsList.get(2).getEmail()  %></p>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -179,12 +181,11 @@
                                                             <img src="img/tree_cut_3.jpg" alt="">
                                                         </div>
                                                         <div class="testimonial_content">
-                                                            <i class="fa fa-quote-left"></i>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
+                                                            <span><%= newsList.get(3).getNcontent() %></span>
                                                         </div>
                                                         <div class="testimonial_author">
-                                                            <h5>Sadequr Rahman Sojib</h5>
-                                                            <p>CEO, Fourder</p>
+                                                            <h3><%= newsList.get(3).getNtitle()  %></h3>
+                                                            <p><%= newsList.get(3).getEmail()  %></p>
                                                         </div>
                                                     </div>
                                                 </div>

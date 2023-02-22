@@ -26,7 +26,7 @@
 		</div>
 		<div>
 <%
-	if (sid != null && sid.equals(VowDAO.selectEmail(Integer.parseInt(request.getParameter("vno"))))) { // 세션 처리
+	if (admin || sid != null && sid.equals(VowDAO.selectEmail(Integer.parseInt(request.getParameter("vno"))))) { // 세션 처리
 %>
 			<a class="btn btn-primary" href="vUpdate.jsp?vno=<%=request.getParameter("vno")%>" role="button">수정</a>
 			<a class="btn btn-primary" href="vDeleteCheck.jsp?vno=<%=request.getParameter("vno")%>" role="button">삭제</a>

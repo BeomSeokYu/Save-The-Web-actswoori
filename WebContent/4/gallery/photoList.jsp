@@ -55,7 +55,9 @@
 				        <span class="d-inline">개씩 보기</span>
 			        </div>
 					<div class="col-9 text-end">
+					<% if (sid != null) { // 세션 처리 %>
 						<button class="btn btn-sm btn-outline-secondary" type="button" onclick="regPhoto()">사진 등록</button>
+					<%} %>
 					</div>
 		        </div>
 				

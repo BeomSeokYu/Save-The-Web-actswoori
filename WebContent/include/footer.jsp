@@ -57,7 +57,7 @@
            		[<%= sid %> 님]
             </a>
 			<ul class="dropdown-menu">
-	            <li><a class="dropdown-item" href="/user/signeditPw.jsp">내 정보 수정</a></li>
+	            <li><a class="dropdown-item" href="/user/signeditPw.jsp">내 정보 변경</a></li>
 	    <% if (admin) { %>
 	    		<li><a class="dropdown-item" href="/admin/temp.jsp">가입 승인</a></li>
 	    		<li><a class="dropdown-item" href="/admin/userManage.jsp">회원 관리</a></li>

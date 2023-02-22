@@ -27,7 +27,7 @@
     
   <div class="container">
 	<div class="pt-5"></div>
-  	<h2>협력 기관 소식 글 수정</h2><hr>
+  	<h2>협력 교회와 기관 소식 수정</h2><hr>
 	<form action = "coopUpdateCheck.jsp" method="post">
 		<div class="input-group mb-2 input-group-lg">
 			<span class="input-group-text col-1 mx-auto" id="ltitle">제목</span> 
