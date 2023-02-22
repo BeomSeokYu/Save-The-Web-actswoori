@@ -18,9 +18,9 @@
 <body>
 <%@ include file="/include/navbar.jsp" %>
 <%
-/* if(sid == null || !sid.equals(admin)) {
+if(sid == null || !sid.equals(admin)) {
 	response.sendRedirect("postList.jsp");
-} */
+}
 %>
 <div class="container">
 <div class="pt-5"></div>
