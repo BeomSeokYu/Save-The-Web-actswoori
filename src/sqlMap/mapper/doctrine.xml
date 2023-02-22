@@ -21,7 +21,7 @@
 	</trim>
   </sql>
   
-  <select id="selectGalleryAllPaging" resultType="jdbc.docDTO">
+  <select id="selectDoctrineAllPaging" resultType="jdbc.docDTO">
   	<![CDATA[
 	  	SELECT	dno, dtitle, dcontent, email, ddate
 	  	FROM doctrine

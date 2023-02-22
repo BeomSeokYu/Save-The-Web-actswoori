@@ -27,7 +27,7 @@
 	
 	List<docDTO> list = null;
 	try {
-		list = sqlSession.selectList("DoctrineMapper.selectGalleryAllPaging", cri);
+		list = sqlSession.selectList("DoctrineMapper.selectDoctrineAllPaging", cri);
 	} catch (Exception e) {
 		e.printStackTrace();
 	} finally{
