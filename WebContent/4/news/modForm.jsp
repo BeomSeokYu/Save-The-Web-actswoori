@@ -21,23 +21,29 @@
 int nno = Integer.parseInt(request.getParameter("nno"));
 NewsDTO ndto = NewsDAO.selectNews(nno);
 %>
-
-
-<form id="insertForm" action="modProc.jsp" method="post">
-<input type="hidden" name="nno" id="nno" value="<%= ndto.getNno() %>">
-<input type="hidden" name="content" id="content">
-
-<div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">제목</label>
-  <input type="text" name="title" value="<%= ndto.getNtitle() %>" class="form-control" id="title" placeholder="제목을 입력해주세요">
-</div>
-
-<div class="bg-light rounded" >
-<div id="summernote"></div>
-</div>
-<div class="p-3 text-end">
-<button type="button" class="btn btn-primary" onclick="addItem()">수정하기</button>
-</div>
+	<div class="container">
+		<div class="pt-5"></div>
+		<h2>교회 소식 수정</h2>
+		<hr>
+		<form id="insertForm" action="modProc.jsp" method="post">
+			<input type="hidden" name="nno" id="nno" value="<%= ndto.getNno() %>">
+			<input type="hidden" name="content" id="content">
+			
+			<div class="input-group mb-2 input-group-lg">
+				<span class="input-group-text col-1 mx-auto">제목</span> 
+				<input type="text" class="form-control col-11" name="title" id="title"
+					value="<%= ndto.getNtitle() %>" required>
+			</div>
+			
+			<div>
+				<textarea id="summernote" class="mtop-10"></textarea>
+			</div>
+			
+			<div class="d-flex justify-content-end my-4">
+				<button class="btn btn-outline-primary mx-2" onclick="addItem()">수정</button>
+				<input type="button" value="취소" onclick="history.back()"
+					class="btn btn-outline-secondary mx-2">
+			</div>
 </form>
 
 <%@ include file="/include/footer.jsp" %>
@@ -60,7 +66,7 @@ if (msg == "fail") {
    $('#summernote').summernote({
      placeholder: 'Hello stand alone ui',
      tabsize: 2,
-     height: 120,
+     height: 500,
      toolbar: [
        ['style', ['style']],
        ['font', ['bold', 'underline', 'clear']],

@@ -17,27 +17,33 @@
 </head>
 <body>
 <%@ include file="/include/navbar.jsp" %>
+<div class="container">
+		<div class="pt-5"></div>
+		<h2>예배 수정</h2>
+		<hr>
 	<form action="wUpdateCheck.jsp" method="post">
 		<input type="hidden" name="wno" id="wno">
-		<div class="container">
-			<div>
-			  <label for="wtitle" class="form-label">제목</label>
-			  <input type="text" class="form-control" id="wtitle" name="wtitle" required>
-			</div>
-			<div>
-			  <label for="wname" class="form-label">설교자</label>
-			  <input type="text" class="form-control" id="wname" name="wname">
-			</div>
-			<div>
-			  <label for="wcontent" class="form-label">내용</label>
-			  <textarea class="form-control" id="wcontent" name="wcontent" rows="3"></textarea>
-			</div>
-			<div>
-				<button class="btn btn-primary" type="submit">수정</button>
-				<a class="btn btn-primary" href="wSelectAll.jsp" role="button">목록</a>
-			</div>
+		
+		<div class="input-group mb-2 input-group-lg">
+			<span class="input-group-text col-1 mx-auto">제목</span> 
+			<input type="text" class="form-control col-11" name="wtitle" id="wtitle" required>
+		</div>
+		<div class="input-group mb-3 input-group-lg">
+			<span class="input-group-text col-1" >설교자</span> <input
+				type="text" class="form-control col-11" name="wname" id="wname" required>
+		</div>
+		
+		<div>
+			<textarea name="wcontent" id="wcontent" class="mtop-10"></textarea>
+		</div>
+		
+		<div class="d-flex justify-content-end my-4">
+			<button class="btn btn-outline-primary mx-2" type="submit">수정</button>
+			<input type="button" value="취소" onclick="history.back()"
+				class="btn btn-outline-secondary mx-2">
 		</div>
 	</form>
+</div>
 <%@ include file="/include/footer.jsp" %>
 	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 	<script type="text/javascript">
@@ -59,7 +65,7 @@
 					
 					$('#wcontent').summernote({
 					    tabsize: 2,
-					    height: 120,
+					    height: 500,
 					    toolbar: [
 					      ['style', ['style']],
 					      ['font', ['bold', 'underline', 'clear']],
