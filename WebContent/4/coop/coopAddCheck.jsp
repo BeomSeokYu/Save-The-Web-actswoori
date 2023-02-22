@@ -11,9 +11,9 @@ request.setCharacterEncoding("utf-8");
 
 String ctitle = request.getParameter("ctitle");
 String ccontent = request.getParameter("ccontent");
+String email = (String) session.getAttribute("sid");
 
-
-int result = coopDAO.insert(ctitle, ccontent);
+int result = coopDAO.insert(ctitle, ccontent, email);
 /*  for(int i=0; i<30; i++) {
 result = coopDAO.insert(ctitle+i, ccontent+i );
 }  */

@@ -9,12 +9,13 @@
 <%
 request.setCharacterEncoding("utf-8");
 
+String email = (String) session.getAttribute("sid");
 String ntitle = request.getParameter("title");
 String ncontent = request.getParameter("content");
-String nemail = request.getParameter("email");
+// String nemail = request.getParameter("email");
 
 
-boolean result = NewsDAO.insertNews(ntitle, ncontent, nemail);
+boolean result = NewsDAO.insertNews(ntitle, ncontent, email);
 
 /* for(int i=0; i<30; i++) {
 	result = NewsDAO.insertNews(ntitle+i, ncontent+i , nemail);

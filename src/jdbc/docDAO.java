@@ -163,6 +163,32 @@ public class docDAO {
 		return result;
 	}
 	
-	
+	//작성자 이메일 조회
+		public static String selectEmail(int dno) {
+			try {
+				String sql = "SELECT email FROM doctrine WHERE dno = ?";
+				
+				Connection conn = ConnectionPool.get();
+				PreparedStatement pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, dno);
+				
+				ResultSet rs = pstmt.executeQuery();
+				
+				String email = null;
+				
+				if (rs.next()) {
+					email = rs.getString(1);
+				}
+				
+				rs.close();
+				pstmt.close();
+				conn.close();
+				
+				return email;
+			} catch (NamingException | SQLException e) {
+				e.printStackTrace();
+				return null;
+			}
+		}
 
 }

@@ -13,18 +13,19 @@ import util.ConnectionPool;
 public class coopDAO {
 
 //협력기관소식 게시판 등록
-public static int insert(String ctitle, String ccontent) throws SQLException, NamingException {
+public static int insert(String ctitle, String ccontent, String email) throws SQLException, NamingException {
 	
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	
 	try {
-	String sql = "INSERT INTO coop (ctitle, ccontent) VALUES(?,?)";
+	String sql = "INSERT INTO coop (ctitle, ccontent,email) VALUES(?,?,?)";
 
 	conn = ConnectionPool.get();
 	pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, ctitle);
 		pstmt.setString(2, ccontent);
+		pstmt.setString(3, email);
 
 		
 		int result = pstmt.executeUpdate(); //성공 1, 실패 0 을 가지고 나간다. 
@@ -70,7 +71,7 @@ public static ArrayList<coopDTO> getList() throws NamingException, SQLException 
 }
 
 //게시판 상세보기
-public coopDTO select(int cno) throws SQLException, NamingException  {
+public static coopDTO select(int cno) throws SQLException, NamingException  {
 	
 	Connection conn = null;
 	PreparedStatement pstmt = null;
@@ -217,7 +218,6 @@ public int getTotal() throws SQLException {
     
     return result;
  }
-
 }
 
 

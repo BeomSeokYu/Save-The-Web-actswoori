@@ -41,9 +41,7 @@ public class LectureDAO {
 			
 		return (pstmt.executeUpdate() == 1) ? true :false;	
 		
-		}
-		
-		finally {
+		}finally {
 			if(pstmt != null) pstmt.close();
 			if(conn != null) conn.close();
 		}
@@ -246,5 +244,4 @@ public class LectureDAO {
 		    return result;
 		 }
 }
-
 

@@ -9,6 +9,12 @@
 <head>
 <meta charset="UTF-8">
 <%@ include file="/include/header.jsp" %>
+<%
+	if(sid == null) { // 보안 처리
+		response.sendRedirect("doctrine.jsp");
+		return;
+	}
+%>
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 </head>
@@ -20,8 +26,8 @@
 		<hr>
 
 <div class="input-group mb-2 input-group-lg">
-				<span class="input-group-text col-1 mx-auto" id="dtitle">제목</span> 
-				<input type="text" class="form-control col-11" placeholder="제목을 입력하세요" name="dtitle">
+				<span class="input-group-text col-1 mx-auto" >제목</span> 
+				<input type="text" class="form-control col-11" placeholder="제목을 입력하세요" name="dtitle" id="dtitle">
 			</div>
 <div>
 				<textarea name="lcontent" id="summernote" class="mtop-10"></textarea>

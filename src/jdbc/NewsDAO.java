@@ -290,4 +290,32 @@ public class NewsDAO {
 		}
 	}
 	
+	//작성자 이메일 조회
+	public static String selectEmail(int nno) {
+		try {
+			String sql = "SELECT email FROM news WHERE nno = ?";
+			
+			Connection conn = ConnectionPool.get();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, nno);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			String email = null;
+			
+			if (rs.next()) {
+				email = rs.getString(1);
+			}
+			
+			rs.close();
+			pstmt.close();
+			conn.close();
+			
+			return email;
+		} catch (NamingException | SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 }

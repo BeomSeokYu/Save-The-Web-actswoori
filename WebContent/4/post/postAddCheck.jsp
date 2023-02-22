@@ -86,8 +86,8 @@ body {
           
           // DB에 넣기
 		String ptitle = multiReq.getParameter("ptitle");
-        String email = (String) session.getAttribute("email");
-        boolean result = PostDAO.insertPost(ptitle, uploadPath, uuid.toString(), postSysName, "admin@a.com");
+        String email = (String) session.getAttribute("sid");
+        boolean result = PostDAO.insertPost(ptitle, uploadPath, uuid.toString(), postSysName, email);
 		
 		//out.print("<iframe src=" + uploadPath + "/" + uuidFileName +"></iframe>");
 		

@@ -1,3 +1,5 @@
+lecture Add.sjp 
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -6,6 +8,12 @@
 <meta charset="UTF-8">
 <title>행전우리교회</title>
 <%@ include file="/include/header.jsp"%>
+<%
+	if(sid == null) { // 보안 처리
+		response.sendRedirect("lectureMain.jsp");
+		return;
+	}
+%>
 </head>
 <body>
 	<%@ include file="/include/navbar.jsp"%>
@@ -17,7 +25,7 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
-	<%
+<%-- 	<%
 //if(userDAO.login() != 1){
 	String adminLoginCheck = "a";
 	
@@ -53,7 +61,7 @@
 		});
 	</script>
 	<% } %>
-
+ --%>
 
 
 	<div></div>
@@ -62,7 +70,7 @@
 		<h2>특강등록</h2>
 		<hr>
 		<form action=lectureCheck.jsp method="post">
-
+			<input type="hidden" name="email" value="aaaa@aaaa.com" >
 			<div class="input-group mb-2 input-group-lg">
 				<span class="input-group-text col-1 mx-auto" id="ltitle">제목</span> 
 				<input type="text" class="form-control col-11" placeholder="제목을 입력하세요" name="ltitle">

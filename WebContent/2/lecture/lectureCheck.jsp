@@ -10,9 +10,9 @@
 	String ltitle = request.getParameter("ltitle");
 	String lname = request.getParameter("lname");
 	String lcontent = request.getParameter("lcontent");
-	String email = "abc@naver.com";
+	String email = request.getParameter("email");
 	
-	LectureDAO.insert(ltitle,lname,lcontent,email);
+	LectureDAO.insert(ltitle, lname, lcontent, email);
 	
 	response.sendRedirect("/2/lecture/lectureMain.jsp");
 %>

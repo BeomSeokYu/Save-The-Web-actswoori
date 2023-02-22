@@ -17,6 +17,6 @@
 	int result = WorshipDAO.update(wno, wname, wtitle, wcontent);
 
 	if(result == 1) {
-		response.sendRedirect("wSelectAll.jsp");
+		response.sendRedirect("wSelectOne.jsp?wno=" + wno);
 	}
 %>
