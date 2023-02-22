@@ -17,6 +17,10 @@
 <title>행전우리교회</title>
 <%@ include file="/include/header.jsp" %>
 <%
+	String check = request.getParameter("check");
+	if(check == null || check.equals("")) {
+		response.sendRedirect("/user/signeditPw.jsp");
+	}
 	String email1 = "";
 	String email2 = "";
 	if (sid != null) {

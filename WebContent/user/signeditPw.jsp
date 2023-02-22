@@ -49,6 +49,7 @@ body {
 <body>
 <%@ include file="/include/navbar.jsp" %>
 	<div class="container">
+		<form id="passCheckFrm" action="/user/signedit.jsp" method="post">
 		<div class="form-signin w-50 m-auto text-center">
 		    <h1 class="h3 py-5 fw-normal">비밀번호 확인</h1>
 		    <input type="hidden" id="email" name="email" value="<%= sid %>">
@@ -56,9 +57,10 @@ body {
 		      <input type="password" class="form-control" id="password" name="password" placeholder="Password">
 		      <label for="floatingPassword">비밀번호</label>
 		    </div>
-	
 		    <button class="w-100 btn btn-lg btn-secondary my-2" type="button" id="submitBtn">확인</button>
 		</div>
+		<input type="hidden" id="check" name="check" value="">
+		</form>
 	</div>
 <%@ include file="/include/footer.jsp" %>
 <script>
@@ -74,13 +76,13 @@ $('#submitBtn').on('click', function(){
 		.then(data => {
 			console.log(data);
 			data = data.trim()
-			if (data == 'success') {
-				location.href = '/user/signedit.jsp';
+			if (data == 'success') {				
+				$('#check').val(data);
+				$('#passCheckFrm').submit();
 			} else if (data == 'fail') {
 				popModal('비밀번호 오류', '비밀번호를 확인해 주세요');
 			}
 		})
-		.catch(err => console.log('Error : ', err));
 });
 </script>
 </body>
