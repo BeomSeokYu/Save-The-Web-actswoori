@@ -36,32 +36,39 @@
 	if(sid == null || !sid.equals(admin)) {
 		response.sendRedirect("postList.jsp");
 	}
-	
+	 
 	int pno = Integer.parseInt(request.getParameter("pno"));
 
 	PostDTO pdto = PostDAO.selectPost(pno);
 	String filePath = pdto.getPupfolder() + "/" + pdto.getPuuid() + "_" + pdto.getPfilename(); %>
  
-<div class="container">
-<form action="postEditCheck.jsp" name=f1 method=post enctype="multipart/form-data">
-	제목 : <input type="text" name="ptitle" value="<%=pdto.getPtitle() %>"><br>
-    <div style="clear:both">
-       <iframe id="viewer" class="iframe" src="<%=filePath %>" frameborder="0" scrolling="no" width="300" height="200"></iframe>
-    </div>
-	
-	<input type="hidden" name="pno" value="<%=pno%>">
-    <input id="uploadPDF" type="file" name="post" onchange="PreviewImage();" />&nbsp;<br>
-    
-	<div>
-	    <button type="submit" name="submit" class="btn btn-success btn-sm">
-	      <i class="fa fa-dot-circle-o"></i>수정
-	    </button>&emsp;
-		<a href="postView.jsp?pno=<%=pno%>">취소</a>
+
+	<div class="container">
+		<div class="pt-5"></div>
+		<h2>주보 수정</h2>
+		<hr>
+		<form action="postEditCheck.jsp" name=f1 method=post enctype="multipart/form-data">
+			<div class="input-group mb-2 input-group-lg">
+				<span class="input-group-text col-1 mx-auto" >제목</span>
+				<input type="text" class="form-control col-11" name="ptitle" 
+					value="<%=pdto.getPtitle() %>" required>
+			</div>
+			
+			<input type="hidden" name="pno" value="<%=pno%>">
+			
+		    <div style="clear:both" class="input-group mb-2 input-group-lg">
+		       <iframe id="viewer" class="iframe" src="<%=filePath %>" frameborder="0" scrolling="no" width="300" height="200"></iframe>
+		    </div>
+			<div class="input-group mb-2 input-group-lg">
+		    	<input id="uploadPDF" type="file" name="post" onchange="PreviewImage();" class="form-control col-11"/><br>
+		    </div>
+			<div class="d-flex justify-content-end my-4">
+				<button class="btn btn-outline-primary mx-2" type="submit">수정</button>
+				<input type="button" value="취소" onclick="location.href='postView.jsp?pno=<%=pno%>'"
+					class="btn btn-outline-secondary mx-2">
+			</div>
+		</form>
 	</div>
-    
-	
-</form>
-</div>
 
 
  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
