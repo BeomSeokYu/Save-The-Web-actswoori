@@ -15,9 +15,6 @@
 					<when test="type == 'C'.toString()">
 						ncontent LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
 					</when>
-					<when test="type == 'E'.toString()">
-						email LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
-					</when>
 				</choose>
 			</trim>
 		</foreach>
