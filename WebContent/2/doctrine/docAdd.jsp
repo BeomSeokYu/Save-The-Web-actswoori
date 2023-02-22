@@ -15,26 +15,30 @@
 <body>
 <%@ include file="/include/navbar.jsp" %>
 <div class="container">
-<br>
+<div class="pt-5"></div>
+		<h2>복음과 교리 등록</h2>
+		<hr>
 
-<div class="col-5">
-  <label for="dtitle" class="form-label">제목</label>
-  <input type="text" class="form-control" id="dtitle" >
-</div>
-<br>
-<div class="mb-3">
-  <label for="dcontent" class="form-label">내용</label>
-  <textarea class="form-control" id="summernote" rows="50" cols="50" name="content"></textarea>
-</div>
+<div class="input-group mb-2 input-group-lg">
+				<span class="input-group-text col-1 mx-auto" id="dtitle">제목</span> 
+				<input type="text" class="form-control col-11" placeholder="제목을 입력하세요" name="dtitle">
+			</div>
+<div>
+				<textarea name="lcontent" id="summernote" class="mtop-10"></textarea>
+			</div>
 	
-	<input type="button" class="btn btn-outline-secondary" value="이전으로" onclick="history.back()">
-	<button type="button" class="btn btn-outline-primary" onclick="addItem()">추가</button>
+	
+	<div class="d-flex justify-content-end my-4">
+		<button class="btn btn-outline-primary mx-2" onclick="addItem()">등록</button>
+		<input type="button" value="취소" onclick="history.back()"
+			class="btn btn-outline-secondary mx-2">
 	</div>
+</div>
 <script>
 var sid = "<%=sid%>";
   $('#summernote').summernote({
 	  tabsize: 2,
-        height: 300,
+        height: 500,
         toolbar: [
           ['style', ['style']],
           ['font', ['bold', 'underline', 'clear']],
