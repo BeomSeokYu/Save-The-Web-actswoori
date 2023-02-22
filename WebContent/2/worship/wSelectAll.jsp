@@ -20,6 +20,7 @@
 			<option value="24">24</option>
 		</select>
 <%
+sid ="abc";
 	if (sid != null) { // 세션 처리
 %>
 		<a class="btn btn-primary" href="wInsert.jsp" role="button">등록</a>

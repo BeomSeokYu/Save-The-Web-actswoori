@@ -1,3 +1,5 @@
+<!-- 소식추가 - 경외 글제목 사진(썸머노트) 글 -->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
   <head>
