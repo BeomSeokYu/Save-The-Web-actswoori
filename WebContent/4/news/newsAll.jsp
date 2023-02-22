@@ -136,6 +136,17 @@
 			}
 			$('#imgList').html(imgHTML);
 		}
+		
+		$(function(){
+			   const urlParams = new URL(location.href).searchParams;
+			   const msg = urlParams.get('msg');
+
+			   if (msg == "deleteSuccess") {
+			      popModal("삭제 성공", "삭제에 성공하였습니다.")
+			   } else if (msg == "fail") {
+			      popModal("오류 발생", "오류가 발생하였습니다. 다시 시도해주세요.")
+			   }
+			});
 	</script>
 
 </body>
