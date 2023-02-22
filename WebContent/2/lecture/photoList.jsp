@@ -1,6 +1,6 @@
 <%-- 
 
-작성자 : 유범석
+작성자 : 김영광
 작성일 : 2023.02.16
 버전 정보 : V1.0
 
@@ -116,8 +116,10 @@
 <!-- <div class="container">
 	<div class="photo-gallery container mb-3">
 		<div class="row justify-content-center">
+		
 			<h2 class="sticky-md-top">특강</h2>
 			<div class="col-3 d-none d-lg-block">
+				<%@ include file="/include/sidebar2.jsp" %>
 			</div>
 			<div class="col-9">
 				<div class="row">
@@ -128,8 +130,8 @@
 				       		<option value="20">20</option>
 				        </select>
 			        </div>
-					<div class="col-6 text-end">
-						<button class="btn btn-outline-secondary" type="button" onclick="regPhoto()">사진 등록</button>
+					<div class="adminAdd d-grid gap-2 d-md-flex justify-content-md-end" style = "visibility:visible">
+					<button onclick="location.href='lectureAdd.jsp'"class="btn btn-primary">글 올리기</button>
 					</div>
 		        </div>
 				

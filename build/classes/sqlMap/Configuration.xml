@@ -16,19 +16,21 @@
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver" />
                 <property name="url" value="jdbc:mysql://localhost:3306/savetheweb?serverTimezone=UTC" />
-                <property name="username" value="nationschurch" />
-                <property name="password" value="church00" />
+                <property name="username" value="chsick" />
+                <property name="password" value="gustlr97" />
             </dataSource>
         </environment>
     </environments>
     <mappers>
-
+		
+		<mapper resource="/sqlMap/mapper/lecture.xml" />
         <mapper resource="/sqlMap/mapper/coop.xml" />
-        <mapper resource="/sqlMap/mapper/news.xml" />
+        <mapper resource="/sqlMap/mapper/doctrine.xml" />
         <mapper resource="/sqlMap/mapper/gallery.xml" />
+        <mapper resource="/sqlMap/mapper/lecture.xml" />
+        <mapper resource="/sqlMap/mapper/news.xml" />
+        <mapper resource="/sqlMap/mapper/post.xml" />
         <mapper resource="/sqlMap/mapper/vow.xml" />
         <mapper resource="/sqlMap/mapper/worship.xml" />
-        <mapper resource="/sqlMap/mapper/doctrine.xml" />
-        <mapper resource="/sqlMap/mapper/lecture.xml" />
     </mappers>
 </configuration>

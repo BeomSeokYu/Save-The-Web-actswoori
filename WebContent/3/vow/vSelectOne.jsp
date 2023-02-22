@@ -1,3 +1,5 @@
+<!-- 복음과교리 추가 - 현식 -->
+
 <%@page import="vow.VowDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
