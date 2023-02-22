@@ -18,18 +18,28 @@
 <body>
 <%@ include file="/include/navbar.jsp" %>
 <%
-if(sid == null || !sid.equals(admin)) {
+/* if(sid == null || !sid.equals(admin)) {
 	response.sendRedirect("postList.jsp");
-}
+} */
 %>
 <div class="container">
+<div class="pt-5"></div>
+		<h2>주보 등록</h2>
+		<hr>
 <form action="postAddCheck.jsp" name=f1 method=post enctype="multipart/form-data">
-	제목 : <input type="text" name="ptitle"><br>
-    <input id="uploadPDF" type="file" name="post" onchange="PreviewImage();"/>&nbsp;<br>
+	<div class="input-group mb-2 input-group-lg">
+		<span class="input-group-text col-1 mx-auto">제목</span> 
+		<input type="text" class="form-control col-11" placeholder="제목을 입력하세요" name="ptitle">
+	</div>
+
+    <input id="uploadPDF" type="file" name="post" onchange="PreviewImage();" class="form-control col-11"/>&nbsp;<br>
     
-    <button type="submit" name="submit" class="btn btn-success btn-sm">
-      <i class="fa fa-dot-circle-o"></i> 등록
-    </button>&emsp;
+    <div class="d-flex justify-content-end my-4">
+		<button class="btn btn-outline-primary mx-2" type="submit" name="submit">등록</button>
+		<input type="button" value="취소" onclick="history.back()"
+			class="btn btn-outline-secondary mx-2">
+	</div>
+    
     
     <div style="clear:both">
        <iframe id="viewer" frameborder="0" scrolling="no" width="300" height="200"></iframe>
