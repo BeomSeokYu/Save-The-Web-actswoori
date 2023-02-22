@@ -53,9 +53,7 @@ iframe {
 	</div>
 	<iframe src="<%=filePath %>" ></iframe>
 	<div>
-<%
-	if (admin || sid != null && sid.equals(PostDAO.selectPost(Integer.parseInt(request.getParameter("pno"))).getEmail())) { // 세션 처리
-%>
+<% if(admin) { %>	
 		<a href="postEdit.jsp?pno=<%=pno %>">수정</a>
 		<a href="postRemove.jsp?pno=<%=pno %>">삭제</a>
 <% } %>	

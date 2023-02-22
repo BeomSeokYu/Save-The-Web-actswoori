@@ -23,6 +23,11 @@
 </head>
 <body>
 <%@ include file="/include/navbar.jsp" %>
+<%
+if(!admin) {
+	response.sendRedirect("postList.jsp");
+}
+%>
 <div class="container">
 <div class="pt-5"></div>
 		<h2>주보 등록</h2>
@@ -33,7 +38,7 @@
 		<input type="text" class="form-control col-11" placeholder="제목을 입력하세요" name="ptitle">
 	</div>
 
-    <input id="uploadPDF" type="file" name="post" onchange="PreviewImage();" class="form-control col-11"/>&nbsp;<br>
+    <input id="uploadPDF" type="file" name="post" onchange="PreviewImage();" class="form-control col-11" accept=".pdf"/>&nbsp;<br>
     
     <div class="d-flex justify-content-end my-4">
 		<button class="btn btn-outline-primary mx-2" type="submit" name="submit">등록</button>
