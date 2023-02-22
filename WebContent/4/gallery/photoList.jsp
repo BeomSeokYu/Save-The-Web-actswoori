@@ -127,6 +127,7 @@
 검색 입력 인풋 : keyword
 검색 선택 셀렉트 : selectType
 게시글 표시 갯수 셀렉트 : selectAmount
+리스트 다시 띄우기 : pageObj.pageCal(cri);
 */
 
 /* 전체 게시물 수 가져오기 위해 처리한 jsp URL 입력해주세요 */
@@ -155,13 +156,24 @@ function printList(data) {
 	$('#imgList').html(imgHTML);
 }
 
-function photoRemove(no) {
-	if (confirm('정말 삭제?')){
-		
+function photoRemove(no, uuid, filename) {
+	if (confirm('정말로 삭제 하시겠습니까?')){
+		fetch('/4/gallery/photoDelProc.jsp', {	
+			method: "post",
+			body: new URLSearchParams({
+					gno: no,
+					guuid: uuid,
+					gfilename: filename,
+				})
+	        })
+			.then(resp => resp.text())
+			.then(data => {
+				data.trim()
+				console.log(data);
+				pageObj.pageCal(cri);
+			})
 	}
 }
-
-
 
 
 

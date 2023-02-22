@@ -69,6 +69,26 @@ public class GalleryDAO {
 		return ja.toJSONString();
 	}
 	
+	// 회원 탈퇴
+	public static boolean delete(int gno) {
+		boolean result = false;
+		String sql = "DELETE FROM gallery WHERE gno=?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, gno);
+			
+			result = pstmt.executeUpdate() == 1 ? true : false;
+		} catch (SQLException | NamingException e) {
+			e.printStackTrace();
+		} finally {
+			close(conn, pstmt, null);
+		}
+		return result;
+	}
+	
 	// 객체 닫기
 	public static void close(Connection conn, PreparedStatement pstmt, ResultSet rSet) {
 		try {
