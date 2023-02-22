@@ -38,8 +38,7 @@
 							<%
 								if (sid != null) { // 세션 처리
 							%>
-							<a href="vInsert.jsp" class="btn btn-sm btn-outline-success">게시물
-								등록 </a>
+							<a href="vInsert.jsp" class="btn btn-sm btn-outline-success">게시물 등록 </a>
 							<%
 								}
 							%>

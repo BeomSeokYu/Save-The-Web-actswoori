@@ -10,9 +10,10 @@
 	String ltitle = request.getParameter("ltitle");
 	String lname = request.getParameter("lname");
 	String lcontent = request.getParameter("lcontent");
+	String email = request.getParameter("email");
 	
-	LectureDAO.insert(ltitle,lname,lcontent);
+	LectureDAO.insert(ltitle, lname, lcontent, email);
 	
-	response.sendRedirect("/2/lecture/photoList.jsp");
+	response.sendRedirect("/2/lecture/lectureMain.jsp");
 %>
 

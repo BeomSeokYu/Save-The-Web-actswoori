@@ -11,6 +11,12 @@
 <meta charset="UTF-8">
 <title>행전우리교회</title>
 <%@ include file="/include/header.jsp" %>
+<%
+	if(sid == null) { // 보안 처리
+		response.sendRedirect("newsAll.jsp");
+		return;
+	}
+%>
 </head>
 <body>
 <%@ include file="/include/navbar.jsp" %>

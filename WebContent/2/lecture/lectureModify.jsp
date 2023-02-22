@@ -6,7 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>행전우리교회</title>
-<%@ include file="/include/header.jsp"%>
+<%@ include file="/include/header.jsp"%>>
+<%
+	if (sid == null) { // 보안 처리
+		response.sendRedirect("lectureMain.jsp");
+		return;
+	} 
+%>
 </head>
 <body>
 	<%@ include file="/include/navbar.jsp"%>

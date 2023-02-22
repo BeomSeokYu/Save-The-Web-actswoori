@@ -50,8 +50,14 @@ NewsDTO ndto = NewsDAO.selectNews(nno);
 
 
 <div class="text-end col-6">
+<%
+	if (admin || sid != null && sid.equals(NewsDAO.selectNews(Integer.parseInt(request.getParameter("nno"))).getEmail())) { // 세션 처리
+%>
 <a href="modForm.jsp?nno=<%=ndto.getNno() %>" class="btn btn-sm btn-outline-warning"> 수정하기 </a>
 <button onclick="handleDeleteBtn('<%=ndto.getNno()%>')" class="btn btn-sm btn-outline-danger"> 삭제하기 </button>
+<%
+	}
+%>
 </div>
 </div>
 </div>

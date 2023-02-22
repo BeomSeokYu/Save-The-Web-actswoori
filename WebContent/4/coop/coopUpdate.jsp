@@ -10,13 +10,13 @@
 <body>
 <%-- <% UserDTO udto = UserDAO.select(sid){%> --%>
 <%@include file="/include/header.jsp" %>
-	<%	//로그인 안되어있을 시
-		if(sid == null || !sid.equals(admin)){
-		response.sendRedirect("/login.jsp");
-		}else{
-	%>
+<%
+	if (sid == null) { // 보안 처리
+		response.sendRedirect("coopList.jsp");
+		return;
+	}
 
- <% int cno = Integer.parseInt(request.getParameter("cno"));
+	int cno = Integer.parseInt(request.getParameter("cno"));
  	coopDAO cdao = new coopDAO();
  	coopDTO cdto = cdao.select(cno); %> 
  	
@@ -61,4 +61,4 @@
   </body>
  <%@include file="/include/footer.jsp" %>
 </html>
-<%  };  %>
+<%-- <%  };  %> --%>
