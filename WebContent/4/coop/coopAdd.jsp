@@ -13,7 +13,7 @@
  <div></div>
 	<div class="container">
 		<div class="pt-5"></div>
-		<h2>협력 기관 소식 글 등록</h2>
+		<h2>협력 교회와 기관 소식 등록</h2>
 		<hr>
 <form action = "coopAddCheck.jsp" method="post">
 

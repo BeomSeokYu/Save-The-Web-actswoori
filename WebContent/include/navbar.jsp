@@ -84,7 +84,7 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/1/vision.jsp">교회 비전</a></li>
             <li><a class="dropdown-item" href="/1/moim.jsp">모임 안내</a></li>
-            <li><a class="dropdown-item" href="#">섬기는 사람들</a></li>
+            <li><a class="dropdown-item" href="/1/peopleAll.jsp">섬기는 사람들</a></li>
             <li><a class="dropdown-item" href="/1/directions.jsp">오시는 길</a></li>
           </ul>
         </li>

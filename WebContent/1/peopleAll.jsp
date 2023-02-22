@@ -15,32 +15,33 @@
 <meta charset="UTF-8">
 <title>행전우리교회</title>
 <%@ include file="/include/header.jsp"%>
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
+<style>
+.bd-placeholder-img {
+	font-size: 1.125rem;
+	text-anchor: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-	 .main_image {
-	    position: relative;
-	  }
-	  .main_image_text {
-	    position: absolute;
-	    top: 50%;
-	    left: 50%;
-	    transform: translate( -50%, -50% );
-	    color: white;
-	  }
+@media ( min-width : 768px) {
+	.bd-placeholder-img-lg {
+		font-size: 3.5rem;
+	}
+}
 
-    </style>
+.main_image {
+	position: relative;
+}
+
+.main_image_text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+}
+</style>
 </head>
 <body>
 	<%@ include file="/include/navbar.jsp"%>
@@ -49,188 +50,203 @@
 			<div class="row justify-content-center">
 				<h2>섬기는 사람들</h2>
 				<div class="col-3 d-none d-lg-block">
-					<%@ include file="/include/sidebar4.jsp"%>
+					<%@ include file="/include/sidebar1.jsp"%>
 				</div>
 
 				<div class="col-9">
-					<div class="row">
-						<div class="col-3 text-muted">
-						</div>
-						<div class="col-9 text-end">
-						</div>
-					</div>
+					<div class="album py-5 bg-light">
+						<div class="container">
 
-					
-					<div class="album py-5">
-   					<div class="container">
-   					
-   					 <p style="font-weight:bold; color:#747474;">당회</p>
-					<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-			        <div class="col">
-			          <div class="card shadow-sm">
-			            <div class="main_image"><img src="profile.jpg" width="100%" height="225" class="bd-placeholder-img card-img-top" width="100%" height="225"/></div> 
-			            <div class="card-body">
-			              <p class="card-text">김종길목사</p>
-			            </div>
-			          </div>
-			        </div>
-			        <div class="col">
-			          <div class="card shadow-sm">
-			            <div class="main_image"><img src="profile.jpg" width="100%" height="225" class="bd-placeholder-img card-img-top" width="100%" height="225"/></div> 
-			            <div class="card-body">
-			             <p class="card-text">배종삼장로</p>
-			            </div>
-			          </div>
-			        </div>
-			        <div class="col">
-			          <div class="card shadow-sm">
-			           <div class="main_image"><img src="profile.jpg" width="100%" height="225" class="bd-placeholder-img card-img-top" width="100%" height="225"/></div> 
-			            <div class="card-body">
-			              <p class="card-text">민병국장로</p>
-			            </div>
-			          </div>
-			        </div>
-			        </div>
-					<hr class="my-4">
-					<p style="font-weight:bold; color:#747474;">교육부</p>
-					<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-			        <div class="col">
-			          <div class="card shadow-sm">
-			           <div class="main_image"><img src="profile.jpg" width="100%" height="225" class="bd-placeholder-img card-img-top" width="100%" height="225"/></div> 
-			            <div class="card-body">
-			             <p class="card-text">홍순철집사(교육부장)</p>
-			            </div>
-			          </div>
-			        </div>
-					</div>
-					<hr class="my-4">
-					<p style="font-weight:bold; color:#747474;">청년대학부</p>
-					<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-			        <div class="col">
-			          <div class="card shadow-sm">
-			            <div class="main_image"><img src="profile.jpg" width="100%" height="225" class="bd-placeholder-img card-img-top" width="100%" height="225"/></div> 
-			            <div class="card-body">
-			              <p class="card-text">이원석집사(부장)</p>
-			            </div>
-			          </div>
-			        </div>
-			        <div class="col">
-			          <div class="card shadow-sm">
-			          <div class="main_image"><img src="profile.jpg" width="100%" height="225" class="bd-placeholder-img card-img-top" width="100%" height="225"/></div> 
-			            <div class="card-body">
-			              <p class="card-text">홍원표청년(회장)</p>
-			            </div>
-			          </div>
-			        </div>
-			        <div class="col">
-			          <div class="card shadow-sm">
-			            <div class="main_image"><img src="profile.jpg" width="100%" height="225" class="bd-placeholder-img card-img-top" width="100%" height="225"/></div> 
-			            <div class="card-body">
-			             <p class="card-text">황정현목사(교육)</p>
-			            </div>
-			          </div>
-			        </div>
-			        </div>
-					<hr class="my-4">
-					<p style="font-weight:bold; color:#747474;">중고등부</p>
-					<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-			        <div class="col">
-			          <div class="card shadow-sm">
-			            <div class="main_image"><img src="profile.jpg" width="100%" height="225" class="bd-placeholder-img card-img-top" width="100%" height="225"/></div> 
-			            <div class="card-body">
-			               <p class="card-text">변희선집사(부장)</p>
-			            </div>
-			          </div>
-			        </div>
-					</div>
-					<hr class="my-4">
-					<p style="font-weight:bold; color:#747474;">유초등부</p>
-					<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-			        <div class="col">
-			          <div class="card shadow-sm">
-			            <div class="main_image"><img src="profile.jpg" width="100%" height="225" class="bd-placeholder-img card-img-top" width="100%" height="225"/></div> 
-			            <div class="card-body">
-			             <p class="card-text">김경자권사(부장)</p>
-			            </div>
-			          </div>
-			        </div>
-					</div>
-					<hr class="my-4">
-					<p style="font-weight:bold; color:#747474;">영아유치부</p>
-					<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-			        <div class="col">
-			          <div class="card shadow-sm">
-			            <div class="main_image"><img src="profile.jpg" width="100%" height="225" class="bd-placeholder-img card-img-top" width="100%" height="225"/></div> 
-			            <div class="card-body">
-			             <p class="card-text">김경자권사(부장)</p>
-			            </div>
-			          </div>
-			        </div>
-					</div>
-					<hr class="my-4">
-					<p style="font-weight:bold; color:#747474;">성가대</p>
-					<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-			        <div class="col">
-			          <div class="card shadow-sm">
-			            <div class="main_image"><img src="profile.jpg" width="100%" height="225" class="bd-placeholder-img card-img-top" width="100%" height="225"/></div> 
-			            <div class="card-body">
-			              <p class="card-text">이원석집사(대장)</p>
-			            </div>
-			          </div>
-			        </div>
-			        <div class="col">
-			          <div class="card shadow-sm">
-			            <div class="main_image"><img src="profile.jpg" width="100%" height="225" class="bd-placeholder-img card-img-top" width="100%" height="225"/></div> 
-			            <div class="card-body">
-			              <p class="card-text">장소라집사(지휘)</p>
-			            </div>
-			          </div>
-			        </div>
-			        <div class="col">
-			          <div class="card shadow-sm">
-			            <div class="main_image"><img src="profile.jpg" width="100%" height="225" class="bd-placeholder-img card-img-top" width="100%" height="225"/></div> 
-			            <div class="card-body">
-			              <p class="card-text">김수연청년(반주)</p>
-			            </div>
-			          </div>
-			        </div>
-			        </div>
-					</div>
-					</div>
-					
-					
-					</div>
+							<p style="font-weight: bold; color: #747474;">당회</p>
+							<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+								<div class="col">
+									<div class="card shadow-sm">
+										<div class="main_image">
+											<img src="profile.jpg" width="100%" height="225"
+												class="bd-placeholder-img card-img-top" width="100%"
+												height="225" />
+										</div>
+										<div class="card-body">
+											<p class="card-text">김종길목사</p>
+										</div>
+									</div>
+								</div>
+								<div class="col">
+									<div class="card shadow-sm">
+										<div class="main_image">
+											<img src="profile.jpg" width="100%" height="225"
+												class="bd-placeholder-img card-img-top" width="100%"
+												height="225" />
+										</div>
+										<div class="card-body">
+											<p class="card-text">배종삼장로</p>
+										</div>
+									</div>
+								</div>
+								<div class="col">
+									<div class="card shadow-sm">
+										<div class="main_image">
+											<img src="profile.jpg" width="100%" height="225"
+												class="bd-placeholder-img card-img-top" width="100%"
+												height="225" />
+										</div>
+										<div class="card-body">
+											<p class="card-text">민병국장로</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<hr class="my-4">
+							<p style="font-weight: bold; color: #747474;">교육부</p>
+							<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+								<div class="col">
+									<div class="card shadow-sm">
+										<div class="main_image">
+											<img src="profile.jpg" width="100%" height="225"
+												class="bd-placeholder-img card-img-top" width="100%"
+												height="225" />
+										</div>
+										<div class="card-body">
+											<p class="card-text">홍순철집사(교육부장)</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<hr class="my-4">
+							<p style="font-weight: bold; color: #747474;">청년대학부</p>
+							<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+								<div class="col">
+									<div class="card shadow-sm">
+										<div class="main_image">
+											<img src="profile.jpg" width="100%" height="225"
+												class="bd-placeholder-img card-img-top" width="100%"
+												height="225" />
+										</div>
+										<div class="card-body">
+											<p class="card-text">이원석집사(부장)</p>
+										</div>
+									</div>
+								</div>
+								<div class="col">
+									<div class="card shadow-sm">
+										<div class="main_image">
+											<img src="profile.jpg" width="100%" height="225"
+												class="bd-placeholder-img card-img-top" width="100%"
+												height="225" />
+										</div>
+										<div class="card-body">
+											<p class="card-text">홍원표청년(회장)</p>
+										</div>
+									</div>
+								</div>
+								<div class="col">
+									<div class="card shadow-sm">
+										<div class="main_image">
+											<img src="profile.jpg" width="100%" height="225"
+												class="bd-placeholder-img card-img-top" width="100%"
+												height="225" />
+										</div>
+										<div class="card-body">
+											<p class="card-text">황정현목사(교육)</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<hr class="my-4">
+							<p style="font-weight: bold; color: #747474;">중고등부</p>
+							<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+								<div class="col">
+									<div class="card shadow-sm">
+										<div class="main_image">
+											<img src="profile.jpg" width="100%" height="225"
+												class="bd-placeholder-img card-img-top" width="100%"
+												height="225" />
+										</div>
+										<div class="card-body">
+											<p class="card-text">변희선집사(부장)</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<hr class="my-4">
+							<p style="font-weight: bold; color: #747474;">유초등부</p>
+							<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+								<div class="col">
+									<div class="card shadow-sm">
+										<div class="main_image">
+											<img src="profile.jpg" width="100%" height="225"
+												class="bd-placeholder-img card-img-top" width="100%"
+												height="225" />
+										</div>
+										<div class="card-body">
+											<p class="card-text">김경자권사(부장)</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<hr class="my-4">
+							<p style="font-weight: bold; color: #747474;">영아유치부</p>
+							<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+								<div class="col">
+									<div class="card shadow-sm">
+										<div class="main_image">
+											<img src="profile.jpg" width="100%" height="225"
+												class="bd-placeholder-img card-img-top" width="100%"
+												height="225" />
+										</div>
+										<div class="card-body">
+											<p class="card-text">김경자권사(부장)</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<hr class="my-4">
+							<p style="font-weight: bold; color: #747474;">성가대</p>
+							<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+								<div class="col">
+									<div class="card shadow-sm">
+										<div class="main_image">
+											<img src="profile.jpg" width="100%" height="225"
+												class="bd-placeholder-img card-img-top" width="100%"
+												height="225" />
+										</div>
+										<div class="card-body">
+											<p class="card-text">이원석집사(대장)</p>
+										</div>
+									</div>
+								</div>
+								<div class="col">
+									<div class="card shadow-sm">
+										<div class="main_image">
+											<img src="profile.jpg" width="100%" height="225"
+												class="bd-placeholder-img card-img-top" width="100%"
+												height="225" />
+										</div>
+										<div class="card-body">
+											<p class="card-text">장소라집사(지휘)</p>
+										</div>
+									</div>
+								</div>
+								<div class="col">
+									<div class="card shadow-sm">
+										<div class="main_image">
+											<img src="profile.jpg" width="100%" height="225"
+												class="bd-placeholder-img card-img-top" width="100%"
+												height="225" />
+										</div>
+										<div class="card-body">
+											<p class="card-text">김수연청년(반주)</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
 				</div>
-			</div>
-		</div>
-	</div>
+				</div>
+				</div>
+				</div>
+				</div>
 	<%@ include file="/include/footer.jsp"%>
-
-	<script src="/resources/js/page.js"></script>
-
-	<script>
-		/*
-		 [form id 이걸로 하셈]
-
-		 검색 버튼 : searchBtn
-		 검색 입력 인풋 : keyword
-		 검색 선택 셀렉트 : selectType
-		 게시글 표시 갯수 셀렉트 : selectAmount
-		 */
-
-		/* 전체 게시물 수 가져오기 위해 처리한 jsp URL 입력해주세요 */
-		function getTotalCountUrl() {
-			return '/4/news/totalNumProc.jsp'
-		}
-		/* 게시물 가져오기 위해 처리한 jsp URL 입력해주세요 */
-		function getListUrl() {
-			return '/4/news/newsListProc.jsp'
-		}
-
-
-		}
-
-	</script>
-
 </body>
 </html>

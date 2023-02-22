@@ -66,14 +66,6 @@
 		</div>
 	</div>
 
-		<%-- <table>
-	<tr>
-	<th><div>설교자  <%=lecture.getLname() %></div></th>
-	</tr>
-	<tr>
-	<th><div>날짜  <%=lecture.getLdate() %></div></th>
-	</tr>
-	</table>
 	<div class = "text-center h3" ><%=lecture.getLtitle() %></div>
 	<%=lecture.getLcontent() %> --%>
 		<!-- if 4페이지였으면 목록 클릭했을 때 4페이지로 가게 하기 위해서 -->
@@ -82,26 +74,22 @@
 		<div class="d-grid gap-2 d-md-flex justify-content-md-end mb-5">
 			<input type="button" value="목록" onclick="history.back()"
 				class="btn btn-outline-success">
-			<%	
-//나중에 user 받아오고
-	//if (UserDAO.login(id, password) == 1) {
-		
-	//}
-	//String adminLoginCheck = session.getAttribute("sid");
-	String adminLoginCheck = "a";
-
-	if (adminLoginCheck != null){%>
+<%	
+	// 임의 관리자 id
+	String adminID = "admin@gmail.com";
+	String sid = session.getAttribute("sid");
+	boolean memberCheck = (sid != null) && sid.equals(LectureDAO.selectEmail(Integer.parseInt(request.getParameter("lno"))));
+	// 회원이거나, 관리자이면 if문 수행
+	if (memberCheck || sid.equals(adminID)) { 
+%>
 			<button
 				onclick="location.href='/2/lecture/lectureModify.jsp?lno=<%=lecture.getLno()%>'"
 				class="btn btn-outline-primary">수정</button>
 			<button
 				onclick="location.href='/2/lecture/lectureDel.jsp?lno=<%=lecture.getLno()%>'"
 				class="btn btn-outline-danger">삭제</button>
-			<%	}	%>
+<%	}	%>
 		</div>
-
-
-
 	</div>
 	<script>
 				function clip() {
