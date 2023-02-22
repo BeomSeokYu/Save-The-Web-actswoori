@@ -1,19 +1,19 @@
-<%-- <%@page import="page.PageVO"%> --%>
+<%-- 
+
+작성자 : 김영광
+작성일 : 2023.02.16
+버전 정보 : V1.0
+
+ --%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="jdbc.*"%>
-
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
- 
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>행전우리교회</title>
-<%@ include file="/include/header.jsp"%>
+<%@ include file="/include/header.jsp" %>
 
 <% 
 	
@@ -34,100 +34,116 @@
 	}
 %>
 
+
 </head>
 <body>
-	<%@ include file="/include/navbar.jsp"%>
+<%@ include file="/include/navbar.jsp" %>
 
-<!-- pageVO ajax로 처리 -->
-<%-- <%
-	//1. 화면전환 시에 조회하는 페이지번호 and 화면에 그려질 데이터개수 2개를 전달받음
-	// 첫 페이지 경우
-		int pageNum = 1;
-		int amount = 5;
-	// 페이지번호를 클릭하는 경우
-		if(request.getParameter("pageNum") != null && request.getParameter("amount") != null) {
-   			pageNum = Integer.parseInt(request.getParameter("pageNum"));
-   			amount = Integer.parseInt(request.getParameter("amount"));
-		}
-	// 2. pageVO생성
-	LectureDAO ldto = new LectureDAO();
-	
-	ArrayList<LectureDTO> lectures = LectureDAO.getListpaging(pageNum, amount);
-	
-	int total = ldto.getTotal(); // 전체게시글수
-	PageVO pvo = new PageVO(pageNum, amount, total);
-	// 3. 페이지네이션을 화면에 전달
-		request.setAttribute("pageVO", pvo);
-	// 화면에 가지고 나갈 list를 request에 저장 !!
-		request.setAttribute("lectures", lectures);
-%> --%>
 
-<div class = "container">
-<div class="pt-5"></div>
-	<h2>특강</h2>
-	<!-- 검색버튼  -->
-	<!-- <div class = "d-grid gap-2 d-md-flex justify-content-md-end">
-	  <input class="form-control input-sm" type="search" placeholder="검색어" aria-label="" id="keyword" placeholder=".input-sm">
-	  <button class="btn btn-outline-success" type="button" id="searchBtn">검색</button>
-	</div> -->
-	 
-	<table class="table table-striped table-hover">
-	<thead>
-		<tr>
-			<th class ="col-8 text-center">제목</th>
-			<th class ="col-2 text-center">설교자</th>
-			<th class ="col-2 text-center">작성일</th>
-		</tr>
-	</thead>
-	<tbody id = "ajaxTable" class = "table-group-divider" >
-	
-	<!-- 전체목록출력jsp 부분 -->
-<%-- 
-	<%	
-	for (LectureDTO lecture : lectures) {
-	%>
-		<tr>
-		<td class = "text-center"><a href="lectureDetail.jsp?lno=<%=lecture.getLno()%>"> <%=lecture.getLtitle() %></td>
-		<td class = "text-center"><%=lecture.getLname() %></td>
-		<td class = "text-center"><small><%=lecture.getLdate() %></small></td>
-		</tr>
-		<%
-	}
-%> --%>
-	</tbody>
-	</table>
-	
-	
-		<div class="adminAdd d-grid gap-2 d-md-flex justify-content-md-end" style = "visibility:visible">
-		<button onclick="location.href='lectureAdd.jsp'"class="btn btn-primary">글 올리기</button>
+<!-- 게시판 영역 -->
+	<div class="container">
+		<div class="photo-gallery container mb-3">
+			<div class="row justify-content-center">
+				<h2>주요 특강</h2>
+				<div class="col-3 d-none d-lg-block">
+					<%@ include file="/include/sidebar2.jsp"%>
+				</div>
+
+				<div class="col-9">
+					<div class="row">
+						<div class="col-3 text-muted">
+							<select class="form-select form-select-sm w-50 d-inline"
+								id="selectAmount">
+								<option value="8" selected>8</option>
+								<option value="16">16</option>
+								<option value="24">24</option>
+							</select> <span class="d-inline">개씩 보기</span>
+						</div>
+						<div class="col-9 text-end">
+					<% if (sid != null) { // 세션 처리 %>
+							<button class="btn btn-outline-success" type="button" onclick="regPhoto()">게시물 등록</button>
+						<%} %>
+						</div>
+					</div>
+					<hr class="my-4">
+
+					<table class="table table-hover shadow bg-body rounded">
+						<thead>
+							<tr style="background-color: #548687; color: white;">
+								<th scope="col">제목</th>
+								<th scope="col">설교자</th>
+								<th scope="col">작성자</th>
+								<th scope="col">작성일자</th>
+							</tr>
+						</thead>
+						<tbody id="imgList">
+
+
+						</tbody>
+					</table>
+					<hr class="my-4">
+					<div class="row">
+						<div class="col-8">
+							<ul class="pagination justify-content-center" id="pagination">
+
+							</ul>
+						</div>
+						<div class="col-4">
+							<div class="d-flex text-end">
+								<select class="form-select" id="selectType">
+									<option value="T" selected>제목</option>
+									<option value="C">내용</option>
+									<option value="E">이메일</option>
+									<option value="TC">제목/내용</option>
+									<option value="TE">제목/이메일</option>
+									<option value="TFC">제목/내용/이메일</option>
+								</select> <input class="form-control form-control-sm" type="search"
+									placeholder="검색어" id="keyword">
+								<button class="btn btn-sm btn-outline-success" type="button"
+									id="searchBtn">
+									<i class="bi bi-search"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
+	</div>
 
-<!-- 페이지 네이션 -->		
-<nav aria-label="Page navigation example">
- <ul class="pagination justify-content-center">
-<!-- 2. 이전버튼 활성화 여부 -->
-<c:if test="${pageVO.prev }">
-      <li class="page-item"><a class="page-link" href="lectureMain.jsp?pageNum=${pageVO.startPage - 1 }&amount=${pageVO.amount}">이전</a></li>
-</c:if>
-             
-   <!-- 1. 페이지번호 처리 -->
-   <c:forEach var="num" begin="${pageVO.startPage }" end="${pageVO.endPage }">
-      <li class="${pageVO.pageNum eq num ? 'active ' : '' }page-item">
-      <a class="page-link" href="lectureMain.jsp?pageNum=${num }&amount=${pageVO.amount}">${num }</a></li>
-   </c:forEach>
-   
-   <!-- 3. 다음버튼 활성화 여부 -->
-   <c:if test="${pageVO.next }">
-      <li class="page-item"><a class="page-link" href="lectureMain.jsp?pageNum=${pageVO.endPage + 1 }&amount=${pageVO.amount}">다음</a></li>
-   </c:if>
-  </ul>
-</nav>
-</div>
-	<%@ include file="/include/footer.jsp"%>
 
+
+
+
+<%@ include file="/include/footer.jsp" %>
+<!-- 등록 모달 -->
+	<!-- <div class="modal fade" id="uploadModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="msgModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h1 class="modal-title fs-5" id="msgModalLabel">사진 등록</h1>
+	      </div>
+	      <div class="modal-body" id="msgModalBody">
+			<form action="/4/gallery/photoUpload.jsp" method="post" enctype="multipart/form-data" id="imgForm">
+				<label class="form-label" for="title">제목</label>
+				<input class="form-control mb-3" type="text" name="title" id="title">
+				<label class="form-label" for="image">사진 선택</label>
+				<input class="form-control" type="file" accept="image/*" name="image" id="image" multiple>
+			</form>
+	      </div>
+	      <div class="modal-footer" id="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+			<button type="button" class="btn btn-warning" data-bs-dismiss="modal" id="doneBtn">등록</button>
+	      </div>
+	    </div>
+	  </div>
+	</div> -->
+<!-- lightbox2 js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" integrity="sha512-k2GFCTbp9rQU412BStrcD/rlwv1PYec9SNrkbQlo6RZCf75l6KcC3UwDY8H5n5hl4v77IDtIPwOk9Dqjs/mMBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/resources/js/page.js"></script>
 
 <script>
-/*  
+/*
 [form id 이걸로 하셈]
 
 검색 버튼 : searchBtn
@@ -142,25 +158,72 @@ function getTotalCountUrl() {
 }
 /* 게시물 가져오기 위해 처리한 jsp URL 입력해주세요 */
 function getListUrl() {
-	return '/2/lecture/photoListProc.jsp'
+	return '/2/lecture/lectureListProc.jsp'
 }
 function printList(data) {
 	//TODO: 리스트 출력 처리 하세요
-	var str = '';
-	for (var i = 0; i < data.length; i++){
-		
-		str +=	"<tr>";
-		str +=  "<td class = \"text-center\"><a href= 'lectureDetail.jsp?lno=" + data[i].no + "'>" + data[i].title + "</td>";
-		str += 	"<td class = \"text-center\">" + data[i].name + "</td>"
-		str +=  "<td class = \"text-center\"><small>" + data[i].date + "</small></td>";
-		str +=  "</tr>";
-	}
-	$('#ajaxTable').html(str);
-}
+	var imgHTML = ''; 
 	
-</script>	
+	for (var i = 0; i < data.length; i++) {
+		
+		
+		/* imgHTML += ''
+			+ '<div class="col-sm-6 col-md-4 col-lg-3 item h-100">'
+			+ data[i].title
+			+'</div>'; */
+			
+		imgHTML += ''
+			+ "<tr onclick=\"location.href='lectureDetail.jsp?lno="
+			+ data[i].no + "'\"><td>" + data[i].title + "</td>"
+			+ '<td>' + data[i].name + "</td>"
+			+ '<td>' + data[i].email + "</td>" + '<td>'
+			+ data[i].date + "</td></a></tr>"
+			
+		/* imgHTML +=	"<tr>";
+		imgHTML +=  "<td class = \"text-center\"><a href= 'lectureDetail.jsp?lno=" + data[i].no + "'>" + data[i].title + "</td>";
+		imgHTML += 	"<td class = \"text-center\">" + data[i].name + "</td>"
+		imgHTML +=  "<td class = \"text-center\"><small>" + data[i].date + "</small></td>";
+		imgHTML +=  "</tr>";	 */
+	}
+	$('#imgList').html(imgHTML);
+}
 
-<script src = "/resources/js/page.js"></script>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+lightbox.option({
+    resizeDuration: 200,
+    wrapAround: false,
+    disableScrolling: true,
+    fitImagesInViewport: true
+});
+
+function regPhoto(){
+	$('#uploadModal').modal('show');
+}
+
+$('#doneBtn').on('click', function(){
+	if ($('#title').val() != '' && $('#image').val() != '') {
+		$('#imgForm').submit();
+	} else {
+		popModal('사진 등록 실패', '입력 값이 없는 항목이 있습니다.')
+	}
+});
+</script>
 </body>
 </html>

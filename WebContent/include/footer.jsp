@@ -19,7 +19,7 @@
         <h5>예배와 말씀</h5>
         <ul class="nav flex-column">
           <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">예배 설교</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">주요 특강</a></li>
+          <li class="nav-item mb-2"><a href="/2/lecture/lectureMain.jsp" class="nav-link p-0 text-muted">주요 특강</a></li>
           <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">복음과 교리</a></li>
         </ul>
       </div>

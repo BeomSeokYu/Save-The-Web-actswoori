@@ -79,7 +79,14 @@
 			</div>
 
 			<div class="d-flex justify-content-end my-4">
-				<button class="btn btn-outline-primary mx-2" type="submit">등록</button>
+				<button class="btn btn-outline-primary mx-2" type="submit" onclick="insert">등록</button>
+				
+				<%
+				
+				%>
+			
+				
+				
 				<!-- <a class="btn btn-warning" href='/2/lecture/lectureMain.jsp' role="button">취소</a> -->
 				<input type="button" value="취소" onclick="history.back()"
 					class="btn btn-outline-secondary mx-2">

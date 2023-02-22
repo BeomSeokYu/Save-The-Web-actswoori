@@ -11,7 +11,7 @@
       </a>
     </li>
     <li>
-      <a href="/2/lectureMain.jsp" class="nav-link link-dark">
+      <a href="/2/lecture/lectureMain.jsp" class="nav-link link-dark">
                  주요 특강
       </a>
     </li>

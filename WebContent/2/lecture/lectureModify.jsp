@@ -73,7 +73,7 @@
 			<div class="input-group mb-2 input-group-lg">
 				<span class="input-group-text col-1 mx-auto" id="ltitle">제목</span> <input
 					type="text" class="form-control col-11" name="ltitle" id="ltitle"
-					value="<%= lecture.getLtitle()%>" required>
+					value="<%=lecture.getLtitle()%>" required>
 			</div>
 
 			<div class="input-group mb-3 input-group-lg">
