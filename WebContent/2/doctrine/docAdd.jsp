@@ -14,19 +14,27 @@
 </head>
 <body>
 <%@ include file="/include/navbar.jsp" %>
-제목 <input type="text" id="dtitle"> <br>
+<div class="container">
+<br>
 
-내용 <br>
-<textarea name="content" id="summernote" class="mtop-10"></textarea>
-<hr>
-<input type="button" value="이전으로" onclick="history.back()">
-<button type="button" class="btn btn-primary" onclick="addItem()">추가</button>
-
+<div class="col-5">
+  <label for="dtitle" class="form-label">제목</label>
+  <input type="text" class="form-control" id="dtitle" >
+</div>
+<br>
+<div class="mb-3">
+  <label for="dcontent" class="form-label">내용</label>
+  <textarea class="form-control" id="summernote" rows="50" cols="50" name="content"></textarea>
+</div>
+	
+	<input type="button" class="btn btn-outline-secondary" value="이전으로" onclick="history.back()">
+	<button type="button" class="btn btn-outline-primary" onclick="addItem()">추가</button>
+	</div>
 <script>
 var sid = "<%=sid%>";
   $('#summernote').summernote({
 	  tabsize: 2,
-        height: 60,
+        height: 300,
         toolbar: [
           ['style', ['style']],
           ['font', ['bold', 'underline', 'clear']],

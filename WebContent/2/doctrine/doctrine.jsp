@@ -9,14 +9,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>행전우리교회</title>
 <%@ include file="/include/header.jsp"%>
-<link
-	href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css"
-	rel="stylesheet">
-<script
-	src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 </head>
 <body>
 	<%@ include file="/include/navbar.jsp"%>
@@ -25,7 +20,9 @@
 		<div class="photo-gallery container mb-3">
 			<div class="row justify-content-center">
 				<h2 class="sticky-md-top">복음과 교리</h2>
-
+				<div class="col-3 d-none d-lg-block">
+					<%@ include file="/include/sidebar4.jsp" %>
+				</div>
 				<div class="col-9">
 					<div class="row">
 						<div class="col-6">
@@ -41,36 +38,28 @@
 						</div>
 					</div>
 					<hr class="my-4">
-					<table align=center>
-						<thead>
-							<th>#</th>
-							<th>제목</th>
-							<th>작성자</th>
-							<th>작성일</th>
-						</thead>
-						<tbody id="ajaxTable">
-						</tbody>
+					<table class="table table-hover">
+					  <thead>
+					    <tr>
+					      <th scope="col" class="col-2">#</th>
+					      <th scope="col" class="col-6">제목</th>
+					      <th scope="col" class="col-2">작성자</th>
+					      <th scope="col" class="col-2">작성일</th>
+					    </tr>
+					  </thead>
+					  <tbody id="ajaxTable">
+					  </tbody>
 					</table>
-					<hr class="my-4">
-					<div class="row">
-						<div class="col-8">
-							<ul class="pagination justify-content-center" id="pagination">
-
-							</ul>
-						</div>
-						<div class="col-4">
-							<div class="d-flex text-end">
-								<select class="form-select" id="selectType">
-									<option value="T" selected>제목</option>
-									<option value="F">내용</option>
-									<option value="TF">제목/내용</option>
-								</select> <input class="form-control" type="search" placeholder="검색어"
-									aria-label="" id="keyword">
-								<button class="btn btn-outline-success" type="button"
-									id="searchBtn">검색</button>
-							</div>
-
-						</div>
+					<ul class="pagination justify-content-center" id="pagination">
+					</ul>
+					<div class="d-flex text-end">
+						<select class="form-select" id="selectType">
+							<option value="T" selected>제목</option>
+							<option value="F">내용</option>
+							<option value="TF">제목/내용</option>
+						</select>
+						<input class="form-control" type="search" placeholder="검색어" aria-label="" id="keyword">
+						<button class="btn btn-outline-success" type="button" id="searchBtn">검색</button>
 					</div>
 				</div>
 			</div>
