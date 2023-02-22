@@ -16,24 +16,31 @@
 <%@ include file="/include/navbar.jsp" %>
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 
-<div class="container">
+<div></div>
+	<div class="container">
+		<div class="pt-5"></div>
+		<h2>교회 소식 등록</h2>
+		<hr>
 
 <form id="insertForm" action="insertProc.jsp" method="post">
-<input type="hidden" name="email" id="email" value="aaaa@aaaa.com">
-<input type="hidden" name="content" id="content">
-
-<div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">제목</label>
-  <input type="text" name="title" class="form-control" id="title" placeholder="제목을 입력해주세요">
-</div>
-<hr>
-<div class="bg-light rounded" >
-<label for="exampleFormControlInput1" class="form-label">내용</label>
-<div id="summernote"></div>
-</div>
-<div class="p-3 text-end">
-<button type="button" class="btn btn-primary" onclick="addItem()">등록하기</button>
-</div>
+	<input type="hidden" name="email" id="email" value="aaaa@aaaa.com">
+	<input type="hidden" name="content" id="content">
+	
+	<div class="input-group mb-2 input-group-lg">
+		<span class="input-group-text col-1 mx-auto">제목</span> 
+		<input type="text" class="form-control col-11" placeholder="제목을 입력하세요" name="title" id="title">
+	</div>
+	
+	<div>
+		<textarea id="summernote" class="mtop-10"></textarea>
+	</div>
+	
+	<div class="d-flex justify-content-end my-4">
+		<button class="btn btn-outline-primary mx-2" onclick="addItem()">등록</button>
+		<input type="button" value="취소" onclick="history.back()"
+			class="btn btn-outline-secondary mx-2">
+	</div>
+	
 </form>
 </div>
 
@@ -54,9 +61,9 @@ if (msg == "fail") {
 
   <script>
    $('#summernote').summernote({
-     placeholder: 'Hello stand alone ui',
+	placeholder : '내용을 입력해주세요',
      tabsize: 2,
-     height: 120,
+     height: 500,
      toolbar: [
        ['style', ['style']],
        ['font', ['bold', 'underline', 'clear']],
