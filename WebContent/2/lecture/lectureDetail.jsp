@@ -57,7 +57,7 @@
 						</tr>
 					</table>
 					<div class="py-3 px-5">
-						<div class="text-lg-end">
+						<div class="text-lg">
 							<p><%=lecture.getLcontent() %></p>
 						</div>
 					</div>

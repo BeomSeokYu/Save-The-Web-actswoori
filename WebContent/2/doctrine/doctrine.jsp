@@ -14,16 +14,15 @@
 </head>
 <body>
 	<%@ include file="/include/navbar.jsp"%>
-	
-	<section class="py-5 text-center container"></section>
+
 	<!-- 게시판 영역 -->
 	<div class="container">
-	<div class="photo-gallery container mb-3">
-		<div class="row justify-content-center">
-			<h2>협력 기관 소식</h2>
-			<div class="col-3 d-none d-lg-block">
-				<%@ include file="/include/sidebar4.jsp"%>
-			</div>
+		<div class="photo-gallery container mb-3">
+			<div class="row justify-content-center">
+				<h2>복음과 교리</h2>
+				<div class="col-3 d-none d-lg-block">
+					<%@ include file="/include/sidebar2.jsp"%>
+				</div>
 				<div class="col-9">
 					<div class="row">
 						<div class="col-3 text-muted">
@@ -41,31 +40,36 @@
 					</div>
 					<hr class="my-4">
 					<table class="table table-hover shadow bg-body rounded">
-					  <thead>
-					    <tr style="background-color: #548687; color: white;">
-					      <th scope="col" >제목</th>
-					      <th scope="col" >작성자</th>
-					      <th scope="col" >작성일</th>
-					    </tr>
-					  </thead>
-					  <tbody id="ajaxTable">
-					  </tbody>
+						<thead>
+							<tr style="background-color: #548687; color: white;">
+								<th scope="col">제목</th>
+								<th scope="col">작성자</th>
+								<th scope="col">작성일</th>
+							</tr>
+						</thead>
+						<tbody id="ajaxTable">
+						</tbody>
 					</table>
 					<hr class="my-4">
 					<div class="row">
 						<div class="col-8">
-					<ul class="pagination justify-content-center" id="pagination">
-					</ul>
-					</div>
-					<div class="col-4">
-					<div class="d-flex text-end">
-						<select class="form-select" id="selectType">
-							<option value="T" selected>제목</option>
-							<option value="F">내용</option>
-							<option value="TF">제목/내용</option>
-						</select>
-						<input class="form-control form-control-sm" type="search" placeholder="검색어" id="keyword">
-						<button class="btn btn-sm btn-outline-success" type="button" id="searchBtn"><i class="bi bi-search"></i></button>
+							<ul class="pagination justify-content-center" id="pagination">
+							</ul>
+						</div>
+						<div class="col-4">
+							<div class="d-flex text-end">
+								<select class="form-select" id="selectType">
+									<option value="T" selected>제목</option>
+									<option value="F">내용</option>
+									<option value="TF">제목/내용</option>
+								</select> <input class="form-control form-control-sm" type="search"
+									placeholder="검색어" id="keyword">
+								<button class="btn btn-sm btn-outline-success" type="button"
+									id="searchBtn">
+									<i class="bi bi-search"></i>
+								</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -74,7 +78,6 @@
 
 	<script>
  	var sid = "<%=sid%>"
-		
 
 		function checkSid() {
 			if (sid == null) {
@@ -123,8 +126,10 @@
 			var str = '';
 			for (var i = 0; i < data.length; i++) {
 				var name = getUserName(data[i].email)
-				str += "<tr><td><a href='docView.jsp?dno=" + data[i].dno + "'>"
-						+ data[i].dtitle + "</a></td>";
+/* 				str += "<tr><td><a href='docView.jsp?dno=" + data[i].dno + "'>"
+						+ data[i].dtitle + "</a></td>"; */
+				str += "<tr onclick=\"location.href='docView.jsp?dno="
+					+ data[i].dno + "'\"><td>" + data[i].dtitle + "</td>";
 				str += "<td>" + name + "</td>";
 				str += "<td>" + data[i].ddate + "</td></tr>";
 			}

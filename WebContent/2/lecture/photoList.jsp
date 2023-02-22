@@ -113,7 +113,7 @@
 
 
 
-<!-- <div class="container">
+<%-- <div class="container">
 	<div class="photo-gallery container mb-3">
 		<div class="row justify-content-center">
 		
@@ -176,7 +176,7 @@
 		</div>
 	</div>
 </div>
- -->
+--%>
 
 
 

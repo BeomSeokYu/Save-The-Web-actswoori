@@ -108,9 +108,8 @@
 							var str = '';
 							for (var i = 0; i < data.length; i++) {
 								var name = getUserName(data[i].email)
-								str += "<tr><td><a href='vSelectOne.jsp?vno="
-										+ data[i].vno + "'>" + data[i].vtitle
-										+ "</a></td>";
+								str += "<tr onclick=\"location.href='vSelectOne.jsp?vno="
+									+ data[i].vno + "'\"><td>" + data[i].vtitle + "</td>";
 								str += "<td>" + name + "</td>";
 								str += "<td>" + data[i].vdate + "</td></tr>";
 							}

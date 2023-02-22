@@ -10,33 +10,45 @@
  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
- <section class="py-5 text-center container"></section>
- <%@include file="/include/navbar.jsp" %>
-  <div class = "container">
-  <h1>협력 기관 소식 글 작성</h1><br>
+ <div></div>
+	<div class="container">
+		<div class="pt-5"></div>
+		<h2>협력 기관 소식 글 등록</h2>
+		<hr>
 <form action = "coopAddCheck.jsp" method="post">
-<div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">제목</label>
-  <input type="text" class="form-control" name="ctitle" id="exampleFormControlInput1">
-</div>
-<div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label" >내용</label>
-  <textarea class="form-control" name = "ccontent"  id="summernote" rows="3"></textarea>
-</div>
-<input type="hidden" name="email" value="<%=sid%>">
-<button style="float:right; type="submit" class="btn btn-primary">등록</button>
+
+	<div class="input-group mb-2 input-group-lg">
+		<span class="input-group-text col-1 mx-auto" id="ctitle">제목</span> 
+		<input type="text" class="form-control col-11" placeholder="제목을 입력하세요" name="ctitle">
+	</div>
+	<div>
+		<textarea name="ccontent" id="summernote" class="mtop-10"></textarea>
+	</div>
+	
+	<input type="hidden" name="email" value="<%=sid%>">
+	<div class="d-flex justify-content-end my-4">
+		<button class="btn btn-outline-primary mx-2" type="submit">등록</button>
+		<input type="button" value="취소" onclick="history.back()"
+			class="btn btn-outline-secondary mx-2">
+	</div>
+	
 </form>
-<button onclick="location.href='coopList.jsp'" class="btn btn-primary">목록으로</button>
 </div>
 
     <script>
       $('#summernote').summernote({
-        placeholder:'',
-        tabsize: 2,
-        height: 300
-      });
+    	  placeholder : '내용을 입력해주세요',
+			tabsize : 2,
+			height : 500,
+			toolbar : [ [ 'style', [ 'style' ] ],
+					[ 'font', [ 'bold', 'underline', 'clear' ] ],
+					[ 'color', [ 'color' ] ],
+					[ 'para', [ 'ul', 'ol', 'paragraph' ] ],
+					[ 'table', [ 'table' ] ],
+					[ 'insert', [ 'link', 'picture', 'video' ] ],
+					[ 'view', [ 'fullscreen', 'codeview', 'help' ] ] ]
+		});
     </script>
-     <section class="py-5 text-center container"></section>
-  </body>
  <%@include file="/include/footer.jsp" %>
+  </body>
 </html>
