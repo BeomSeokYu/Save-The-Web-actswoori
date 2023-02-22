@@ -61,7 +61,7 @@
 						</div>
 						<div class="col-9 text-end">
 					<% if (sid != null) { // 세션 처리 %>
-							<button class="btn btn-outline-success" type="button" onclick="regPhoto()">게시물 등록</button>
+							<button class="btn btn-outline-success" type="button" onclick="location.href='lectureAdd.jsp'">게시물 등록</button>
 						<%} %>
 						</div>
 					</div>
