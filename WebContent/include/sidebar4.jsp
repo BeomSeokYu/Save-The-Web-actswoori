@@ -11,12 +11,12 @@
       </a>
     </li>
     <li>
-      <a href="#" class="nav-link link-dark">
+      <a href="/4/post/postList.jsp" class="nav-link link-dark">
                  주보
       </a>
     </li>
     <li>
-      <a href="#" class="nav-link link-dark">
+      <a href="/4/coop/coopList.jsp" class="nav-link link-dark">
                   협력교회와 기관소식
       </a>
     </li>
