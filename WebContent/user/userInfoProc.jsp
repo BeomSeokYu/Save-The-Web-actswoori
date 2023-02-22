@@ -20,10 +20,6 @@
 
 	if (UserDAO.exist(email)) {
 		out.write(UserDAO.selectUser(email));
-	} else {
-		JSONObject j = new JSONObject();
-		j.put("name", null);
-		out.write(j.toJSONString());
 	}
 	
 %>

@@ -22,9 +22,7 @@ body {
 
 body {
   align-items: center;
-  padding-top: 150px;
   padding-bottom: 40px;
-  background-color: #f5f5f5;
 }
 
 .form-signin {
@@ -66,7 +64,7 @@ body {
 	<div class="container">
 		<div class="form-signin text-center">
 		  <form action="" method="post">
-		    <h1 class="h3 mb-3 fw-normal">비밀번호 변경</h1>
+		    <h1 class="h3 py-5 fw-normal">비밀번호 변경</h1>
 		
 		    <div class="form-floating">
 		      <input type="hidden" name="email" id="email" value="<%=request.getParameter("email")%>">

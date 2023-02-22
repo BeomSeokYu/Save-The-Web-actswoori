@@ -278,6 +278,132 @@ public class UserDAO {
 		return result;
 	}
 	
+	//승인된 회원 목록
+	public static String selectApproved() throws NamingException, SQLException {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+		String sql = "SELECT * FROM user WHERE approve=1 ORDER BY joindate DESC";
+			
+		conn = ConnectionPool.get();
+		pstmt = conn.prepareStatement(sql);
+		
+		rs = pstmt.executeQuery();
+		
+		JSONArray users = new JSONArray();
+		
+		while (rs.next()) {
+			JSONObject obj = new JSONObject();
+			obj.put("email", rs.getString(1));
+			obj.put("password", rs.getString(2));
+			obj.put("name", rs.getString(3));
+			obj.put("job", rs.getString(4));
+			obj.put("joindate", rs.getString(4));
+			
+			users.add(obj);
+			
+		}
+			
+		return users.toJSONString();
+		
+		} finally {
+			if(rs != null) rs.close();
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
+		}
+		}
+		
+	//승인 대기중인 회원 목록
+	public static String selectTmpList() throws NamingException, SQLException {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+		String sql = "SELECT * FROM user WHERE approve=0 ORDER BY joindate ASC";
+		
+		conn = ConnectionPool.get();
+		pstmt = conn.prepareStatement(sql);
+		
+		rs = pstmt.executeQuery();
+		
+		JSONArray users = new JSONArray();
+		
+		while (rs.next()) {
+			JSONObject obj = new JSONObject();
+			obj.put("email", rs.getString(1));
+			obj.put("password", rs.getString(2));
+			obj.put("name", rs.getString(3));
+			obj.put("job", rs.getString(4));
+			obj.put("joindate", rs.getString(5));
+			
+			users.add(obj);
+			
+		}
+			
+		return users.toJSONString();
+		
+		} finally {
+			if(rs != null) rs.close();
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
+		}
+		}
+		
+	public static int acceptUser(String email) throws NamingException, SQLException {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result;
+		
+		try {
+		String sql = "Update user SET approve=1 WHERE email=?";
+		
+		conn = ConnectionPool.get();
+		pstmt = conn.prepareStatement(sql);
+		
+		pstmt.setString(1, email);
+		
+		result = pstmt.executeUpdate();
+		
+		} finally {
+		if(pstmt != null) pstmt.close();
+		if(conn != null) conn.close();
+		}
+	
+		return result;
+	}
+	
+	//승인상태 변경
+	public static int acceptChange(String email) throws NamingException, SQLException {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result;
+		
+		try {
+		String sql = "Update user SET approve=0 WHERE email=?";
+		
+		conn = ConnectionPool.get();
+		pstmt = conn.prepareStatement(sql);
+		
+		pstmt.setString(1, email);
+		
+		result = pstmt.executeUpdate();
+		
+		} finally {
+		if(pstmt != null) pstmt.close();
+		if(conn != null) conn.close();
+		}
+	
+		return result;
+	}
+	
+	
 	// 객체 닫기
 	public static void close(Connection conn, PreparedStatement pstmt, ResultSet rSet) {
 		try {
