@@ -37,7 +37,7 @@
 					
 					<div class="album py-5">
    					<div class="container" align="center">
-   					<img src="cross.jpg" width="100%" height="300"style="margin-bottom:80px">
+   					<img src="vision.png" width="100%" height="300"style="margin-bottom:80px">
    					</div>
    					 <div class="container">
    					 <p style="font-weight:bold; font-size:20px; color:#747474;">행전우리교회는 복음으로 하나되어 예배 양육 전도하는 한몸공동체입니다.</p>
