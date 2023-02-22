@@ -35,7 +35,6 @@
 </head>
 <body>
 <%@ include file="/include/navbar.jsp" %>
-<script src="./dist/js/demo-theme.min.js?1674944402"></script>
 
 <!-- 게시판 영역 -->
 <div class="container">
@@ -148,11 +147,12 @@ function printList(data) {
 			+ '<div class="col-sm-6 col-md-4 col-lg-3 item h-100">'
 			+ '<a class="col-lg-4 col-md-12 mb-4 mb-lg-0" href="'+ img +'" data-title="'+data[i].title +'" data-lightbox="photos">'
 			+ '<img class="img-fluid shadow bg-body rounded" src="'+img+'" style="width: 200px;height: 150px;object-fit: cover;">'
-			+ '</a><div class="row">'
-			+ '<div  class="col-6">'+data[i].title+'</div>'
-			<% if (admin) { %>
-			+ '<div class="col-6 text-end"><i class="btn bi bi-trash3-fill" onclick="photoRemove(\''+data[i].no+'\')"></i></div>'
-			<% } %>
+			+ '</a><div class="row mb-5">'
+			+ '<div  class="col-6">'+data[i].title+'</div>';
+		if (<%= admin %> || data[i].email == '<%= sid %>') {
+			imgHTML += '<div class="col-6 text-end"><i class="btn bi bi-trash3-fill" onclick="photoRemove(\''+data[i].no+'\')"></i></div>';
+		}
+		imgHTML += ''
 			+ '</div></div>';
 	}
 	$('#imgList').html(imgHTML);
@@ -210,9 +210,5 @@ $('#doneBtn').on('click', function(){
 	}
 });
 </script>
-<!-- Libs JS -->
-<!-- Tabler Core -->
-<script src="/resources/js/tabler.min.js?1674944402" defer></script>
-<script src="/resources/js/demo.min.js?1674944402" defer></script>
 </body>
 </html>
