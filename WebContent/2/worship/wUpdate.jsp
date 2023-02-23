@@ -29,7 +29,7 @@
 						<div class="col-3 text-muted"></div>
 						<div class="col-9 text-end"></div>
 					</div>
-	<form action="wUpdateCheck.jsp" method="post">
+	<form action="wUpdateCheck.jsp" method="post" id="form">
 		<input type="hidden" name="wno" id="wno">
 		
 		<div class="input-group mb-2 input-group-lg">
@@ -93,6 +93,18 @@
 		window.onload = function() {
 			viewFunction(wno);
 		}
+		
+		function gogo(){
+			var title = $('#wtitle').val().trim()
+			var name = $('#wname').val().trim()
+			
+			if(title=='' || name==''||  $('#wcontent').summernote('isEmpty')) {
+				alert('제목 또는 내용을 입력해주세요')
+			} else {
+				$('#form').submit()
+			}
+		}
+		
 	</script>
 </body>
 </html>

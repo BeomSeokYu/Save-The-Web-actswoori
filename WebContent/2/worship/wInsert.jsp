@@ -31,7 +31,7 @@
 						<div class="col-3 text-muted"></div>
 						<div class="col-9 text-end"></div>
 					</div>
-	<form action="wInsertCheck.jsp" method="post">
+	<form action="wInsertCheck.jsp" method="post" id="form">
 		
 		<div class="input-group mb-2 input-group-lg">
 				<span class="input-group-text col-2 justify-content-center" >제목</span> 
@@ -69,6 +69,17 @@
 		    ],
 		    placeholder:"내용을 입력해주세요"
 		  });
+		
+		function gogo(){
+			var title = $('#wtitle').val().trim()
+			var name = $('#wname').val().trim()
+			
+			if(title=='' || name==''||  $('#summernote').summernote('isEmpty')) {
+				alert('제목 또는 내용을 입력해주세요')
+			} else {
+				$('#form').submit()
+			}
+		}
 	</script>
 </body>
 </html>

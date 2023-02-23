@@ -85,6 +85,10 @@
 		}
   
   function modItem() {
+		var title = $('#dtitle').val().trim()
+		if(title=='' || $('#summernote').summernote('isEmpty')){
+			confirm('제목 또는 내용을 입력해주세요')
+		} else {
 		$.ajax({
 			type:"post",
 			url: "docModProc.jsp",
@@ -112,7 +116,7 @@
   window.onload = function() {
 		searchFunction(dno);
 	}
-
+  }
     </script>
 
 <%@ include file="/include/footer.jsp" %>

@@ -37,16 +37,16 @@
 						<div class="col-9 text-end"></div>
 					</div>
 
-<form action="postAddCheck.jsp" name=f1 method=post enctype="multipart/form-data">
+<form action="postAddCheck.jsp" name=f1 method=post enctype="multipart/form-data" id="form">
 	<div class="input-group mb-2 input-group-lg">
 		<span class="input-group-text col-2 justify-content-center">제목</span> 
-		<input type="text" class="form-control col-10" placeholder="제목을 입력하세요" name="ptitle">
+		<input type="text" class="form-control col-10" placeholder="제목을 입력하세요" name="ptitle" id="ptitle">
 	</div>
 
     <input id="uploadPDF" type="file" name="post" onchange="PreviewImage();" class="form-control col-11" accept=".pdf"/>&nbsp;<br>
     
     <div class="d-flex justify-content-end my-4">
-		<button class="btn btn-outline-primary mx-2" type="submit" name="submit">등록</button>
+		<button class="btn btn-outline-primary mx-2" type="button" onclick="gogo()">등록</button>
 		<input type="button" value="취소" onclick="history.back()"
 			class="btn btn-outline-secondary mx-2">
 	</div>
@@ -66,6 +66,17 @@ function PreviewImage() {
     pdffile_url=URL.createObjectURL(pdffile);
     $('#viewer').attr('src',pdffile_url);
 }
+
+function gogo(){
+	var title = $('#ptitle').val().trim()
+	
+	if(title=='' ) {
+		alert('제목을 입력해주세요')
+	} else {
+		$('#form').submit()
+	}
+}
+
 </script>
 
 <%@ include file="/include/footer.jsp" %>   

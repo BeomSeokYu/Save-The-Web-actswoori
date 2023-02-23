@@ -37,7 +37,7 @@
 							<%
 								if (sid != null) { // 세션 처리
 							%>
-							<button class="btn btn-sm btn-outline-success" type="button" onclick="checkSid()" class="ad">등록</button>
+							<button class="btn btn-sm btn-outline-success" type="button" onclick="checkSid()" class="ad">게시물 등록</button>
 							<%
 								}
 							%>
