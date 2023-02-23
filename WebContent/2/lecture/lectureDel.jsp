@@ -12,9 +12,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+    	<%@ include file="/include/header.jsp"%>   
     
 <%
-String sid = (String) session.getAttribute("sid"); // 보안 처리
 if (sid == null) {
 	response.sendRedirect("lectureMain.jsp");
 	return;
@@ -22,10 +22,18 @@ if (sid == null) {
 
 	String lno = request.getParameter("lno");
 	int lnoo = Integer.parseInt(lno);
-	//LectureDTO lecture = LectureDAO.getDetail(lnoo); 
-	LectureDAO.delete(lnoo);
-	response.sendRedirect("lectureMain.jsp");
-%>
+	
+	if (LectureDAO.delete(lnoo)){%>
+	<script>
+	window.onload = function(){ popModal2("주요 특강 삭제", "삭제에 성공하셨습니다", "lectureMain.jsp")}
+	</script>
+<%} else {%>
+<script>
+window.onload =  function(){popModal2("주요 특강 삭제", "삭제에 실패하셨습니다", "lectureMain.jsp")}
+</script>
+<%}%>
+	
+	<%@ include file="/include/footer.jsp"%>   
 	
 
 

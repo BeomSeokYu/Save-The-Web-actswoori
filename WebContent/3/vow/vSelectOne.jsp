@@ -49,8 +49,9 @@
 	</div>
 
 		<div class="d-grid gap-2 d-md-flex justify-content-md-end mb-5">
-			<input type="button" value="목록" onclick="history.back()"
+			<input type="button" value="목록" onclick="location.href='vSelectAll.jsp'"
 				class="btn btn-outline-success">
+		</div>
 
 <%
 	if (admin || sid != null && sid.equals(VowDAO.selectEmail(Integer.parseInt(request.getParameter("vno"))))) { // 세션 처리
@@ -59,7 +60,7 @@
 				onclick="location.href='/3/vow/vUpdate.jsp?vno=<%=request.getParameter("vno")%>'"
 				class="btn btn-outline-primary ad">수정</button>
 			<button
-				onclick="location.href='/3/vow/vDeleteCheck.jsp?vno=<%=request.getParameter("vno")%>"
+				onclick="location.href='/3/vow/vDeleteCheck.jsp?vno=<%=request.getParameter("vno")%>'"
 				class="btn btn-outline-danger ad">삭제</button>
 <%
 	}

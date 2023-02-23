@@ -79,11 +79,16 @@ var sid = "<%=sid%>";
 				dataType : "text",
 				
 				success : function(data) {
+					data = data.trim()
+					if (data=='true'){
+						popModal2("복음과 교리 등록", "등록에 성공하셨습니다", "doctrine.jsp")
+					} else {
+						popModal2("복음과 교리 등록", "등록에 실패하셨습니다", "doctrine.jsp")
+					}
+
 					var summernote = document.getElementById('summernote');
 					summernote.value = "";
 					$("#summernote").summernote("reset");
-
-					popModal2("등록", "등록에 성공하셨습니다", "doctrine.jsp")
 				}
 			});
 		}

@@ -62,7 +62,12 @@ window.onload = function() {
  			dataType:"text",
  			
  			success:function(data) {
-				popModal2("삭제", "삭제에 성공하셨습니다", "doctrine.jsp")
+ 				data = data.trim()
+				if (data=='true'){
+					popModal2("복음과 교리 삭제", "삭제에 성공하셨습니다", "doctrine.jsp")
+				} else {
+					popModal2("복음과 교리 삭제", "삭제에 실패하셨습니다", "doctrine.jsp")
+				}
 
  			}
  		});
@@ -104,7 +109,7 @@ window.onload = function() {
 	</div>
 
 		<div class="d-grid gap-2 d-md-flex justify-content-md-end mb-5">
-			<input type="button" value="목록" onclick="history.back()"
+			<input type="button" value="목록" onclick="location.href='doctrine.jsp'"
 				class="btn btn-outline-success">
 
 <%
