@@ -24,8 +24,8 @@
 		<h2>말씀 서원 등록</h2>
 		<hr>
 			<div class="input-group mb-2 input-group-lg">
-				<span class="input-group-text col-1 mx-auto">제목</span> 
-				<input type="text" class="form-control col-11" placeholder="제목을 입력하세요" id="vtitle" name="vtitle" required>
+				<span class="input-group-text col-2 justify-content-center">제목</span> 
+				<input type="text" class="form-control col-10" placeholder="제목을 입력하세요" id="vtitle" name="vtitle" required>
 			</div>
 			
 			<div>

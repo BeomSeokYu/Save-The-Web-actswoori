@@ -34,8 +34,8 @@ if(!admin) {
 		<hr>
 <form action="postAddCheck.jsp" name=f1 method=post enctype="multipart/form-data">
 	<div class="input-group mb-2 input-group-lg">
-		<span class="input-group-text col-1 mx-auto">제목</span> 
-		<input type="text" class="form-control col-11" placeholder="제목을 입력하세요" name="ptitle">
+		<span class="input-group-text col-2 justify-content-center">제목</span> 
+		<input type="text" class="form-control col-10" placeholder="제목을 입력하세요" name="ptitle">
 	</div>
 
     <input id="uploadPDF" type="file" name="post" onchange="PreviewImage();" class="form-control col-11" accept=".pdf"/>&nbsp;<br>

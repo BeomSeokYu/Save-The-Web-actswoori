@@ -36,8 +36,8 @@ NewsDTO ndto = NewsDAO.selectNews(nno);
 			<input type="hidden" name="content" id="content">
 			
 			<div class="input-group mb-2 input-group-lg">
-				<span class="input-group-text col-1 mx-auto">제목</span> 
-				<input type="text" class="form-control col-11" name="title" id="title"
+				<span class="input-group-text col-2 justify-content-center">제목</span> 
+				<input type="text" class="form-control col-10" name="title" id="title"
 					value="<%= ndto.getNtitle() %>" required>
 			</div>
 			

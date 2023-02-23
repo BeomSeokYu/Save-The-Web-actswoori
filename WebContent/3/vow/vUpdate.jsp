@@ -25,8 +25,8 @@
 		<input type="hidden" name="vno" id="vno">
 		
 		<div class="input-group mb-2 input-group-lg">
-			<span class="input-group-text col-1 mx-auto">제목</span> 
-			<input type="text" class="form-control col-11" name="vtitle" id="vtitle" required>
+			<span class="input-group-text col-2 justify-content-center">제목</span> 
+			<input type="text" class="form-control col-10" name="vtitle" id="vtitle" required>
 		</div>
 		
 		<div>
