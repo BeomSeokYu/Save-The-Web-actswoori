@@ -34,9 +34,9 @@
 						<div class="col-9 text-end"></div>
 					</div>
 					<div class="input-group mb-2 input-group-lg">
-						<span class="input-group-text col-2 mx-auto">제목</span> <input
+						<span class="input-group-text col-2 mx-auto">제목</span> <input 
 							type="text" class="form-control col-11" placeholder="제목을 입력하세요"
-							name="dtitle" id="dtitle">
+							name="dtitle" id="dtitle" required>
 					</div>
 					<div>
 						<textarea name="lcontent" id="summernote" class="mtop-10"></textarea>
@@ -76,13 +76,14 @@ var sid = "<%=sid%>";
 				},
 
 				dataType : "text",
-
+				
 				success : function(data) {
 					var summernote = document.getElementById('summernote');
 					summernote.value = "";
 					$("#summernote").summernote("reset");
 
 					popModalRedirect("등록", "등록에 성공하셨습니다", "doctrine.jsp")
+					
 				}
 			});
 		}
