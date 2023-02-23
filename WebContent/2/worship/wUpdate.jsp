@@ -25,12 +25,12 @@
 		<input type="hidden" name="wno" id="wno">
 		
 		<div class="input-group mb-2 input-group-lg">
-			<span class="input-group-text col-1 mx-auto">제목</span> 
-			<input type="text" class="form-control col-11" name="wtitle" id="wtitle" required>
+			<span class="input-group-text col-2 justify-content-center">제목</span> 
+			<input type="text" class="form-control col-10" name="wtitle" id="wtitle" required>
 		</div>
 		<div class="input-group mb-3 input-group-lg">
-			<span class="input-group-text col-1" >설교자</span> <input
-				type="text" class="form-control col-11" name="wname" id="wname">
+			<span class="input-group-text col-2 justify-content-center" >설교자</span> <input
+				type="text" class="form-control col-10" name="wname" id="wname">
 		</div>
 		
 		<div>

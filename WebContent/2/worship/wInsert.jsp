@@ -25,12 +25,12 @@
 		<hr>
 		
 		<div class="input-group mb-2 input-group-lg">
-				<span class="input-group-text col-1 mx-auto" >제목</span> 
-				<input type="text" class="form-control col-11" placeholder="제목을 입력하세요" id="wtitle" name="wtitle" required>
+				<span class="input-group-text col-2 justify-content-center" >제목</span> 
+				<input type="text" class="form-control col-10" placeholder="제목을 입력하세요" id="wtitle" name="wtitle" required>
 			</div>
-		<div class="input-group mb-3 input-group-lg">
-				<span class="input-group-text col-1" >설교자</span> 
-				<input type="text" class="form-control col-11" id="wname" name="wname" placeholder="설교자를 입력하세요">
+		<div class="input-group mb-2 input-group-lg">
+				<span class="input-group-text col-2 justify-content-center">설교자</span> 
+				<input type="text" class="form-control col-10" id="wname" name="wname" placeholder="설교자를 입력하세요">
 			</div>
 			<div>
 				<textarea name="wcontent" id="summernote" class="mtop-10"></textarea>
