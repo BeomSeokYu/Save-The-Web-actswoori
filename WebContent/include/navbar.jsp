@@ -75,10 +75,9 @@
       <img src="/resources/img/logo_main.png" alt="">
       </a>
 
-
     <ul class="nav nav-pills nav-main">
       <li class="nav-item dropdown">
-          <a class="nav-link text-dark" href="/1/vision.jsp" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link text-dark" href="/1/vision.jsp" role="button" aria-expanded="false">
             교회 소개
           </a>
           <ul class="dropdown-menu">
@@ -89,7 +88,7 @@
           </ul>
         </li>
        <li class="nav-item dropdown">
-          <a class="nav-link text-dark" href="/2/worship/wSelectAll.jsp" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link text-dark" href="/2/worship/wSelectAll.jsp" role="button" aria-expanded="false">
             예배와 말씀
           </a>
           <ul class="dropdown-menu">
@@ -100,7 +99,7 @@
         </li>
         
         <li class="nav-item dropdown">
-          <a class="nav-link text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link text-dark" href="/3/edu.jsp" role="button" aria-expanded="false">
          양육과 교육
           </a>
           <ul class="dropdown-menu">
@@ -111,7 +110,7 @@
         </li>
         
         <li class="nav-item dropdown">
-          <a class="nav-link text-dark" href="/4/news/newsAll.jsp" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link text-dark" href="/4/news/newsAll.jsp" role="button" aria-expanded="false">
            돌봄과 선교
           </a>
           <ul class="dropdown-menu">
