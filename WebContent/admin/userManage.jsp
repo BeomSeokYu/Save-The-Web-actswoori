@@ -6,12 +6,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>행전우리교회</title>
 	<%@ include file="/include/header.jsp"%>
 </head>
 <body>
-<%@ include file="/include/navbar.jsp"%>
+	<%@ include file="/include/navbar.jsp"%>
 
 	<div class="container mt-3">
 	<h3 class="my-3">전체 회원 리스트</h3>
