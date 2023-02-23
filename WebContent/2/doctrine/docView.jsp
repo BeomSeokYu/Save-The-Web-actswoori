@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>행전우리교회</title>
 <meta charset="UTF-8">
 <%@ include file="/include/header.jsp" %>
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
@@ -42,13 +43,7 @@ window.onload = function() {
 				//? name은 doctrine에서 파라미터로 넘어오는데, date는 넘어오지 않음. 왜?
 				$("#name").html(name); 
 				$("#date").html(date);
-				console.log($("#email").val());
 				
-				if (sid==admin||sid==$("#email").val()) {
-			$('.ad').show()
-		} else {
-		$('.ad').hide()
- 		}
  				} 
  			
  			})

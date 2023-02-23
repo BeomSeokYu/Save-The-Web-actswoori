@@ -5,6 +5,10 @@ body {
   padding-top: 70px;
 }
 
+th.col-6 {
+	padding-left:20px;
+}
+
 .photo-gallery h2 {
   font-weight: bold;
   margin-bottom: 40px;
@@ -20,7 +24,7 @@ body {
 
 /* footer 상단 마진 */
 footer {
-  margin-top: 500px;
+  margin-top: 300px;
 }
 
 h2 {
@@ -75,3 +79,4 @@ hr {
 .container {
 	font-family: 'LINESeedKR-Bd';
 }
+

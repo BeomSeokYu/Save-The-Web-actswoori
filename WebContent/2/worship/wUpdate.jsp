@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>행전우리교회</title>
 <%@ include file="/include/header.jsp" %>
 <%
 	if (sid == null) { // 보안 처리
@@ -18,9 +18,17 @@
 <body>
 <%@ include file="/include/navbar.jsp" %>
 <div class="container">
-		<div class="pt-5"></div>
-		<h2>예배 수정</h2>
-		<hr>
+		<div class="photo-gallery container mb-3">
+			<div class="row justify-content-center">
+				<h2>예배 설교 수정</h2>
+				<div class="col-3 d-none d-lg-block">
+					<%@ include file="/include/sidebar2.jsp"%>
+				</div>
+				<div class="col-9">
+					<div class="row">
+						<div class="col-3 text-muted"></div>
+						<div class="col-9 text-end"></div>
+					</div>
 	<form action="wUpdateCheck.jsp" method="post">
 		<input type="hidden" name="wno" id="wno">
 		
@@ -43,6 +51,7 @@
 				class="btn btn-outline-secondary mx-2">
 		</div>
 	</form>
+	</div></div></div>
 </div>
 <%@ include file="/include/footer.jsp" %>
 	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>

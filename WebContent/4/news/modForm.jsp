@@ -27,10 +27,19 @@
 int nno = Integer.parseInt(request.getParameter("nno"));
 NewsDTO ndto = NewsDAO.selectNews(nno);
 %>
-	<div class="container">
-		<div class="pt-5"></div>
-		<h2>교회 소식 수정</h2>
-		<hr>
+
+<div class="container">
+		<div class="photo-gallery container mb-3">
+			<div class="row justify-content-center">
+				<h2>교회 소식 등록</h2>
+				<div class="col-3 d-none d-lg-block">
+					<%@ include file="/include/sidebar4.jsp"%>
+				</div>
+				<div class="col-9">
+					<div class="row">
+						<div class="col-3 text-muted"></div>
+						<div class="col-9 text-end"></div>
+					</div>
 		<form id="insertForm" action="modProc.jsp" method="post">
 			<input type="hidden" name="nno" id="nno" value="<%= ndto.getNno() %>">
 			<input type="hidden" name="content" id="content">
@@ -51,6 +60,7 @@ NewsDTO ndto = NewsDAO.selectNews(nno);
 					class="btn btn-outline-secondary mx-2">
 			</div>
 </form>
+</div></div></div>
 
 <%@ include file="/include/footer.jsp" %>
 

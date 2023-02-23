@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>행전우리교회</title>
-<%@ include file="/include/header.jsp"%>>
+<%@ include file="/include/header.jsp"%>
 <%
 	if (sid == null) { // 보안 처리
 		response.sendRedirect("lectureMain.jsp");
@@ -68,11 +68,19 @@
 	<% } %>
 
 
+	
 	<div class="container">
-		<div class="pt-5"></div>
-		<h2>특강수정</h2>
-		<hr>
-
+		<div class="photo-gallery container mb-3">
+			<div class="row justify-content-center">
+				<h2>주요 특강 수정</h2>
+				<div class="col-3 d-none d-lg-block">
+					<%@ include file="/include/sidebar2.jsp"%>
+				</div>
+				<div class="col-9">
+					<div class="row">
+						<div class="col-3 text-muted"></div>
+						<div class="col-9 text-end"></div>
+					</div>
 		<form action="lectureModifyCheck.jsp?lno=<%=lno%>" method="post">
 
 

@@ -50,35 +50,25 @@
                     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                     <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                     <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
                 </ol>
 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
-                        <img src="/resources/img/img1.jpg" alt="..." style="width: 100%; object-fit: cover;">
+                        <img src="/resources/img/img1.jpg" alt="...">
                     </div>
                     <!--End of item With Active-->
                     <div class="item">
                         <img src="/resources/img/img2.jpg" alt="...">
-                        <div class="carousel-caption">
-                            <div class="slider_text">
-                                <h2>2023년 표어</h2>
-                                <p></p>
-                                <h3>다음 세대를 이어가는 믿음의 경주자(히12:1-3)</h3>
-                            </div>
-                        </div>
                     </div>
                     <!--End of Item-->
                     <div class="item">
                         <img src="/resources/img/img3.jpg" alt="...">
-                        <div class="carousel-caption">
-                            <div class="slider_text">
-                                <h2>2023년 목표</h2>
-                                <p></p>
-                                <h3>예배ㆍ양육ㆍ전도가 균형 잡힌 그리스도인</h3>
-                     
-                            </div>
-                        </div>
+                    </div>
+                    <!--End of item-->
+                    <div class="item">
+                        <img src="/resources/img/img4.jpg" alt="...">
                     </div>
                     <!--End of item-->
                 </div>
@@ -226,7 +216,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="profile-circle">
-                                                            <img src="img/tree_cut_3.jpg" alt="">
+                                                            <img src="" alt="">
                                                         </div>
                                                         <div class="testimonial_content">
                                                             <span><%= newsList.size() > 0 ? newsList.get(0).getNcontent() : ""  %></span>
@@ -238,7 +228,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="profile-circle">
-                                                            <img src="img/tree_cut_3.jpg" alt="">
+                                                            <img src="" alt="">
                                                         </div>
                                                         <div class="testimonial_content">
                                                             <span><%= newsList.size() > 1 ? newsList.get(1).getNcontent() : ""  %></span>
@@ -255,7 +245,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="profile-circle">
-                                                            <img src="img/tree_cut_3.jpg" alt="">
+                                                            <img src="" alt="">
                                                         </div>
                                                         <div class="testimonial_content">
                                                             <span><%= newsList.size() > 2 ? newsList.get(2).getNcontent() : "" %></span>
@@ -267,7 +257,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="profile-circle">
-                                                            <img src="img/tree_cut_3.jpg" alt="">
+                                                            <img src="" alt="">
                                                         </div>
                                                         <div class="testimonial_content">
                                                             <span><%= newsList.size() > 3 ? newsList.get(3).getNcontent() : "" %></span>

@@ -70,10 +70,10 @@
 					<table class="table table-hover shadow bg-body rounded">
 						<thead>
 							<tr style="background-color: #548687; color: white;">
-								<th scope="col">제목</th>
-								<th scope="col">설교자</th>
-								<th scope="col">작성자</th>
-								<th scope="col">작성일자</th>
+							  <th scope="col" class="col-6">제목</th>
+						      <th scope="col" class="col-2">설교자</th>
+						      <th scope="col" class="col-2">작성자</th>
+						      <th scope="col" class="col-2">작성일</th>
 							</tr>
 						</thead>
 						<tbody id="imgList">
@@ -145,7 +145,8 @@ function printList(data) {
 	
 	for (var i = 0; i < data.length; i++) {
 		var date = getDate(data[i].date)
-		
+		var name = getUserName(data[i].email)
+
 		/* imgHTML += ''
 			+ '<div class="col-sm-6 col-md-4 col-lg-3 item h-100">'
 			+ data[i].title
@@ -155,7 +156,7 @@ function printList(data) {
 			+ "<tr onclick=\"location.href='lectureDetail.jsp?lno="
 			+ data[i].no + "'\"><td>" + data[i].title + "</td>"
 			+ '<td>' + data[i].name + "</td>"
-			+ '<td>' + data[i].email + "</td>" + '<td>'
+			+ '<td>' + name + "</td>" + '<td>'
 			+ date + "</td></a></tr>"
 			
 		/* imgHTML +=	"<tr>";
@@ -165,6 +166,24 @@ function printList(data) {
 		imgHTML +=  "</tr>";	 */
 	}
 	$('#imgList').html(imgHTML);
+}
+
+
+function getUserName(a) {
+	$.ajax({
+		type : 'post',
+		url : '/user/userInfoProc.jsp',
+		data : {
+			email : a
+		},
+		dataType : "text",
+		async : false,
+		success : function(data) {
+			var user = JSON.parse(data.trim());
+			name = user.name
+		}
+	});
+	return name
 }
 
 function getDate(input) {
@@ -220,42 +239,5 @@ function getDate(input) {
 }
 </script>	
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-lightbox.option({
-    resizeDuration: 200,
-    wrapAround: false,
-    disableScrolling: true,
-    fitImagesInViewport: true
-});
-
-function regPhoto(){
-	$('#uploadModal').modal('show');
-}
-
-$('#doneBtn').on('click', function(){
-	if ($('#title').val() != '' && $('#image').val() != '') {
-		$('#imgForm').submit();
-	} else {
-		popModal('사진 등록 실패', '입력 값이 없는 항목이 있습니다.')
-	}
-});
-</script>
 </body>
 </html>

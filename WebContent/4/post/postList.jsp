@@ -14,6 +14,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>행전우리교회</title>
 <%@ include file="/include/header.jsp" %> 
 <style>
 .bd-placeholder-img {

@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
   <head>
+  <title>행전우리교회</title>
  <%@include file="/include/header.jsp" %>
 <%
 	if(sid == null) { // 보안 처리
@@ -16,11 +17,18 @@
  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
- <div></div>
-	<div class="container">
-		<div class="pt-5"></div>
-		<h2>협력 교회와 기관 소식 등록</h2>
-		<hr>
+<div class="container">
+		<div class="photo-gallery container mb-3">
+			<div class="row justify-content-center">
+				<h2>협력 교회와 기관 소식 등록</h2>
+				<div class="col-3 d-none d-lg-block">
+					<%@ include file="/include/sidebar4.jsp"%>
+				</div>
+				<div class="col-9">
+					<div class="row">
+						<div class="col-3 text-muted"></div>
+						<div class="col-9 text-end"></div>
+					</div>
 <form action = "coopAddCheck.jsp" method="post">
 
 	<div class="input-group mb-2 input-group-lg">
@@ -39,7 +47,7 @@
 	</div>
 	
 </form>
-</div>
+</div></div></div></div>
 
     <script>
       $('#summernote').summernote({

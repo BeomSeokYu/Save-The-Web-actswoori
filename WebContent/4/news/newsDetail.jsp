@@ -27,7 +27,7 @@ ndate = ndate.substring(0,11);
 		<div class="photo-gallery container mb-3">
 			<div class="row justify-content-center">
 				<div class="col-3 d-none d-lg-block pt-5">
-					<%@ include file="/include/sidebar2.jsp"%>
+					<%@ include file="/include/sidebar4.jsp"%>
 				</div>
 				<div class="col-9">
 
@@ -52,7 +52,7 @@ ndate = ndate.substring(0,11);
 								<th class="col-1 text-center table-light">제목</th>
 								<th class="col-5"><%= ndto.getNtitle()  %></th>
 								<th class="col-1 text-center table-light">작성자</th>
-								<th class="col-2"><%= NewsDAO.selectEmail(nno)  %></th>
+								<th class="col-2" id="nameth"></th>
 								<th class="col-1 text-center table-light">날짜</th>
 								<th class="col-2"><%= ndate %></th>
 							</tr>
@@ -124,7 +124,22 @@ ndate = ndate.substring(0,11);
 		}
 	</script> --%>
 
-	<script>
+
+<script>
+	$(function getUserName(a) {
+		$.ajax({
+			type : 'post',
+			url : '/user/userInfoProc.jsp',
+			data : {
+				email : '<%=ndto.getEmail()%>'
+			},
+			dataType : "text",
+			success : function(data) {
+				var user = JSON.parse(data.trim());
+				$('#nameth').html(user.name)
+			}
+		});
+	})
 		function handleDeleteBtn(nno) {
 			if (confirm("정말로 삭제하시겠습니까?")) {
 				location.href = "deleteProc.jsp?nno=" + nno

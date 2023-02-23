@@ -64,13 +64,22 @@ lecture Add.sjp
  --%>
 
 
-	<div></div>
 	<div class="container">
-		<div class="pt-5"></div>
-		<h2>특강등록</h2>
-		<hr>
+		<div class="photo-gallery container mb-3">
+			<div class="row justify-content-center">
+				<h2>주요 특강 등록</h2>
+				<div class="col-3 d-none d-lg-block">
+					<%@ include file="/include/sidebar2.jsp"%>
+				</div>
+				<div class="col-9">
+					<div class="row">
+						<div class="col-3 text-muted"></div>
+						<div class="col-9 text-end"></div>
+					</div>
 		<form action=lectureCheck.jsp method="post">
-			<!-- <input type="hidden" name="email" value="aaaa@aaaa.com" > -->
+
+			<input type="hidden" name="email" value="<%=sid %>" >
+
 			<div class="input-group mb-2 input-group-lg">
 				<span class="input-group-text col-2 justify-content-center" id="ltitle">제목</span> 
 				<input type="text" class="form-control col-11" placeholder="제목을 입력하세요" name="ltitle">
@@ -89,12 +98,6 @@ lecture Add.sjp
 			<div class="d-flex justify-content-end my-4">
 				<button class="btn btn-outline-primary mx-2" type="submit" onclick="insert">등록</button>
 				
-				<%
-				
-				%>
-			
-				
-				
 				<!-- <a class="btn btn-warning" href='/2/lecture/lectureMain.jsp' role="button">취소</a> -->
 				<input type="button" value="취소" onclick="history.back()"
 					class="btn btn-outline-secondary mx-2">
@@ -102,6 +105,8 @@ lecture Add.sjp
 		</form>
 	</div>
 	
+	<!--<button onclick="location.href='/2/lecture/lectureMain.jsp'" class="btn btn-warning">취소</button>  -->
+	</div></div></div>
 
 
 	<!-- 썸머노트 스크립트 -->

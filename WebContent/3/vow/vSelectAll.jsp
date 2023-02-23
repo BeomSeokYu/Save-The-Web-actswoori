@@ -21,7 +21,7 @@
 			<div class="row justify-content-center">
 				<h2>말씀 서원</h2>
 				<div class="col-3 d-none d-lg-block">
-					<%@ include file="/include/sidebar4.jsp"%>
+					<%@ include file="/include/sidebar3.jsp"%>
 				</div>
 
 				<div class="col-9">
@@ -49,9 +49,9 @@
 					<table class="table table-hover shadow bg-body rounded">
 						<thead>
 							<tr style="background-color: #548687; color: white;">
-								<th scope="col">제목</th>
-								<th scope="col">작성자</th>
-								<th scope="col">작성일자</th>
+								<th scope="col" class="col-6">제목</th>
+								<th scope="col" class="col-2">작성자</th>
+								<th scope="col" class="col-2">작성일</th>
 							</tr>
 						</thead>
 						<tbody id="ajaxTable">

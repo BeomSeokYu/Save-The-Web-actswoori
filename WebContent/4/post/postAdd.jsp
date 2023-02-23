@@ -12,6 +12,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>행전우리교회</title>
 <meta charset="UTF-8">
 <%@ include file="/include/header.jsp" %>
 <%
@@ -23,15 +24,19 @@
 </head>
 <body>
 <%@ include file="/include/navbar.jsp" %>
-<%
-if(!admin) {
-	response.sendRedirect("postList.jsp");
-}
-%>
 <div class="container">
-<div class="pt-5"></div>
-		<h2>주보 등록</h2>
-		<hr>
+		<div class="photo-gallery container mb-3">
+			<div class="row justify-content-center">
+				<h2>주보 등록</h2>
+				<div class="col-3 d-none d-lg-block">
+					<%@ include file="/include/sidebar4.jsp"%>
+				</div>
+				<div class="col-9">
+					<div class="row">
+						<div class="col-3 text-muted"></div>
+						<div class="col-9 text-end"></div>
+					</div>
+
 <form action="postAddCheck.jsp" name=f1 method=post enctype="multipart/form-data">
 	<div class="input-group mb-2 input-group-lg">
 		<span class="input-group-text col-2 justify-content-center">제목</span> 
@@ -51,7 +56,7 @@ if(!admin) {
        <iframe id="viewer" frameborder="0" scrolling="no" width="300" height="200"></iframe>
     </div>
 </form>
-</div>
+</div></div></div></div>
 
 
  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>

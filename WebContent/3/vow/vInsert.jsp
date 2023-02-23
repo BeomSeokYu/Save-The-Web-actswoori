@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>행전우리교회</title>
 <%@ include file="/include/header.jsp" %>
 <%
 	if(sid == null) { // 보안 처리
@@ -17,9 +17,22 @@
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 </head>
 <body>
+
 <%@ include file="/include/navbar.jsp" %>
+<div class="container">
+		<div class="photo-gallery container mb-3">
+			<div class="row justify-content-center">
+				<h2>말씀 서원 등록</h2>
+				<div class="col-3 d-none d-lg-block">
+					<%@ include file="/include/sidebar3.jsp"%>
+				</div>
+				<div class="col-9">
+					<div class="row">
+						<div class="col-3 text-muted"></div>
+						<div class="col-9 text-end"></div>
+					</div>
 	<form action="vInsertCheck.jsp" method="post">
-		<div class="container">
+	<div class="container">
 		<div class="pt-5"></div>
 		<h2>말씀 서원 등록</h2>
 		<hr>
@@ -38,8 +51,8 @@
 					class="btn btn-outline-secondary mx-2">
 			</div>
 			
-		</div>
 	</form>
+		</div></div></div></div>
 <%@ include file="/include/footer.jsp" %>
 	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 	<script type="text/javascript">
