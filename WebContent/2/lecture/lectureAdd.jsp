@@ -77,7 +77,9 @@ lecture Add.sjp
 						<div class="col-9 text-end"></div>
 					</div>
 		<form action=lectureCheck.jsp method="post">
+
 			<input type="hidden" name="email" value="<%=sid %>" >
+
 			<div class="input-group mb-2 input-group-lg">
 				<span class="input-group-text col-2 justify-content-center" id="ltitle">제목</span> 
 				<input type="text" class="form-control col-11" placeholder="제목을 입력하세요" name="ltitle">

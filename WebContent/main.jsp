@@ -291,7 +291,7 @@
         <!--Scroll to top-->
         <a href="#" id="back-to-top" title="Back to top">&uarr;</a>
         <!--End of Scroll to top-->
-
+	
 		<%@ include file="/include/footer.jsp" %>
 		
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
