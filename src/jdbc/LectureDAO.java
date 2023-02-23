@@ -71,6 +71,7 @@ public class LectureDAO {
 		}
 		
 		finally {
+			if(rs != null) rs.close();
 			if(pstmt != null) pstmt.close();
 			if(conn != null) conn.close();
 		}
@@ -97,6 +98,10 @@ public class LectureDAO {
 			String ldate = rs.getString(6);
 		
 			LectureDTO lecture = new LectureDTO(lno,ltitle,lname,lcontent,email,ldate); //새로운 객체 생성
+			
+			rs.close();
+			pstmt.close();
+			conn.close();
 		
 			return lecture;
 	  }
