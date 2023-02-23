@@ -9,6 +9,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% String email = request.getParameter("email"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,9 +54,15 @@ if (sid != null) {
             <div class="col-12">
               <label for="email1" class="form-label">이메일</label>
               <div class="input-group">
-                <input type="text" class="form-control email-form input rounded" id="email1" name="email1" placeholder="" required>
+                <input type="text" class="form-control email-form input rounded" id="email1" name="email1" placeholder=""
+                		value="<%= email != null ? email.substring(0, email.indexOf('@')):"" %>"
+                		<%= email != null ? "readonly":"" %>
+                		required>
                 <span class="input-group-text rounded mx-1">@</span>
-                <input type="text" class="form-control email-form input rounded" id="email2" name="email2" placeholder="" required>
+                <input type="text" class="form-control email-form input rounded" id="email2" name="email2" placeholder=""
+                		value="<%= email != null ? email.substring(email.indexOf('@') + 1):"" %>"
+                		<%= email != null ? "readonly":"" %>
+                		required>
                 <select class="form-select rounded" id="emailSelect">
 				  <option value="default" selected>직접 입력</option>
 				  <option value="naver.com">naver.com</option>
@@ -140,7 +147,7 @@ $('#emailSelect').on('change', function(){
 
 /* 이메일 키업 이벤트  */
 $('.email-form').on('keyup', emailExistAndVaildCheck)
-
+<%= email != null ? "emailExistAndVaildCheck()":"" %>
 /* 이메일 유효성 및 중복 체크 함수 */
 function emailExistAndVaildCheck() {
 	var email = $('#email1').val() + '@' + $('#email2').val()
