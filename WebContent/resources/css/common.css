@@ -5,6 +5,10 @@ body {
   padding-top: 70px;
 }
 
+th.col-6 {
+	padding-left:20px;
+}
+
 .photo-gallery h2 {
   font-weight: bold;
   margin-bottom: 40px;
@@ -75,3 +79,4 @@ hr {
 .container {
 	font-family: 'LINESeedKR-Bd';
 }
+
