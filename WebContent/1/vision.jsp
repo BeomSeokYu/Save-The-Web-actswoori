@@ -19,8 +19,6 @@
    
 </head>
 <body>
-<%@ include file="/include/navbar.jsp" %>
-	<div><img src="/resources/img/교회 로고.png"></div>
 	<%@ include file="/include/navbar.jsp"%>
 	<div class="container">
 		<div class="photo-gallery container mb-3">
