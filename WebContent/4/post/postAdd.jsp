@@ -24,11 +24,6 @@
 </head>
 <body>
 <%@ include file="/include/navbar.jsp" %>
-<%
-if(!admin) {
-	response.sendRedirect("postList.jsp");
-}
-%>
 <div class="container">
 		<div class="photo-gallery container mb-3">
 			<div class="row justify-content-center">
