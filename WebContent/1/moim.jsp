@@ -27,8 +27,8 @@
 
 				<div class="col-9">
 					<div>
-						<img src="/resources/img/moimTime.png"
-							style="width: 1000px; height: 500px; object-fit: cover; object-position: left top;"
+						<img src="/resources/img/moim.jpg"
+							style="width: 1000px; height: 295px; object-fit: cover; object-position: left top;"
 							alt="모임표지" />
 					</div>
 					<hr class="my-5">
@@ -37,8 +37,8 @@
 					<table class="table mb-4">
 						<thead class="table-light">
 							<tr>
-								<th>예배</th>
-								<th>시간</th>
+								<th class = "col-6">예배</th>
+								<th class = "col-6">시간</th>
 							</tr>
 						</thead>
 						<tbody class="table-gruop-divider">
@@ -79,8 +79,8 @@
 					<table class="table">
 						<thead class="table-light">
 							<tr>
-								<th>예배</th>
-								<th>시간</th>
+								<th class = "col-6">예배</th>
+								<th class = "col-6">시간</th>
 							</tr>
 						</thead>
 						<tbody class="table-gruop-divider">
