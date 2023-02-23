@@ -10,7 +10,7 @@
 	String ltitle = request.getParameter("ltitle");
 	String lname = request.getParameter("lname");
 	String lcontent = request.getParameter("lcontent");
-	String email = request.getParameter("email");
+	String email = (String)session.getAttribute("sid");
 	
 	if (email == null || ltitle == null) { // 보안 처리
 		response.sendRedirect("lectureMain.jsp");

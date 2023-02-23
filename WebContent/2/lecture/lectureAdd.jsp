@@ -70,7 +70,7 @@ lecture Add.sjp
 		<h2>특강등록</h2>
 		<hr>
 		<form action=lectureCheck.jsp method="post">
-			<input type="hidden" name="email" value="aaaa@aaaa.com" >
+			<!-- <input type="hidden" name="email" value="aaaa@aaaa.com" > -->
 			<div class="input-group mb-2 input-group-lg">
 				<span class="input-group-text col-2 justify-content-center" id="ltitle">제목</span> 
 				<input type="text" class="form-control col-11" placeholder="제목을 입력하세요" name="ltitle">
