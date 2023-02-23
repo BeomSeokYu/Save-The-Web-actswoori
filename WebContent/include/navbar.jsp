@@ -117,7 +117,7 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/4/news/newsAll.jsp">교회 소식</a></li>
             <li><a class="dropdown-item" href="/4/post/postList.jsp">주보</a></li>
-            <li><a class="dropdown-item" href="/4/coop/coopList.jsp">협력 교회와 기관소식</a></li>
+            <li><a class="dropdown-item" href="/4/coop/coopList.jsp">협력 교회와 기관 소식</a></li>
             <li><a class="dropdown-item" href="/4/gallery/photoList.jsp">갤러리</a></li>
       	</ul>
       	</li>

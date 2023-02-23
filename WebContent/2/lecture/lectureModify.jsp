@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>행전우리교회</title>
-<%@ include file="/include/header.jsp"%>>
+<%@ include file="/include/header.jsp"%>
 <%
 	if (sid == null) { // 보안 처리
 		response.sendRedirect("lectureMain.jsp");
@@ -68,22 +68,30 @@
 	<% } %>
 
 
+	
 	<div class="container">
-		<div class="pt-5"></div>
-		<h2>특강수정</h2>
-		<hr>
-
+		<div class="photo-gallery container mb-3">
+			<div class="row justify-content-center">
+				<h2>주요 특강 수정</h2>
+				<div class="col-3 d-none d-lg-block">
+					<%@ include file="/include/sidebar2.jsp"%>
+				</div>
+				<div class="col-9">
+					<div class="row">
+						<div class="col-3 text-muted"></div>
+						<div class="col-9 text-end"></div>
+					</div>
 		<form action="lectureModifyCheck.jsp?lno=<%=lno%>" method="post">
 
 
 			<div class="input-group mb-2 input-group-lg">
-				<span class="input-group-text col-1 mx-auto" id="ltitle">제목</span> <input
+				<span class="input-group-text col-2 mx-auto" id="ltitle">제목</span> <input
 					type="text" class="form-control col-11" name="ltitle" id="ltitle"
 					value="<%=lecture.getLtitle()%>" required>
 			</div>
 
 			<div class="input-group mb-3 input-group-lg">
-				<span class="input-group-text col-1" id="lname">설교자</span> <input
+				<span class="input-group-text col-2" id="lname">설교자</span> <input
 					type="text" class="form-control col-11" name="lname" id="lname"
 					value="<%=lecture.getLname()%>" required>
 			</div>

@@ -14,6 +14,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>행전우리교회</title>
 <style>
 
 iframe {
@@ -56,7 +57,7 @@ iframe {
 		<div class="photo-gallery container mb-3">
 			<div class="row justify-content-center">
 				<div class="col-3 d-none d-lg-block pt-5">
-					<%@ include file="/include/sidebar2.jsp"%>
+					<%@ include file="/include/sidebar4.jsp"%>
 				</div>
 				<div class="col-9">
 				
@@ -70,7 +71,7 @@ iframe {
 							<th class="col-1 text-center table-light">제목</th>
 							<th class="col-5"><%=pdto.getPtitle() %></th>
 							<th class="col-1 text-center table-light">작성자</th>
-							<th class="col-2"><%=pdto.getEmail() %></th>
+							<th class="col-2" id="nameth"></th>
 							<th class="col-1 text-center table-light">날짜</th>
 							<th class="col-2"><%=pdate %></th>
 						</tr>
@@ -109,7 +110,22 @@ if (admin || sid != null && sid.equals(PostDAO.selectPost(Integer.parseInt(reque
 		</div>
 	</div>
  
- 
+ <script type="text/javascript">
+	$(function getUserName(a) {
+		$.ajax({
+			type : 'post',
+			url : '/user/userInfoProc.jsp',
+			data : {
+				email : '<%=pdto.getEmail()%>'
+			},
+			dataType : "text",
+			success : function(data) {
+				var user = JSON.parse(data.trim());
+				$('#nameth').html(user.name)
+			}
+		});
+	})
+ </script>
 
 
 <%@ include file="/include/footer.jsp" %> 

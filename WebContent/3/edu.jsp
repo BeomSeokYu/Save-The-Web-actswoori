@@ -24,7 +24,7 @@
 			<div class="row justify-content-center">
 				<h2>교육 부서</h2>
 				<div class="col-3 d-none d-lg-block">
-					<%@ include file="/include/sidebar4.jsp"%>
+					<%@ include file="/include/sidebar3.jsp"%>
 				</div>
 
 				<div class="col-9">
