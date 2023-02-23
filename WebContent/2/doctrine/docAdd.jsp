@@ -65,32 +65,36 @@ var sid = "<%=sid%>";
 							[ 'view', [ 'fullscreen', 'codeview', 'help' ] ] ],
 					placeholder : '내용을 입력해주세요'
 				});
-
 		function addItem() {
-			$.ajax({
-				type : "post",
-				url : "docAddProc.jsp",
-				data : {
-					dtitle : document.getElementById('dtitle').value,
-					dcontent : $("#summernote").summernote("code"),
-					email : sid
-				},
-
-				dataType : "text",
-				
-				success : function(data) {
-					data = data.trim()
-					if (data=='true'){
-						popModal2("복음과 교리 등록", "등록에 성공하셨습니다", "doctrine.jsp")
-					} else {
-						popModal2("복음과 교리 등록", "등록에 실패하셨습니다", "doctrine.jsp")
+			var title = $('#dtitle').val().trim()
+			if(title=='' || $('#summernote').summernote('isEmpty')){
+				alert('제목 또는 내용을 입력해주세요')
+			} else {
+				$.ajax({
+					type : "post",
+					url : "docAddProc.jsp",
+					data : {
+						dtitle : document.getElementById('dtitle').value,
+						dcontent : $("#summernote").summernote("code"),
+						email : sid
+					},
+	
+					dataType : "text",
+					
+					success : function(data) {
+						data = data.trim()
+						if (data=='true'){
+							popModal2("복음과 교리 등록", "등록에 성공하셨습니다", "doctrine.jsp")
+						} else {
+							popModal2("복음과 교리 등록", "등록에 실패하셨습니다", "doctrine.jsp")
+						}
+	
+						var summernote = document.getElementById('summernote');
+						summernote.value = "";
+						$("#summernote").summernote("reset");
 					}
-
-					var summernote = document.getElementById('summernote');
-					summernote.value = "";
-					$("#summernote").summernote("reset");
-				}
-			});
+				});
+			}
 		}
 	</script>
 

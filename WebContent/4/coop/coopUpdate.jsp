@@ -36,10 +36,10 @@
 						<div class="col-3 text-muted"></div>
 						<div class="col-9 text-end"></div>
 					</div>
-	<form action = "coopUpdateCheck.jsp" method="post">
+	<form action = "coopUpdateCheck.jsp" method="post" id="form">
 		<div class="input-group mb-2 input-group-lg">
-			<span class="input-group-text col-2 justify-content-center" id="ltitle">제목</span> 
-			<input type="text" class="form-control col-10" name="ctitle" id="ltitle"
+			<span class="input-group-text col-2 justify-content-center" >제목</span> 
+			<input type="text" class="form-control col-10" name="ctitle" id="ctitle"
 				value="<%=cdto.getCtitle()%>" required placeholder="제목을 입력해주세요">
 		</div>
 	
@@ -71,6 +71,16 @@
 			[ 'view', [ 'fullscreen', 'codeview', 'help' ] ] ],
         placeholder:"내용을 입력해주세요"
       });
+      
+      function gogo(){
+			var title = $('#ctitle').val().trim()
+			
+			if(title=='' ||  $('#summernote').summernote('isEmpty')) {
+				alert('제목 또는 내용을 입력해주세요')
+			} else {
+				$('#form').submit()
+			}
+		}
     </script>
      <section class="py-5 text-center container"></section>
   </body>

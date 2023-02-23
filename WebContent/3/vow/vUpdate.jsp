@@ -29,7 +29,7 @@
 						<div class="col-3 text-muted"></div>
 						<div class="col-9 text-end"></div>
 					</div>
-	<form action="vUpdateCheck.jsp" method="post">
+	<form action="vUpdateCheck.jsp" method="post" id="form">
 		<input type="hidden" name="vno" id="vno">
 		
 		<div class="input-group mb-2 input-group-lg">
@@ -42,7 +42,7 @@
 		</div>
 		
 		<div class="d-flex justify-content-end my-4">
-			<button class="btn btn-outline-primary mx-2" type="submit">수정</button>
+			<button class="btn btn-outline-primary mx-2" type="button" onclick="gogo()">수정</button>
 			<input type="button" value="취소" onclick="history.back()"
 				class="btn btn-outline-secondary mx-2">
 		</div>
@@ -87,6 +87,16 @@
 		
 		window.onload = function() {
 			viewFunction(vno);
+		}
+		
+		function gogo(){
+			var title = $('#vtitle').val().trim()
+			
+			if(title=='' ||  $('#vcontent').summernote('isEmpty')) {
+				alert('제목 또는 내용을 입력해주세요')
+			} else {
+				$('#form').submit()
+			}
 		}
 	</script>
 </body>
