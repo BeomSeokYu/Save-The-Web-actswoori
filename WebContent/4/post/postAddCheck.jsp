@@ -61,6 +61,7 @@ body {
 	String postOriName = multiReq.getOriginalFileName("post");
 	String postSysName = multiReq.getFilesystemName("post");
 	
+	boolean result = false;
 	if(postOriName != null) {
 		//out.print("파일 업로드 성공 <br>");
 		
@@ -88,31 +89,31 @@ body {
           // DB에 넣기
 		String ptitle = multiReq.getParameter("ptitle");
         String email = (String) session.getAttribute("sid");
-        boolean result = PostDAO.insertPost(ptitle, uploadPath, uuid.toString(), postSysName, email);
+        result = PostDAO.insertPost(ptitle, uploadPath, uuid.toString(), postSysName, email);
 		
 		//out.print("<iframe src=" + uploadPath + "/" + uuidFileName +"></iframe>");
 		
-		if(result) {
-        %>
-		 <script>
-		 	$(function() {
-		 		popModalRedirect('주보 등록', '주보가 등록되었습니다.', 'postList.jsp');
-		 	});
-		 </script>
-		 <%
-			
-		} else {
-			%>
-			<script>
-				$(function() {
-					popModalRedirect('주보 등록', '알 수 없는 이유로 등록하지 못했습니다.', 'postList.jsp');
-				});
-			</script>
-			<%		
-			
-		}
         	
-
+		}
+	
+	if(result) {
+       %>
+	 <script>
+	 	$(function() {
+	 		popModal2('등록 성공', '주보 등록에 성공했습니다.', '/4/post/postList.jsp');
+	 	});
+	 </script>
+	 <%
+		
+	} else {
+		%>
+		<script>
+			$(function() {
+				popModal2('등록 오류', '제목 입력과 파일을 선택해 주세요.', '/4/post/postList.jsp');
+			});
+		</script>
+		<%		
+		
 	}
 
 	

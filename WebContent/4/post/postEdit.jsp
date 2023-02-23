@@ -40,9 +40,6 @@
 <body>
 <%@ include file="/include/navbar.jsp" %>
 <%
-	if(sid == null || !admin) {
-		response.sendRedirect("postList.jsp");
-	}
 	 
 	int pno = Integer.parseInt(request.getParameter("pno"));
 
@@ -74,7 +71,7 @@
 		       <iframe id="viewer" class="iframe" src="<%=filePath %>" frameborder="0" scrolling="no" width="300" height="200"></iframe>
 		    </div>
 			<div class="input-group mb-2 input-group-lg">
-		    	<input id="uploadPDF" type="file" name="post" onchange="PreviewImage();" class="form-control col-11"/><br>
+		    	<input id="uploadPDF" type="file" name="post" onchange="PreviewImage();" class="form-control col-11" accept=".pdf"/><br>
 		    </div>
 			<div class="d-flex justify-content-end my-4">
 				<button class="btn btn-outline-primary mx-2" type="submit">수정</button>
