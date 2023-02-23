@@ -15,7 +15,8 @@
 <title>행전우리교회</title>
 <%@ include file="/include/header.jsp" %>
 <%
-if (sid != null) {
+String check = request.getParameter("check");
+if (sid != null || check == null) {
 	response.sendRedirect("/main.jsp");
 }
 %>
