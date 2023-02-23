@@ -49,7 +49,7 @@
 						<p>하나님 중심 말씀 중심 교회 중심으로 자라가는 ‘양육공동체’입니다.</p>
 						<p>이웃을 사랑하여 복음을 전하는 ‘선교공동체’입니다.</p> <br><br>
 						
-					<p style="font-weight:bold; font-size:20px; color:#747474;">20223년 표어</p>
+					<p style="font-weight:bold; font-size:20px; color:#747474;">2023년 표어</p>
 						<p> 다음 세대를 이어가는 믿음의 경주자(히12:1-3)</p><br><br>
 						
 					<p style="font-weight:bold; font-size:20px; color:#747474;">2023년 목표</p>

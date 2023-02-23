@@ -133,7 +133,7 @@
 
 					<hr class="my-5">
 					<h3 class="my-4">부서예배</h3>
-					<table class="table">
+					<table class="table mb-4">
 						<thead class="table-light">
 							<tr>
 								<th>예배</th>
