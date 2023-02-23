@@ -17,13 +17,6 @@
  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-<<<<<<< Updated upstream
- <div></div>
-	<div class="container">
-		<div class="pt-5"></div>
-		<h2>협력 교회와 기관 소식 등록</h2>
-		<hr>
-=======
 <div class="container">
 		<div class="photo-gallery container mb-3">
 			<div class="row justify-content-center">
@@ -36,12 +29,11 @@
 						<div class="col-3 text-muted"></div>
 						<div class="col-9 text-end"></div>
 					</div>
->>>>>>> Stashed changes
 <form action = "coopAddCheck.jsp" method="post">
 
 	<div class="input-group mb-2 input-group-lg">
-		<span class="input-group-text col-2 mx-auto" id="ctitle">제목</span> 
-		<input type="text" class="form-control col-11" placeholder="제목을 입력하세요" name="ctitle">
+		<span class="input-group-text col-2 justify-content-center" id="ctitle">제목</span> 
+		<input type="text" class="form-control col-10" placeholder="제목을 입력하세요" name="ctitle">
 	</div>
 	<div>
 		<textarea name="ccontent" id="summernote" class="mtop-10"></textarea>

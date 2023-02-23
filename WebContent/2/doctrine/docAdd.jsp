@@ -9,7 +9,6 @@
 <head>
 <title>행전우리교회</title>
 <meta charset="UTF-8">
-<<<<<<< Updated upstream
 <%@ include file="/include/header.jsp" %>
 <%
 	if(sid == null) { // 보안 처리
@@ -19,20 +18,6 @@
 %>
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-=======
-<%@ include file="/include/header.jsp"%>
-<%
-	if (sid == null) { // 보안 처리
-	response.sendRedirect("doctrine.jsp");
-	return;
-}
-%>
-<link
-	href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css"
-	rel="stylesheet">
-<script
-	src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
->>>>>>> Stashed changes
 </head>
 <body>
 	<%@ include file="/include/navbar.jsp"%>

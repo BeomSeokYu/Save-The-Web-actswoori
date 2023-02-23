@@ -34,8 +34,8 @@
 						<div class="col-9 text-end"></div>
 					</div>
 		<div class="input-group mb-2 input-group-lg">
-			<span class="input-group-text col-2 mx-auto">제목</span> 
-			<input type="text" class="form-control col-11" name="dtitle" id="dtitle" required>
+			<span class="input-group-text col-2 justify-content-center">제목</span> 
+			<input type="text" class="form-control col-10" name="dtitle" id="dtitle" required>
 		</div>
 		
 		<div>
