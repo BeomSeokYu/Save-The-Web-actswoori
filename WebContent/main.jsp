@@ -21,6 +21,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<%@ include file="/include/header.jsp" %>
+	<%@ include file="/include/navbar.jsp" %>
     <!-- Bootstrap -->
     <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
     <!--Bootstrap Carousel-->
@@ -40,10 +41,8 @@
     <link href="/resources/css/responsive.css" rel="stylesheet">
 	
     <body data-spy="scroll" data-target="#header">
-    
-    <%@ include file="/include/navbar.jsp" %>
         <!--Start of slider section-->
-        <section id="slider">
+        <section class="" id="slider">
             <div id="carousel-example-generic" class="carousel slide carousel-fade" data-ride="carousel" data-interval="3000">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
@@ -56,19 +55,19 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
-                        <img src="/resources/img/img1.jpg" alt="...">
+                        <img src="/resources/img/img1.jpg" style="width: 100%; object-fit: cover;" alt="...">
                     </div>
                     <!--End of item With Active-->
                     <div class="item">
-                        <img src="/resources/img/img2.jpg" alt="...">
+                        <img src="/resources/img/img2.jpg" style="width: 100%; object-fit: cover;" alt="...">
                     </div>
                     <!--End of Item-->
                     <div class="item">
-                        <img src="/resources/img/img3.jpg" alt="...">
+                        <img src="/resources/img/img3.jpg" style="width: 100%; object-fit: cover;" alt="...">
                     </div>
                     <!--End of item-->
                     <div class="item">
-                        <img src="/resources/img/img4.jpg" alt="...">
+                        <img src="/resources/img/img4.jpg" style="width: 100%; object-fit: cover;" alt="...">
                     </div>
                     <!--End of item-->
                 </div>
