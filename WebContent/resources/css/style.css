@@ -57,7 +57,7 @@ font-family: 'Roboto', sans-serif;
 @font-face {
     font-family: 'LINESeedKR-Bd';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
-    font-weight: 700;
+    font-weight: 400;
     font-style: normal;
 }
 
@@ -251,7 +251,7 @@ input: -webkit-autofill:focus {
     color: #393939;
     font-size: 14px;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 400;
     font-family: 'LINESeedKR-Bd';
 }
 #header .header_menu ul.main_menu li a:hover {
@@ -292,9 +292,9 @@ input: -webkit-autofill:focus {
 #slider .slider_text h2 {
     font-size: 52px;
     padding: 10px 0;
-    font-weight: 600;
+    font-weight: 400;
     font-family: 'LINESeedKR-Bd';
-    text-transform: uppercase;
+    text-transform: uppercase;	
 }
 #slider .slider_text h3 {
     font-size: 45px;
@@ -315,7 +315,7 @@ input: -webkit-autofill:focus {
     border-radius: 2px;
     margin-top: 20px;
     font-family: 'LINESeedKR-Bd';
-    font-weight: 600;
+    font-weight: 400;
 }
 #slider .slider_text h2,
 #slider .slider_text h3,
@@ -388,7 +388,7 @@ input: -webkit-autofill:focus {
 .wel_header h2 {
     font-size: 36px;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 400;
     padding-bottom: 25px;
     font-family: 'LINESeedKR-Bd';
     color: #222222;
@@ -418,7 +418,7 @@ input: -webkit-autofill:focus {
 #welcome .item_list h4 {
     padding: 20px;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 400;
     font-size: 18px;
     color: #393939;
     transition: 0.7s;
@@ -450,7 +450,7 @@ input: -webkit-autofill:focus {
 #volunteer .volunteer_content h3 {
     font-size: 45px;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 400;
     color: #fff;
     padding-bottom: 10px;
     font-family: 'LINESeedKR-Bd';
@@ -477,7 +477,7 @@ input: -webkit-autofill:focus {
     border-radius: 3px;
     text-transform: uppercase;
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 400;
     font-family: 'LINESeedKR-Bd';
 }
 
@@ -490,7 +490,7 @@ input: -webkit-autofill:focus {
 
 #portfolio .portfolio_title h2 {
     font-size: 36px;
-    font-weight: 700;
+    font-weight: 400;
     text-transform: uppercase;
     padding-bottom: 15px;
     font-family: 'LINESeedKR-Bd';
@@ -514,7 +514,7 @@ input: -webkit-autofill:focus {
     border: 1px solid #e9e9e9;
     color: #726e6e;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 400;
     margin-bottom: 20px;
     width: 125px;
     font-size: 12px;
@@ -593,7 +593,7 @@ section#counter {
 .counter_header h2 {
     text-transform: uppercase;
     font-size: 36px;
-    font-weight: 700;
+    font-weight: 400;
     padding-bottom: 10px;
     font-family: 'LINESeedKR-Bd';
 }
@@ -605,7 +605,7 @@ section#counter {
 }
 .counter_text {
     color: #fff;
-    font-weight: 700;
+    font-weight: 400;
 }
 .sigle_counter_item {
     padding-top: 20px;
@@ -625,7 +625,7 @@ section#counter {
     border-bottom: 1px solid;
     padding-bottom: 10px;
     font-family: 'LINESeedKR-Bd';
-    font-weight: 600;
+    font-weight: 400;
 }
 .counter_text p {
     font-size: 16px;
@@ -650,7 +650,7 @@ section#counter {
 }
 #event .event_header h2 {
     font-size: 36px;
-    font-weight: 700;
+    font-weight: 400;
     padding-bottom: 20px;
     text-transform: uppercase;
     font-family: 'LINESeedKR-Bd';
@@ -676,7 +676,7 @@ section#counter {
 #event .event_text h4 {
     font-size: 18px;
     padding-bottom: 15px;
-    font-weight: 700;
+    font-weight: 400;
     color: #454444;
     font-family: 'LINESeedKR-Bd';
 }
@@ -697,7 +697,7 @@ section#counter {
     padding: 5px 15px;
     color: #fff;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 400;
     border-radius: 2px;
     transition: 0.7s ease;
     font-family: 'LINESeedKR-Bd';
@@ -716,7 +716,7 @@ section#counter {
     color: #454444;
     font-size: 18px;
     font-family: 'LINESeedKR-Bd';
-    font-weight: 700;
+    font-weight: 400;
 }
 #event .event_news_text p {
     padding-top: 10px;
@@ -745,7 +745,7 @@ section#counter {
 }
 #testimonial .testimonial_header h2 {
     font-size: 36px;
-    font-weight: 700;
+    font-weight: 400;
     text-transform: uppercase;
     padding-bottom: 20px;
     font-family: 'LINESeedKR-Bd';
@@ -771,7 +771,7 @@ section#counter {
 #blog .latest_blog h2 {
     padding-bottom: 20px;
     font-size: 36px;
-    font-weight: 700;
+    font-weight: 400;
     text-transform: uppercase;
     font-family: 'LINESeedKR-Bd';
     color: #222222;
@@ -809,7 +809,7 @@ section#counter {
     color: #aeadad;
     font-size: 13px;
     font-family: 'LINESeedKR-Bd';
-    font-weight: 700;
+    font-weight: 400;
 }
 #blog .blog_news .blog_img img {
     height: 230px;
@@ -835,7 +835,7 @@ section#counter {
 }
 #blog a.blog_link {
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 400;
     color: #545353;
     transition: 0.7s;
     font-size: 14px;
@@ -864,7 +864,7 @@ section#market {
     font-size: 36px;
     padding-top: 80px;
     font-family: 'LINESeedKR-Bd';
-    font-weight: 700;
+    font-weight: 400;
     color: #ffffff;
 }
 #purches a.purches_btn {
@@ -874,7 +874,7 @@ section#market {
     background: #43a906;
     color: #fff;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 400;
     border-radius: 2px;
     font-family: 'LINESeedKR-Bd';
     font-size: 18px;
@@ -938,7 +938,7 @@ li.fw-flash-message {
     background: #43a906;
     color: #fff;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 400;
     border: 0px;
     border-radius: 2px;
     letter-spacing: 5px;
@@ -972,7 +972,7 @@ li.fw-flash-message {
 .contact_area h3 {
     font-size: 36px;
     padding-bottom: 20px;
-    font-weight: 700;
+    font-weight: 400;
     text-transform: uppercase;
     color: #222222;
     font-family: 'LINESeedKR-Bd';
@@ -1125,7 +1125,7 @@ li.fw-flash-message {
 #contact-us h3 {
     font-size: 36px;
     padding-bottom: 20px;
-    font-weight: 700;
+    font-weight: 400;
     text-transform: uppercase;
     color: #222222;
     font-family: 'LINESeedKR-Bd';
@@ -1174,7 +1174,7 @@ ul.entry-meta {
     padding: 10px 30px;
     font-size: 16px;
     font-family: 'LINESeedKR-Bd';
-    font-weight: 700;
+    font-weight: 400;
 }
 .btn.focus, .btn:focus, .btn:hover {
     color: #ffffff;
@@ -1185,7 +1185,7 @@ ul.entry-meta {
 }
 .widget_search .search-form input[type="submit"], .widget_search input[type="submit"] {
     font-family: 'LINESeedKR-Bd';
-    font-weight: 700;
+    font-weight: 400;
 }
 .widget_search .search-form input[type="search"], .widget_search input[type="search"] {
     padding: 0 40px;
