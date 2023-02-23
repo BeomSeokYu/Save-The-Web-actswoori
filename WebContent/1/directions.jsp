@@ -24,10 +24,24 @@
 				</div>
 
 				<div class="col-9">
-					<h3 class="my-5 text-center" style="font-family: 'LINESeedKR-Bd';">서울 서대문구 증가로 130 지하 1층</h3>
+					<hr>
+					<h4 class="my-4 mx-2" style="font-family: 'LINESeedKR-Bd';">주소</h4>
+					<p class="my-2 mx-2" style="font-family: 'LINESeedKR-Bd';">서울 서대문구 증가로 130 지하 1층</p>
+					<p class="my-2 mx-2" style="font-family: 'LINESeedKR-Bd';">서대문구 증가로 130</p>
+					<hr>
+					<h4 class="my-4 mx-2" style="font-family: 'LINESeedKR-Bd';">탑승 버스</h4>
+					<p class="my-2" style="font-family: 'LINESeedKR-Bd';">
+						<span class="mx-2"><span class="badge bg-primary">간선</span> 272 </span>
+						<span class="mx-2"><span class="badge bg-success">지선</span> 7017 </span>
+						<span class="mx-2"><span class="badge bg-success">지선</span> 7021 </span>
+						<span class="mx-2"><span class="badge bg-success">지선</span> 7612 </span>
+						<span class="mx-2"><span class="badge bg-success">지선</span> 7734 </span>
+						<span class="mx-2"><span class="badge bg-success">지선</span> 7738 </span>
+					</p>
+					<hr>
 					<div class="my-3 shadow bg-body rounded"
 						style="position: relative;">
-						<div id="map" style="width: 1000px; height: 500px;"></div>
+						<div class="rounded shadow" id="map" style="width: 1000px; height: 500px;"></div>
 						<button id="viewBtn"
 							style="position: absolute; bottom: 10px; left: 10px; z-index: 9999"
 							class="btn btn-success" onclick="showRoadView()">로드뷰 보기</button>
