@@ -87,13 +87,13 @@
 			<div class="input-group mb-2 input-group-lg">
 				<span class="input-group-text col-2 justify-content-center" id="ltitle">제목</span> <input
 					type="text" class="form-control col-10" name="ltitle" id="ltitle"
-					value="<%=lecture.getLtitle()%>" required>
+					value="<%=lecture.getLtitle()%>" required placeholder="제목을 입력해주세요">
 			</div>
 
 			<div class="input-group mb-3 input-group-lg">
 				<span class="input-group-text col-2 justify-content-center" id="lname">설교자</span> <input
 					type="text" class="form-control col-11" name="lname" id="lname"
-					value="<%=lecture.getLname()%>" required>
+					value="<%=lecture.getLname()%>" required placeholder="설교자를 입력해주세요">
 			</div>
 
 			<div>
@@ -122,7 +122,8 @@
 							[ 'para', [ 'ul', 'ol', 'paragraph' ] ],
 							[ 'table', [ 'table' ] ],
 							[ 'insert', [ 'link', 'picture', 'video' ] ],
-							[ 'view', [ 'fullscreen', 'codeview', 'help' ] ] ]
+							[ 'view', [ 'fullscreen', 'codeview', 'help' ] ] ],
+							placeholder : '내용을 입력해주세요'
 				});
 	</script>
 

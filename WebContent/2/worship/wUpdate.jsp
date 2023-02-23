@@ -34,11 +34,11 @@
 		
 		<div class="input-group mb-2 input-group-lg">
 			<span class="input-group-text col-2 justify-content-center">제목</span> 
-			<input type="text" class="form-control col-10" name="wtitle" id="wtitle" required>
+			<input type="text" class="form-control col-10" name="wtitle" id="wtitle" required placeholder="제목을 입력해주세요">
 		</div>
 		<div class="input-group mb-3 input-group-lg">
 			<span class="input-group-text col-2 justify-content-center" >설교자</span> <input
-				type="text" class="form-control col-10" name="wname" id="wname">
+				type="text" class="form-control col-10" name="wname" id="wname" placeholder="설교자를 입력해주세요">
 		</div>
 		
 		<div>
@@ -83,7 +83,8 @@
 					      ['table', ['table']],
 					      ['insert', ['link', 'picture', 'video']],
 					      ['view', ['fullscreen', 'codeview', 'help']]
-					    ]
+					    ],
+					    placeholder="내용을 입력해주세요"
 					  });
 				}
 			});
