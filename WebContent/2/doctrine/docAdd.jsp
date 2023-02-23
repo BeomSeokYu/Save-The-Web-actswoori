@@ -83,7 +83,7 @@ var sid = "<%=sid%>";
 					summernote.value = "";
 					$("#summernote").summernote("reset");
 
-					popModalRedirect("등록", "등록에 성공하셨습니다", "doctrine.jsp")
+					popModal2("등록", "등록에 성공하셨습니다", "doctrine.jsp")
 				}
 			});
 		}

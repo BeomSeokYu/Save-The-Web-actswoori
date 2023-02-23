@@ -100,7 +100,7 @@
 				summernote.value="";
 				$("#summernote").summernote("reset");
 				
-				popModalRedirect("수정", "수정에 성공하셨습니다", "doctrine.jsp")
+				popModal2("수정", "수정에 성공하셨습니다", "doctrine.jsp")
 
 			}
 		});

@@ -129,6 +129,15 @@ function popModal(head, body) {
     $('#msgModal').modal('show');
  }
  
+function popModal2(head, body, url) {
+    $('#msgModalLabel').text(head);
+    $('#msgModalBody').html(body);
+    $('#modal-footer').empty()
+       .append('<button type="button" class="btn btn-warning" data-bs-dismiss="modal" onclick="location.href=\'' + url + '\'">확인</button>')
+    $('#msgModal').modal('show');
+ }
+ 
+ 
  function popModalRedirect(head, body, url) {
     $('#msgModalLabel').text(head);
     $('#msgModalBody').html(body);
