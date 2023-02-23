@@ -25,7 +25,7 @@
 			<div class="row justify-content-center">
 				<h2>교회 비전</h2>
 				<div class="col-3 d-none d-lg-block">
-					<%@ include file="/include/sidebar4.jsp"%>
+					<%@ include file="/include/sidebar1.jsp"%>
 				</div>
 
 				<div class="col-9">
