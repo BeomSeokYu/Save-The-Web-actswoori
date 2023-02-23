@@ -81,7 +81,13 @@ body {
           // DB에 넣기
         int pno = Integer.parseInt( multiReq.getParameter("pno") );
 		String ptitle = multiReq.getParameter("ptitle");
-        boolean result = PostDAO.updatePost(pno, ptitle, uploadPath, uuid.toString(), postSysName);
+		
+		boolean result;
+		if(ptitle == null) {
+			result = PostDAO.updatePostTitle(pno, ptitle);			
+		} else {
+	        result = PostDAO.updatePost(pno, ptitle, uploadPath, uuid.toString(), postSysName);
+		}
 		
 		if(result) {
         %>
