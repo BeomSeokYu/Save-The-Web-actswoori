@@ -84,9 +84,16 @@ if (msg == "fail") {
    });
    
    function addItem() {
+	   var title = $('#title').val().trim()
+		
+		if(title=='' ||  $('#content').summernote('isEmpty')) {
+			alert('제목 또는 내용을 입력해주세요')
+		} else {
 		 $("#content").val($("#summernote").summernote("code"));
 		 $("#insertForm").submit();
+		}
    }
+   
  </script>
 
 </body>
