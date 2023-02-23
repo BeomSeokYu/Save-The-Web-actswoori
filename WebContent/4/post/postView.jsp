@@ -101,7 +101,7 @@ if (admin || sid != null && sid.equals(PostDAO.selectPost(Integer.parseInt(reque
 				onclick="location.href='/4/post/postEdit.jsp?pno=<%=pno %>'"
 				class="btn btn-outline-primary">수정</button>
 			<button
-				onclick="location.href='/4/post/postRemove.jsp?pno=<%=pno %>'"
+				onclick="delCheck('/4/post/postRemove.jsp?pno=<%=pno %>')"
 				class="btn btn-outline-danger">삭제</button>
 
 <%
@@ -125,6 +125,13 @@ if (admin || sid != null && sid.equals(PostDAO.selectPost(Integer.parseInt(reque
 			}
 		});
 	})
+	
+	function delCheck(nextPage) {
+		var flag = confirm("정말로 삭제하시겠습니까?");
+		if(flag) location.href=nextPage;
+	}
+
+
  </script>
 
 

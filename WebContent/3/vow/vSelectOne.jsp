@@ -60,7 +60,7 @@
 				class="btn btn-outline-primary ad">수정</button>
 				
 			<button
-				onclick="location.href='/3/vow/vDeleteCheck.jsp?vno=<%=request.getParameter("vno")%>'"
+				onclick="delCheck('/3/vow/vDeleteCheck.jsp?vno=<%=request.getParameter("vno")%>')"
 				class="btn btn-outline-danger ad">삭제</button>
 <%
 	}
@@ -98,6 +98,12 @@
 	window.onload = function() {
 		viewFunction(vno);
 	}
+	
+	function delCheck(nextPage) {
+		var flag = confirm("정말로 삭제하시겠습니까?");
+		if(flag) location.href=nextPage;
+	}
 </script>
+
 </body>
 </html>

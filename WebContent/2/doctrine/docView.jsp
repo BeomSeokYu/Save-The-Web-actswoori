@@ -72,6 +72,13 @@ window.onload = function() {
  			}
  		});
  	}
+  	
+	function delCheck() {
+		var flag = confirm("정말로 삭제하시겠습니까?");
+		if(flag) {
+			delItem('<%=request.getParameter("dno") %>');
+		}
+	}
 	
  </script>
  
@@ -119,7 +126,7 @@ window.onload = function() {
 				onclick="location.href='/2/doctrine/docMod.jsp?dno=<%=request.getParameter("dno") %>'"
 				class="btn btn-outline-primary ad">수정</button>
 			<button
-				onclick="delItem('<%=request.getParameter("dno") %>')"
+				onclick="delCheck()"
 				class="btn btn-outline-danger ad">삭제</button>
 <%
 	}

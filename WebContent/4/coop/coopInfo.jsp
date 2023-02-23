@@ -74,7 +74,7 @@ if (admin || sid != null && sid.equals(coopDAO.select(Integer.parseInt(request.g
 				onclick="location.href='/4/coop/coopUpdate.jsp?cno=<%=cdto.getCno()%>'"
 				class="btn btn-outline-primary ad">수정</button>
 			<button
-				onclick="location.href='/4/coop/coopDeleteCheck.jsp?cno=<%=cdto.getCno()%>'"
+				onclick="delCheck('/4/coop/coopDeleteCheck.jsp?cno=<%=cdto.getCno()%>')"
 				class="btn btn-outline-danger ad">삭제</button>
 <%
 	}
@@ -96,6 +96,13 @@ if (admin || sid != null && sid.equals(coopDAO.select(Integer.parseInt(request.g
 			}
 		});
 	})
+	
+	function delCheck(nextPage) {
+		var flag = confirm("정말로 삭제하시겠습니까?");
+		if(flag) location.href=nextPage;
+	}
+
+
 	</script>
 
 	
