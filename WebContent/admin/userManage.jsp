@@ -43,6 +43,7 @@
 				let str = "";
 				
 				for (var i = 0; i < users.length; i++) {
+					if (users[i].email == '<%= sid %>') continue
 					str += "<tr><td>" + users[i].email + "</td>";
 					str += "<td>" + users[i].name + "</td>"
 					str += "<td>" + users[i].job + "</td>"
