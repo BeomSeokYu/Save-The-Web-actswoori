@@ -285,21 +285,19 @@ public class UserDAO {
 	}
 	
 	//승인된 회원 목록
-	public static String selectApproved() throws NamingException, SQLException {
+	public static String selectApproved() {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		
-		try {
-		String sql = "SELECT * FROM user WHERE approve=1 ORDER BY joindate DESC";
-			
-		conn = ConnectionPool.get();
-		pstmt = conn.prepareStatement(sql);
-		
-		rs = pstmt.executeQuery();
-		
 		JSONArray users = new JSONArray();
+		try {
+			String sql = "SELECT * FROM user WHERE approve=1 ORDER BY joindate DESC";
+				
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
 		
 		while (rs.next()) {
 			JSONObject obj = new JSONObject();
@@ -312,98 +310,92 @@ public class UserDAO {
 			users.add(obj);
 			
 		}
-			
-		return users.toJSONString();
 		
+		} catch (Exception e) {
 		} finally {
-			if(rs != null) rs.close();
-			if(pstmt != null) pstmt.close();
-			if(conn != null) conn.close();
+			close(conn, pstmt, null);
 		}
-		}
+		
+		return users.toJSONString();
+	}
 		
 	//승인 대기중인 회원 목록
-	public static String selectTmpList() throws NamingException, SQLException {
+	public static String selectTmpList() {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		
-		try {
-		String sql = "SELECT * FROM user WHERE approve=0 ORDER BY joindate ASC";
-		
-		conn = ConnectionPool.get();
-		pstmt = conn.prepareStatement(sql);
-		
-		rs = pstmt.executeQuery();
-		
 		JSONArray users = new JSONArray();
-		
-		while (rs.next()) {
-			JSONObject obj = new JSONObject();
-			obj.put("email", rs.getString("email"));
-			obj.put("password", base64Decode(rs.getString("password")));
-			obj.put("name", rs.getString("name"));
-			obj.put("job", rs.getString("job"));
-			obj.put("joindate", rs.getString("joindate"));
+		try {
+			String sql = "SELECT * FROM user WHERE approve=0 ORDER BY joindate ASC";
 			
-			users.add(obj);
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
 			
-		}
+			rs = pstmt.executeQuery();
 			
-		return users.toJSONString();
-		
+			while (rs.next()) {
+				JSONObject obj = new JSONObject();
+				obj.put("email", rs.getString("email"));
+				obj.put("password", base64Decode(rs.getString("password")));
+				obj.put("name", rs.getString("name"));
+				obj.put("job", rs.getString("job"));
+				obj.put("joindate", rs.getString("joindate"));
+				
+				users.add(obj);
+				
+			}
+		} catch (Exception e) {
 		} finally {
-			if(rs != null) rs.close();
-			if(pstmt != null) pstmt.close();
-			if(conn != null) conn.close();
+			close(conn, pstmt, rs);
 		}
-		}
+		return users.toJSONString();
+	}
 		
-	public static int acceptUser(String email) throws NamingException, SQLException {
+	public static int acceptUser(String email) {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		int result;
+		int result = 0;
 
 		try {
-		String sql = "Update user SET approve=1 WHERE email=?";
-		
-		conn = ConnectionPool.get();
-		pstmt = conn.prepareStatement(sql);
-		
-		pstmt.setString(1, email);
-		
-		result = pstmt.executeUpdate();
-		
+			String sql = "Update user SET approve=1 WHERE email=?";
+			
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, email);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
 		} finally {
-		if(pstmt != null) pstmt.close();
-		if(conn != null) conn.close();
+			close(conn, pstmt, null);
 		}
 	
 		return result;
 	}
 	
 	//승인상태 변경
-	public static int acceptChange(String email) throws NamingException, SQLException {
+	public static int acceptChange(String email) {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		int result;
+		int result = 0;
 		
 		try {
-		String sql = "Update user SET approve=0 WHERE email=?";
+			String sql = "Update user SET approve=0 WHERE email=?";
+			
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, email);
+			
+			result = pstmt.executeUpdate();
 		
-		conn = ConnectionPool.get();
-		pstmt = conn.prepareStatement(sql);
-		
-		pstmt.setString(1, email);
-		
-		result = pstmt.executeUpdate();
-		
+		} catch (Exception e) {
 		} finally {
-		if(pstmt != null) pstmt.close();
-		if(conn != null) conn.close();
+			close(conn, pstmt, null);
 		}
 	
 		return result;
