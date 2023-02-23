@@ -43,13 +43,7 @@ window.onload = function() {
 				//? name은 doctrine에서 파라미터로 넘어오는데, date는 넘어오지 않음. 왜?
 				$("#name").html(name); 
 				$("#date").html(date);
-				console.log($("#email").val());
 				
-				if (sid==admin||sid==$("#email").val()) {
-			$('.ad').show()
-		} else {
-		$('.ad').hide()
- 		}
  				} 
  			
  			})

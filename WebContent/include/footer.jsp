@@ -18,9 +18,6 @@
       <div class="col-6 col-md-2 mb-3">
         <h5>예배와 말씀</h5>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">예배 설교</a></li>
-          <li class="nav-item mb-2"><a href="/2/lecture/lectureMain.jsp" class="nav-link p-0 text-muted">주요 특강</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">복음과 교리</a></li>
           <li class="nav-item mb-2"><a href="/2/worship/wSelectAll.jsp" class="nav-link p-0 text-muted">예배 설교</a></li>
           <li class="nav-item mb-2"><a href="/2/lecture/lectureMain.jsp" class="nav-link p-0 text-muted">주요 특강</a></li>
           <li class="nav-item mb-2"><a href="/2/doctrine/doctrine.jsp" class="nav-link p-0 text-muted">복음과 교리</a></li>
@@ -53,8 +50,7 @@
         <% if (session.getAttribute("sid") == null) { %>
 			<a href="/user/login.jsp">로그인<i class="bi bi-box-arrow-in-right"></i></a>
 		<% } else {%>
-			<a class="nav-link dropdown-toggle mb-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-           		[<%= sid %> 님]
+			<a class="nav-link dropdown-toggle mb-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="namef">
             </a>
 			<ul class="dropdown-menu">
 	            <li><a class="dropdown-item" href="/user/signeditPw.jsp">내 정보 변경</a></li>
@@ -141,4 +137,21 @@ function popModal(head, body) {
              + '<a href="'+url+'" class="btn btn-warning">이동</a>')
     $('#msgModal').modal('show');
  }
+ 
+ $(function getUserName() {
+		$.ajax({
+			type : 'post',
+			url : '/user/userInfoProc.jsp',
+			data : {
+				email : '<%=sid%>'
+			},
+			dataType : "text",
+			async : false,
+			success : function(data) {
+				var user = JSON.parse(data.trim());
+				$('#namef').html('[ ' + user.name + ' 님 ]')
+			}
+		});
+	})
+ 
 </script>
