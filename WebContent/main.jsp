@@ -94,8 +94,8 @@
 					<table class="table mb-4">
 						<thead class="table-light">
 							<tr>
-								<th>예배</th>
-								<th>시간</th>
+								<th style="width:50%">예배</th>
+								<th style="width:50%">시간</th>
 							</tr>
 						</thead>
 						<tbody class="table-gruop-divider">
@@ -136,8 +136,8 @@
 					<table class="table mb-4">
 						<thead class="table-light">
 							<tr>
-								<th>예배</th>
-								<th>시간</th>
+								<th style="width:50%">예배</th>
+								<th style="width:50%">시간</th>
 							</tr>
 						</thead>
 						<tbody class="table-gruop-divider">
@@ -332,7 +332,6 @@
 		<script>
 		    new WOW().init();
 		</script>
-		
 		
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="/resources/js/bootstrap.min.js"></script>
