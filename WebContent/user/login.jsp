@@ -88,12 +88,54 @@ body {
 	    <div>
 	    	<p><a  class="text-dark" href="/user/pwfind.jsp" class="">비밀번호 찾기</a></p>
 	    </div>
+	    <div>
+	    	<a id="custom-login-btn" href="javascript:kakaoLogin()">
+				<img src="/resources/img/kakao_login_medium_narrow.png">
+			</a>
+	    </div>
 	  </form>
 	</div>
 </div>
 
 <%@ include file="/include/footer.jsp" %>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
+<script>
+	//발급 받은 키
+	Kakao.init("1d944d4a9cb22483964d7e130a9b4c2a");
+	
+	function kakaoLogin() {
+		window.Kakao.Auth.login({
+			// 개발자 사이트에서 체크한 항목들과 반드시 일치해야 한다. 
+			scope:'account_email',
+			success: function (authObj) {
+				window.Kakao.API.request({
+					url:'/v2/user/me',
+					success:res => {
+						const kakaoAccount = res.kakao_account;
+						fetch('/user/loginKakaoProc.jsp', {
+							method: "post",
+							body: new URLSearchParams({
+									id: kakaoAccount.email,
+								})
+					        })
+							.then(resp => resp.text())
+							.then(data => {
+								console.log(data);
+								data = data.trim()
+								if (data == 'success') {
+									location.href = '/main.jsp';
+								} else if (data == 'fail') {
+									popModalRedirect('존재하지 않는 회원입니다', '회원가입을 하시겠습니까?', '/user/signup.jsp?email='+kakaoAccount.email);
+								}
+							})
+					}
+				});		
+			}
+		});
+	}
+
+</script>
 
 <script>
 $('#loginBtn').on('click', function(){
