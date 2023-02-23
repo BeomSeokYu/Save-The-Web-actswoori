@@ -6,12 +6,12 @@
   <hr>
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item">
-      <a href="#" class="nav-link link-dark" aria-current="page">
+      <a href="/3/edu.jsp" class="nav-link link-dark" aria-current="page">
                  교육 부서
       </a>
     </li>
     <li>
-      <a href="#" class="nav-link link-dark">
+      <a href="/3/area.jsp" class="nav-link link-dark">
                  구역과 전도회
       </a>
     </li>

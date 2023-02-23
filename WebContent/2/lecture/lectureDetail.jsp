@@ -19,7 +19,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>행전우리교회</title>
 <%@ include file="/include/header.jsp"%>
 </head>
 <body>
@@ -42,7 +42,7 @@
 				<div class="col-9">
 				
 				<div class="pt-5"></div>
-				<h2>특강</h2>
+				<h2>주요 특강</h2>
 				<hr>
 
 				<div>

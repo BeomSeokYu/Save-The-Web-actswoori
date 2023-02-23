@@ -14,6 +14,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< Updated upstream
+=======
+<title>행전우리교회</title>
+<%@ include file="/include/header.jsp" %> 
+>>>>>>> Stashed changes
 <style>
 .the-canvas {
   border: 1px solid black;

@@ -6,17 +6,17 @@
   <hr>
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item">
-      <a href="/1/vision" class="nav-link link-dark" aria-current="page">
+      <a href="/1/vision.jsp" class="nav-link link-dark" aria-current="page">
                  교회 비전
       </a>
     </li>
     <li>
-      <a href="/1/moin.jsp" class="nav-link link-dark">
+      <a href="/1/moim.jsp" class="nav-link link-dark">
                  모임 안내
       </a>
     </li>
     <li>
-      <a href="#" class="nav-link link-dark">
+      <a href="/1/peopleAll.jsp" class="nav-link link-dark">
                   섬기는 사람들
       </a>
     </li>

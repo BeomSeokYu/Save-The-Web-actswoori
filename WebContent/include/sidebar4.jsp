@@ -17,7 +17,7 @@
     </li>
     <li>
       <a href="/4/coop/coopList.jsp" class="nav-link link-dark">
-                  협력교회와 기관소식
+                  협력 교회와 기관 소식
       </a>
     </li>
     <li>

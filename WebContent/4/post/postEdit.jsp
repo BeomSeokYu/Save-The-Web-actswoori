@@ -14,6 +14,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>행전우리교회</title>
 <style>
 
 .iframe {
@@ -42,11 +43,18 @@
 	PostDTO pdto = PostDAO.selectPost(pno);
 	String filePath = pdto.getPupfolder() + "/" + pdto.getPuuid() + "_" + pdto.getPfilename(); %>
  
-
-	<div class="container">
-		<div class="pt-5"></div>
-		<h2>주보 수정</h2>
-		<hr>
+<div class="container">
+		<div class="photo-gallery container mb-3">
+			<div class="row justify-content-center">
+				<h2>주보 수정</h2>
+				<div class="col-3 d-none d-lg-block">
+					<%@ include file="/include/sidebar4.jsp"%>
+				</div>
+				<div class="col-9">
+					<div class="row">
+						<div class="col-3 text-muted"></div>
+						<div class="col-9 text-end"></div>
+					</div>
 		<form action="postEditCheck.jsp" name=f1 method=post enctype="multipart/form-data">
 			<div class="input-group mb-2 input-group-lg">
 				<span class="input-group-text col-1 mx-auto" >제목</span>
@@ -68,7 +76,7 @@
 					class="btn btn-outline-secondary mx-2">
 			</div>
 		</form>
-	</div>
+	</div></div></div></div>
 
 
  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>

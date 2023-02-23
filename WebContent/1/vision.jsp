@@ -7,11 +7,22 @@
 <%@ include file="/include/header.jsp" %> 
 </head>
 <body>
+<<<<<<< Updated upstream
 <%@ include file="/include/navbar.jsp" %>
 <div class="container" align="center">
 	<div><img src="/resources/img/교회 로고.png"></div>
 	<div>
 		<h2>나라가임하는교회 10대 비전</h2>
+=======
+	<%@ include file="/include/navbar.jsp"%>
+	<div class="container">
+		<div class="photo-gallery container mb-3">
+			<div class="row justify-content-center">
+				<h2>교회 비전</h2>
+				<div class="col-3 d-none d-lg-block">
+					<%@ include file="/include/sidebar1.jsp"%>
+				</div>
+>>>>>>> Stashed changes
 
 		 <div>
 		 	<br>

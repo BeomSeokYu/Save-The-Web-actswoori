@@ -20,11 +20,59 @@ int nno = Integer.parseInt(request.getParameter("nno"));
 NewsDTO ndto = NewsDAO.selectNews(nno);
 
 %>
+<<<<<<< Updated upstream
 <div class="container">
 <div class="photo-gallery container mb-3">
 	<div class="row justify-content-center">
 		<div class="col-3 d-none d-lg-block">
 			<%@ include file="/include/sidebar4.jsp" %>
+=======
+
+	<div class="container">
+		<div class="photo-gallery container mb-3">
+			<div class="row justify-content-center">
+				<div class="col-3 d-none d-lg-block pt-5">
+					<%@ include file="/include/sidebar4.jsp"%>
+				</div>
+				<div class="col-9">
+
+					<div class="pt-5"></div>
+					<h2>교회 소식</h2>
+					<hr>
+
+					<div>
+						<!-- 		<table class="table table-bordered">
+						<tr>
+							<th class="col-1 text-center table-light">제목</th>
+							<th class="col-5" id="ntitle"></th>
+							<th class="col-1 text-center table-light">작성자</th>
+							<th class="col-2" id="nname"></th>
+							<th class="col-1 text-center table-light">날짜</th>
+							<th class="col-2" id="ndate"></th>
+						</tr>
+					</table> -->
+
+						<table class="table table-bordered">
+							<tr>
+								<th class="col-1 text-center table-light">제목</th>
+								<th class="col-5"><%= ndto.getNtitle()  %></th>
+								<th class="col-1 text-center table-light">작성자</th>
+								<th class="col-2" id="nameth"></th>
+								<th class="col-1 text-center table-light">날짜</th>
+								<th class="col-2"><%= ndate %></th>
+							</tr>
+						</table>
+
+						<div class="py-3 px-5">
+							<div class="text-lg">
+								<p><%= ndto.getNcontent()  %></p>
+								<!-- <p id="ncontent"></p> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+>>>>>>> Stashed changes
 		</div>
 <div class="col-9">
      			
@@ -59,9 +107,36 @@ NewsDTO ndto = NewsDAO.selectNews(nno);
 </div>
 </div>
 
+<<<<<<< Updated upstream
 <%@ include file="/include/footer.jsp" %>
 
 <script>
+=======
+		window.onload = function() {
+			viewFunction(nno);
+		}
+	</script> --%>
+	<script>
+	$(function getUserName(a) {
+		$.ajax({
+			type : 'post',
+			url : '/user/userInfoProc.jsp',
+			data : {
+				email : '<%=ndto.getEmail()%>'
+			},
+			dataType : "text",
+			success : function(data) {
+				var user = JSON.parse(data.trim());
+				$('#nameth').html(user.name)
+			}
+		});
+	})
+		function handleDeleteBtn(nno) {
+			if (confirm("정말로 삭제하시겠습니까?")) {
+				location.href = "deleteProc.jsp?nno=" + nno
+			}
+		}
+>>>>>>> Stashed changes
 
 $(function(){
    const urlParams = new URL(location.href).searchParams;

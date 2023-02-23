@@ -18,12 +18,15 @@
 <body>
 <%@ include file="/include/navbar.jsp" %>
 
-  <section class="py-5 text-center container"></section>
 <!-- 게시판 영역 -->
 <div class="container">
 	<div class="photo-gallery container mb-3">
 		<div class="row justify-content-center">
+<<<<<<< Updated upstream
 			<h2>협력 기관 소식</h2>
+=======
+			<h2>협력 교회와 기관 소식</h2>
+>>>>>>> Stashed changes
 			<div class="col-3 d-none d-lg-block">
 				<%@ include file="/include/sidebar4.jsp"%>
 			</div>
