@@ -220,42 +220,5 @@ function getDate(input) {
 }
 </script>	
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-lightbox.option({
-    resizeDuration: 200,
-    wrapAround: false,
-    disableScrolling: true,
-    fitImagesInViewport: true
-});
-
-function regPhoto(){
-	$('#uploadModal').modal('show');
-}
-
-$('#doneBtn').on('click', function(){
-	if ($('#title').val() != '' && $('#image').val() != '') {
-		$('#imgForm').submit();
-	} else {
-		popModal('사진 등록 실패', '입력 값이 없는 항목이 있습니다.')
-	}
-});
-</script>
 </body>
 </html>
