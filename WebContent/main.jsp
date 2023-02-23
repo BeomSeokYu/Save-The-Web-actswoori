@@ -218,7 +218,7 @@
                                                         <div class="profile-circle">
                                                             <img src="" alt="">
                                                         </div>
-                                                        <div class="testimonial_content">
+                                                        <div class="testimonial_content rounded opacity-75">
                                                             <span><%= newsList.size() > 0 ? newsList.get(0).getNcontent() : ""  %></span>
                                                         </div>
                                                         <div class="testimonial_author">
@@ -230,10 +230,10 @@
                                                         <div class="profile-circle">
                                                             <img src="" alt="">
                                                         </div>
-                                                        <div class="testimonial_content">
+                                                        <div class="testimonial_content rounded opacity-75">
                                                             <span><%= newsList.size() > 1 ? newsList.get(1).getNcontent() : ""  %></span>
                                                         </div>
-                                                        <div class="testimonial_author">
+                                                        <div class="testimonial_author">	
                                                             <h3><%= newsList.size() > 1 ? newsList.get(1).getNtitle() : ""  %></h3>
                                                             <p><%= newsList.size() > 1 ? newsList.get(1).getEmail() : "" %></p>
                                                         </div>
@@ -247,7 +247,7 @@
                                                         <div class="profile-circle">
                                                             <img src="" alt="">
                                                         </div>
-                                                        <div class="testimonial_content">
+                                                        <div class="testimonial_content rounded opacity-75">
                                                             <span><%= newsList.size() > 2 ? newsList.get(2).getNcontent() : "" %></span>
                                                         </div>
                                                         <div class="testimonial_author">
@@ -259,7 +259,7 @@
                                                         <div class="profile-circle">
                                                             <img src="" alt="">
                                                         </div>
-                                                        <div class="testimonial_content">
+                                                        <div class="testimonial_content rounded opacity-75">
                                                             <span><%= newsList.size() > 3 ? newsList.get(3).getNcontent() : "" %></span>
                                                         </div>
                                                         <div class="testimonial_author">
