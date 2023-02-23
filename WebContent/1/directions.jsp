@@ -48,7 +48,7 @@
 
 	<%@ include file="/include/footer.jsp"%>
 	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fe9fe1780c1cb1dd5d288357cca644bb"></script>
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1d944d4a9cb22483964d7e130a9b4c2a"></script>
 	<script>
 		var container = document.getElementById('map');
 		var options = {
