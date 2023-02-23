@@ -62,7 +62,8 @@ var sid = "<%=sid%>";
 							[ 'font', [ 'bold', 'underline', 'clear' ] ],
 							[ 'color', [ 'color' ] ],
 							[ 'insert', [ 'link', 'picture', 'video' ] ],
-							[ 'view', [ 'fullscreen', 'codeview', 'help' ] ] ]
+							[ 'view', [ 'fullscreen', 'codeview', 'help' ] ] ],
+					placeholder : '내용을 입력해주세요'
 				});
 
 		function addItem() {

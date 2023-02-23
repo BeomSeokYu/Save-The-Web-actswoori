@@ -34,7 +34,7 @@
 		
 		<div class="input-group mb-2 input-group-lg">
 			<span class="input-group-text col-2 justify-content-center">제목</span> 
-			<input type="text" class="form-control col-10" name="vtitle" id="vtitle" required>
+			<input type="text" class="form-control col-10" name="vtitle" id="vtitle" required placeholder="제목을 입력해주세요">
 		</div>
 		
 		<div>
@@ -78,7 +78,8 @@
 					      ['table', ['table']],
 					      ['insert', ['link', 'picture', 'video']],
 					      ['view', ['fullscreen', 'codeview', 'help']]
-					    ]
+					    ],
+					    placeholder="내용을 입력해주세요"
 					  });
 				}
 			});

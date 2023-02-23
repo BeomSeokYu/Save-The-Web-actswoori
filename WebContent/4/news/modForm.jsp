@@ -47,7 +47,7 @@ NewsDTO ndto = NewsDAO.selectNews(nno);
 			<div class="input-group mb-2 input-group-lg">
 				<span class="input-group-text col-2 justify-content-center">제목</span> 
 				<input type="text" class="form-control col-10" name="title" id="title"
-					value="<%= ndto.getNtitle() %>" required>
+					value="<%= ndto.getNtitle() %>" required placeholder="제목을 입력해주세요">
 			</div>
 			
 			<div>
@@ -80,7 +80,6 @@ if (msg == "fail") {
   <script>
   
    $('#summernote').summernote({
-     placeholder: 'Hello stand alone ui',
      tabsize: 2,
      height: 500,
      toolbar: [
@@ -89,7 +88,8 @@ if (msg == "fail") {
        ['color', ['color']],
        ['insert', ['link', 'picture']],
        ['view', ['fullscreen']]
-     ]
+     ],
+     placeholder="내용을 입력해주세요"
    });
    
 	$('#summernote').summernote('code', "<%= ndto.getNcontent() %>");
