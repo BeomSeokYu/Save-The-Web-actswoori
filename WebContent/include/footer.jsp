@@ -18,15 +18,12 @@
       <div class="col-6 col-md-2 mb-3">
         <h5>예배와 말씀</h5>
         <ul class="nav flex-column">
-<<<<<<< Updated upstream
           <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">예배 설교</a></li>
           <li class="nav-item mb-2"><a href="/2/lecture/lectureMain.jsp" class="nav-link p-0 text-muted">주요 특강</a></li>
           <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">복음과 교리</a></li>
-=======
           <li class="nav-item mb-2"><a href="/2/worship/wSelectAll.jsp" class="nav-link p-0 text-muted">예배 설교</a></li>
           <li class="nav-item mb-2"><a href="/2/lecture/lectureMain.jsp" class="nav-link p-0 text-muted">주요 특강</a></li>
           <li class="nav-item mb-2"><a href="/2/doctrine/doctrine.jsp" class="nav-link p-0 text-muted">복음과 교리</a></li>
->>>>>>> Stashed changes
         </ul>
       </div>
 
