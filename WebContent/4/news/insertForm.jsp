@@ -47,7 +47,7 @@
 	</div>
 	
 	<div class="d-flex justify-content-end my-4">
-		<button class="btn btn-outline-primary mx-2" onclick="addItem()">등록</button>
+		<button class="btn btn-outline-primary mx-2" type="button" onclick="addItem()">등록</button>
 		<input type="button" value="취소" onclick="history.back()"
 			class="btn btn-outline-secondary mx-2">
 	</div>
@@ -86,7 +86,7 @@ if (msg == "fail") {
    function addItem() {
 	   var title = $('#title').val().trim()
 		
-		if(title=='' ||  $('#content').summernote('isEmpty')) {
+		if(title=='' ||  $('#summernote').summernote('isEmpty')) {
 			alert('제목 또는 내용을 입력해주세요')
 		} else {
 		 $("#content").val($("#summernote").summernote("code"));

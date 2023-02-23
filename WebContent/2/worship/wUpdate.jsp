@@ -46,7 +46,7 @@
 		</div>
 		
 		<div class="d-flex justify-content-end my-4">
-			<button class="btn btn-outline-primary mx-2" type="submit">수정</button>
+			<button class="btn btn-outline-primary mx-2" type="button" onclick="gogo()">수정</button>
 			<input type="button" value="취소" onclick="history.back()"
 				class="btn btn-outline-secondary mx-2">
 		</div>

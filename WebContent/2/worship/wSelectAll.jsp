@@ -32,7 +32,7 @@
 						</div>
 						<div class="col-9 text-end">
 					<% if (sid != null) { // 세션 처리 %>
-							<a href="wInsert.jsp" class="btn btn-sm btn-outline-success">등록 </a>
+							<a href="wInsert.jsp" class="btn btn-sm btn-outline-success">게시물 등록 </a>
 						<%} %>
 						</div>
 					</div>
