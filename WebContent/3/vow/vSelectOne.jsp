@@ -16,6 +16,7 @@
 		<div>
 			<h3 id="vtitle"></h3>
 		</div>
+<<<<<<< Updated upstream
 		<div>
 			작성자 : <span id="email"></span>
 			<br>
@@ -25,11 +26,28 @@
 			<p id="vcontent"></p>
 		</div>
 		<div>
+=======
+	</div>
+
+		<div class="d-grid gap-2 d-md-flex justify-content-md-end mb-5">
+			<input type="button" value="목록" onclick="location.href='vSelectAll.jsp'"
+				class="btn btn-outline-success">
+
+>>>>>>> Stashed changes
 <%
 	if (sid != null && sid.equals(VowDAO.selectEmail(Integer.parseInt(request.getParameter("vno"))))) { // 세션 처리
 %>
+<<<<<<< Updated upstream
 			<a class="btn btn-primary" href="vUpdate.jsp?vno=<%=request.getParameter("vno")%>" role="button">수정</a>
 			<a class="btn btn-primary" href="vDeleteCheck.jsp?vno=<%=request.getParameter("vno")%>" role="button">삭제</a>
+=======
+			<button
+				onclick="location.href='/3/vow/vUpdate.jsp?vno=<%=request.getParameter("vno")%>'"
+				class="btn btn-outline-primary ad">수정</button>
+			<button
+				onclick="location.href='/3/vow/vDeleteCheck.jsp?vno=<%=request.getParameter("vno")%>'"
+				class="btn btn-outline-danger ad">삭제</button>
+>>>>>>> Stashed changes
 <%
 	}
 %>

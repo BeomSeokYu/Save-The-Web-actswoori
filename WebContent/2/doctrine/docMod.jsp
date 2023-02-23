@@ -89,11 +89,20 @@
 			dataType:"text",
 			
 			success:function(data) {
+				data = data.trim()
+				if (data=='true'){
+					popModal2("복음과 교리 수정", "수정에 성공하셨습니다", "docView.jsp?dno="+dno)
+				} else {
+					popModal2("복음과 교리 수정", "수정에 실패하셨습니다", "docView.jsp?dno="+dno)
+				}
 				var summernote = document.getElementById('summernote');
 				summernote.value="";
 				$("#summernote").summernote("reset");
+<<<<<<< Updated upstream
 				
 				popModalRedirect("수정", "수정에 성공하셨습니다", "doctrine.jsp")
+=======
+>>>>>>> Stashed changes
 
 			}
 		});

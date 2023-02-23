@@ -15,39 +15,20 @@ int cno = Integer.parseInt(request.getParameter("cno"));
 coopDAO cdao = new coopDAO();
 int result = coopDAO.delete(cno);
 
-if(result==1){
+if(result == 1){ %>
 
-%>
-
-	<!-- Modal -->
-	<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	  <div class="modal-dialog">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h1 class="modal-title fs-5" id="exampleModalLabel">게시물 삭제</h1>
-	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-	      </div>
-	      <div class="modal-body">
-	        게시물 삭제 완료
-	      </div>
-	      <div class="modal-footer">
-		        <button onclick="location.href='coopList.jsp'" class="btn btn-primary">목록으로</button>
-
-	      </div>
-	    </div>
-	  </div>
-	</div>
-
-	<script>
+<script>
 		$(function() {
-			$("#exampleModal1").modal("show");
-		});
-	</script>	
-	
-<% 		
-	}
+			popModal2("협력 교회와 기관 소식 삭제", "삭제를 성공하셨습니다.", "coopList.jsp")}); 
 
-%>
-</body>
- <%@include file="/include/footer.jsp" %>
-</html>
+</script>
+
+<%}else{%>
+<script>
+	$(function() {
+		popModal2("협력 교회와 기관 소식 삭제", "삭제를 실패하셨습니다.", "coopList.jsp")}); 
+</script>
+<% } %>
+
+<%@include file="/include/footer.jsp" %>
+

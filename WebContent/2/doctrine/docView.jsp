@@ -60,7 +60,17 @@ window.onload = function() {
  			dataType:"text",
  			
  			success:function(data) {
+<<<<<<< Updated upstream
 				popModalRedirect("삭제", "삭제에 성공하셨습니다", "doctrine.jsp")
+=======
+ 				data = data.trim()
+				if (data=='true'){
+					popModal2("복음과 교리 삭제", "삭제에 성공하셨습니다", "doctrine.jsp")
+				} else {
+					popModal2("복음과 교리 삭제", "삭제에 실패하셨습니다", "doctrine.jsp")
+				}
+ 				
+>>>>>>> Stashed changes
 
  			}
  		});
@@ -77,8 +87,30 @@ window.onload = function() {
 <div name="content" id="content" class="mtop-10"></div>
 <input type="button" value="이전으로" onclick="history.back()">
 
+<<<<<<< Updated upstream
 <input type="button" value="수정" onclick="location.href='docMod.jsp?dno=<%=request.getParameter("dno") %>'" class="ad">
 <input type="button" value="삭제" class="ad" onclick="delItem('<%=request.getParameter("dno") %>')">
+=======
+		<div class="d-grid gap-2 d-md-flex justify-content-md-end mb-5">
+			<input type="button" value="목록" onclick="location.href='doctrine.jsp'"
+				class="btn btn-outline-success">
+
+<%
+		if (admin || (sid != null && sid.equals(docDAO.selectEmail(Integer.parseInt(request.getParameter("dno")))))) { // 세션 처리
+%>
+			<button
+				onclick="location.href='/2/doctrine/docMod.jsp?dno=<%=request.getParameter("dno") %>'"
+				class="btn btn-outline-primary ad">수정</button>
+			<button
+				onclick="delItem('<%=request.getParameter("dno") %>')"
+				class="btn btn-outline-danger ad">삭제</button>
+<%
+	}
+%>
+		</div>
+	</div>
+	
+>>>>>>> Stashed changes
     <%@ include file="/include/footer.jsp" %>
 </body>
 </html>

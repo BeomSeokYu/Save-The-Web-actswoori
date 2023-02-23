@@ -83,7 +83,12 @@ if (msg == "fail") {
        ['color', ['color']],
        ['insert', ['link', 'picture']],
        ['view', ['fullscreen']]
+<<<<<<< Updated upstream
      ]
+=======
+     ],
+     placeholder:"내용을 입력해주세요"
+>>>>>>> Stashed changes
    });
    
 	$('#summernote').summernote('code', "<%= ndto.getNcontent() %>");

@@ -68,9 +68,20 @@
     <script>
      $('#summernote').val('<%=cdto.getCcontent()%>'); 
       $('#summernote').summernote({
-        placeholder:'',
         tabsize: 2,
+<<<<<<< Updated upstream
         height: 500
+=======
+        height: 500,
+        toolbar : [ [ 'style', [ 'style' ] ],
+			[ 'font', [ 'bold', 'underline', 'clear' ] ],
+			[ 'color', [ 'color' ] ],
+			[ 'para', [ 'ul', 'ol', 'paragraph' ] ],
+			[ 'table', [ 'table' ] ],
+			[ 'insert', [ 'link', 'picture', 'video' ] ],
+			[ 'view', [ 'fullscreen', 'codeview', 'help' ] ] ],
+        placeholder:"내용을 입력해주세요"
+>>>>>>> Stashed changes
         
       });
     </script>

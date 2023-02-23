@@ -18,13 +18,13 @@ if(result == 1){ %>
 
 	<script>
 		$(function() {
-			popModalRedirect("게시물 수정", "수정 완료 하였습니다.", "coopList.jsp")}); 
+			popModal2("게시물 수정", "수정을 성공하셨습니다.", "/4/coop/coopInfo.jsp?cno="+<%=cno%>)}); 
 	</script>
 	
 <%}else{%>
 	<script>
 	$(function() {
-		popModalRedirect("게시물 수정", "수정을 실패 하였습니다.", "coopList.jsp")}); 
+		popModal2("게시물 수정", "수정을 실패하셨습니다.", "/4/coop/coopInfo.jsp?cno="+<%=cno%>)}); 
 	</script>
 <% } %>
 

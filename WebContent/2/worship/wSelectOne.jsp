@@ -14,6 +14,7 @@
 		<div>
 			<h3 id="wtitle"></h3>
 		</div>
+<<<<<<< Updated upstream
 		<div>
 			설교자 : <span id="wname"></span>
 			<br>
@@ -25,6 +26,18 @@
 			<p id="wcontent"></p>
 		</div>
 		<div>
+=======
+	</div>
+
+	
+		<!-- if 4페이지였으면 목록 클릭했을 때 4페이지로 가게 하기 위해서 -->
+		<!-- <a class="btn btn-warning" href='/2/lecture/lectureMain.jsp' role="button">목록</a>  -->
+
+		<div class="d-grid gap-2 d-md-flex justify-content-md-end mb-5">
+			<input type="button" value="목록" onclick="location.href='wSelectAll.jsp'"
+				class="btn btn-outline-success">
+
+>>>>>>> Stashed changes
 <%
 	if (sid != null && sid.equals(WorshipDAO.selectEmail(Integer.parseInt(request.getParameter("wno"))))) { // 세션 처리
 %>

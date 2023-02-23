@@ -122,7 +122,11 @@
 							[ 'para', [ 'ul', 'ol', 'paragraph' ] ],
 							[ 'table', [ 'table' ] ],
 							[ 'insert', [ 'link', 'picture', 'video' ] ],
+<<<<<<< Updated upstream
 							[ 'view', [ 'fullscreen', 'codeview', 'help' ] ] ]
+=======
+							[ 'view', [ 'fullscreen', 'codeview', 'help' ] ] ],
+>>>>>>> Stashed changes
 				});
 	</script>
 

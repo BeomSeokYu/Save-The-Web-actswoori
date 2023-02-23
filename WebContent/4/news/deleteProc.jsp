@@ -6,16 +6,30 @@
 <%@page import="jdbc.NewsDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ include file="/include/header.jsp"%>   
 <%
 request.setCharacterEncoding("utf-8");
 
+<<<<<<< Updated upstream
+=======
+if (sid == null) {
+	response.sendRedirect("newsAll.jsp");
+	return;
+}
+
+>>>>>>> Stashed changes
 int nno = Integer.parseInt(request.getParameter("nno"));
 
 boolean result = NewsDAO.deleteNews(nno);
 
-if (result) {
-	response.sendRedirect("newsAll.jsp?msg=deleteSuccess");
-} else {
-response.sendRedirect("newsDetail.jsp?msg=fail");
-}
-%>
+if (result){%>
+<script>
+window.onload = function(){ popModal2("교회 소식 삭제", "삭제를 성공하셨습니다", "/4/news/newsAll.jsp")}
+</script>
+<%} else {%>
+<script>
+window.onload =  function(){popModal2("교회 소식 삭제", "삭제를 실패하셨습니다", "/4/news/newsAll.jsp")}
+</script>
+<%}%>
+
+<%@ include file="/include/footer.jsp"%>   

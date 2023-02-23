@@ -71,7 +71,12 @@ if(sid == null) { // 보안 처리
 		      ['table', ['table']],
 		      ['insert', ['link', 'picture', 'video']],
 		      ['view', ['fullscreen', 'codeview', 'help']]
+<<<<<<< Updated upstream
 		    ]
+=======
+		    ],
+		    placeholder:"내용을 입력해주세요"
+>>>>>>> Stashed changes
 		  });
 	</script>
 </body>

@@ -21,14 +21,14 @@ if(result == 1){ %>
 	
 	<script>
  		$(function() {
- 			popModalRedirect("게시물 등록", "등록 완료 하였습니다.", "coopList.jsp")}); 
+ 			popModal2("협력 교회와 기관 소식 등록", "등록 완료 하였습니다.", "coopList.jsp")}); 
 
 	</script>
 	
 <%}else{%>
 	<script>
 		$(function() {
-			popModalRedirect("게시물 등록", "등록을 실패 하였습니다.", "coopList.jsp")}); 
+			popModal2("협력 교회와 기관 소식 등록", "등록을 실패 하였습니다.", "coopList.jsp")}); 
 	</script>
 <% } %>
 
