@@ -18,12 +18,11 @@
 <body>
 <%@ include file="/include/navbar.jsp" %>
 
-  <section class="py-5 text-center container"></section>
 <!-- 게시판 영역 -->
 <div class="container">
 	<div class="photo-gallery container mb-3">
 		<div class="row justify-content-center">
-			<h2>협력교회와 기관 소식</h2>
+			<h2>협력 교회와 기관 소식</h2>
 			<div class="col-3 d-none d-lg-block">
 				<%@ include file="/include/sidebar4.jsp"%>
 			</div>
@@ -52,9 +51,9 @@
 					<table class="table table-hover shadow bg-body rounded">
 						<thead>
 							<tr style="background-color: #548687; color: white;">
-								<th scope="col">제목</th>
-								<th scope="col">작성자</th>
-								<th scope="col">작성일자</th>
+								<th scope="col" class="col-6">제목</th>
+								<th scope="col" class="col-2">작성자</th>
+								<th scope="col" class="col-2">작성일</th>
 							</tr>
 						</thead>
 						<tbody id="imgList">

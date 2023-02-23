@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>행전우리교회</title>
 <%@ include file="/include/header.jsp" %>
 </head>
 <body>

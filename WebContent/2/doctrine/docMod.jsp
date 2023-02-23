@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>행전우리교회</title>
 <meta charset="UTF-8">
 <%@ include file="/include/header.jsp" %>
 <%
@@ -19,14 +20,22 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 </head>
 <body>
-<%@ include file="/include/navbar.jsp" %>
+<%@ include file="/include/navbar.jsp"%>
 	<div class="container">
-		<div class="pt-5"></div>
-		<h2>복음과 교리 수정</h2>
-		<hr>
+		<div class="photo-gallery container mb-3">
+			<div class="row justify-content-center">
+				<h2>복음과 교리 수정</h2>
+				<div class="col-3 d-none d-lg-block">
+					<%@ include file="/include/sidebar2.jsp"%>
+				</div>
+				<div class="col-9">
+					<div class="row">
+						<div class="col-3 text-muted"></div>
+						<div class="col-9 text-end"></div>
+					</div>
 		<div class="input-group mb-2 input-group-lg">
-			<span class="input-group-text col-1 mx-auto">제목</span> 
-			<input type="text" class="form-control col-11" name="dtitle" id="dtitle" required>
+			<span class="input-group-text col-2 justify-content-center">제목</span> 
+			<input type="text" class="form-control col-10" name="dtitle" id="dtitle" required>
 		</div>
 		
 		<div>
@@ -38,7 +47,7 @@
 			<input type="button" value="취소" onclick="history.back()"
 				class="btn btn-outline-secondary mx-2">
 		</div>
-
+</div></div></div></div>
 <script>
 	var dno = <%=request.getParameter("dno")%>;
 

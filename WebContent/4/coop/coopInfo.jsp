@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>행전우리교회</title>
 <%@ include file="/include/header.jsp" %>
 </head>
 <body>
@@ -28,7 +29,7 @@
 		<div class="photo-gallery container mb-3">
 			<div class="row justify-content-center">
 				<div class="col-3 d-none d-lg-block pt-5">
-					<%@ include file="/include/sidebar2.jsp"%>
+					<%@ include file="/include/sidebar4.jsp"%>
 				</div>
 				<div class="col-9">
 				
@@ -42,7 +43,7 @@
 							<th class="col-1 text-center table-light">제목</th>
 							<th class="col-5"><%=cdto.getCtitle()%></th>
 							<th class="col-1 text-center table-light">작성자</th>
-							<th class="col-2"><%=cdto.getEmail()%></th>
+							<th class="col-2" id="nameth"></th>
 							<th class="col-1 text-center table-light">날짜</th>
 							<th class="col-2"><%=cdate%></th>
 						</tr>
@@ -56,6 +57,11 @@
 			</div>
 		</div>
 	</div>
+		<% if(sid != null && sid.equals(admin)){ %>
+		<a href="coopDeleteCheck.jsp?cno=<%=cdto.getCno()%>" class="btn btn-primary" >삭제하기</a>
+		<button onclick="location.href='coopUpdate.jsp?cno=<%=cdto.getCno()%>'" class="btn btn-primary">수정하기</button>
+		<% }; %>
+		<button onclick="location.href='coopList.jsp?pageNum=<%= request.getParameter("pageNum") %>&amount=<%= request.getParameter("amount") %>'" class="btn btn-primary">목록으로</button>
 
 		<div class="d-grid gap-2 d-md-flex justify-content-md-end mb-5">
 			<input type="button" value="목록" onclick="history.back()"
@@ -65,17 +71,32 @@
 if (admin || sid != null && sid.equals(coopDAO.select(Integer.parseInt(request.getParameter("cno"))).getEmail())) { // 세션 처리
 %>
 			<button
-				onclick="location.href='/4/coopInfo/coopDeleteCheck.jsp?cno=<%=cdto.getCno()%>'"
+				onclick="location.href='/4/coop/coopUpdate.jsp?cno=<%=cdto.getCno()%>'"
 				class="btn btn-outline-primary ad">수정</button>
 			<button
-				onclick="location.href='/4/coopInfo/coopDeleteCheck.jsp?cno=<%=cdto.getCno()%>'"
+				onclick="location.href='/4/coop/coopDeleteCheck.jsp?cno=<%=cdto.getCno()%>'"
 				class="btn btn-outline-danger ad">삭제</button>
 <%
 	}
 %>
 		</div>
 	</div>
-	
+	<script type="text/javascript">
+	$(function getUserName(a) {
+		$.ajax({
+			type : 'post',
+			url : '/user/userInfoProc.jsp',
+			data : {
+				email : '<%=cdto.getEmail()%>'
+			},
+			dataType : "text",
+			success : function(data) {
+				var user = JSON.parse(data.trim());
+				$('#nameth').html(user.name)
+			}
+		});
+	})
+	</script>
 
 	
 </body>

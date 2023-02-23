@@ -9,14 +9,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
 <title>행전우리교회</title>
 <%@ include file="/include/header.jsp"%>
 </head>
 <body>
 	<%@ include file="/include/navbar.jsp"%>
 
-	<div class="container mt-4">
+	<div class="container">
 		<div class="photo-gallery container mb-3">
 			<div class="row justify-content-center">
 				<h2>오시는 길</h2>
