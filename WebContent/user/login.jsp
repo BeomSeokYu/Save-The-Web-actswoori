@@ -102,7 +102,7 @@ body {
 
 <script>
 	//발급 받은 키
-	Kakao.init("fddbb21717954adbb62fabfacbf5e4c0");
+	Kakao.init("1d944d4a9cb22483964d7e130a9b4c2a");
 	
 	function kakaoLogin() {
 		window.Kakao.Auth.login({
