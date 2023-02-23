@@ -89,7 +89,7 @@ if (msg == "fail") {
        ['insert', ['link', 'picture']],
        ['view', ['fullscreen']]
      ],
-     placeholder="내용을 입력해주세요"
+     placeholder:"내용을 입력해주세요"
    });
    
 	$('#summernote').summernote('code', "<%= ndto.getNcontent() %>");

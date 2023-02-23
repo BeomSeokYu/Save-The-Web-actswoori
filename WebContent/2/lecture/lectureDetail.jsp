@@ -71,7 +71,7 @@
 		<!-- <a class="btn btn-warning" href='/2/lecture/lectureMain.jsp' role="button">목록</a>  -->
 
 		<div class="d-grid gap-2 d-md-flex justify-content-md-end mb-5">
-			<input type="button" value="목록" onclick="history.back()"
+			<input type="button" value="목록" onclick="location.href='lectureMain.jsp'"
 				class="btn btn-outline-success">
 <%	
 	// 임의 관리자 id

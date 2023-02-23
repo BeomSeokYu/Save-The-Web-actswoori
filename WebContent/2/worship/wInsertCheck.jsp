@@ -1,5 +1,7 @@
 <%@page import="worship.WorshipDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+	<%@ include file="/include/header.jsp"%>   
+
 <%
 	request.setCharacterEncoding("utf-8");
 	
@@ -15,7 +17,14 @@
 	
 	int result = WorshipDAO.insert(email, wname, wtitle, wcontent);
 	
-	if (result == 1) {
-		response.sendRedirect("wSelectAll.jsp");
-	}
-%>
+	if (result == 1){%>
+		<script>
+		window.onload = function(){ popModal2("예배 설교 등록", "등록에 성공하셨습니다", "/2/worship/wSelectAll.jsp")}
+		</script>
+	<%} else {%>
+		<script>
+		window.onload =  function(){popModal2("예배 설교 등록", "등록에 실패하셨습니다", "/2/worship/wSelectAll.jsp")}
+		</script>
+	<%}%>
+
+	<%@ include file="/include/footer.jsp"%>   

@@ -60,7 +60,6 @@
     <script>
      $('#summernote').val('<%=cdto.getCcontent()%>'); 
       $('#summernote').summernote({
-        placeholder:'',
         tabsize: 2,
         height: 500,
         toolbar : [ [ 'style', [ 'style' ] ],
@@ -70,8 +69,7 @@
 			[ 'table', [ 'table' ] ],
 			[ 'insert', [ 'link', 'picture', 'video' ] ],
 			[ 'view', [ 'fullscreen', 'codeview', 'help' ] ] ],
-        placeholder="내용을 입력해주세요"
-        
+        placeholder:"내용을 입력해주세요"
       });
     </script>
      <section class="py-5 text-center container"></section>
