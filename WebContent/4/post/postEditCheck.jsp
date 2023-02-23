@@ -32,6 +32,7 @@ body {
 <%@ include file="/include/header.jsp" %> 
 </head>
 <body>
+<%@ include file="/include/footer.jsp" %>   
 <%	
 	
 	request.setCharacterEncoding("UTF-8");
@@ -64,7 +65,16 @@ body {
 	String postOriName = multiReq.getOriginalFileName("post");
 	String postSysName = multiReq.getFilesystemName("post");
 	
-	if(postOriName != null) {
+	
+	boolean result = false;
+	
+    int pno = Integer.parseInt( multiReq.getParameter("pno") );
+	String ptitle = multiReq.getParameter("ptitle");
+
+	if (postOriName == null && ptitle != null) {
+		result = PostDAO.updatePostTitle(pno, ptitle);
+	} else  {
+		System.out.println("comein");
          // UUID 설정
          UUID uuid = UUID.randomUUID();
          System.out.println("uuid : " + uuid.toString());
@@ -81,38 +91,29 @@ body {
               System.out.println("파일명변경 실패");
           }
           
-          // DB에 넣기
-        int pno = Integer.parseInt( multiReq.getParameter("pno") );
-		String ptitle = multiReq.getParameter("ptitle");
-        boolean result = PostDAO.updatePost(pno, ptitle, uploadPath, uuid.toString(), postSysName);
+          result = PostDAO.updatePost(pno, ptitle, uploadPath, uuid.toString(), postSysName);
+	}
+	if(result) {
+       %>
+	 <script>
+	 	$(function() {
+	 		popModal2('수정 완료', '수정되었습니다.', '/4/post/postList.jsp');
+	 	});
+	 </script>
+	 <%
 		
-		if(result) {
-        %>
-		 <script>
-		 	$(function() {
-		 		popModalRedirect('주보 수정', '주보가 수정되었습니다.', 'postList.jsp');
-		 	});
-		 </script>
-		 <%
-			
-		} else {
-		%>
-		<script>
-			$(function() {
-				popModalRedirect('주보 수정', '알 수 없는 이유로 수정하지 못했습니다.', 'postList.jsp?pno=' + pno);
-			});
-		</script>
-		<%		
-			
-		}
-        	
-
+	} else {
+	%>
+	<script>
+		$(function() {
+			popModal2('주보 수정', '알 수 없는 이유로 수정하지 못했습니다.', '/4/post/postList.jsp');
+		});
+	</script>
+	<%		
+		
 	}
 
 	
 %>
-
-
-<%@ include file="/include/footer.jsp" %>   
 </body>
 </html>

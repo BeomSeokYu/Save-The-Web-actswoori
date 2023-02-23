@@ -62,7 +62,7 @@ window.onload = function() {
  			dataType:"text",
  			
  			success:function(data) {
-				popModalRedirect("삭제", "삭제에 성공하셨습니다", "doctrine.jsp")
+				popModal2("삭제", "삭제에 성공하셨습니다", "doctrine.jsp")
 
  			}
  		});

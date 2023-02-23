@@ -24,7 +24,7 @@
 %>
 <script>
 	$(function() {
-		popModalRedirect('주보 삭제', '주보가 삭제되었습니다.', 'postList.jsp');
+		popModal2('주보 삭제', '주보가 삭제되었습니다.', 'postList.jsp');
 	});
 </script>
 <%
@@ -32,7 +32,7 @@
 %>
 <script>
 	$(function() {
-		popModalRedirect('주보 삭제', '알 수 없는 이유로 삭제하지 못했습니다.', 'postView.jsp?pno='+pno);
+		popModal2('주보 삭제', '알 수 없는 이유로 삭제하지 못했습니다.', 'postView.jsp?pno='+pno);
 	});
 </script>
 <%

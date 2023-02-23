@@ -126,6 +126,7 @@ public class PostDAO {
 		}finally {
 			if(rs != null) rs.close();
 			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
 		}
 	}
 	
@@ -206,6 +207,29 @@ public class PostDAO {
 		}
 	}
 			
-			
+	// 주보 제목만 수정
+   public static boolean updatePostTitle(int pno, String ptitle)
+         throws NamingException, SQLException {
+      
+      Connection conn = null;
+      PreparedStatement pstmt = null;
+      
+      try {
+         String sql = "UPDATE post SET ptitle=? WHERE pno = ? ";
+               
+         conn = ConnectionPool.get();
+         pstmt = conn.prepareStatement(sql);
+         
+         pstmt.setString(1, ptitle);
+         pstmt.setInt(2, pno);
+         
+         return pstmt.executeUpdate() == 1 ? true : false; //성공 1이면 true, 실패 0은 false 
+
+      } finally {
+         if(pstmt != null) pstmt.close();
+         if(conn != null) conn.close();
+      }
+   }
+		
 		
 }

@@ -98,7 +98,7 @@ lecture Add.sjp
 			
 
 			<div class="d-flex justify-content-end my-4">
-				<button class="btn btn-outline-primary mx-2" type="submit" onclick="insert">등록</button>
+				<button class="btn btn-outline-primary mx-2" type="submit">등록</button>
 				
 				<!-- <a class="btn btn-warning" href='/2/lecture/lectureMain.jsp' role="button">취소</a> -->
 				<input type="button" value="취소" onclick="history.back()"
@@ -124,7 +124,8 @@ lecture Add.sjp
 							[ 'para', [ 'ul', 'ol', 'paragraph' ] ],
 							[ 'table', [ 'table' ] ],
 							[ 'insert', [ 'link', 'picture', 'video' ] ],
-							[ 'view', [ 'fullscreen', 'codeview', 'help' ] ] ]
+							[ 'view', [ 'fullscreen', 'codeview', 'help' ] ] ],
+							placeholder : '내용을 입력해주세요'
 				});
 	</script>
 

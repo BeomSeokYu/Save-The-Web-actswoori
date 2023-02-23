@@ -60,7 +60,8 @@
 					[ 'para', [ 'ul', 'ol', 'paragraph' ] ],
 					[ 'table', [ 'table' ] ],
 					[ 'insert', [ 'link', 'picture', 'video' ] ],
-					[ 'view', [ 'fullscreen', 'codeview', 'help' ] ] ]
+					[ 'view', [ 'fullscreen', 'codeview', 'help' ] ] ],
+					placeholder="내용을 입력해주세요"
 		});
     </script>
  <%@include file="/include/footer.jsp" %>

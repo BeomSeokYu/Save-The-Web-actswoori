@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!-- FOOTER -->
 <footer class="bg-light">
@@ -7,7 +6,7 @@
     <div class="row">
       <div class="col-6 col-md-2 mb-3">
         <h5>교회 소개</h5>
-        <ul class="nav flex-column">
+        <ul class="nav flex-column" style="text-align: left; margin-top: 8px;">
           <li class="nav-item mb-2"><a href="/1/vision.jsp" class="nav-link p-0 text-muted">교회 비전</a></li>
           <li class="nav-item mb-2"><a href="/1/moim.jsp" class="nav-link p-0 text-muted">모임 안내</a></li>
           <li class="nav-item mb-2"><a href="/1/peopleAll.jsp" class="nav-link p-0 text-muted">섬기는 사람들</a></li>
@@ -17,7 +16,7 @@
 
       <div class="col-6 col-md-2 mb-3">
         <h5>예배와 말씀</h5>
-        <ul class="nav flex-column">
+        <ul class="nav flex-column" style="text-align: left; margin-top: 8px;">
           <li class="nav-item mb-2"><a href="/2/worship/wSelectAll.jsp" class="nav-link p-0 text-muted">예배 설교</a></li>
           <li class="nav-item mb-2"><a href="/2/lecture/lectureMain.jsp" class="nav-link p-0 text-muted">주요 특강</a></li>
           <li class="nav-item mb-2"><a href="/2/doctrine/doctrine.jsp" class="nav-link p-0 text-muted">복음과 교리</a></li>
@@ -26,7 +25,7 @@
 
       <div class="col-6 col-md-2 mb-3">
         <h5>양육과 교육</h5>
-        <ul class="nav flex-column">
+        <ul class="nav flex-column" style="text-align: left; margin-top: 8px;">
           <li class="nav-item mb-2"><a href="/3/edu.jsp" class="nav-link p-0 text-muted">교육부서</a></li>
           <li class="nav-item mb-2"><a href="/3/area.jsp" class="nav-link p-0 text-muted">구역과 전도회</a></li>
           <li class="nav-item mb-2"><a href="/3/vow/vSelectAll.jsp" class="nav-link p-0 text-muted">말씀서원</a></li>
@@ -35,7 +34,7 @@
       
       <div class="col-6 col-md-2 mb-3">
         <h5>돌봄과 선교</h5>
-        <ul class="nav flex-column">
+        <ul class="nav flex-column" style="text-align: left; margin-top: 8px;">
           <li class="nav-item mb-2"><a href="/4/news/newsAll.jsp" class="nav-link p-0 text-muted">교회 소식</a></li>
           <li class="nav-item mb-2"><a href="/4/post/postList.jsp" class="nav-link p-0 text-muted">주보</a></li>
           <li class="nav-item mb-2"><a href="/4/coop/coopList.jsp" class="nav-link p-0 text-muted">협력교회와 기관소식</a></li>
@@ -128,6 +127,15 @@ function popModal(head, body) {
        .append('<button type="button" class="btn btn-warning" data-bs-dismiss="modal">확인</button>')
     $('#msgModal').modal('show');
  }
+ 
+function popModal2(head, body, url) {
+    $('#msgModalLabel').text(head);
+    $('#msgModalBody').html(body);
+    $('#modal-footer').empty()
+       .append('<button type="button" class="btn btn-warning" data-bs-dismiss="modal" onclick="location.href=\'' + url + '\'">확인</button>')
+    $('#msgModal').modal('show');
+ }
+ 
  
  function popModalRedirect(head, body, url) {
     $('#msgModalLabel').text(head);

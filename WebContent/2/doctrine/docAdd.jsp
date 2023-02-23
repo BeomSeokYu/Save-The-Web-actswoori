@@ -62,7 +62,8 @@ var sid = "<%=sid%>";
 							[ 'font', [ 'bold', 'underline', 'clear' ] ],
 							[ 'color', [ 'color' ] ],
 							[ 'insert', [ 'link', 'picture', 'video' ] ],
-							[ 'view', [ 'fullscreen', 'codeview', 'help' ] ] ]
+							[ 'view', [ 'fullscreen', 'codeview', 'help' ] ] ],
+					placeholder : '내용을 입력해주세요'
 				});
 
 		function addItem() {
@@ -82,8 +83,7 @@ var sid = "<%=sid%>";
 					summernote.value = "";
 					$("#summernote").summernote("reset");
 
-					popModalRedirect("등록", "등록에 성공하셨습니다", "doctrine.jsp")
-					
+					popModal2("등록", "등록에 성공하셨습니다", "doctrine.jsp")
 				}
 			});
 		}

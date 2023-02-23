@@ -67,7 +67,8 @@
 		      ['table', ['table']],
 		      ['insert', ['link', 'picture', 'video']],
 		      ['view', ['fullscreen', 'codeview', 'help']]
-		    ]
+		    ],
+		    placeholder="내용을 입력해주세요"
 		  });
 	</script>
 </body>
