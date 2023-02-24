@@ -223,7 +223,7 @@
                                                         </div>
                                                         <div class="testimonial_content rounded">
                                                             <p></p>
-                                                            <a href="/4/news/newsDetail.jsp?nno=<%= newsList.get(0).getNno()%>">
+                                                            <a href="/4/news/newsDetail.jsp?nno=<%= newsList.get(0).getNno() %>">
                                                             <span><%= newsList.size() > 0 ? newsList.get(0).getNtitle() : ""  %></span>
                                                             </a>
                                                         </div>
@@ -236,7 +236,7 @@
                                                         </div>
                                                         <div class="testimonial_content rounded">
                                                             <p></p>
-                                                            <a href="/4/news/newsDetail.jsp?nno=<%= newsList.size() > 0 ? newsList.get(1).getNno() : ""%>">
+                                                            <a href="/4/news/newsDetail.jsp?nno=<%= newsList.get(1).getNno() %>">
                                                             <span><%= newsList.size() > 1 ? newsList.get(1).getNtitle() : ""  %></span>
                                                             </a>
                                                         </div>
@@ -255,7 +255,9 @@
                                                         </div>
                                                         <div class="testimonial_content rounded">
                                                             <p></p>
+                                                            <a href="/4/news/newsDetail.jsp?nno=<%= newsList.get(2).getNno() %>">
                                                             <span><%= newsList.size() > 2 ? newsList.get(2).getNtitle() : "" %></span>
+                                                            </a>
                                                         <% } %>
                                                         </div>
                                                     </div>
@@ -266,7 +268,9 @@
                                                         </div>
                                                         <div class="testimonial_content rounded">
                                                             <p></p>
+                                                            <a href="/4/news/newsDetail.jsp?nno=<%= newsList.get(3).getNno() %>">
                                                             <span><%= newsList.size() > 3 ? newsList.get(3).getNtitle() : "" %></span>
+                                                            </a>
                                                         <% } %>
                                                         </div>
                                                     </div>
