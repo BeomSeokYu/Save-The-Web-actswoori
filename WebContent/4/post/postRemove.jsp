@@ -34,11 +34,13 @@
 	boolean dbDelResult = false;
 
 	File uploadFile = new File(uploadPath, puuid + "_" + pfilename);
-	if(!uploadFile.exists()){
+	System.out.println(uploadFile.getAbsolutePath());
+	if(uploadFile.exists()){
 		upDelResult = uploadFile.delete();
 	}
-	File saveDir = new File(savePath);
-	if(!saveDir.exists()){
+	File saveDir = new File(savePath, puuid + "_" + pfilename);
+	System.out.println(saveDir.getAbsolutePath());
+	if(saveDir.exists()){
 		saveDelResult = saveDir.delete();
 	}
 

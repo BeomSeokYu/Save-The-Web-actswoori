@@ -45,7 +45,9 @@ iframe {
 	int pno = Integer.parseInt(request.getParameter("pno"));
 
 	PostDTO pdto = PostDAO.selectPost(pno);
-	String filePath = pdto.getPupfolder() + "/" + pdto.getPuuid() + "_" + pdto.getPfilename(); 
+	String puuid = pdto.getPuuid();
+	String pfilename = pdto.getPfilename();
+	String filePath = pdto.getPupfolder() + "/" + puuid + "_" + pfilename; 
 	
 	String pdate = pdto.getPdate();
 	pdate = pdate.substring(0,11);
@@ -101,7 +103,7 @@ if (admin || sid != null && sid.equals(PostDAO.selectPost(Integer.parseInt(reque
 				onclick="location.href='/4/post/postEdit.jsp?pno=<%=pno %>'"
 				class="btn btn-outline-primary">수정</button>
 			<button
-				onclick="delCheck('/4/post/postRemove.jsp?pno=<%=pno %>')"
+				onclick="delCheck('/4/post/postRemove.jsp?pno=<%=pno %>&pfilename=<%=pfilename %>&puuid=<%=puuid %>')"
 				class="btn btn-outline-danger">삭제</button>
 
 <%
