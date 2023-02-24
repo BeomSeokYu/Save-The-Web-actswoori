@@ -10,10 +10,10 @@
 			<trim prefix="OR">
 				<choose>
 					<when test="type == 'T'.toString()">
-						gtitle LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
+						ptitle LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
 					</when>
 					<when test="type == 'F'.toString()">
-						gfilename LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
+						pfilename LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
 					</when>
 					<when test="type == 'E'.toString()">
 						email LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
