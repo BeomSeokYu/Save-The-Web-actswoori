@@ -8,16 +8,20 @@ import java.util.ArrayList;
 
 
 import javax.naming.NamingException;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import util.ConnectionPool;
 
 public class coopDAO {
 
 //협력기관소식 게시판 등록
-public static int insert(String ctitle, String ccontent, String email) throws SQLException, NamingException {
+public static int insert(String ctitle, String ccontent, String email) {
 	
 	Connection conn = null;
 	PreparedStatement pstmt = null;
-	
+	int result = 0;
 	try {
 	String sql = "INSERT INTO coop (ctitle, ccontent,email) VALUES(?,?,?)";
 
@@ -28,23 +32,25 @@ public static int insert(String ctitle, String ccontent, String email) throws SQ
 		pstmt.setString(3, email);
 
 		
-		int result = pstmt.executeUpdate(); //성공 1, 실패 0 을 가지고 나간다. 
+		result = pstmt.executeUpdate(); //성공 1, 실패 0 을 가지고 나간다. 
 		
-		return result; 
 		
-	}finally {
-		if(pstmt != null) pstmt.close();
-		if(conn != null) conn.close();
-	}
+	} catch (SQLException | NamingException e) {
+       e.printStackTrace();
+    } finally {
+    	close(conn, pstmt, null);
+    }
+	return result; 
 }
 
 //협력기관소식 게시판 목록
-public static ArrayList<coopDTO> getList() throws NamingException, SQLException {
+public static ArrayList<coopDTO> getList() {
 	
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
+	ArrayList<coopDTO> coops = new ArrayList<coopDTO>();
 	try {
 		String sql = "SELECT * FROM coop ORDER BY cdate DESC";
 		
@@ -52,7 +58,6 @@ public static ArrayList<coopDTO> getList() throws NamingException, SQLException 
 		pstmt = conn.prepareStatement(sql);
 		rs = pstmt.executeQuery(); 
 		
-		ArrayList<coopDTO> coops = new ArrayList<coopDTO>();
 		
 		while(rs.next()) {
 			coops.add(new coopDTO(rs.getInt(1),
@@ -61,17 +66,19 @@ public static ArrayList<coopDTO> getList() throws NamingException, SQLException 
 								  rs.getString(4),
 								  rs.getString(5)));
 
-		}return coops;
+		}
 		
-	}finally {
-		if(rs != null) rs.close();
-		if(pstmt != null) pstmt.close();
-		if(conn != null) conn.close();
-	}
+	} catch (SQLException | NamingException e) {
+       e.printStackTrace();
+       coops = null;
+    } finally {
+    	close(conn, pstmt, rs);
+    }
+	return coops;
 }
 
 //게시판 상세보기
-public static coopDTO select(int cno) throws SQLException, NamingException  {
+public static coopDTO select(int cno) {
 	
 	Connection conn = null;
 	PreparedStatement pstmt = null;
@@ -94,23 +101,23 @@ public static coopDTO select(int cno) throws SQLException, NamingException  {
 			cdto.setCcontent(rs.getString("ccontent"));
 			cdto.setEmail(rs.getString("email"));
 			cdto.setCdate(rs.getString("cdate"));
+		}
 			
-		} return cdto;
 		
-	}finally {
-		if(rs != null) rs.close();
-		if(pstmt != null) pstmt.close();
-		if(conn != null) conn.close();
-	}
-
+	} catch (SQLException | NamingException e) {
+       e.printStackTrace();
+    } finally {
+    	close(conn, pstmt, rs);
+    }
+	return cdto;
 }
 
 //협력기관소식 게시판 수정
-public static int update(int cno, String ctitle, String ccontent) throws SQLException, NamingException {
+public static int update(int cno, String ctitle, String ccontent) {
 	
 	Connection conn = null;
 	PreparedStatement pstmt = null;
-	
+	int result = 0;
 	try {
 	String sql = "UPDATE coop SET ctitle=?, ccontent=? WHERE cno=?";
 
@@ -121,44 +128,50 @@ public static int update(int cno, String ctitle, String ccontent) throws SQLExce
 		pstmt.setInt(3, cno);
 
 		
-		int result = pstmt.executeUpdate(); //성공 1, 실패 0 을 가지고 나간다. 
+		result = pstmt.executeUpdate(); //성공 1, 실패 0 을 가지고 나간다. 
 		
 		return result; 
 		
-	}finally {
-		if(pstmt != null) pstmt.close();
-		if(conn != null) conn.close();
-	}
+	} catch (SQLException | NamingException e) {
+       e.printStackTrace();
+    } finally {
+    	close(conn, pstmt, null);
+    }
+	return result;
 }
 
 //게시판 글 삭제
-public static int delete(int cno) throws NamingException, SQLException {
+public static int delete(int cno) {
 	
 	Connection conn = null;
 	PreparedStatement pstmt = null;
-	
+	int result = 0;
 	try {
 		String sql = "DELETE FROM coop WHERE cno = ?";
 		
 		conn = ConnectionPool.get();
 		pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, cno);
-			
-		return pstmt.executeUpdate(); //성공 1, 실패 0 을 가지고 나간다. 
+		pstmt.setInt(1, cno);
 		
-	}finally {
-		if(pstmt != null) pstmt.close();
-		if(conn != null) conn.close();
-	}
+		result = pstmt.executeUpdate(); //성공 1, 실패 0 을 가지고 나간다. 
+		
+	} catch (SQLException | NamingException e) {
+       e.printStackTrace();
+    } finally {
+    	close(conn, pstmt, null);
+    }
+	
+	return result;
 }
 
 //페이징
-public static ArrayList<coopDTO> getListpaging(int pageNum, int amount) throws NamingException, SQLException {
+public static ArrayList<coopDTO> getListpaging(int pageNum, int amount) {
 	
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
+	ArrayList<coopDTO> coops = new ArrayList<coopDTO>();
 	try {
 		String sql = "SELECT * FROM coop ORDER BY cno DESC limit ?,?";
 		
@@ -169,7 +182,6 @@ public static ArrayList<coopDTO> getListpaging(int pageNum, int amount) throws N
 				
 		rs = pstmt.executeQuery(); 
 		
-		ArrayList<coopDTO> coops = new ArrayList<coopDTO>();
 		
 		while(rs.next()) {
 			coops.add(new coopDTO(rs.getInt(1),
@@ -178,16 +190,18 @@ public static ArrayList<coopDTO> getListpaging(int pageNum, int amount) throws N
 								  rs.getString(4),
 								  rs.getString(5)));
 
-		}return coops;
+		}
 		
-	}finally {
-		if(rs != null) rs.close();
-		if(pstmt != null) pstmt.close();
-		if(conn != null) conn.close();
-	}
+	} catch (SQLException | NamingException e) {
+       e.printStackTrace();
+       coops = null;
+    } finally {
+    	close(conn, pstmt, rs);
+    }
+	return coops;
 }
 
-public int getTotal() throws SQLException {
+public int getTotal() {
 
     int result = 0;
     Connection conn = null;
@@ -204,20 +218,65 @@ public int getTotal() throws SQLException {
     
     while (rs.next()) {
        result = rs.getInt("total");
-       
     }
     
     } catch (SQLException | NamingException e) {
        e.printStackTrace();
     } finally {
-       if(rs != null) rs.close();
-       if(pstmt != null) pstmt.close();
-       if(conn != null) conn.close();
+    	close(conn, pstmt, rs);
     }
     
     
     return result;
  }
+
+//사진 목록 가져오기 (AJAX)
+	public static String selectAllList() {
+		JSONArray ja = new JSONArray();
+		String sql = "SELECT * FROM gallery ORDER BY gdate DESC";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rSet = null;
+		try {
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+			rSet = pstmt.executeQuery();
+			
+			while (rSet.next()) {
+				JSONObject jo = new JSONObject();
+				jo.put("gno", rSet.getString("gno"));
+				jo.put("gtitle", rSet.getString("gtitle"));
+				jo.put("gupfolder", rSet.getString("gupfolder"));
+				jo.put("guuid", rSet.getString("guuid"));
+				jo.put("gfilename", rSet.getString("gfilename"));
+				jo.put("email", rSet.getString("email"));
+				jo.put("gdate", rSet.getString("gdate"));
+				ja.add(jo);
+			}
+		} catch (SQLException | NamingException e) {
+			e.printStackTrace();
+			ja = null;
+		} finally {
+			close(conn, pstmt, rSet);
+		}
+		return ja.toJSONString();
+	}
+	
+	
+	
+	
+	
+	// 객체 닫기
+	public static void close(Connection conn, PreparedStatement pstmt, ResultSet rSet) {
+		try {
+			if(rSet!=null) rSet.close();
+			if(pstmt!=null) pstmt.close();
+			if(conn!=null) conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
 }
 
 

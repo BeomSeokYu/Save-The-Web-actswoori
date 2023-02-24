@@ -147,7 +147,9 @@ function popModal2(head, body, url) {
  }
  
  $(function getUserName() {
-		$.ajax({
+	if('<%=sid%>'=='null'){	
+	 }else{
+	 $.ajax({
 			type : 'post',
 			url : '/user/userInfoProc.jsp',
 			data : {
@@ -156,10 +158,14 @@ function popModal2(head, body, url) {
 			dataType : "text",
 			async : false,
 			success : function(data) {
-				var user = JSON.parse(data.trim());
-				$('#namef').html('[ ' + user.name + ' 님 ]')
+					var user = JSON.parse(data.trim());
+					$('#namef').html('[ ' + user.name +' '+user.job +'님 ]')
 			}
 		});
+			
+		}
+			
+	
 	})
  
 </script>
