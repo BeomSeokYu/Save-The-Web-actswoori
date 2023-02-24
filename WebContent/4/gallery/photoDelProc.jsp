@@ -22,7 +22,7 @@ boolean upDelResult = false;
 boolean saveDelResult = false;
 boolean dbDelResult = false;
 
-File uploadFile = new File(uploadPath, uuid + "_" + savePath);
+File uploadFile = new File(uploadPath, uuid + "_" + filename);
 if(!uploadFile.exists()){
 	upDelResult = uploadFile.delete();
 }
@@ -34,8 +34,13 @@ if(!saveDir.exists()){
 dbDelResult = GalleryDAO.delete(gno);
 
 if (upDelResult && saveDelResult && dbDelResult) {	
-	out.println("success");
-} else {
-	out.println("fail");
-}
 %>
+	<script>
+	window.onload = function(){ popModal2("삭제", "삭제되었습니다.", "photoList.jsp")}
+	</script>
+<%	} else {	%>
+	<script>
+		window.onload = function(){ popModal2("삭제", "알 수 없는 이유로 삭제하지 못했습니다.", "photoList.jsp")}
+	</script>
+<%	}	%>
+<%@ include file="/include/footer.jsp" %>   

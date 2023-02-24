@@ -9,6 +9,7 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -85,7 +86,9 @@
 			</div>
 		</div>
 	</div>
-	<%@ include file="/include/footer.jsp"%>
+	
+
+	<%@ include file="/include/footer.jsp"%>	
 
 	<script src="/resources/js/page.js"></script>
 

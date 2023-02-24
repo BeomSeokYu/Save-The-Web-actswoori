@@ -54,12 +54,7 @@ font-family: 'Roboto', sans-serif;
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic);
 
-@font-face {
-    font-family: 'LINESeedKR-Bd';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-}
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
 /*UNIVERSAL CODE*/
 
@@ -198,12 +193,12 @@ input: -webkit-autofill:focus {
     font-size: 12px;
     padding-top: 2px;
     color: #646464;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
 }
 #header .top_header .phone p {
     color: #646464;
     font-size: 12px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
     padding-top: 1px;
     display: inline-block;
 }
@@ -252,7 +247,7 @@ input: -webkit-autofill:focus {
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 400;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
 }
 #header .header_menu ul.main_menu li a:hover {
     color: #4DA91C;
@@ -293,18 +288,18 @@ input: -webkit-autofill:focus {
     font-size: 52px;
     padding: 10px 0;
     font-weight: 400;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
     text-transform: uppercase;	
 }
 #slider .slider_text h3 {
     font-size: 45px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
     color: #fff;
 }
 #slider .slider_text p {
     font-size: 17px;
     padding-bottom: 60px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
     font-weight: 400;
 }
 #slider .slider_text a.custom_btn {
@@ -314,7 +309,7 @@ input: -webkit-autofill:focus {
     background: #43a906;
     border-radius: 2px;
     margin-top: 20px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
     font-weight: 400;
 }
 #slider .slider_text h2,
@@ -326,7 +321,7 @@ input: -webkit-autofill:focus {
 #slider .slider_text h3 {
     font-size: 45px;
     padding: 10px 0;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
     font-weight: normal;
 }
 #slider .slider_overlay {
@@ -390,12 +385,12 @@ input: -webkit-autofill:focus {
     text-transform: uppercase;
     font-weight: 400;
     padding-bottom: 25px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
     color: #222222;
 }
 .wel_header p {
     font-size: 16px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
 }
 #welcome .single_item {
     padding-top: 30px;
@@ -422,12 +417,12 @@ input: -webkit-autofill:focus {
     font-size: 18px;
     color: #393939;
     transition: 0.7s;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
 }
 #welcome .item_list p {
     font-size: 14px;
     color: #646464;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
 }
 #welcome .item_list:hover .welcome_icon {
     background: #43a906;
@@ -453,7 +448,7 @@ input: -webkit-autofill:focus {
     font-weight: 400;
     color: #fff;
     padding-bottom: 10px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
 }
 #volunteer .volunteer_content h3 span {
     color: #43a906;
@@ -461,7 +456,7 @@ input: -webkit-autofill:focus {
 #volunteer .volunteer_content p {
     font-size: 14px;
     color: #fff;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
 }
 #volunteer .join_us {
     padding-top: 55px;
@@ -478,7 +473,7 @@ input: -webkit-autofill:focus {
     text-transform: uppercase;
     font-size: 18px;
     font-weight: 400;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
 }
 
 /*Portfolio*/
@@ -493,7 +488,7 @@ input: -webkit-autofill:focus {
     font-weight: 400;
     text-transform: uppercase;
     padding-bottom: 15px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
     color: #222222;
 }
 #portfolio .portfolio_title p {
@@ -501,7 +496,7 @@ input: -webkit-autofill:focus {
     color: #393939;
     padding-bottom: 25px;
     padding-top: 0;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
 }
 
 /*Customise Portfolio*/
@@ -520,7 +515,7 @@ input: -webkit-autofill:focus {
     font-size: 12px;
     padding-top: 8px;
     border-radius: 4px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
 }
 #portfolio ul.portfolio_custom_menu li {
     padding: 10px 0px;
@@ -552,7 +547,7 @@ input: -webkit-autofill:focus {
     opacity: 0;
     transition: 0.7s;
     font-size: 16px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
     font-weight: 400;
 }
 #portfolio .notes .note:hover .img_overlay,
@@ -595,12 +590,12 @@ section#counter {
     font-size: 36px;
     font-weight: 400;
     padding-bottom: 10px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
 }
 .counter_header p {
     font-size: 16px;
     padding-bottom: 60px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
     padding-top: 15px;
 }
 .counter_text {
@@ -624,7 +619,7 @@ section#counter {
     font-size: 32px;
     border-bottom: 1px solid;
     padding-bottom: 10px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
     font-weight: 400;
 }
 .counter_text p {
@@ -632,7 +627,7 @@ section#counter {
     text-transform: uppercase;
     font-weight: 400;
     padding-top: 10px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
     color: #ffffff;
     margin-top: 10px;
 }
@@ -653,13 +648,13 @@ section#counter {
     font-weight: 400;
     padding-bottom: 20px;
     text-transform: uppercase;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
     color: #222222;
 }
 .event_header.text-center p {
     color: #393939;
     font-size: 16px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
 }
 #event .event_text {
     padding: 30px 30px 0;
@@ -678,19 +673,19 @@ section#counter {
     padding-bottom: 15px;
     font-weight: 400;
     color: #454444;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
 }
 #event .event_text h6 {
     padding-bottom: 20px;
     font-size: 14px;
     color: #6c6b6b;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
 }
 #event .event_text p {
     font-size: 14px;
     color: #646464;
     padding-bottom: 35px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
 }
 #event a.event_btn {
     background: #101010;
@@ -700,7 +695,7 @@ section#counter {
     font-weight: 400;
     border-radius: 2px;
     transition: 0.7s ease;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
 }
 #event a.event_btn:hover {
     background: #43a906;
@@ -715,14 +710,14 @@ section#counter {
 .event_news_text h4 {
     color: #454444;
     font-size: 18px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
     font-weight: 400;
 }
 #event .event_news_text p {
     padding-top: 10px;
     font-size: 14px;
     color: #646464;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
 }
 #event .event_news_img {
     padding-right: 10px;
@@ -748,13 +743,13 @@ section#counter {
     font-weight: 400;
     text-transform: uppercase;
     padding-bottom: 20px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
     color: #fff;
 }
 #testimonial .testimonial_header p {
     font-size: 16px;
     color: #fff;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
 }
 
 /*Latest Blog*/
@@ -773,14 +768,14 @@ section#counter {
     font-size: 36px;
     font-weight: 400;
     text-transform: uppercase;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
     color: #222222;
 }
 #blog .latest_blog p {
     padding-bottom: 45px;
     font-size: 16px;
     color: #646464;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
 }
 #blog .single_blog_item {
     border: 1px solid #d1d3d1;
@@ -794,7 +789,7 @@ section#counter {
     font-weight: 400;
     padding-bottom: 10px;
     color: #454444;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
 }
 #blog .expert {
     padding-bottom: 20px;
@@ -808,7 +803,7 @@ section#counter {
     padding-left: 5px;
     color: #aeadad;
     font-size: 13px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
     font-weight: 400;
 }
 #blog .blog_news .blog_img img {
@@ -818,7 +813,7 @@ section#counter {
 #blog .blog_news span.right_msg span {
     font-size: 14px;
     color: #aeadad;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
     font-weight: 400;
 }
 #blog .expert a {
@@ -831,7 +826,7 @@ section#counter {
     color: #646464;
     font-size: 14px;
     padding-bottom: 15px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
 }
 #blog a.blog_link {
     text-transform: uppercase;
@@ -839,7 +834,7 @@ section#counter {
     color: #545353;
     transition: 0.7s;
     font-size: 14px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
 }
 #blog a.blog_link:hover {
     color: #43a906;
@@ -863,7 +858,7 @@ section#market {
 #purches h2.purches_title {
     font-size: 36px;
     padding-top: 80px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
     font-weight: 400;
     color: #ffffff;
 }
@@ -876,7 +871,7 @@ section#market {
     text-transform: uppercase;
     font-weight: 400;
     border-radius: 2px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
     font-size: 18px;
 }
 div#market-place {
@@ -919,7 +914,7 @@ input#subject{
     background: #d4d4d4;
     font-style: italic;
     color: #696969;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
 }
 li.fw-flash-message {
     color: red;
@@ -930,7 +925,7 @@ li.fw-flash-message {
     text-transform: uppercase;
     font-weight: 400;
     padding-bottom: 20px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
     color: #222222;
 }
 .custom-btn {
@@ -943,7 +938,7 @@ li.fw-flash-message {
     border-radius: 2px;
     letter-spacing: 5px;
     font-size: 14px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
     outline: 0 !important;
 }
 .office {
@@ -954,14 +949,14 @@ li.fw-flash-message {
     font-weight: 400;
     text-transform: uppercase;
     padding-bottom: 20px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
     color: #222222;
 }
 .office_location i span {
     padding-left: 15px;
     color: #696969;
     font-size: 14px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
 }
 .office_location i {
     padding-bottom: 15px;
@@ -975,12 +970,12 @@ li.fw-flash-message {
     font-weight: 400;
     text-transform: uppercase;
     color: #222222;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
 }
 .contact_area p {
     font-size: 16px;
     color: #646464;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
 }
 #map {
     width: 100%;
@@ -1013,7 +1008,7 @@ li.fw-flash-message {
 #footer .designer a {
     font-size: 14px;
     color: #ffffff;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
     padding-left: 3px;
 }
 
@@ -1128,7 +1123,7 @@ li.fw-flash-message {
     font-weight: 400;
     text-transform: uppercase;
     color: #222222;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
 
 }
 
@@ -1138,7 +1133,7 @@ li.fw-flash-message {
     font-weight: 400;
     text-transform: uppercase;
     padding-bottom: 20px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
     color: #222222;
     padding-top: 0px
 }
@@ -1149,7 +1144,7 @@ li.fw-flash-message {
     padding-left: 15px;
     color: #696969;
     font-size: 14px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
 }
 
 #contact-us .form-group {
@@ -1173,7 +1168,7 @@ ul.entry-meta {
     background-color: #43a906;
     padding: 10px 30px;
     font-size: 16px;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
     font-weight: 400;
 }
 .btn.focus, .btn:focus, .btn:hover {
@@ -1184,7 +1179,7 @@ ul.entry-meta {
     margin-top: 10px;
 }
 .widget_search .search-form input[type="submit"], .widget_search input[type="submit"] {
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
     font-weight: 400;
 }
 .widget_search .search-form input[type="search"], .widget_search input[type="search"] {
@@ -1197,5 +1192,5 @@ ul.entry-meta {
     font-size: 18px;
     padding-top: 2px;
     color: #646464;
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'Noto Sans KR';
 }

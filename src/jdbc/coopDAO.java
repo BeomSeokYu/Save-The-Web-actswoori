@@ -56,7 +56,7 @@ public static ArrayList<coopDTO> getList() {
 		
 		conn = ConnectionPool.get();
 		pstmt = conn.prepareStatement(sql);
-		rs = pstmt.executeQuery(); 
+		rs = pstmt.executeQuery();
 		
 		
 		while(rs.next()) {

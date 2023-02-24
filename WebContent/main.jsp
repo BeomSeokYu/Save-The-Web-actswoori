@@ -206,68 +206,73 @@
                                     <div class="carousel slide" id="fade-quote-carousel" data-ride="carousel" data-interval="3000">
                                         <!-- Carousel indicators -->
                                         <ol class="carousel-indicators">
+                                            <% if (newsList.size() > 0)  {%>
                                             <li data-target="#fade-quote-carousel" data-slide-to="0" class="active"></li>
+                                            <% } if (newsList.size() > 2) {%>
                                             <li data-target="#fade-quote-carousel" data-slide-to="1"></li>
+                                            <% } %>
                                         </ol>
                                         <!-- Carousel items -->
                                         <div class="carousel-inner">
                                             <div class="active item">
                                                 <div class="row">
                                                     <div class="col-md-6">
+                                                    	<% if (newsList.size() > 0) {%>
                                                         <div class="profile-circle">
-                                                            <img src="" alt="">
+                                                            <img class="opacity-75" src="/resources/img/news.png" alt="">
                                                         </div>
-                                                        <div class="testimonial_content rounded opacity-75">
-                                                            <span><%= newsList.size() > 0 ? newsList.get(0).getNcontent() : ""  %></span>
+                                                        <div class="testimonial_content rounded">
+                                                            <p></p>
+                                                            <a href="/4/news/newsDetail.jsp?nno=<%= newsList.get(0).getNno()%>">
+                                                            <span><%= newsList.size() > 0 ? newsList.get(0).getNtitle() : ""  %></span>
+                                                            </a>
                                                         </div>
-                                                        <div class="testimonial_author">
-                                                            <h3><%= newsList.size() > 0 ? newsList.get(0).getNtitle() : "" %></h3>
-                                                            <p><%= newsList.size() > 0 ? newsList.get(0).getEmail() : ""  %></p>
-                                                        </div>
+                                                        <% } %>
                                                     </div>
                                                     <div class="col-md-6">
+                                                    	<% if (newsList.size() > 1)  {%>
                                                         <div class="profile-circle">
-                                                            <img src="" alt="">
+                                                            <img class="opacity-75" src="/resources/img/news.png" alt="">
                                                         </div>
-                                                        <div class="testimonial_content rounded opacity-75">
-                                                            <span><%= newsList.size() > 1 ? newsList.get(1).getNcontent() : ""  %></span>
+                                                        <div class="testimonial_content rounded">
+                                                            <p></p>
+                                                            <a href="/4/news/newsDetail.jsp?nno=<%= newsList.size() > 0 ? newsList.get(1).getNno() : ""%>">
+                                                            <span><%= newsList.size() > 1 ? newsList.get(1).getNtitle() : ""  %></span>
+                                                            </a>
                                                         </div>
-                                                        <div class="testimonial_author">	
-                                                            <h3><%= newsList.size() > 1 ? newsList.get(1).getNtitle() : ""  %></h3>
-                                                            <p><%= newsList.size() > 1 ? newsList.get(1).getEmail() : "" %></p>
-                                                        </div>
+                                                        <% } %>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!--End of item with active-->
+                                            <% if (newsList.size() > 2)  {%>
                                             <div class="item">
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="profile-circle">
-                                                            <img src="" alt="">
+                                                    	<% if (newsList.size() > 2)  {%>
+                                                            <img class="opacity-75" src="/resources/img/news.png" alt="">
                                                         </div>
-                                                        <div class="testimonial_content rounded opacity-75">
-                                                            <span><%= newsList.size() > 2 ? newsList.get(2).getNcontent() : "" %></span>
-                                                        </div>
-                                                        <div class="testimonial_author">
-                                                            <h3><%= newsList.size() > 2 ? newsList.get(2).getNtitle() : ""  %></h3>
-                                                            <p><%= newsList.size() > 2 ? newsList.get(2).getEmail() : ""  %></p>
+                                                        <div class="testimonial_content rounded">
+                                                            <p></p>
+                                                            <span><%= newsList.size() > 2 ? newsList.get(2).getNtitle() : "" %></span>
+                                                        <% } %>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="profile-circle">
-                                                            <img src="" alt="">
+                                                    	<% if (newsList.size() > 3)  {%>
+                                                            <img class="opacity-75" src="/resources/img/news.png" alt="">
                                                         </div>
-                                                        <div class="testimonial_content rounded opacity-75">
-                                                            <span><%= newsList.size() > 3 ? newsList.get(3).getNcontent() : "" %></span>
-                                                        </div>
-                                                        <div class="testimonial_author">
-                                                            <h3><%= newsList.size() > 3 ? newsList.get(3).getNtitle() : ""  %></h3>
-                                                            <p><%= newsList.size() > 3 ? newsList.get(3).getEmail() : ""  %></p>
+                                                        <div class="testimonial_content rounded">
+                                                            <p></p>
+                                                            <span><%= newsList.size() > 3 ? newsList.get(3).getNtitle() : "" %></span>
+                                                        <% } %>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <% } %>
                                             <!--ENd of item-->
                                         </div>
                                     </div>

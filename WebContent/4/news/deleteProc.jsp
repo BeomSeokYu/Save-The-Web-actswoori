@@ -19,14 +19,16 @@ int nno = Integer.parseInt(request.getParameter("nno"));
 
 boolean result = NewsDAO.deleteNews(nno);
 
-if (result){%>
-<script>
-window.onload = function(){ popModal2("교회 소식 삭제", "삭제를 성공하셨습니다", "/4/news/newsAll.jsp")}
-</script>
+if (result){
+out.print("success");
+%>
+<!-- <script>
+//window.onload = function(){ popModal2("교회 소식 삭제", "삭제를 성공하셨습니다", "/4/news/newsAll.jsp")}
+</script> -->
 <%} else {%>
-<script>
+<!-- <script>
 window.onload =  function(){popModal2("교회 소식 삭제", "삭제를 실패하셨습니다", "/4/news/newsAll.jsp")}
-</script>
-<%}%>
+</script> -->
+<%out.print("fail");}%>
 
 <%@ include file="/include/footer.jsp"%>   
