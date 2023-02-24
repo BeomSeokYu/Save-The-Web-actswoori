@@ -59,7 +59,7 @@
 
 			<div class="d-flex justify-content-end my-4">
 				<button class="btn btn-outline-primary mx-2" type="button" onclick="gogo()">등록</button>
-				<input type="button" value="취소" onclick="history.back()"
+				<input type="button" value="취소" onclick="location.href='lectureMain.jsp'"
 					class="btn btn-outline-secondary mx-2">
 			</div>
 		</form>

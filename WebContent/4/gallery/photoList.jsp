@@ -77,10 +77,7 @@
 						  <select class="form-select form-select-sm" id="selectType">
 				       		<option value="T" selected>제목</option>
 				       		<option value="F">파일명</option>
-				       		<option value="E">이메일</option>
 				       		<option value="TF">제목/파일명</option>
-				       		<option value="TE">제목/이메일</option>
-				       		<option value="TFE">제목/파일명/이메일</option>
 				          </select>
 					      <input class="form-control form-control-sm" type="search" placeholder="검색어"id="keyword">
 					      <button class="btn btn-sm btn-outline-secondary" type="button" id="searchBtn"><i class="bi bi-search"></i></button>

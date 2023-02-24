@@ -93,11 +93,11 @@
 							<div class="d-flex text-end">
 								<select class="form-select" id="selectType">
 									<option value="T" selected>제목</option>
+									<option value="N">설교자</option>
 									<option value="C">내용</option>
-									<option value="E">이메일</option>
+									<option value="TN">제목/설교자</option>
 									<option value="TC">제목/내용</option>
-									<option value="TE">제목/이메일</option>
-									<option value="TFC">제목/내용/이메일</option>
+									<option value="TNC">제목/내용/설교자</option>
 								</select> <input class="form-control form-control-sm" type="search"
 									placeholder="검색어" id="keyword">
 								<button class="btn btn-sm btn-outline-success" type="button"

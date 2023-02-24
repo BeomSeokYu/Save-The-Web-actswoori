@@ -41,9 +41,8 @@
 	
 	<input type="hidden" name="email" value="<%=sid%>">
 	<div class="d-flex justify-content-end my-4">
-		<button class="btn btn-outline-primary mx-2" type="submit">등록</button>
-		<input type="button" value="취소" onclick="gogo()"
-			class="btn btn-outline-secondary mx-2">
+		<button class="btn btn-outline-primary mx-2" type="button" onclick="gogo()">등록</button>
+		<input type="button" value="취소" class="btn btn-outline-secondary mx-2" onclick="location.href='coopList.jsp'">
 	</div>
 	
 </form>

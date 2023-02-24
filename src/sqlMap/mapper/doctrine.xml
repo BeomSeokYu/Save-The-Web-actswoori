@@ -12,7 +12,7 @@
 					<when test="type == 'T'.toString()">
 						dtitle LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
 					</when>
-					<when test="type == 'F'.toString()">
+					<when test="type == 'C'.toString()">
 						dcontent LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
 					</when>
 				</choose>

@@ -70,7 +70,7 @@ ndate = ndate.substring(0,11);
 		</div>
 
 		<div class="d-grid gap-2 d-md-flex justify-content-md-end mb-5">
-			<input type="button" value="목록" onclick="newsAll.jsp"
+			<input type="button" value="목록" onclick="location.href='newsAll.jsp'"
 				class="btn btn-outline-success">
 
 			<%
