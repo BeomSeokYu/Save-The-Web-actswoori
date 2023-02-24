@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="WorshipMapper">
+  <!-- 쿼리 보관 -->
+  <sql id="criteria">
+  	<trim prefix="(" suffix=") AND" prefixOverrides="OR">
+		<foreach collection="typeArr" item="type">
+			<trim prefix="OR">
+				<choose>
+					<when test="type == 'T'.toString()">
+						wtitle LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
+					</when>
+					<when test="type == 'N'.toString()">
+						wname LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
+					</when>
+					<when test="type == 'C'.toString()">
+						wcontent LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
+					</when>
+				</choose>
+			</trim>
+		</foreach>
+	</trim>
+  </sql>
+  
+  <select id="selectWorshipAllPaging" resultType="worship.WorshipDTO">
+  	<![CDATA[
+	  	SELECT	*
+	  	FROM worship
+	  	WHERE]]>
+	  		<include refid="criteria"/>
+	<![CDATA[
+			2 > 1
+		ORDER BY wno DESC
+	  	LIMIT #{ amount } OFFSET #{ offset }
+	]]>
+  </select>
+  
+  <select id="totalCount" resultType="int">
+  	<![CDATA[
+  		SELECT COUNT(*) FROM worship WHERE ]]> 
+  			<include refid="criteria"/> 
+  	<![CDATA[ wno > 0 ]]>
+  </select>
+</mapper>

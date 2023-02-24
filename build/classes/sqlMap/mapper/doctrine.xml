@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="DoctrineMapper">
+  <!-- 쿼리 보관 -->
+  <sql id="criteria">
+  	<trim prefix="(" suffix=") AND" prefixOverrides="OR">
+		<foreach collection="typeArr" item="type">
+			<trim prefix="OR">
+				<choose>
+					<when test="type == 'T'.toString()">
+						dtitle LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
+					</when>
+					<when test="type == 'C'.toString()">
+						dcontent LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
+					</when>
+				</choose>
+			</trim>
+		</foreach>
+	</trim>
+  </sql>
+  
+  <select id="selectDoctrineAllPaging" resultType="jdbc.docDTO">
+  	<![CDATA[
+	  	SELECT	dno, dtitle, dcontent, email, ddate
+	  	FROM doctrine
+	  	WHERE]]>
+	  		<include refid="criteria"/>
+	<![CDATA[
+			2 > 1
+		ORDER BY dno DESC
+	  	LIMIT #{ amount } OFFSET #{ offset }
+	]]>
+  	<!-- <![CDATA[
+  		SELECT	gno, gtitle, gupfolder, guuid, gfilename, email, gdate
+  		FROM 	(	SELECT	(@R := @R+1) rn, gno, gtitle, gupfolder, guuid, gfilename, email, gdate
+  					FROM 	gallery, (SELECT @R := 0) s2
+  					WHERE ]]>
+  						보관 쿼리 사용
+  						<include refid="criteria"/> 
+  	<![CDATA[			@R < #{ amount } * #{ pageNum }
+  					ORDER BY gno DESC) g
+  		WHERE 	rn >= #{ amount } * ( #{ pageNum } - 1 )
+  	]]> -->
+  </select>
+  
+  <select id="totalCount" resultType="int">
+  	<![CDATA[
+  		SELECT COUNT(*) FROM doctrine WHERE ]]> 
+  			<include refid="criteria"/> 
+  	<![CDATA[ dno > 0 ]]>
+  </select>
+  
+  
+  
+</mapper>

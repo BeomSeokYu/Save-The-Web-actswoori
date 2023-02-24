@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="PostMapper">
+  <!-- 쿼리 보관 -->
+  <sql id="criteria">
+  	<trim prefix="(" suffix=") AND" prefixOverrides="OR">
+		<foreach collection="typeArr" item="type">
+			<trim prefix="OR">
+				<choose>
+					<when test="type == 'T'.toString()">
+						ptitle LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
+					</when>
+					<when test="type == 'F'.toString()">
+						pfilename LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
+					</when>
+				</choose>
+			</trim>
+		</foreach>
+	</trim>
+  </sql>
+  
+  <select id="selectPostAllPaging" resultType="jdbc.PostDTO">
+  	<![CDATA[
+	  	SELECT	pno, ptitle, pupfolder, puuid, pfilename, email, pdate
+	  	FROM post
+	  	WHERE]]>
+	  		<include refid="criteria"/>
+	<![CDATA[
+			2 > 1
+		ORDER BY pno DESC
+	  	LIMIT #{ amount } OFFSET #{ offset }
+	]]>
+  </select>
+  
+  <select id="totalCount" resultType="int">
+  	<![CDATA[
+  		SELECT COUNT(*) FROM post WHERE ]]> 
+  			<include refid="criteria"/> 
+  	<![CDATA[ pno > 0 ]]>
+  </select>
+</mapper>

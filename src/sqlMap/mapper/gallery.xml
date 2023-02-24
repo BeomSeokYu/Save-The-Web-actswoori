@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="GalleryMapper">
+  <!-- 쿼리 보관 -->
+  <sql id="criteria">
+  	<trim prefix="(" suffix=") AND" prefixOverrides="OR">
+		<foreach collection="typeArr" item="type">
+			<trim prefix="OR">
+				<choose>
+					<when test="type == 'T'.toString()">
+						gtitle LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
+					</when>
+					<when test="type == 'F'.toString()">
+						gfilename LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
+					</when>
+				</choose>
+			</trim>
+		</foreach>
+	</trim>
+  </sql>
+  
+  <select id="selectGalleryAllPaging" resultType="jdbc.GalleryDTO">
+  	<![CDATA[
+	  	SELECT	gno, gtitle, gupfolder, guuid, gfilename, email, gdate
+	  	FROM gallery
+	  	WHERE]]>
+	  		<include refid="criteria"/>
+	<![CDATA[
+			2 > 1
+		ORDER BY gno DESC
+	  	LIMIT #{ amount } OFFSET #{ offset }
+	]]>
+  </select>
+  
+  <select id="totalCount" resultType="int">
+  	<![CDATA[
+  		SELECT COUNT(*) FROM gallery WHERE ]]> 
+  			<include refid="criteria"/> 
+  	<![CDATA[ gno > 0 ]]>
+  </select>
+</mapper>

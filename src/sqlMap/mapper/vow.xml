@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="VowMapper">
+  <!-- 쿼리 보관 -->
+  <sql id="criteria">
+  	<trim prefix="(" suffix=") AND" prefixOverrides="OR">
+		<foreach collection="typeArr" item="type">
+			<trim prefix="OR">
+				<choose>
+					<when test="type == 'T'.toString()">
+						vtitle LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
+					</when>
+					<when test="type == 'C'.toString()">
+						vcontent LIKE concat_ws(#{ keyword }, '%', '%') <!-- '%' || #{ keyword } || '%' -->
+					</when>
+				</choose>
+			</trim>
+		</foreach>
+	</trim>
+  </sql>
+  
+  <select id="selectVowAllPaging" resultType="vow.VowDTO">
+  	<![CDATA[
+	  	SELECT *
+	  	FROM vow
+	  	WHERE]]>
+	  		<include refid="criteria"/>
+	<![CDATA[
+			2 > 1
+		ORDER BY vno DESC
+	  	LIMIT #{ amount } OFFSET #{ offset }
+	]]>
+  </select>
+  
+  <select id="totalCount" resultType="int">
+  	<![CDATA[
+  		SELECT COUNT(*) FROM vow WHERE ]]> 
+  			<include refid="criteria"/> 
+  	<![CDATA[ vno > 0 ]]>
+  </select>
+</mapper>

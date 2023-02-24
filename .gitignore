@@ -1,0 +1,9 @@
+/.metadata/
+/.classpath
+/.project
+/.settings/
+context.xml
+/src/sqlMap/Configuration.xml
+/bin/
+NaverSMTP.java
+build/classes/email/NaverSMTP.class

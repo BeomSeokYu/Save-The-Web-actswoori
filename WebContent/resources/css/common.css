@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+/* 헤더 높이만큼 여백부여 */
+body {
+  padding-top: 70px;
+}
+
+th.col-6 {
+	padding-left:20px;
+}
+
+.photo-gallery h2 {
+  font-weight: bold;
+  margin-bottom: 40px;
+  padding-top: 40px;
+  color: inherit;
+}
+
+/* 드롭 다운 호버로 내리기 */
+.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}
+
+/* footer 상단 마진 */
+footer {
+  margin-top: 300px;
+}
+
+h2 {
+  font-weight: bold;
+  margin-bottom: 40px;
+  padding-top: 40px;
+  color: inherit;
+}
+
+#sideNav {
+  background-color: #d7fff1;
+}
+
+hr {
+  color: #000000;
+}
+
+/* 페이지네이션 색상 변경 */
+.page-link {
+  color: #000; 
+  background-color: #fff;
+  border: 1px solid #ccc; 
+}
+
+.page-item.active .page-link {
+ z-index: 1;
+ color: #555;
+ font-weight:bold;
+ background-color: #f1f1f1;
+ border-color: #ccc;
+ 
+}
+
+.page-link:focus, .page-link:hover {
+  color: #000;
+  background-color: #fafafa; 
+  border-color: #ccc;
+}
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.nav-main	 {
+    font-size: 18px;
+    padding-top: 2px;	
+    color: #646464;
+    font-family: 'Noto Sans KR';
+}
+.container {
+	font-family: 'Noto Sans KR';
+}
+
