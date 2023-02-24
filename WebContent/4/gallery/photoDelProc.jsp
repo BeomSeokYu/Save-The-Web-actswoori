@@ -43,4 +43,13 @@ if (upDelResult && saveDelResult && dbDelResult) {
 		window.onload = function(){ popModal2("삭제", "알 수 없는 이유로 삭제하지 못했습니다.", "photoList.jsp")}
 	</script>
 <%	}	%>
-<%@ include file="/include/footer.jsp" %>   
+
+<script>
+function popModal2(head, body, url) {
+    $('#msgModalLabel').text(head);
+    $('#msgModalBody').html(body);
+    $('#modal-footer').empty()
+       .append('<button type="button" class="btn btn-warning" data-bs-dismiss="modal" onclick="location.href=\'' + url + '\'">확인</button>')
+    $('#msgModal').modal('show');
+ }
+</script>
