@@ -149,14 +149,12 @@ public class docDAO {
 			if(pstmt.executeUpdate()==1) result = true;
 			else result = false;
 		} catch (NamingException | SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				if(pstmt != null)pstmt.close();
 				if(con != null)con.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -164,31 +162,42 @@ public class docDAO {
 	}
 	
 	//작성자 이메일 조회
-		public static String selectEmail(int dno) {
-			try {
-				String sql = "SELECT email FROM doctrine WHERE dno = ?";
-				
-				Connection conn = ConnectionPool.get();
-				PreparedStatement pstmt = conn.prepareStatement(sql);
-				pstmt.setInt(1, dno);
-				
-				ResultSet rs = pstmt.executeQuery();
-				
-				String email = null;
-				
-				if (rs.next()) {
-					email = rs.getString(1);
-				}
-				
-				rs.close();
-				pstmt.close();
-				conn.close();
-				
-				return email;
-			} catch (NamingException | SQLException e) {
-				e.printStackTrace();
-				return null;
+	public static String selectEmail(int dno) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String email = null;
+		try {
+			String sql = "SELECT email FROM doctrine WHERE dno = ?";
+			
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, dno);
+			
+			rs = pstmt.executeQuery();
+			
+			
+			if (rs.next()) {
+				email = rs.getString(1);
 			}
+			
+		} catch (SQLException | NamingException e) {
+			e.printStackTrace();
+		} finally {
+			close(conn, pstmt, rs);
 		}
+		return email;
+	}
+
+	// 객체 닫기
+	public static void close(Connection conn, PreparedStatement pstmt, ResultSet rSet) {
+		try {
+			if(rSet!=null) rSet.close();
+			if(pstmt!=null) pstmt.close();
+			if(conn!=null) conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 }
