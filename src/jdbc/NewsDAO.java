@@ -264,7 +264,7 @@ public class NewsDAO {
 		
 		List<NewsDTO> newsList = new ArrayList<NewsDTO>();
 		try {
-		String sql = "SELECT ntitle, ncontent, name as email FROM news n, user u WHERE n.email = u.email ORDER BY ndate DESC limit 4";
+		String sql = "SELECT nno, ntitle, ncontent, name as email FROM news n, user u WHERE n.email = u.email ORDER BY ndate DESC limit 4";
 		//이름 가져오고 싶어서 쿼리 통해서 email로 가져옴
 		
 		conn = ConnectionPool.get();
@@ -272,13 +272,13 @@ public class NewsDAO {
 		
 		rs = pstmt.executeQuery();
 		
-		
 		while (rs.next()) {
 			NewsDTO ndto = new NewsDTO();
 			
-			ndto.setNtitle(rs.getString(1));
-			ndto.setNcontent(rs.getString(2));
-			ndto.setEmail(rs.getString(3));
+			ndto.setNno(rs.getString(1));
+			ndto.setNtitle(rs.getString(2));
+			ndto.setNcontent(rs.getString(3));
+			ndto.setEmail(rs.getString(4));
 			
 			newsList.add(ndto);
 		}

@@ -50,11 +50,15 @@
     margin: 0 0 20px;
     font-size: 17.5px;
     position: relative;
-    background: #fff;
+    background: #969696;
     color: #000;
     z-index: 1;
     height: 200px;
     overflow: hidden;
+}
+
+.bg {
+    opacity: 90%;
 }
 
 .testimonial_content i {
@@ -66,14 +70,14 @@
     font-size: 25px;
 }
 
-.testimonial_content p {
-    font-size: 14px;
+.testimonial_content p, span {
+    font-size: 20px;
     padding-top: 45px;
     padding-left: 40px;
     padding-right: 20px;
     padding-bottom: 30px;
     text-align: left;
-    color: #646464;
+    color: #fff;
     font-family: 'Open Sans', sans-serif;
     font-style: italic;
 }
