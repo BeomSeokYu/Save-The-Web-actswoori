@@ -146,24 +146,23 @@ function popModal2(head, body, url) {
     $('#msgModal').modal('show');
  }
  
- $(function getUserName() {
-	if('<%=sid%>'=='null'){	
-	 }else{
-	 $.ajax({
-			type : 'post',
-			url : '/user/userInfoProc.jsp',
-			data : {
-				email : '<%=sid%>'
-			},
-			dataType : "text",
-			async : false,
-			success : function(data) {
-					var user = JSON.parse(data.trim());
-					$('#namef').html('[ ' + user.name +' '+user.job +'님 ]')
-			}
-		});
-			
-		}
+ $(function showName() {
+	 <% if (session.getAttribute("sid") == null) { }
+	  else {%>
+		 $.ajax({
+				type : 'post',
+				url : '/user/userInfoProc.jsp',
+				data : {
+					email : '<%=session.getAttribute("sid")%>'
+				},
+				dataType : "text",
+				async : false,
+				success : function(data) {
+						var user = JSON.parse(data.trim());
+						$('#namef').html('[ ' + user.name +' '+user.job +'님 ]')
+				}
+			});
+		<%}%>
 			
 	
 	})

@@ -14,7 +14,6 @@
   </head>
   <body>
 <%@include file="/include/navbar.jsp" %>
- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 <div class="container">
@@ -32,8 +31,8 @@
 <form action = "coopAddCheck.jsp" method="post" id="form">
 
 	<div class="input-group mb-2 input-group-lg">
-		<span class="input-group-text col-2 justify-content-center" id="ctitle">제목</span> 
-		<input type="text" class="form-control col-10" placeholder="제목을 입력하세요" name="ctitle">
+		<span class="input-group-text col-2 justify-content-center" >제목</span> 
+		<input type="text" class="form-control col-10" placeholder="제목을 입력하세요" id="ctitle" name="ctitle">
 	</div>
 	<div>
 		<textarea name="ccontent" id="summernote" class="mtop-10"></textarea>
@@ -50,7 +49,6 @@
 
     <script>
       $('#summernote').summernote({
-    	  placeholder : '내용을 입력해주세요',
 			tabsize : 2,
 			height : 500,
 			toolbar : [ [ 'style', [ 'style' ] ],
@@ -72,6 +70,7 @@
 				$('#form').submit()
 			}
 		}
+      
     </script>
  <%@include file="/include/footer.jsp" %>
   </body>

@@ -39,7 +39,7 @@
 							name="dtitle" id="dtitle" required>
 					</div>
 					<div>
-						<textarea name="lcontent" id="summernote" class="mtop-10"></textarea>
+						<textarea name="dcontent" id="summernote" class="mtop-10"></textarea>
 					</div>
 
 
@@ -65,6 +65,7 @@ var sid = "<%=sid%>";
 							[ 'view', [ 'fullscreen', 'codeview', 'help' ] ] ],
 					placeholder : '내용을 입력해주세요'
 				});
+		
 		function addItem() {
 			var title = $('#dtitle').val().trim()
 			if(title=='' || $('#summernote').summernote('isEmpty')){
@@ -74,7 +75,7 @@ var sid = "<%=sid%>";
 					type : "post",
 					url : "docAddProc.jsp",
 					data : {
-						dtitle : document.getElementById('dtitle').value,
+						dtitle : $('#dtitle').val(),
 						dcontent : $("#summernote").summernote("code"),
 						email : sid
 					},
@@ -84,7 +85,7 @@ var sid = "<%=sid%>";
 					success : function(data) {
 						data = data.trim()
 						if (data=='true'){
-							popModal2("복음과 교리 등록", "등록에 성공하셨습니다", "doctrine.jsp")
+							popModal2("복음과 교리 등록", "등록에 성공하셨습니다", "doctrine.jsp?msg=addok")
 						} else {
 							popModal2("복음과 교리 등록", "등록에 실패하셨습니다", "doctrine.jsp")
 						}

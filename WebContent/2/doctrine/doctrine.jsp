@@ -14,7 +14,14 @@
 </head>
 <body>
 	<%@ include file="/include/navbar.jsp"%>
-
+<script type="text/javascript">
+if ('<%=request.getParameter("msg")%>'=='addok'){
+	history.pushState(null, null, location.href);
+    window.onpopstate = function () {
+        history.go(1);
+};
+}
+</script>
 	<!-- 게시판 영역 -->
 	<div class="container">
 		<div class="photo-gallery container mb-3">
