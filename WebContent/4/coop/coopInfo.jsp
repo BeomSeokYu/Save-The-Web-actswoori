@@ -64,7 +64,7 @@
 		<button onclick="location.href='coopList.jsp?pageNum=<%= request.getParameter("pageNum") %>&amount=<%= request.getParameter("amount") %>'" class="btn btn-primary">목록으로</button>
 
 		<div class="d-grid gap-2 d-md-flex justify-content-md-end mb-5">
-			<input type="button" value="목록" onclick="history.back()"
+			<input type="button" value="목록" onclick="location.href='coopList.jsp'"
 				class="btn btn-outline-success">
 
 <%

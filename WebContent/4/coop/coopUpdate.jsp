@@ -51,7 +51,7 @@
 		
 		<div class="d-flex justify-content-end my-4">
 			<button class="btn btn-outline-primary mx-2" type="submit">수정</button>
-			<input type="button" value="취소" onclick="history.back()"
+			<input type="button" value="취소" onclick="location.href='coopinfo.jsp?cno=<%=cdto.getCno()%>'"
 				class="btn btn-outline-secondary mx-2">
 		</div>
 		</form>
