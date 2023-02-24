@@ -15,7 +15,6 @@
 	<div class="container mt-3">
 	<h3 class="my-3">전체 회원 리스트</h3>
 		<table class="table table-striped table-hover">
-
 			<thead>
 				<tr>
 					<th scope="col">이메일</th>
