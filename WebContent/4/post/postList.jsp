@@ -1,4 +1,4 @@
-<!-- 
+	<!-- 
 최초작성자 : 김지수 (jisukim.fb@gmail.com)
 최초작성일 : 2023/02/15
 
@@ -104,7 +104,7 @@
             <hr class="my-4">
             
             <div class="row" id="imgList"></div>
-            
+            <div class="row text-center" id="none"></div>
             <hr class="my-4">
             <div class="row">
 				<div class="col-8">
@@ -160,6 +160,11 @@ function getListUrl() {
 }
 function printList(data) {
    //TODO: 리스트 출력 처리 하세요
+   if (data.length < 1) {
+		var noneStr = '';
+		noneStr ='<div>등록된 게시물이 없습니다.<div>'
+		$("#none").html(noneStr);
+	}
    var imgHTML = '';
    $('#imgList').empty();
    for (var i = 0; i < data.length; i++) {

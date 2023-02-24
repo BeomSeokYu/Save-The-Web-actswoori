@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	String sid = (String) session.getAttribute("sid");
+	String sid = (String) session.getAttribute("sid"); 
 	boolean admin = false;
 	if(sid != null) {
 		admin = sid.equals("admin@gmail.com");
@@ -18,7 +18,7 @@
 	
 	<!-- 우리꺼 -->
 	<!-- viewport (모바일) -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 	<!-- bootstrap CSS only -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 	<!-- bootstrap icons -->

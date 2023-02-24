@@ -6,7 +6,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>행전우리교회</title>
 <%@ include file="/include/header.jsp"%>
 </head>

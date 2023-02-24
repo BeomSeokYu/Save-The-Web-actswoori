@@ -64,7 +64,7 @@
 				<hr class="my-4">
 				
 				<div class="row photos" id="imgList"></div>
-				
+				<div class="row text-center" id="none"></div>
 				<hr class="my-4">
 				<div class="row">
 					<div class="col-8">
@@ -141,6 +141,11 @@ function getListUrl() {
 }
 function printList(data) {
 	//TODO: 리스트 출력 처리 하세요
+	if (data.length < 1) {
+		var noneStr = '';
+		noneStr ='<div>등록된 게시물이 없습니다.<div>'
+		$("#none").html(noneStr);
+	}
 	var imgHTML = '';
 	for (var i = 0; i < data.length; i++) {
 		var img = data[i].upfolder + '/' +data[i].uuid + '_' + data[i].filename;

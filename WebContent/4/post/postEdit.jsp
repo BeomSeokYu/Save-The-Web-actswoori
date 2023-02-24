@@ -58,11 +58,11 @@
 						<div class="col-3 text-muted"></div>
 						<div class="col-9 text-end"></div>
 					</div>
-		<form action="postEditCheck.jsp" name=f1 method=post enctype="multipart/form-data">
+		<form action="postEditCheck.jsp" name=f1 method=post enctype="multipart/form-data" id="form">
 			<div class="input-group mb-2 input-group-lg">
 				<span class="input-group-text col-2 justify-content-center" >제목</span>
 				<input type="text" class="form-control col-10" name="ptitle" 
-					value="<%=pdto.getPtitle() %>" required placeholder="제목을 입력해주세요">
+					value="<%=pdto.getPtitle() %>" required placeholder="제목을 입력해주세요" id="ptitle">
 			</div>
 			
 			<input type="hidden" name="pno" value="<%=pno%>">
@@ -74,7 +74,7 @@
 		    	<input id="uploadPDF" type="file" name="post" onchange="PreviewImage();" class="form-control col-11" accept=".pdf"/><br>
 		    </div>
 			<div class="d-flex justify-content-end my-4">
-				<button class="btn btn-outline-primary mx-2" type="submit">수정</button>
+				<button class="btn btn-outline-primary mx-2" type="button" onclick="gogo()">수정</button>
 				<input type="button" value="취소" onclick="location.href='postView.jsp?pno=<%=pno%>'"
 					class="btn btn-outline-secondary mx-2">
 			</div>
@@ -88,6 +88,16 @@ function PreviewImage() {
     pdffile=document.getElementById("uploadPDF").files[0];
     pdffile_url=URL.createObjectURL(pdffile);
     $('#viewer').attr('src',pdffile_url);
+}
+
+function gogo(){
+	var title = $('#ptitle').val().trim()
+	
+	if(title=='' ) {
+		alert('제목을 입력해주세요')
+	} else {
+		$('#form').submit()
+	}
 }
 </script>
 

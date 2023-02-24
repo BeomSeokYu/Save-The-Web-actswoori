@@ -89,7 +89,7 @@
 				onclick="location.href='/2/lecture/lectureModify.jsp?lno=<%=lecture.getLno()%>'"
 				class="btn btn-outline-primary">수정</button>
 			<button
-				onclick="location.href='/2/lecture/lectureDel.jsp?lno=<%=lecture.getLno()%>'"
+				onclick="delCheck('/2/lecture/lectureDel.jsp?lno=<%=lecture.getLno()%>')"
 				class="btn btn-outline-danger">삭제</button>
 <%
 	}
@@ -148,6 +148,13 @@
 						installTalk : true,
 					})
 				}
+				
+				function delCheck(nextPage) {
+					var flag = confirm("정말로 삭제하시겠습니까?");
+					if(flag) location.href=nextPage;
+				}
+
+
 			</script>
 
 	<%@ include file="/include/footer.jsp"%>

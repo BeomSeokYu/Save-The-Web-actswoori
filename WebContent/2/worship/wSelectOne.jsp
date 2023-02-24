@@ -59,7 +59,7 @@
 				onclick="location.href='/2/worship/wUpdate.jsp?wno=<%=request.getParameter("wno")%>'"
 				class="btn btn-outline-primary">수정</button>
 			<button
-				onclick="location.href='/2/worship/wDeleteCheck.jsp?wno=<%=request.getParameter("wno")%>'"
+				onclick="delCheck('/2/worship/wDeleteCheck.jsp?wno=<%=request.getParameter("wno")%>')"
 				class="btn btn-outline-danger">삭제</button>
 
 <%
@@ -103,6 +103,13 @@
 	window.onload = function() {
 		viewFunction(wno);
 	}
+	
+	function delCheck(nextPage) {
+		var flag = confirm("정말로 삭제하시겠습니까?");
+		if(flag) location.href=nextPage;
+	}
+
+
 </script>
 </body>
 </html>

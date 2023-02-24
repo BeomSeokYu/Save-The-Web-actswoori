@@ -21,11 +21,11 @@ import util.ConnectionPool;
 
 public class NewsDAO {
 	
-	public static boolean insertNews(String ntitle, String ncontent, String nemail) throws SQLException, NamingException {
+	public static boolean insertNews(String ntitle, String ncontent, String nemail) {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		boolean result;
+		boolean result = false;
 		
 		String sql = "INSERT INTO news (ntitle, ncontent, email) VALUES (?, ?, ?)";
 		
@@ -41,22 +41,24 @@ public class NewsDAO {
 		
 		result = pstmt.executeUpdate() == 1 ? true : false;
 		
+		} catch (SQLException | NamingException e) {
+			e.printStackTrace();
 		} finally {
-			if(pstmt != null) pstmt.close();
-			if(conn != null) conn.close();
+			close(conn, pstmt, null);
 		}
 		
 		return result;
 	}
 	
 	
-	public static NewsDTO selectNews(int nno) throws NamingException, SQLException {
+	public static NewsDTO selectNews(int nno) {
 		//뉴스 하나 조회
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
+		NewsDTO ndto = new NewsDTO();
 		try {
 		String sql = "SELECT * FROM news WHERE nno=?";
 		
@@ -67,7 +69,6 @@ public class NewsDAO {
 		
 		rs = pstmt.executeQuery();
 		
-		NewsDTO ndto = new NewsDTO();
 		
 		while (rs.next()) {
 			ndto.setNno(rs.getString(1));
@@ -78,22 +79,24 @@ public class NewsDAO {
 			
 		}
 			
-		return ndto;
 		
+		} catch (SQLException | NamingException e) {
+			e.printStackTrace();
+			ndto = null;
 		} finally {
-			if(rs != null) rs.close();
-			if(pstmt != null) pstmt.close();
-			if(conn != null) conn.close();
+			close(conn, pstmt, rs);
 		}
+		return ndto;
 	}
 	
-	public static List<NewsDTO> selectAllNews() throws NamingException, SQLException {
+	public static List<NewsDTO> selectAllNews() {
 		//뉴스 목록 조회
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
+		List<NewsDTO> newsList = new ArrayList<NewsDTO>();
 		try {
 		String sql = "SELECT * FROM news ORDER BY ndate DESC";
 		
@@ -102,7 +105,6 @@ public class NewsDAO {
 		
 		rs = pstmt.executeQuery();
 		
-		List<NewsDTO> newsList = new ArrayList<NewsDTO>();
 		
 		while (rs.next()) {
 			NewsDTO ndto = new NewsDTO();
@@ -116,23 +118,25 @@ public class NewsDAO {
 			newsList.add(ndto);
 		}
 			
-		return newsList;
 		
+		} catch (SQLException | NamingException e) {
+			e.printStackTrace();
+			newsList = null;
 		} finally {
-			if(rs != null) rs.close();
-			if(pstmt != null) pstmt.close();
-			if(conn != null) conn.close();
+			close(conn, pstmt, rs);
 		}
+		return newsList;
 	}
 	
 	
-	public static List<NewsDTO> selectAllNewsPaging(int pageNum, int amount) throws NamingException, SQLException {
+	public static List<NewsDTO> selectAllNewsPaging(int pageNum, int amount) {
 		//뉴스 목록 조회(페이징)
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
+		List<NewsDTO> newsList = new ArrayList<NewsDTO>();
 		try {
 		String sql = "SELECT * FROM news ORDER BY nno DESC limit ?, ?";
 		
@@ -144,7 +148,6 @@ public class NewsDAO {
 		
 		rs = pstmt.executeQuery();
 		
-		List<NewsDTO> newsList = new ArrayList<NewsDTO>();
 		
 		while (rs.next()) {
 			NewsDTO ndto = new NewsDTO();
@@ -158,16 +161,17 @@ public class NewsDAO {
 			newsList.add(ndto);
 		}
 			
-		return newsList;
 		
+		} catch (SQLException | NamingException e) {
+			e.printStackTrace();
+			newsList = null;
 		} finally {
-			if(rs != null) rs.close();
-			if(pstmt != null) pstmt.close();
-			if(conn != null) conn.close();
+			close(conn, pstmt, rs);
 		}
+		return newsList;
 	}
 	
-	public int getTotal() throws SQLException {
+	public int getTotal() {
 
 		int result = 0;
 		Connection conn = null;
@@ -175,35 +179,31 @@ public class NewsDAO {
 		ResultSet rs = null;
 		
 		try {
-		String sql = "select count(*) as total from news";
-		
-		conn = ConnectionPool.get();
-		pstmt = conn.prepareStatement(sql);
-		
-		rs = pstmt.executeQuery();
-		
-		while (rs.next()) {
-			result = rs.getInt("total");
+			String sql = "select count(*) as total from news";
 			
-		}
-		
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				result = rs.getInt("total");
+				
+			}
+			
 		} catch (SQLException | NamingException e) {
 			e.printStackTrace();
 		} finally {
-			if(rs != null) rs.close();
-			if(pstmt != null) pstmt.close();
-			if(conn != null) conn.close();
+			close(conn, pstmt, rs);
 		}
-		
-		
 		return result;
 	}
 	
-	public static boolean updateNews(int nno, String ntitle, String ncontent) throws SQLException, NamingException {
+	public static boolean updateNews(int nno, String ntitle, String ncontent) {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		boolean result;
+		boolean result = false;
 		
 		String sql = "UPDATE news SET ntitle=?, ncontent=? WHERE nno=?";
 		
@@ -219,19 +219,20 @@ public class NewsDAO {
 		
 		result = pstmt.executeUpdate() == 1 ? true : false;
 		
+		} catch (SQLException | NamingException e) {
+			e.printStackTrace();
 		} finally {
-			if(pstmt != null) pstmt.close();
-			if(conn != null) conn.close();
+			close(conn, pstmt, null);
 		}
 		
 		return result;
 	}
 	
-	public static boolean deleteNews(int nno) throws SQLException, NamingException {
+	public static boolean deleteNews(int nno) {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		boolean result;
+		boolean result = false;
 		
 		String sql = "DELETE FROM news WHERE nno=?";
 		
@@ -245,21 +246,23 @@ public class NewsDAO {
 		
 		result = pstmt.executeUpdate() == 1 ? true : false;
 		
+		} catch (SQLException | NamingException e) {
+			e.printStackTrace();
 		} finally {
-			if(pstmt != null) pstmt.close();
-			if(conn != null) conn.close();
+			close(conn, pstmt, null);
 		}
 		
 		return result;
 	}
 	
-	public static List<NewsDTO> selectNewNews() throws NamingException, SQLException {
+	public static List<NewsDTO> selectNewNews() {
 		//메인용, 최신뉴스 4개만 가져오기
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
+		List<NewsDTO> newsList = new ArrayList<NewsDTO>();
 		try {
 		String sql = "SELECT ntitle, ncontent, name as email FROM news n, user u WHERE n.email = u.email ORDER BY ndate DESC limit 4";
 		//이름 가져오고 싶어서 쿼리 통해서 email로 가져옴
@@ -269,7 +272,6 @@ public class NewsDAO {
 		
 		rs = pstmt.executeQuery();
 		
-		List<NewsDTO> newsList = new ArrayList<NewsDTO>();
 		
 		while (rs.next()) {
 			NewsDTO ndto = new NewsDTO();
@@ -281,41 +283,51 @@ public class NewsDAO {
 			newsList.add(ndto);
 		}
 			
-		return newsList;
 		
+		} catch (SQLException | NamingException e) {
+			e.printStackTrace();
+			newsList = null;
 		} finally {
-			if(rs != null) rs.close();
-			if(pstmt != null) pstmt.close();
-			if(conn != null) conn.close();
+			close(conn, pstmt, rs);
 		}
+		return newsList;
 	}
 	
 	//작성자 이메일 조회
 	public static String selectEmail(int nno) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String email = null;
 		try {
 			String sql = "SELECT email FROM news WHERE nno = ?";
 			
-			Connection conn = ConnectionPool.get();
-			PreparedStatement pstmt = conn.prepareStatement(sql);
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, nno);
 			
-			ResultSet rs = pstmt.executeQuery();
-			
-			String email = null;
+			rs = pstmt.executeQuery();
 			
 			if (rs.next()) {
 				email = rs.getString(1);
 			}
 			
-			rs.close();
-			pstmt.close();
-			conn.close();
-			
-			return email;
-		} catch (NamingException | SQLException e) {
+		} catch (SQLException | NamingException e) {
 			e.printStackTrace();
-			return null;
+		} finally {
+			close(conn, pstmt, rs);
 		}
+		return email;
 	}
 	
+	// 객체 닫기
+	public static void close(Connection conn, PreparedStatement pstmt, ResultSet rSet) {
+		try {
+			if(rSet!=null) rSet.close();
+			if(pstmt!=null) pstmt.close();
+			if(conn!=null) conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

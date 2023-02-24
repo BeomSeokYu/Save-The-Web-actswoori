@@ -22,12 +22,13 @@ import util.ConnectionPool;
 public class PostDAO {
 	
 	// 주보 하나 상세보기
-	public static PostDTO selectPost(int pno) throws NamingException, SQLException {
+	public static PostDTO selectPost(int pno) {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
+		PostDTO post = new PostDTO();
 		try {
 			String sql = "SELECT * FROM post WHERE pno = ?";
 			
@@ -37,7 +38,6 @@ public class PostDAO {
 				
 			rs = pstmt.executeQuery(); 
 			
-			PostDTO post = new PostDTO();
 			
 			if(rs.next()) {
 				post = new PostDTO(rs.getInt(1),
@@ -48,32 +48,32 @@ public class PostDAO {
 						rs.getString(6),
 						rs.getString(7));
 			}
-			return post;
 			
-		}finally {
-			if(rs != null) rs.close();
-			if(pstmt != null) pstmt.close();
-			if(conn != null) conn.close();
+		} catch (SQLException | NamingException e) {
+			e.printStackTrace();
+			post = null;
+		} finally {
+			close(conn, pstmt, rs);
 		}
+		return post;
 	}
 
 	
 	// List로 전체 주보 출력
-	public static ArrayList<PostDTO> selectAllPostList() throws NamingException, SQLException {
+	public static ArrayList<PostDTO> selectAllPostList() {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
+		ArrayList<PostDTO> posts = new ArrayList<PostDTO>();
 		try {
 			String sql = "SELECT * FROM post ORDER BY pdate DESC";
 			
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
-			
 			rs = pstmt.executeQuery(); 
 			
-			ArrayList<PostDTO> posts = new ArrayList<PostDTO>();
 			
 			while(rs.next()) {
 				posts.add(new PostDTO(rs.getInt(1),
@@ -84,13 +84,16 @@ public class PostDAO {
 						rs.getString(6),
 						rs.getString(7)));
 				
-			}return posts;
+			}
 			
-		}finally {
-			if(rs != null) rs.close();
-			if(pstmt != null) pstmt.close();
-			if(conn != null) conn.close();
+		} catch (SQLException | NamingException e) {
+			e.printStackTrace();
+			posts = null;
+		} finally {
+			close(conn, pstmt, rs);
 		}
+		
+		return posts;
 	}
 
 	//ajax로 모든 주보 출력
@@ -100,15 +103,14 @@ public class PostDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
+		JSONArray posts = new JSONArray();
 		try {
 			String sql = "SELECT * FROM post ORDER BY pdate DESC";
 			
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
-			
 			rs = pstmt.executeQuery(); 
 			
-			JSONArray posts = new JSONArray();
 			
 			while(rs.next()) {
 				JSONObject obj = new JSONObject();
@@ -121,22 +123,21 @@ public class PostDAO {
 				obj.put("pdate", rs.getString(7));
 				posts.add(obj);
 			}
-			return posts.toJSONString();
 			
-		}finally {
-			if(rs != null) rs.close();
-			if(pstmt != null) pstmt.close();
-			if(conn != null) conn.close();
+		} catch (SQLException | NamingException e) {
+			e.printStackTrace();
+		} finally {
+			close(conn, pstmt, rs);
 		}
+		return posts.toJSONString();
 	}
 	
 	// 주보 등록
-	public static boolean insertPost(String ptitle, String pupfolder, String puuid, String pfilename, String email)
-			throws NamingException, SQLException {
+	public static boolean insertPost(String ptitle, String pupfolder, String puuid, String pfilename, String email) {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		
+		boolean result = false;
 		try {
 			String sql = "INSERT INTO post(ptitle, pupfolder, puuid, pfilename, email) VALUES(?,?,?,?,?)";
 			
@@ -149,21 +150,22 @@ public class PostDAO {
 			pstmt.setString(4, pfilename);
 			pstmt.setString(5, email);
 			
-			return pstmt.executeUpdate() == 1 ? true : false; //성공 1이면 true, 실패 0은 false 
+			result = pstmt.executeUpdate() == 1 ? true : false; //성공 1이면 true, 실패 0은 false 
 
+		} catch (SQLException | NamingException e) {
+			e.printStackTrace();
 		} finally {
-			if(pstmt != null) pstmt.close();
-			if(conn != null) conn.close();
+			close(conn, pstmt, null);
 		}
+		return result;
 	}
 	
 	// 주보 수정
-	public static boolean updatePost(int pno, String ptitle, String pupfolder, String puuid, String pfilename)
-			throws NamingException, SQLException {
+	public static boolean updatePost(int pno, String ptitle, String pupfolder, String puuid, String pfilename) {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		
+		boolean result = false;
 		try {
 			String sql = "UPDATE post SET ptitle=?, pupfolder=?, puuid=?, pfilename=? WHERE pno = ? ";
 					
@@ -176,22 +178,23 @@ public class PostDAO {
 			pstmt.setString(4, pfilename);
 			pstmt.setInt(5, pno);
 			
-			return pstmt.executeUpdate() == 1 ? true : false; //성공 1이면 true, 실패 0은 false 
+			result = pstmt.executeUpdate() == 1 ? true : false; //성공 1이면 true, 실패 0은 false 
 
+		} catch (SQLException | NamingException e) {
+			e.printStackTrace();
 		} finally {
-			if(pstmt != null) pstmt.close();
-			if(conn != null) conn.close();
+			close(conn, pstmt, null);
 		}
+		return result;
 	}
 	
 	
 	// 주보 삭제
-	public static boolean deletePost(int pno)
-			throws NamingException, SQLException {
+	public static boolean deletePost(int pno) {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		
+		boolean result = false;
 		try {
 			String sql = "DELETE FROM post WHERE pno = ?";
 			
@@ -199,21 +202,22 @@ public class PostDAO {
 			pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, pno);
 				
-			return pstmt.executeUpdate() == 1 ? true : false; //성공 1이면 true, 실패 0은 false 
+				result =  pstmt.executeUpdate() == 1 ? true : false; //성공 1이면 true, 실패 0은 false 
 			
-		}finally {
-			if(pstmt != null) pstmt.close();
-			if(conn != null) conn.close();
+		} catch (SQLException | NamingException e) {
+			e.printStackTrace();
+		} finally {
+			close(conn, pstmt, null);
 		}
+		return result;
 	}
 			
 	// 주보 제목만 수정
-   public static boolean updatePostTitle(int pno, String ptitle)
-         throws NamingException, SQLException {
+   public static boolean updatePostTitle(int pno, String ptitle) {
       
       Connection conn = null;
       PreparedStatement pstmt = null;
-      
+      boolean result = false;
       try {
          String sql = "UPDATE post SET ptitle=? WHERE pno = ? ";
                
@@ -223,13 +227,24 @@ public class PostDAO {
          pstmt.setString(1, ptitle);
          pstmt.setInt(2, pno);
          
-         return pstmt.executeUpdate() == 1 ? true : false; //성공 1이면 true, 실패 0은 false 
+         result =  pstmt.executeUpdate() == 1 ? true : false; //성공 1이면 true, 실패 0은 false 
 
-      } finally {
-         if(pstmt != null) pstmt.close();
-         if(conn != null) conn.close();
-      }
+      } catch (SQLException | NamingException e) {
+			e.printStackTrace();
+		} finally {
+			close(conn, pstmt, null);
+		}
+		return result;
    }
 		
-		
+    // 객체 닫기
+	public static void close(Connection conn, PreparedStatement pstmt, ResultSet rSet) {
+		try {
+			if(rSet!=null) rSet.close();
+			if(pstmt!=null) pstmt.close();
+			if(conn!=null) conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

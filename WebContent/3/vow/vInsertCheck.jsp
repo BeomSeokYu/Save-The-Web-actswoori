@@ -18,11 +18,11 @@
 	
 	if (result == 1){%>
 	<script>
-	window.onload = function(){ popModal2("말씀 서원 등록", "등록에 성공하셨습니다", "/2/vow/vSelectAll.jsp")}
+	window.onload = function(){ popModal2("말씀 서원 등록", "등록에 성공하셨습니다", "/3/vow/vSelectAll.jsp")}
 	</script>
 <%} else {%>
 	<script>
-	window.onload =  function(){popModal2("말씀 서원 등록", "등록에 실패하셨습니다", "/2/vow/vSelectAll.jsp")}
+	window.onload =  function(){popModal2("말씀 서원 등록", "등록에 실패하셨습니다", "/3/vow/vSelectAll.jsp")}
 	</script>
 <%}%>
 
