@@ -305,7 +305,7 @@ public class UserDAO {
 			obj.put("password", rs.getString(2));
 			obj.put("name", rs.getString(3));
 			obj.put("job", rs.getString(4));
-			obj.put("joindate", rs.getString(4));
+			obj.put("joindate", rs.getString(5));
 			
 			users.add(obj);
 			
