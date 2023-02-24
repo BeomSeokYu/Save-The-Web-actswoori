@@ -141,9 +141,24 @@ ndate = ndate.substring(0,11);
 		});
 	})
 		function handleDeleteBtn(nno) {
-			if (confirm("정말로 삭제하시겠습니까?")) {
-				location.href = "deleteProc.jsp?nno=" + nno
-			}
+		if (confirm('정말로 삭제 하시겠습니까?')){
+			fetch('/4/news/deleteProc.jsp', {	
+				method: "post",
+				body: new URLSearchParams({
+						nno: nno,
+					})
+		        })
+				.then(resp => resp.text())
+				.then(data => {
+					data.trim()
+					console.log(data);
+					if('success') {
+						popModal2('교회 소식 삭제', '삭제를 성공하셨습니다', '/4/news/newsAll.jsp');
+					} else {
+						popModal('교회 소식 삭제', '삭제를 실패하셨습니다');
+					}
+				})
+		}
 		}
 
 		$(function() {
