@@ -35,3 +35,4 @@ if(result == 1){ %>
 <% } %>
 
 <%@include file="/include/footer.jsp" %>
+<script>history.forward();</script>

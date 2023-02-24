@@ -117,3 +117,4 @@ body {
 %>
 </body>
 </html>
+<script>history.forward();</script>

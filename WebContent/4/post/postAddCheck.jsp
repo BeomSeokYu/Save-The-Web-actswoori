@@ -123,3 +123,4 @@ body {
 <%@ include file="/include/footer.jsp" %>   
 </body>
 </html>
+<script>history.forward();</script>

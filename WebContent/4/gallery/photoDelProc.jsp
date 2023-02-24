@@ -53,3 +53,4 @@ function popModal2(head, body, url) {
     $('#msgModal').modal('show');
  }
 </script>
+<script>history.forward();</script>

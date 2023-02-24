@@ -33,3 +33,4 @@ if(result == 1){
 	</script>
 <%	}	%>
 <%@ include file="/include/footer.jsp" %>   
+<script>history.forward();</script>

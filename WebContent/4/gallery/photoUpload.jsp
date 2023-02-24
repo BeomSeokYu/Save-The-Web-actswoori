@@ -86,3 +86,4 @@
 	
 	response.sendRedirect("/4/gallery/photoList.jsp");
 %>
+<script>history.forward();</script>

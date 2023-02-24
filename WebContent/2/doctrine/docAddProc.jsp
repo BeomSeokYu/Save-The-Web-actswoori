@@ -23,5 +23,5 @@
 	
 	out.print(docDAO.insertDoc(dtitle, dcontent, email));
 %>
-
+<script>history.forward();</script>
 

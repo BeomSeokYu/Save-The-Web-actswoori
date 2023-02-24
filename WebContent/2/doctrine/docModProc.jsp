@@ -21,6 +21,6 @@
 	
 	out.print(docDAO.updateDoc(dtitle, dcontent, dno));
 %>
-
+<script>history.forward();</script>
 
 

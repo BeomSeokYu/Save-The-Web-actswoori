@@ -32,4 +32,5 @@ window.onload =  function(){popModal2("교회 소식 수정", "수정에 실패�
 </script>
 <%}%>
 
-<%@ include file="/include/footer.jsp"%>   
+<%@ include file="/include/footer.jsp"%>  
+<script>history.forward();</script> 

@@ -27,3 +27,4 @@
 <%}%>
 
 <%@ include file="/include/footer.jsp"%>   
+<script>history.forward();</script>

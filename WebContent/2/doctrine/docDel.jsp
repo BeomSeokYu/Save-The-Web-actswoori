@@ -19,6 +19,6 @@
 
 	out.print(docDAO.deleteDoc(dno));
 %>
-
+<script>history.forward();</script>
 
 
