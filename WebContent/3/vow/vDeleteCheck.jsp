@@ -12,13 +12,14 @@
 	
 	int result = VowDAO.delete(vno);
 
-	if (result == 1){%>
+	if (result == 1){
+%>
 	<script>
-	window.onload = function(){ popModal2("말씀 서원 삭제", "삭제에 성공하셨습니다", "vSelectAll.jsp")}
+	window.onload = function(){ popModal2("삭제", "삭제되었습니다.", "vSelectAll.jsp")}
 	</script>
-<%} else {%>
+<%	} else {	%>
 	<script>
-	window.onload =  function(){popModal2("말씀 서원 삭제", "삭제에 실패하셨습니다", "vSelectAll.jsp")}
+		window.onload = function(){ popModal2("삭제", "알 수 없는 이유로 삭제하지 못했습니다.", "vSelectAll.jsp")}
 	</script>
-<%}%>
-	<%@ include file="/include/footer.jsp"%>   
+<%	}	%>
+<%@ include file="/include/footer.jsp" %>     

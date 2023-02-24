@@ -64,9 +64,9 @@ window.onload = function() {
  			success:function(data) {
  				data = data.trim()
 				if (data=='true'){
-					popModal2("복음과 교리 삭제", "삭제에 성공하셨습니다", "doctrine.jsp")
+					popModal2("삭제", "삭제되었습니다.", "doctrine.jsp")
 				} else {
-					popModal2("복음과 교리 삭제", "삭제에 실패하셨습니다", "doctrine.jsp")
+					popModal2("삭제", "알 수 없는 이유로 삭제하지 못했습니다.", "doctrine.jsp")
 				}
 
  			}
