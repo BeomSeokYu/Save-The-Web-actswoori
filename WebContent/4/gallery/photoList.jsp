@@ -154,7 +154,7 @@ function printList(data) {
 			+ '</a><div class="row mb-5">'
 			+ '<div  class="col-6">'+data[i].title+'</div>';
 		if (<%= admin %> || data[i].email == '<%= sid %>') {
-			imgHTML += '<div class="col-6 text-end"><i class="btn bi bi-trash3-fill" onclick="photoRemove(\''+data[i].no+'\')"></i></div>';
+			imgHTML += '<div class="col-6 text-end"><i class="btn bi bi-trash3-fill" onclick="photoRemove(\''+data[i].no+'\',\''+data[i].uuid+'\', \''+data[i].filename+'\')"></i></div>';
 		}
 		imgHTML += ''
 			+ '</div></div>';
@@ -174,8 +174,13 @@ function photoRemove(no, uuid, filename) {
 	        })
 			.then(resp => resp.text())
 			.then(data => {
-				data.trim()
+				data.trim();
 				console.log(data);
+				if (data.trim() == 'success') {
+					popModal('사진 삭제', '삭제가 완료되었습니다.');
+				} else if (data.trim() == 'fail') {
+					popModal('사진 삭제', '삭제에 실패하였습니다.');
+				}
 				pageObj.pageCal(cri);
 			})
 	}
