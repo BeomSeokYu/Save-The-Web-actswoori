@@ -74,7 +74,7 @@
 			item.write(file); //저장 정보를 File 클래스의 인스턴스로 전달!!
 			
 			// DB에 넣기
-		    GalleryDAO.insert(title, uploadPath, item.getName(), uuid.toString(), "최현식");
+		    GalleryDAO.insert(title, uploadPath, item.getName(), uuid.toString(), (String) session.getAttribute("sid"));
 			
 			out.print("원래 파일명: "+item.getName()+"<br>");
 			out.print("생성된 파일명: "+uuidFileName+"<br>");
