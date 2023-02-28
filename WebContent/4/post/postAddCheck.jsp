@@ -40,9 +40,12 @@ body {
 
 	request.setCharacterEncoding("UTF-8");
 
-	String uploadPath = "/resources/postSaved"; // application.getInitParameter("uploadPath");
-	String savePath = application.getRealPath(uploadPath);
+	//String uploadPath = "/resources/postSaved"; // application.getInitParameter("uploadPath");
+	//String savePath = application.getRealPath(uploadPath);
 	//out.print(savePath + "<br><br>");
+	// 카페24용 업로드 설정
+	String uploadPath = "/upload/post";
+	String savePath = "/actschurch/tomcat/webapps" + uploadPath;
 	
    // 업로드 폴더 지정
    File upFolder = new File(savePath);

@@ -45,8 +45,11 @@ body {
 
 	String uploadPDF = request.getParameter("uploadPDF");
 	
-	String uploadPath = "/resources/postSaved";
-	String savePath = application.getRealPath(uploadPath);
+	//String uploadPath = "/resources/postSaved";
+	//String savePath = application.getRealPath(uploadPath);
+	// 카페24용 업로드 설정
+	String uploadPath = "/upload/post";
+	String savePath = "/actschurch/tomcat/webapps" + uploadPath;
 	
    // 업로드 폴더 지정
    File upFolder = new File(savePath);

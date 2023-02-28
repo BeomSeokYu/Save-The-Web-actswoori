@@ -21,12 +21,20 @@
     import="com.oreilly.servlet.MultipartRequest, com.oreilly.servlet.multipart.DefaultFileRenamePolicy"
 %>
 <%
-	
+	/* 
 	// 해당 앱 내 업로드 경로 설정
-	String uploadPath = "/resources/gallery";
+	//String uploadPath = "/resources/gallery";
 	// 실제 업로드 저장 경로 설정
-	String savePath = application.getRealPath(uploadPath);
+	//String savePath = application.getRealPath(uploadPath);
+	 */
+	 
+	// 카페24용 업로드 설정
+	// 해당 앱 내 업로드 경로 설정
+	String uploadPath = "/upload/gallery";
+	// 실제 업로드 저장 경로 설정
+	String savePath = "/actschurch/tomcat/webapps" + uploadPath;
 	
+	// 폴더 생성 처리
 	File uploadDir = new File(uploadPath);
 	if(!uploadDir.exists()){
 		uploadDir.mkdirs();
@@ -39,27 +47,24 @@
 	int maxSize=50*1024*1024; //50M byte제한
 	//업로드 객체를 생성해주는 팩토리 객체 : 주로 설정을 담당(서버의 저장경로, 파일의용량제한..)
 	DefaultFileItemFactory itemFactory = new DefaultFileItemFactory();
-	itemFactory.setRepository(new File(savePath));//저장될 위치!!!, 물리적인 저장이 아닌, 임시디렉토리
-	itemFactory.setSizeThreshold(maxSize); //용량을 지정한 크기로 제한
+	itemFactory.setRepository(new File(savePath));	//저장될 위치. 물리적인 저장이 아닌, 임시디렉토리
+	itemFactory.setSizeThreshold(maxSize); 			//용량을 지정한 크기로 제한
 	
 	//이 객체가 실제 업로드를 수행함
-	ServletFileUpload upload = new ServletFileUpload(itemFactory);//설정정보를 생성자의 인수로 전달!!!
+	ServletFileUpload upload = new ServletFileUpload(itemFactory);//설정정보를 생성자의 인수로 전달
 	
-	//FileItem 은 클라이언트의 전송 정보 하나 하나를 의미한다. 즉 html에서의 input 텍스트박스, file 컴포넌트 들..
-	//우리의 경우 input type="text" 가 FileItem에 담기고 
-	//우리의 경우 input type="file" 가 FileItem에 담기고
+	//FileItem 은 클라이언트의 전송 정보 하나 하나를 의미. 즉 html에서의 input 텍스트박스, file 컴포넌트 들..
 	upload.setHeaderEncoding("UTF-8");
-	List<FileItem> items = upload.parseRequest(request); //업로드 컴포넌트에게 클라이언트의 요청 정보를 전달한다!!!
+	List<FileItem> items = upload.parseRequest(request); //업로드 컴포넌트에게 클라이언트의 요청 정보를 전달
 	
 	String title = "";
 	for(FileItem item : items){
-		//반복문으로 처리되다보니, 파일만 따로 처리를 하려면, 구분로직이 필요함..
+		// FormField는 text박스만 의미
 		if(item.isFormField()) {
 			title = item.getString("UTF-8");
 			out.print("제목: "+title+"<br>");
-		} else { //텍스트박스가 아닌것만 업로드 처리!! FormField는 text박스만 의미함
-			//업로드 처리하자!! 메모리상의 이미지 정보를 실제 물리적 파일로 저장하자!!
-			//새롭게  생성할 파일명
+		} else { //텍스트박스가 아닌것만 업로드 처리
+			
 			out.print("당신이 업로드한 파일의 원래 이름은 "+item.getName());
 			
 			// UUID 설정
@@ -67,11 +72,8 @@
 			String uuidFileName = uuid + "_" + item.getName();
 			System.out.println("uuidFileName : " + uuidFileName);
 		
-			//String ext = FileManager.getExtend(item.getName());//확장자 구하기
-			//String filename = System.currentTimeMillis()+"."+ext;
-			
-			File file =new File(savePath+"/"+uuidFileName);//비어있는 파일
-			item.write(file); //저장 정보를 File 클래스의 인스턴스로 전달!!
+			File file =new File(savePath+"/"+uuidFileName);	// 저장할 파일 세팅
+			item.write(file); 								// 저장 처리
 			
 			// DB에 넣기
 		    GalleryDAO.insert(title, uploadPath, item.getName(), uuid.toString(), (String) session.getAttribute("sid"));

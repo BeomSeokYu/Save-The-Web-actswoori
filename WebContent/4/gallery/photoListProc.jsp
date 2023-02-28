@@ -13,10 +13,18 @@
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	SqlSession sqlSession = sqlSessionFactory.openSession();
 	
+	/* 리스트를 불러 올 때 폴더가 없을 경우 생성 */
+	/* --------------------------------------------------------------- */
 	// 해당 앱 내 업로드 경로 설정
-	String uploadPath = "/resources/gallery";
+	//String uploadPath = "/resources/gallery";
 	// 실제 업로드 저장 경로 설정
-	String savePath = application.getRealPath(uploadPath);
+	//String savePath = application.getRealPath(uploadPath);
+	
+	// 카페24용 업로드 설정
+	// 해당 앱 내 업로드 경로 설정
+	String uploadPath = "/upload/gallery";
+	// 실제 업로드 저장 경로 설정
+	String savePath = "/actschurch/tomcat/webapps" + uploadPath;
 	
 	File uploadDir = new File(uploadPath);
 	if(!uploadDir.exists()){
@@ -26,6 +34,7 @@
 	if(!saveDir.exists()){
 		saveDir.mkdirs();
 	}
+	/* --------------------------------------------------------------- */
 	
 	int amount = Integer.parseInt(request.getParameter("amount"));
 	int pageNum = Integer.parseInt(request.getParameter("pageNum"));

@@ -19,16 +19,25 @@ System.out.println(filename);
 System.out.println(uuid);
 System.out.println(gno);
 
-
+/* 
 // 해당 앱 내 업로드 경로 설정
 String uploadPath = "/resources/gallery";
 // 실제 업로드 저장 경로 설정
 String savePath = application.getRealPath(uploadPath);
+ */
+ 
+//카페24용 업로드 설정
+// 해당 앱 내 업로드 경로 설정
+String uploadPath = "/upload/gallery";
+// 실제 업로드 저장 경로 설정
+String savePath = "/actschurch/tomcat/webapps" + uploadPath;
+
 
 boolean upDelResult = false;
 boolean saveDelResult = false;
 boolean dbDelResult = false;
 
+// 파일 삭제 처리
 File uploadFile = new File(uploadPath, uuid + "_" + filename);
 System.out.println(uploadFile.getAbsolutePath());
 if(uploadFile.exists()){
@@ -40,6 +49,7 @@ if(saveDir.exists()){
 	saveDelResult = saveDir.delete();
 }
 
+// db 삭제 처리
 if (GalleryDAO.delete(gno)) {	
 	out.print("success");
 } else {

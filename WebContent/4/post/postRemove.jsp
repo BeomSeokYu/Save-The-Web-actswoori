@@ -25,10 +25,14 @@
 	int pno = Integer.parseInt(request.getParameter("pno"));
 
 	// 해당 앱 내 업로드 경로 설정
-	String uploadPath = "/resources/postSaved";
+	//String uploadPath = "/resources/postSaved";
 	// 실제 업로드 저장 경로 설정
-	String savePath = application.getRealPath(uploadPath);
-
+	//String savePath = application.getRealPath(uploadPath);
+	// 카페24용 업로드 설정
+	String uploadPath = "/upload/post";
+	String savePath = "/actschurch/tomcat/webapps" + uploadPath;
+	
+	
 	boolean upDelResult = false;
 	boolean saveDelResult = false;
 	boolean dbDelResult = false;
