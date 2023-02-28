@@ -19,11 +19,11 @@
 		<div class="photo-gallery container mb-3">
 			<div class="row justify-content-center">
 				<h2>오시는 길</h2>
-				<div class="col-3 d-none d-lg-block">
+				<div class="col-lg-3 d-none d-lg-block">
 					<%@ include file="/include/sidebar1.jsp"%>
 				</div>
 
-				<div class="col-9">
+				<div class="col-lg-9">
 					<hr>
 					<h4 class="my-4 mx-2" style="font-family: 'LINESeedKR-Bd';">주소</h4>
 					<p class="my-2 mx-2" style="font-family: 'LINESeedKR-Bd';">서울 서대문구 증가로 130 지하 1층</p>

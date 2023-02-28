@@ -49,11 +49,11 @@
 		<div class="photo-gallery container mb-3">
 			<div class="row justify-content-center">
 				<h2>섬기는 사람들</h2>
-				<div class="col-3 d-none d-lg-block">
+				<div class="col-lg-3 d-none d-lg-block">
 					<%@ include file="/include/sidebar1.jsp"%>
 				</div>
 
-				<div class="col-9">
+				<div class="col-lg-9">
 					<div class="album py-5 bg-light">
 						<div class="container">
 							<p style="font-weight: bold; color: #747474;">당회</p>

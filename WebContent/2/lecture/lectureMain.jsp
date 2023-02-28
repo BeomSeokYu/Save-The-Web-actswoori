@@ -45,11 +45,11 @@
 		<div class="photo-gallery container mb-3">
 			<div class="row justify-content-center">
 				<h2>주요 특강</h2>
-				<div class="col-3 d-none d-lg-block">
+				<div class="col-lg-3 d-none d-lg-block">
 					<%@ include file="/include/sidebar2.jsp"%>
 				</div>
 
-				<div class="col-9">
+				<div class="col-lg-9">
 					<div class="row">
 						<div class="col-3 text-muted">
 							<select class="form-select form-select-sm w-50 d-inline"

@@ -1,5 +1,5 @@
 /*Medium Screen*/
-
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 @media (max-width: 1199px) {}
 @media (max-width: 991px) {
     #header .top_header .phone p {
@@ -204,7 +204,7 @@
         text-transform: uppercase;
         font-weight: 700;
         padding-bottom: 25px;
-        font-family: 'Roboto Slab', serif !important;
+        font-family: 'Noto Sans KR', serif !important;
         color: #222222;
     }
     #welcome {

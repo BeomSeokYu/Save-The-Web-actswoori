@@ -20,10 +20,10 @@
 		<div class="photo-gallery container mb-3">
 			<div class="row justify-content-center">
 				<h2>협력 교회와 기관 소식 등록</h2>
-				<div class="col-3 d-none d-lg-block">
+				<div class="col-lg-3 d-none d-lg-block">
 					<%@ include file="/include/sidebar4.jsp"%>
 				</div>
-				<div class="col-9">
+				<div class="col-lg-9">
 					<div class="row">
 						<div class="col-3 text-muted"></div>
 						<div class="col-9 text-end"></div>

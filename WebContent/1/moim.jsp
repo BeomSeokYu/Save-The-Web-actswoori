@@ -21,11 +21,11 @@
 		<div class="photo-gallery container mb-3">
 			<div class="row justify-content-center">
 				<h2>모임 안내</h2>
-				<div class="col-3 d-none d-lg-block">
+				<div class="col-lg-3 d-none d-lg-block">
 					<%@ include file="/include/sidebar1.jsp"%>
 				</div>
 
-				<div class="col-9">
+				<div class="col-lg-9">
 					<div>
 						<img src="/resources/img/moim.jpg"
 							style="width: 1000px; height: 295px; object-fit: cover; object-position: left top;"

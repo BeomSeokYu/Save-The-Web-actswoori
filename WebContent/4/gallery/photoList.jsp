@@ -41,10 +41,10 @@
 	<div class="container mb-3">
 		<div class="row justify-content-center">
 			<h2 class="">갤러리</h2>
-			<div class="col-3 d-none d-lg-block">
+			<div class="col-lg-3 d-none d-lg-block">
 				<%@ include file="/include/sidebar4.jsp" %>
 			</div>
-			<div class="col-9">
+			<div class="col-lg-9">
 				<div class="row">
 					<div class="col-3 text-muted">
 						<select class="form-select form-select-sm w-50 d-inline" id="selectAmount">
@@ -150,7 +150,7 @@ function printList(data) {
 		imgHTML += ''
 			+ '<div class="col-sm-6 col-md-4 col-lg-3 item h-100">'
 			+ '<a class="col-lg-4 col-md-12 mb-4 mb-lg-0" href="'+ img +'" data-title="'+data[i].title +'" data-lightbox="photos">'
-			+ '<img class="img-fluid shadow bg-body rounded" src="'+img+'" style="width: 200px;height: 150px;object-fit: cover;">'
+			+ '<img class="img-fluid shadow bg-body rounded" src="'+img+'" style="width: 200px;height: 200px;object-fit: cover;">'
 			+ '</a><div class="row mb-5">'
 			+ '<div  class="col-6">'+data[i].title+'</div>';
 		if (<%= admin %> || data[i].email == '<%= sid %>') {

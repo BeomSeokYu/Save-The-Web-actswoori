@@ -58,10 +58,10 @@ iframe {
  <div class="container">
 		<div class="photo-gallery container mb-3">
 			<div class="row justify-content-center">
-				<div class="col-3 d-none d-lg-block pt-5">
+				<div class="col-lg-3 d-none d-lg-block pt-5">
 					<%@ include file="/include/sidebar4.jsp"%>
 				</div>
-				<div class="col-9">
+				<div class="col-lg-9">
 				
 				<div class="pt-5"></div>
 				<h2>주보</h2>
