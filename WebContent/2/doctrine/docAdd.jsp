@@ -85,7 +85,7 @@ var sid = "<%=sid%>";
 					success : function(data) {
 						data = data.trim()
 						console.log(data);
-						if (data=='true'){
+						if (data.substr(0,4)=='true'){
 							popModal2("복음과 교리 등록", "등록에 성공하셨습니다", "doctrine.jsp?msg=addok")
 						} else {
 							popModal2("복음과 교리 등록", "등록에 실패하셨습니다", "doctrine.jsp")

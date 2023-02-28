@@ -101,7 +101,7 @@
 			
 			success:function(data) {
 				data = data.trim()
-				if (data=='true'){
+				if (data.substr(0,4)=='true'){
 					popModal2("복음과 교리 수정", "수정에 성공하셨습니다", "docView.jsp?dno="+dno)
 				} else {
 					popModal2("복음과 교리 수정", "수정에 실패하셨습니다", "docView.jsp?dno="+dno)
@@ -113,10 +113,10 @@
 			}
 		});
 	}
+  }
   window.onload = function() {
 		searchFunction(dno);
 	}
-  }
     </script>
 
 <%@ include file="/include/footer.jsp" %>

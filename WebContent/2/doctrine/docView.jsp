@@ -63,7 +63,7 @@ window.onload = function() {
  			
  			success:function(data) {
  				data = data.trim()
-				if (data=='true'){
+				if (data.substr(0,4)=='true'){
 					popModal2("삭제", "삭제되었습니다.", "doctrine.jsp")
 				} else {
 					popModal2("삭제", "알 수 없는 이유로 삭제하지 못했습니다.", "doctrine.jsp")
