@@ -29,9 +29,9 @@
 						<div class="col-3 text-muted">
 							<select class="form-select form-select-sm w-50 d-inline"
 								id="selectAmount">
-								<option value="8" selected>8</option>
-								<option value="16">16</option>
-								<option value="24">24</option>
+								<option value="10" selected>10</option>
+								<option value="20">20</option>
+								<option value="40">40</option>
 							</select> <span class="d-inline">개씩 보기</span>
 						</div>
 						<div class="col-9 text-end">
