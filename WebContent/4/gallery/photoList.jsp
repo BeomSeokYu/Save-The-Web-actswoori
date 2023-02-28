@@ -149,7 +149,7 @@ function printList(data) {
 		
 		imgHTML += ''
 			+ '<div class="col-sm-6 col-md-4 col-lg-3 item h-100">'
-			+ '<a class="col-lg-4 col-md-12 mb-4 mb-lg-0" href="'+ img +'" data-title="'+data[i].title +'" data-lightbox="photos">'
+			+ '<a class="col-lg-4 col-md-12 mb-4 mb-lg-0" href="'+ img +'" data-title="'+data[i].title + '\n('+ data[i].date.substr(0,10) +')' +'" data-lightbox="photos">'
 			+ '<img class="img-fluid shadow bg-body rounded" src="'+img+'" style="width: 200px;height: 200px;object-fit: cover;">'
 			+ '</a><div class="row mb-5">'
 			+ '<div  class="col-6">'+data[i].title+'</div>';
