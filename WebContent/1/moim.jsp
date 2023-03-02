@@ -75,7 +75,7 @@
 					</table>
 
 					<hr class="my-5">
-					<h3 class="my-4">부서 예배</h3>
+					<h3 class="my-4">부서 기관 모임</h3>
 					<table class="table">
 						<thead class="table-light">
 							<tr>

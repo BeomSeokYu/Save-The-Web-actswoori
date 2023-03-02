@@ -120,9 +120,11 @@
 				          <div class="card-body">
 				            <ul class="list-unstyled mt-3 mb-2">
 				              <li>회장 : 박영희 권사</li>
-				              <li>총무 : 김정삼 권사</li>
+				              <li>총무 : 김정순 권사</li>
 				              <li>회계 : 유은자 권사</li>
 				              <li>서기 : 민병녀 권사</li>
+				              <li>기도부장 : 김경자 권사</li>
+				              <li>성미부장 : 갈춘란 집사</li>
 				            </ul>
 				          </div>
 				        </div>
@@ -135,9 +137,9 @@
 				          <div class="card-body">
 				            <ul class="list-unstyled mt-3 mb-2">
 				              <li>회장 : 류희순 집사</li>
-				              <li>총무 : 최인춘 장로</li>
+				              <li>총무 : 최인춘 집사</li>
 				              <li>회계 : 변희선 집사</li>
-				              <li>서기 : 최인춘 장로</li>
+				              <li>서기 : 최인춘 집사</li>
 				            </ul>
 				          </div>
 				        </div>

@@ -56,7 +56,7 @@
 				<div class="col-lg-9">
 					<div class="album py-5 bg-light">
 						<div class="container">
-							<p style="font-weight: bold; color: #747474;">당회</p>
+							<p style="font-weight: bold; font-size: 20px; color: #267278;">당회</p>
 							<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 								<div class="col">
 									<div class="card shadow-sm">
@@ -96,7 +96,7 @@
 								</div>
 							</div>
 							<hr class="my-4">
-							<p style="font-weight: bold; color: #747474;">교육부</p>
+							<p style="font-weight: bold; font-size: 20px; color: #267278;">교육부</p>
 							<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 								<div class="col">
 									<div class="card shadow-sm">
@@ -112,7 +112,7 @@
 								</div>
 							</div>
 							<hr class="my-4">
-							<p style="font-weight: bold; color: #747474;">청년대학부</p>
+							<p style="font-weight: bold; font-size: 20px; color: #267278;">청년대학부</p>
 							<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 								<div class="col">
 									<div class="card shadow-sm">
@@ -152,7 +152,7 @@
 								</div>
 							</div>
 							<hr class="my-4">
-							<p style="font-weight: bold; color: #747474;">중고등부</p>
+							<p style="font-weight: bold; font-size: 20px; color: #267278;">중고등부</p>
 							<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 								<div class="col">
 									<div class="card shadow-sm">
@@ -168,7 +168,7 @@
 								</div>
 							</div>
 							<hr class="my-4">
-							<p style="font-weight: bold; color: #747474;">유초등부</p>
+							<p style="font-weight: bold; font-size: 20px; color: #267278;">유초등부</p>
 							<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 								<div class="col">
 									<div class="card shadow-sm">
@@ -184,7 +184,7 @@
 								</div>
 							</div>
 							<hr class="my-4">
-							<p style="font-weight: bold; color: #747474;">영아유치부</p>
+							<p style="font-weight: bolder; font-size: 20px; color: #267278;">영아유치부</p>
 							<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 								<div class="col">
 									<div class="card shadow-sm">
@@ -200,7 +200,7 @@
 								</div>
 							</div>
 							<hr class="my-4">
-							<p style="font-weight: bold; color: #747474;">성가대</p>
+							<p style="font-weight: bold; font-size: 20px; color: #267278;">성가대</p>
 							<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 								<div class="col">
 									<div class="card shadow-sm">
@@ -242,16 +242,12 @@
 						</div>
 
 
-				</div>
+					</div>
 
+				</div>
 			</div>
 		</div>
 	</div>
-				</div>
-				</div>
-				</div>
-				</div>
 	<%@ include file="/include/footer.jsp"%>
 </body>
 </html>
-

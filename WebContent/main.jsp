@@ -88,7 +88,7 @@
                         </div>
                         
                         <hr class="my-5">
-                        <h3 class="my-4">예배및기도회</h3>
+                        <h3 class="my-4">예배 및 기도회</h3>
 
 					<table class="table mb-4">
 						<thead class="table-light">
@@ -131,7 +131,7 @@
 					</table>
 
 					<hr class="my-5">
-					<h3 class="my-4">부서예배</h3>
+					<h3 class="my-4">부서 기관 모임</h3>
 					<table class="table mb-4">
 						<thead class="table-light">
 							<tr>

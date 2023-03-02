@@ -73,7 +73,7 @@
 				          </div>
 				          <div class="card-body">
 				            <ul class="list-unstyled mt-3 mb-4">
-				              <li>부장 : 변희섭 집사</li>
+				              <li>부장 : 변희선 집사</li>
 				              <li>교사 : 변희선, 최인춘</li>
 				              <li>지도 : 김종길 목사</li>
 				            </ul>
