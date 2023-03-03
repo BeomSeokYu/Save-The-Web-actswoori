@@ -26,8 +26,7 @@
 				<div class="col-lg-9">
 					<hr>
 					<h4 class="my-4 mx-2" style="font-family: 'LINESeedKR-Bd';">주소</h4>
-					<p class="my-2 mx-2" style="font-family: 'LINESeedKR-Bd';">서울 서대문구 증가로 130 지하 1층</p>
-					<p class="my-2 mx-2" style="font-family: 'LINESeedKR-Bd';">서대문구 증가로 130</p>
+					<p class="my-2 mx-2" style="font-family: 'LINESeedKR-Bd';">서울 서대문구 증가로 130 지층 (남가좌동341-10)</p>
 					<hr>
 					<h4 class="my-4 mx-2" style="font-family: 'LINESeedKR-Bd';">탑승 버스</h4>
 					<p class="my-2" style="font-family: 'LINESeedKR-Bd';">
