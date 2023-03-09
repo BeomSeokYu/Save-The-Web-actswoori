@@ -61,36 +61,36 @@
 								<div class="col">
 									<div class="card shadow-sm">
 										<div class="main_image">
-											<img src="profile.jpg" width="100%" height="225"
+											<img src="/resources/img/peopleAll/김종길 목사.jpg" style="object-fit:contain" width="100%" height="225"
 												class="bd-placeholder-img card-img-top" width="100%"
 												height="225" />
 										</div>
 										<div class="card-body">
-											<p class="card-text">김종길목사</p>
+											<p class="card-text">김종길 목사</p>
 										</div>
 									</div>
 								</div>
 								<div class="col">
 									<div class="card shadow-sm">
 										<div class="main_image">
-											<img src="profile.jpg" width="100%" height="225"
+											<img src="/resources/img/peopleAll/당회 배종삼 장로.png" style="object-fit:contain" width="100%" height="225"
 												class="bd-placeholder-img card-img-top" width="100%"
 												height="225" />
 										</div>
 										<div class="card-body">
-											<p class="card-text">배종삼장로</p>
+											<p class="card-text">배종삼 장로</p>
 										</div>
 									</div>
 								</div>
 								<div class="col">
 									<div class="card shadow-sm">
 										<div class="main_image">
-											<img src="profile.jpg" width="100%" height="225"
+											<img src="/resources/img/peopleAll/당회 민병국 장로.jpg" style="object-fit:contain" width="100%" height="225"
 												class="bd-placeholder-img card-img-top" width="100%"
 												height="225" />
 										</div>
 										<div class="card-body">
-											<p class="card-text">민병국장로</p>
+											<p class="card-text">민병국 장로</p>
 										</div>
 									</div>
 								</div>
@@ -101,12 +101,12 @@
 								<div class="col">
 									<div class="card shadow-sm">
 										<div class="main_image">
-											<img src="profile.jpg" width="100%" height="225"
+											<img src="/resources/img/peopleAll/교육부장 홍순철 집사.jpg" style="object-fit:contain" width="100%" height="225"
 												class="bd-placeholder-img card-img-top" width="100%"
 												height="225" />
 										</div>
 										<div class="card-body">
-											<p class="card-text">홍순철집사(교육부장)</p>
+											<p class="card-text">홍순철 집사(교육부장)</p>
 										</div>
 									</div>
 								</div>
@@ -117,12 +117,24 @@
 								<div class="col">
 									<div class="card shadow-sm">
 										<div class="main_image">
-											<img src="profile.jpg" width="100%" height="225"
+											<img src="/resources/img/peopleAll/청년대학부장 이원석 집사.jpg" style="object-fit:contain" width="100%" height="225"
 												class="bd-placeholder-img card-img-top" width="100%"
 												height="225" />
 										</div>
 										<div class="card-body">
-											<p class="card-text">이원석집사(부장)</p>
+											<p class="card-text">이원석 집사(부장)</p>
+										</div>
+									</div>
+								</div>
+								<div class="col">
+									<div class="card shadow-sm">
+										<div class="main_image">
+											<img src="/resources/img/peopleAll/청년대학부 회장 홍원표 청년.jpg" style="object-fit:contain" width="100%" height="225"
+												class="bd-placeholder-img card-img-top" width="100%"
+												height="225" />
+										</div>
+										<div class="card-body">
+											<p class="card-text">홍원표 청년(회장)</p>
 										</div>
 									</div>
 								</div>
@@ -134,19 +146,7 @@
 												height="225" />
 										</div>
 										<div class="card-body">
-											<p class="card-text">홍원표청년(회장)</p>
-										</div>
-									</div>
-								</div>
-								<div class="col">
-									<div class="card shadow-sm">
-										<div class="main_image">
-											<img src="profile.jpg" width="100%" height="225"
-												class="bd-placeholder-img card-img-top" width="100%"
-												height="225" />
-										</div>
-										<div class="card-body">
-											<p class="card-text">황정현목사(교육)</p>
+											<p class="card-text">황정현 목사(교육)</p>
 										</div>
 									</div>
 								</div>
@@ -157,12 +157,12 @@
 								<div class="col">
 									<div class="card shadow-sm">
 										<div class="main_image">
-											<img src="profile.jpg" width="100%" height="225"
+											<img src="/resources/img/peopleAll/중고등부 부장 변희선 집사.jpg" style="object-fit:contain" width="100%" height="225"
 												class="bd-placeholder-img card-img-top" width="100%"
 												height="225" />
 										</div>
 										<div class="card-body">
-											<p class="card-text">변희선집사(부장)</p>
+											<p class="card-text">변희선 집사(부장)</p>
 										</div>
 									</div>
 								</div>
@@ -173,12 +173,12 @@
 								<div class="col">
 									<div class="card shadow-sm">
 										<div class="main_image">
-											<img src="profile.jpg" width="100%" height="225"
+											<img src="/resources/img/peopleAll/유초등부 부장 김경자 권사.jpg" style="object-fit:contain" width="100%" height="225"
 												class="bd-placeholder-img card-img-top" width="100%"
 												height="225" />
 										</div>
 										<div class="card-body">
-											<p class="card-text">김경자권사(부장)</p>
+											<p class="card-text">김경자 권사(부장)</p>
 										</div>
 									</div>
 								</div>
@@ -189,12 +189,12 @@
 								<div class="col">
 									<div class="card shadow-sm">
 										<div class="main_image">
-											<img src="profile.jpg" width="100%" height="225"
+											<img src="/resources/img/peopleAll/영아유치부 부장 김경자 권사.jpg" style="object-fit:contain" width="100%" height="225"
 												class="bd-placeholder-img card-img-top" width="100%"
 												height="225" />
 										</div>
 										<div class="card-body">
-											<p class="card-text">김경자권사(부장)</p>
+											<p class="card-text">김경자 권사(부장)</p>
 										</div>
 									</div>
 								</div>
@@ -205,36 +205,36 @@
 								<div class="col">
 									<div class="card shadow-sm">
 										<div class="main_image">
-											<img src="profile.jpg" width="100%" height="225"
+											<img src="/resources/img/peopleAll/성가대장 이원석 집사.jpg" style="object-fit:contain" width="100%" height="225"
 												class="bd-placeholder-img card-img-top" width="100%"
 												height="225" />
 										</div>
 										<div class="card-body">
-											<p class="card-text">이원석집사(대장)</p>
+											<p class="card-text">이원석 집사(성가대장)</p>
 										</div>
 									</div>
 								</div>
 								<div class="col">
 									<div class="card shadow-sm">
 										<div class="main_image">
-											<img src="profile.jpg" width="100%" height="225"
+											<img src="/resources/img/peopleAll/지휘자 장소라집사.png" style="object-fit:contain" width="100%" height="225"
 												class="bd-placeholder-img card-img-top" width="100%"
 												height="225" />
 										</div>
 										<div class="card-body">
-											<p class="card-text">장소라집사(지휘)</p>
+											<p class="card-text">장소라 집사(지휘)</p>
 										</div>
 									</div>
 								</div>
 								<div class="col">
 									<div class="card shadow-sm">
 										<div class="main_image">
-											<img src="profile.jpg" width="100%" height="225"
+											<img src="/resources/img/peopleAll/반주자 김수연 청년.jpg" style="object-fit:contain" width="100%" height="225"
 												class="bd-placeholder-img card-img-top" width="100%"
 												height="225" />
 										</div>
 										<div class="card-body">
-											<p class="card-text">김수연청년(반주)</p>
+											<p class="card-text">김수연 청년(반주)</p>
 										</div>
 									</div>
 								</div>
