@@ -107,70 +107,35 @@
 
 
 
-## 프로젝트 결과
+## 프로젝트 결과 소개
+- ### 홈페이지 URL
+  [행전우리교회 (http://actswoori.org)](http://actswoori.org/main.jsp "행전우리교회")
 
-프로젝트의 주요 결과물은 다음과 같습니다:
+<br>
 
-#### 메인페이지
-<img src="./screenshot/main.png" alt="...">
+- ### 메인페이지
+  <div align="center">
+    <img src="./screenshot/main.png" width="400px" alt="...">
+  </div>
 
-#### 오시는 길
-<img src="./screenshot/map.png" alt="...">
+- ### 오시는 길
+  <div align="center">
+    <img src="./screenshot/map.png" width="500px" alt="...">
+  </div>
 
-#### 게시판
-<img src="./screenshot/board.png" alt="...">
+- ### 게시판
+  <div align="center">
+    <img src="./screenshot/board.png" width="500px" alt="...">
+  </div>
 
-#### 갤러리
-<img src="./screenshot/galley.png" alt="...">
+- ### 갤러리
+  <div align="center">
+    <img src="./screenshot/galley.png" width="500px" alt="...">
+  </div>
 
-#### 주보
-<img src="./screenshot/post.png" alt="...">
-
-<br><br><br>
-
-
-
-## 개발 환경 설정
-
-개발 환경을 설정하기 위해 다음 단계를 따르세요:
-
-1. [환경 설정 단계 1]
-2. [환경 설정 단계 2]
-3. [환경 설정 단계 3]
-4. ...
-
-<br><br><br>
-
-
-
-## 실행 방법
-
-프로젝트를 실행하는 방법은 다음과 같습니다:
-
-1. [실행 단계 1]
-2. [실행 단계 2]
-3. [실행 단계 3]
-4. ...
+- ### 주보
+  <div align="center">
+    <img src="./screenshot/post.png" width="500px" alt="...">
+  </div>
 
 <br><br><br>
-
-
-
-## 기여 및 라이선스
-
-이 프로젝트에 기여하고 싶으시다면, [기여 가이드 또는 방법]를 참고해주세요.
-
-이 프로젝트는 [라이선스]를 따릅니다. 자세한 내용은 [라이선스 파일]을 참조해주세요.
-
-<br><br><br>
-
-
-
-## 참고 자료
-
-이 프로젝트를 개발하는 동안 참고한 주요 자료는 다음과 같습니다:
-
-- [참고 자료 1]
-- [참고 자료 2]
-
-
