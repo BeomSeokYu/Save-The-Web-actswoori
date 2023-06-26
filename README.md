@@ -1,7 +1,8 @@
 # Save-The-Web
 개척교회 홈페이지 제작 팀 프로젝트
 
-<br>
+<br><br><br>
+
 
 
 ## 팀원
@@ -21,7 +22,8 @@
   </tbody>
 </table>
 
-<br>
+<br><br><br>
+
 
 
 ## 프로젝트 개요
@@ -37,73 +39,96 @@
 따라서 우리는 교회의 정보 전달에 유리한 심플하며 현대에 맞는 UI/UX를 가지며, 외부사람들에게 교회의 좋은 이미지를 주는 홈페이지를 제작하는 것이 목표이다.
 ```
 
-<br>
+<br><br><br>
 
 
 
 ## 기술 스택
 
-#### FE
-  <a href="https://www.w3.org/TR/html52/" target="_blank">
-    <img src="https://img.shields.io/badge/-HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
-  </a>
-  <a href="https://www.w3.org/Style/CSS/" target="_blank">
-    <img src="https://img.shields.io/badge/-CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
-  </a>
-  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-    <img src="https://img.shields.io/badge/-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
-  </a>
-  <a href="https://jquery.com" target="_blank">
-    <img src="https://img.shields.io/badge/-jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white" alt="jQuery">
-  </a>
-  <a href="https://getbootstrap.com" target="_blank">
-    <img src="https://img.shields.io/badge/-Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap">
-  </a>
+#### 🖥️ FE
 
-#### BE
-  <a href="https://openjdk.java.net" target="_blank">
-    <img src="https://img.shields.io/badge/-Java-CC0000?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java">
-  </a>
-  <a href="https://jsp.dev" target="_blank">
-    <img src="https://img.shields.io/badge/-JSP-007396?style=for-the-badge&logo=jsp&logoColor=white" alt="JSP">
-  </a>
-  <a href="https://tomcat.apache.org" target="_blank">
-    <img src="https://img.shields.io/badge/-Servlet-007396?style=for-the-badge&logo=servlet&logoColor=white" alt="Servlet">
-  </a>
-  <a href="https://tomcat.apache.org" target="_blank">
-    <img src="https://img.shields.io/badge/-Apache%20Tomcat-F8DC75?style=for-the-badge&logo=apache%20tomcat&logoColor=black" alt="Apache Tomcat">
-  </a>
-  <br>
-  <a href="https://www.mysql.com" target="_blank">
-    <img src="https://img.shields.io/badge/-MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
-  </a>
-  <a href="https://mybatis.org" target="_blank">
-    <img src="https://img.shields.io/badge/-MyBatis-1F72B5?style=for-the-badge&logo=fluentd&logoColor=white" alt="MyBatis">
-  </a>
+<a href="https://www.w3.org/TR/html52/" target="_blank">
+  <img src="https://img.shields.io/badge/-HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
+</a>
+<a href="https://www.w3.org/Style/CSS/" target="_blank">
+  <img src="https://img.shields.io/badge/-CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
+</a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
+  <img src="https://img.shields.io/badge/-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+</a>
+<a href="https://jquery.com" target="_blank">
+  <img src="https://img.shields.io/badge/-jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white" alt="jQuery">
+</a>
+<a href="https://getbootstrap.com" target="_blank">
+  <img src="https://img.shields.io/badge/-Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap">
+</a>
 
+#### ⌨️ BE
+
+<a href="https://openjdk.java.net" target="_blank">
+  <img src="https://img.shields.io/badge/-Java-CC0000?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java">
+</a>
+<a href="https://jsp.dev" target="_blank">
+  <img src="https://img.shields.io/badge/-JSP-007396?style=for-the-badge&logo=jsp&logoColor=white" alt="JSP">
+</a>
+<a href="https://tomcat.apache.org" target="_blank">
+  <img src="https://img.shields.io/badge/-Servlet-007396?style=for-the-badge&logo=servlet&logoColor=white" alt="Servlet">
+</a>
+<a href="https://tomcat.apache.org" target="_blank">
+  <img src="https://img.shields.io/badge/-Apache%20Tomcat-F8DC75?style=for-the-badge&logo=apache%20tomcat&logoColor=black" alt="Apache Tomcat">
+</a>
 <br>
+<a href="https://www.mysql.com" target="_blank">
+  <img src="https://img.shields.io/badge/-MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
+</a>
+<a href="https://mybatis.org" target="_blank">
+  <img src="https://img.shields.io/badge/-MyBatis-1F72B5?style=for-the-badge&logo=fluentd&logoColor=white" alt="MyBatis">
+</a>
+
+###
+<br><br><br>
+
+
+## 주요 기능 및 설명
+
+- 교회 소개
+  - 교회의 비전, 모임, 섬기는 사람, 교회 위치 지도 표시를 통한 오시는 길 안내 등 교회 소개를 위한 페이지들
+- 게시판
+  - 각각의 역할에 맞는 글쓰기 게시판.
+  - 썸머노트([https://summernote.org](https://summernote.org/ "썸머노트")) WYSIWYG 에디터를 활용한 편의성 제공
+  - 동적 쿼리를 이용한 페이징 및 검색으로 편의성 제공
+- 갤러리
+  - 다중 사진 파일 업로드 기능을 통한 편의 기능 제공
+- PDF 업로드
+  - PDF 주보 파일을 업로드 하여 PDF.JS (PDF 웹뷰어 범용 웹 표준 기반 플랫폼; [https://mozilla.github.io/pdf.js](https://mozilla.github.io/pdf.js/ "pdf.js")) 오픈 소스를 통해 손쉽게 열람하고 다운로드 할 수 있는 기능 제공
+
+
+<br><br><br>
 
 
 
-## 기능 및 기능 설명
-
-- 기능 1: [기능 1의 간단한 설명]
-- 기능 2: [기능 2의 간단한 설명]
-- 기능 3: [기능 3의 간단한 설명]
-- ...
-
-## 프로젝트 구조
-
-
-
-## 프로젝트 결과물
+## 프로젝트 결과
 
 프로젝트의 주요 결과물은 다음과 같습니다:
 
-- [결과물 1에 대한 설명 또는 스크린샷]
-- [결과물 2에 대한 설명 또는 스크린샷]
-- [결과물 3에 대한 설명 또는 스크린샷]
-- ...
+#### 메인페이지
+<img src="./screenshot/main.png" alt="...">
+
+#### 오시는 길
+<img src="./screenshot/map.png" alt="...">
+
+#### 게시판
+<img src="./screenshot/board.png" alt="...">
+
+#### 갤러리
+<img src="./screenshot/galley.png" alt="...">
+
+#### 주보
+<img src="./screenshot/post.png" alt="...">
+
+<br><br><br>
+
+
 
 ## 개발 환경 설정
 
@@ -114,6 +139,10 @@
 3. [환경 설정 단계 3]
 4. ...
 
+<br><br><br>
+
+
+
 ## 실행 방법
 
 프로젝트를 실행하는 방법은 다음과 같습니다:
@@ -123,11 +152,19 @@
 3. [실행 단계 3]
 4. ...
 
+<br><br><br>
+
+
+
 ## 기여 및 라이선스
 
 이 프로젝트에 기여하고 싶으시다면, [기여 가이드 또는 방법]를 참고해주세요.
 
 이 프로젝트는 [라이선스]를 따릅니다. 자세한 내용은 [라이선스 파일]을 참조해주세요.
+
+<br><br><br>
+
+
 
 ## 참고 자료
 
