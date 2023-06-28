@@ -90,18 +90,15 @@
 
 
 ## 주요 기능 및 설명
-
 - 교회 소개
-  - 교회의 비전, 모임, 섬기는 사람, 교회 위치 지도 표시를 통한 오시는 길 안내 등 교회 소개를 위한 페이지들
-- 게시판
-  - 각각의 역할에 맞는 글쓰기 게시판.
-  - 썸머노트([https://summernote.org](https://summernote.org/ "썸머노트")) WYSIWYG 에디터를 활용한 편의성 제공
-  - 동적 쿼리를 이용한 페이징 및 검색으로 편의성 제공
+    - 교회 위치 지도 표시(Kakao Map API)를 통한 오시는 길 안내
+- 일반 게시판
+  - 썸머노트([https://summernote.org](https://summernote.org/)) WYSIWYG 에디터를 활용한 게시글 작성 편의성 제공
+  - Mybatis 동적 쿼리를 이용한 게시글 수 조정, 검색 및 페이징 처리
 - 갤러리
-  - 다중 사진 파일 업로드 기능을 통한 편의 기능 제공
+  - 다중 이미지 파일 업로드
 - PDF 업로드
-  - PDF 주보 파일을 업로드 하여 PDF.JS (PDF 웹뷰어 범용 웹 표준 기반 플랫폼; [https://mozilla.github.io/pdf.js](https://mozilla.github.io/pdf.js/ "pdf.js")) 오픈 소스를 통해 손쉽게 열람하고 다운로드 할 수 있는 기능 제공
-
+  - PDF 주보 파일을 업로드 하여 PDF.JS (PDF 웹뷰어 범용 웹 표준 기반 플랫폼; [https://mozilla.github.io/pdf.js](https://mozilla.github.io/pdf.js/)) 오픈 소스를 통해 손쉽게 열람하고 다운로드 가능
 
 <br><br><br>
 
