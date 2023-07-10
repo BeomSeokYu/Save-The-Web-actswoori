@@ -28,7 +28,7 @@
 
 ## 프로젝트 개요
 
-이 프로젝트는 홈페이지가 없어 운영에 어려움이 있는 개척교회를 돕기 위해 개발되었습니다.
+이 프로젝트는 홈페이지가 없어 운영에 어려움이 있는 개척교회를 돕기 위한 봉사 목적으로 개발되었습니다.
 
 #### 프로젝트 목적과 목표
 ```Plaintext
@@ -38,6 +38,9 @@
 이는 젊은 사람들에게는 교회가 올드하다고 느끼며, 교회의 이미지에좋지 못한 영향을 줄 수 있다.
 따라서 우리는 교회의 정보 전달에 유리한 심플하며 현대에 맞는 UI/UX를 가지며, 외부사람들에게 교회의 좋은 이미지를 주는 홈페이지를 제작하는 것이 목표이다.
 ```
+#### 프로젝트 배포
+- cafe24 호스팅
+
 
 <br><br><br>
 
@@ -93,12 +96,22 @@
 - 교회 소개
     - 교회 위치 지도 표시(Kakao Map API)를 통한 오시는 길 안내
 - 일반 게시판
-  - 썸머노트([https://summernote.org](https://summernote.org/)) WYSIWYG 에디터를 활용한 게시글 작성 편의성 제공
-  - Mybatis 동적 쿼리를 이용한 게시글 수 조정, 검색 및 페이징 처리
+    - 썸머노트([https://summernote.org](https://summernote.org/)) WYSIWYG 에디터를 활용한 게시글 작성 편의성 제공
+    - Mybatis 동적 쿼리를 이용한 게시글 수 조정, 옵션 검색 및 페이징 처리
 - 갤러리
-  - 다중 이미지 파일 업로드
+    - 다중 이미지 파일 업로드
 - PDF 업로드
-  - PDF 주보 파일을 업로드 하여 PDF.JS (PDF 웹뷰어 범용 웹 표준 기반 플랫폼; [https://mozilla.github.io/pdf.js](https://mozilla.github.io/pdf.js/)) 오픈 소스를 통해 손쉽게 열람하고 다운로드 가능
+    - PDF 주보 파일을 업로드 하여 PDF.JS (PDF 웹뷰어 범용 웹 표준 기반 플랫폼; [https://mozilla.github.io/pdf.js](https://mozilla.github.io/pdf.js/)) 오픈 소스를 통해 손쉽게 열람하고 다운로드 가능
+- JDBC
+    - 커넥션 풀(Connection Pool) 사용
+
+
+<br><br><br>
+
+
+## 상세 내용
+- 노션 페이지 참조 - [이동](https://bsnote.notion.site/3d566ddc67ba4c6988b6dfc786a9121d?pvs=4)
+
 
 <br><br><br>
 
